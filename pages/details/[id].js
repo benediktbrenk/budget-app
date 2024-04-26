@@ -3,6 +3,7 @@ import { transactions } from "@/db/data.js";
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
 import { StyledMain } from "@/components/Main/Main.styled";
+import ArrowLeft from "@/components/ArrowLeft";
 
 export default function TransactionDetailsPage() {
   const router = useRouter();
@@ -22,6 +23,7 @@ export default function TransactionDetailsPage() {
 
   return (
     <StyledMain>
+      <ArrowLeft></ArrowLeft>
       <Header title="Details"></Header>
       <TransactionDetails
         currentTransaction={currentTransaction}
