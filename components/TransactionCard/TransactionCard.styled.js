@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export const StyledLi = styled.li`
   list-style: none;
@@ -14,4 +15,9 @@ export const StyledLi = styled.li`
 export const StyledItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;

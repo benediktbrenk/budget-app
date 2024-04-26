@@ -7,7 +7,8 @@ export const StyledDetailsContainer = styled.article`
   padding: 1rem;
   margin: 1rem;
   border-radius: 0.75rem;
-  max-width: 25rem;
+  min-width: 250px;
+  max-width: 300px;
 `;
 
 export const StyledItemContainer = styled.div`
