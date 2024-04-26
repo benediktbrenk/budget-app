@@ -1,7 +1,11 @@
+import Header from "@/components/Header";
+import TransactionList from "@/components/TransactionList";
+
 export default function HomePage() {
   return (
     <div>
-      <h1>Hello from Next.js</h1>
+      <Header title="Transactions" />
+      <TransactionList />
     </div>
   );
 }
