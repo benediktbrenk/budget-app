@@ -1,7 +1,7 @@
 export const transactions = [
   {
     id: "1",
-    name: "apples",
+    name: "Apples",
     amount: 50,
     currency: "€",
     date: "2024-04-26",

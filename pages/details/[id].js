@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
 import { transactions } from "@/db/data.js";
 import { useRouter } from "next/router";
+import TransactionDetails from "@/components/TransactionDetails";
+import { StyledMain } from "@/components/Main/Main.styled";
 
-export default function TransactionDetails() {
+export default function TransactionDetailsPage() {
   const router = useRouter();
   const { id } = router.query;
 
@@ -18,5 +20,12 @@ export default function TransactionDetails() {
     return null;
   }
 
-  return <Header title={currentTransaction.name}></Header>;
+  return (
+    <StyledMain>
+      <Header title="Details"></Header>
+      <TransactionDetails
+        currentTransaction={currentTransaction}
+      ></TransactionDetails>
+    </StyledMain>
+  );
 }
