@@ -1,6 +1,6 @@
 export const transactions = [
   {
-    id: 1,
+    id: "1",
     name: "apples",
     amount: 50,
     currency: "€",
@@ -11,7 +11,7 @@ export const transactions = [
     direction: "expense",
   },
   {
-    id: 2,
+    id: "2",
     name: "rent",
     amount: 500,
     currency: "€",
@@ -22,7 +22,7 @@ export const transactions = [
     direction: "expense",
   },
   {
-    id: 3,
+    id: "3",
     name: "drinks",
     amount: 25,
     currency: "€",
@@ -33,7 +33,7 @@ export const transactions = [
     direction: "expense",
   },
   {
-    id: 4,
+    id: "4",
     name: "salary",
     amount: 1000,
     currency: "€",
