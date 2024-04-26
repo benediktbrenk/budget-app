@@ -1,21 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledLi = styled.li`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: lightgray;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-`;
-
-const StyledItemContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
+import { StyledItemContainer, StyledLi } from "./TransactionCard.styled";
 
 function TransactionCard({ transaction }) {
   return (
