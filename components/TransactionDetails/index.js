@@ -12,7 +12,7 @@ export default function TransactionDetails({ currentTransaction }) {
         <StyledItemContainer>
           <p>{currentTransaction.name}</p>
           <p>
-            {currentTransaction.direction === "expense" ? "- " : "+ "}
+            {currentTransaction.direction === "Expense" ? "- " : "+ "}
             {currentTransaction.amount}
             {currentTransaction.currency}
           </p>

@@ -10,9 +10,6 @@ import {
 function TransactionEntryForm({ onSubmit }) {
   return (
     <StyledMain>
-      <ArrowLeft />
-      <Header title="New Transaction" />
-
       <form onSubmit={onSubmit}>
         <StyledFormContainer>
           <StyledFormField>
