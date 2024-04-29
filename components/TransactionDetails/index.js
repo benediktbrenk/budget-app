@@ -7,7 +7,6 @@ import { StyledDetailsContainer } from "./TransactionDetails.styled";
 
 export default function TransactionDetails({ currentTransaction }) {
   return (
-<<<<<<< HEAD
     <>
       <StyledDetailsContainer>
         <StyledItemContainer>
@@ -29,23 +28,5 @@ export default function TransactionDetails({ currentTransaction }) {
         <StyledLink href="../edit"> Edit Entry </StyledLink>
       </StyledDiv>
     </>
-=======
-    <StyledDetailsContainer>
-      <StyledItemContainer>
-        <p>{currentTransaction.name}</p>
-        <p>
-          {currentTransaction.direction === "Expense" ? "- " : "+ "}
-          {currentTransaction.amount}
-          {currentTransaction.currency}
-        </p>
-      </StyledItemContainer>
-      <StyledItemContainer>
-        <p>{currentTransaction.date}</p>
-        <p>{currentTransaction.paymentMethod}</p>
-      </StyledItemContainer>
-      <p>{currentTransaction.category}</p>
-      <p>{currentTransaction.description}</p>
-    </StyledDetailsContainer>
->>>>>>> main
   );
 }
