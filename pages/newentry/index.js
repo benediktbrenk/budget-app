@@ -1,9 +1,9 @@
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 
-function NewEntryPage() {
+function NewEntryPage({ addNewTransaction }) {
   return (
     <>
-      <TransactionEntryForm />
+      <TransactionEntryForm onSubmit={addNewTransaction} />
     </>
   );
 }

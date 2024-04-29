@@ -16,18 +16,18 @@ function TransactionEntryForm({ onSubmit }) {
             </select>
           </div>
           <div>
-            <label htmlFor="title">Title</label>
-            <input type="text" name="title" />
+            <label htmlFor="name">Title</label>
+            <input type="text" name="name" />
           </div>
           <div>
             <label htmlFor="amounmt">Amount</label>
-            <input type="text" name="amount" />
+            <input type="number" name="amount" />
           </div>
           <div>
             <label htmlFor="amounmt">Currency</label>
             <select type="text" name="currency">
-              <option value="euro">€</option>
-              <option value="dollar">$</option>
+              <option value="€">€</option>
+              <option value="$">$</option>
             </select>
           </div>
           <div>
