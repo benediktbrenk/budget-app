@@ -1,8 +1,7 @@
 import React from "react";
 import TransactionCard from "../TransactionCard";
-import { transactions } from "@/db/data.js";
 
-function TransactionList() {
+function TransactionList({ transactions }) {
   return (
     <ul>
       {transactions.map((transaction) => (

@@ -13,7 +13,7 @@ function TransactionCard({ transaction }) {
         <StyledItemContainer>
           <p>{transaction.name}</p>
           <p>
-            {transaction.direction === "expense" ? "- " : "+ "}
+            {transaction.direction === "Expense" ? "- " : "+ "}
             {transaction.amount}
             {transaction.currency}
           </p>
