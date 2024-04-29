@@ -1,11 +1,10 @@
 import Header from "@/components/Header";
-import { transactions } from "@/db/data.js";
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
 import { StyledMain } from "@/components/Main/Main.styled";
 import ArrowLeft from "@/components/ArrowLeft";
 
-export default function TransactionDetailsPage() {
+export default function TransactionDetailsPage({ transactions }) {
   const router = useRouter();
   const { id } = router.query;
 

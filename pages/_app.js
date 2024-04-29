@@ -7,15 +7,14 @@ import { useRouter } from "next/router";
 const initialTransactions = transactions;
 
 export default function App({ Component, pageProps }) {
-  const [entries, setEntries] = useState(initialTransactions);
+  const [transactions, setTransactions] = useState(initialTransactions);
   const router = useRouter();
 
   function handleAddTransaction(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const newEntry = Object.fromEntries(formData);
-    setEntries([{ id: uid(), ...newEntry }, ...entries]);
-    console.log(entries);
+    const newTransaction = Object.fromEntries(formData);
+    setTransactions([{ id: uid(), ...newTransaction }, ...transactions]);
     event.target.reset();
     router.push("/");
   }
@@ -25,7 +24,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
-        data={entries}
+        transactions={transactions}
         addNewTransaction={handleAddTransaction}
       />
     </>

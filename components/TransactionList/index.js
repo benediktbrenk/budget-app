@@ -1,10 +1,10 @@
 import React from "react";
 import TransactionCard from "../TransactionCard";
 
-function TransactionList({ data }) {
+function TransactionList({ transactions }) {
   return (
     <ul>
-      {data.map((transaction) => (
+      {transactions.map((transaction) => (
         <TransactionCard key={transaction.id} transaction={transaction} />
       ))}
     </ul>

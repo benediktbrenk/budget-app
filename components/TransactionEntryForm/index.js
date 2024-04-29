@@ -1,66 +1,75 @@
 import Header from "../Header";
 import ArrowLeft from "@/components/ArrowLeft";
+import { StyledMain } from "../Main/Main.styled";
+import {
+  StyledFormContainer,
+  StyledFormField,
+  StyledFormButton,
+} from "./TransactionEntryForm.styled";
 
 function TransactionEntryForm({ onSubmit }) {
   return (
-    <main>
-      <Header title="Add New Transaction" />
+    <StyledMain>
       <ArrowLeft />
+      <Header title="New Transaction" />
+
       <form onSubmit={onSubmit}>
-        <div>
-          <div>
+        <StyledFormContainer>
+          <StyledFormField>
             <label htmlFor="direction">Direction</label>
-            <select type="text" name="direction">
-              <option value="Income">Income</option>
-              <option value="Expense">Expense</option>
-            </select>
-          </div>
-          <div>
+            <div>
+              <select type="text" name="direction" required>
+                <option value="Expense">Expense</option>
+                <option value="Income">Income</option>
+              </select>
+            </div>
+          </StyledFormField>
+          <StyledFormField>
             <label htmlFor="name">Title</label>
-            <input type="text" name="name" />
-          </div>
-          <div>
+            <input type="text" name="name" maxLength={20} required />
+          </StyledFormField>
+          <StyledFormField>
             <label htmlFor="amounmt">Amount</label>
-            <input type="number" name="amount" />
-          </div>
-          <div>
+            <input type="number" name="amount" required />
+          </StyledFormField>
+          <StyledFormField>
             <label htmlFor="amounmt">Currency</label>
-            <select type="text" name="currency">
+            <select type="text" name="currency" required>
               <option value="€">€</option>
               <option value="$">$</option>
             </select>
-          </div>
-          <div>
-            <label htmlFor="date">Discription</label>
-            <input type="date" name="date" />
-          </div>
-          <div>
+          </StyledFormField>
+          <StyledFormField>
+            <label htmlFor="date">Date</label>
+            <input type="date" name="date" required />
+          </StyledFormField>
+          <StyledFormField>
             <label htmlFor="payment_method">Payment Method</label>
-            <select type="text" name="payment_method">
+            <select type="text" name="payment_method" required>
               <option value="cash">Cash</option>
               <option value="card">Card</option>
             </select>
-          </div>
-          <div>
+          </StyledFormField>
+          <StyledFormField>
             <label htmlFor="category">Category</label>
-            <select type="text" name="category">
+            <select type="text" name="category" required>
               <option value="grocery">Grocery</option>
               <option value="salary">Salary</option>
               <option value="housing">Housing</option>
               <option value="insurance">Insurance</option>
               <option value="utilities">Utilities</option>
             </select>
-          </div>
-          <div>
-            <label htmlFor="description">Discription</label>
-            <textarea rows="4" type="text" name="description" />
-          </div>
-          <div>
+          </StyledFormField>
+          <StyledFormField>
+            <label htmlFor="description">Description</label>
+            <textarea rows="7" maxLength={140} type="text" name="description" />
+          </StyledFormField>
+          <StyledFormButton>
             <button type="submit">Submit</button>
-          </div>
-        </div>
+          </StyledFormButton>
+        </StyledFormContainer>
       </form>
-    </main>
+    </StyledMain>
   );
 }
 
