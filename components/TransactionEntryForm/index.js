@@ -17,23 +17,21 @@ function TransactionEntryForm({ onSubmit }) {
         <StyledFormContainer>
           <StyledFormField>
             <label htmlFor="direction">Direction</label>
-            <div>
-              <select type="text" name="direction" required>
-                <option value="Expense">Expense</option>
-                <option value="Income">Income</option>
-              </select>
-            </div>
+            <select type="text" name="direction" required>
+              <option value="Expense">Expense</option>
+              <option value="Income">Income</option>
+            </select>
           </StyledFormField>
           <StyledFormField>
             <label htmlFor="name">Title</label>
             <input type="text" name="name" maxLength={20} required />
           </StyledFormField>
           <StyledFormField>
-            <label htmlFor="amounmt">Amount</label>
-            <input type="number" name="amount" required />
+            <label htmlFor="amount">Amount</label>
+            <input type="number" name="amount" max={999999} required />
           </StyledFormField>
           <StyledFormField>
-            <label htmlFor="amounmt">Currency</label>
+            <label htmlFor="currency">Currency</label>
             <select type="text" name="currency" required>
               <option value="€">€</option>
               <option value="$">$</option>
@@ -53,7 +51,7 @@ function TransactionEntryForm({ onSubmit }) {
           <StyledFormField>
             <label htmlFor="category">Category</label>
             <select type="text" name="category" required>
-              <option value="grocery">Grocery</option>
+              <option value="groceries">Groceries</option>
               <option value="salary">Salary</option>
               <option value="housing">Housing</option>
               <option value="insurance">Insurance</option>
