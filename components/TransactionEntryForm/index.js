@@ -18,6 +18,7 @@ function TransactionEntryForm({ onSubmit }) {
           <StyledFormField>
             <label htmlFor="direction">Direction</label>
             <select type="text" name="direction" required>
+              <option value="">--Select Option--</option>
               <option value="Expense">Expense</option>
               <option value="Income">Income</option>
             </select>
@@ -28,11 +29,12 @@ function TransactionEntryForm({ onSubmit }) {
           </StyledFormField>
           <StyledFormField>
             <label htmlFor="amount">Amount</label>
-            <input type="number" name="amount" max={999999} required />
+            <input type="number" name="amount" max={999999} min={0} required />
           </StyledFormField>
           <StyledFormField>
             <label htmlFor="currency">Currency</label>
             <select type="text" name="currency" required>
+              <option value="">--Select Option--</option>
               <option value="€">€</option>
               <option value="$">$</option>
             </select>
@@ -44,6 +46,7 @@ function TransactionEntryForm({ onSubmit }) {
           <StyledFormField>
             <label htmlFor="payment_method">Payment Method</label>
             <select type="text" name="payment_method" required>
+              <option value="">--Select Option--</option>
               <option value="cash">Cash</option>
               <option value="card">Card</option>
             </select>
@@ -51,6 +54,7 @@ function TransactionEntryForm({ onSubmit }) {
           <StyledFormField>
             <label htmlFor="category">Category</label>
             <select type="text" name="category" required>
+              <option value="">--Select Option--</option>
               <option value="groceries">Groceries</option>
               <option value="salary">Salary</option>
               <option value="housing">Housing</option>
