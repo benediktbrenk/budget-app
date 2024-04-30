@@ -39,7 +39,7 @@ export const transactions = [
     currency: "€",
     date: "2024-04-26",
     description: "Dinner at a restaurant",
-    category: "Dining Out",
+    category: "Groceries",
     paymentMethod: "Card",
     direction: "Expense",
   },
