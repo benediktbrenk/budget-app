@@ -1,19 +1,11 @@
-import styled from "styled-components";
 import {
+  StyledButton,
   StyledDiv,
   StyledItemContainer,
   StyledLink,
 } from "./TransactionDetails.styled";
 import { StyledDetailsContainer } from "./TransactionDetails.styled";
 import { useState } from "react";
-
-const StyledButton = styled.button`
-  height: 2rem;
-  width: 5rem;
-  border-radius: 8px;
-  background-color: lightgray;
-  border: solid 1px lightgray;
-`;
 
 export default function TransactionDetails({
   currentTransaction,
@@ -35,11 +27,13 @@ export default function TransactionDetails({
             <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
               Cancel
             </StyledButton>
-            <StyledButton
-              onClick={() => deleteTransaction(currentTransaction.id)}
-            >
-              Delete
-            </StyledButton>
+            <StyledDiv>
+              <StyledButton
+                onClick={() => deleteTransaction(currentTransaction.id)}
+              >
+                Delete
+              </StyledButton>
+            </StyledDiv>
           </StyledItemContainer>
         </article>
       ) : (
@@ -63,7 +57,7 @@ export default function TransactionDetails({
           <StyledItemContainer>
             <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
               Delete
-            </StyledButton>{" "}
+            </StyledButton>
             <StyledDiv>
               <StyledLink href={`../edit/${currentTransaction.id}`}>
                 Edit Entry
