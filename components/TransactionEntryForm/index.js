@@ -13,6 +13,7 @@ function TransactionEntryForm({
   mode,
 }) {
   const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -87,10 +88,10 @@ function TransactionEntryForm({
             />
           </StyledFormField>
           <StyledFormField>
-            <label htmlFor="payment_method">Payment Method</label>
+            <label htmlFor="paymentMethod">Payment Method</label>
             <select
               type="text"
-              name="payment_method"
+              name="paymentMethod"
               required
               defaultValue={
                 mode === "add" ? "" : currentTransaction.paymentMethod
