@@ -17,7 +17,8 @@ function SearchBar({ transactions, search, onSearch }) {
         transaction.name.toLowerCase().includes(search.toLowerCase()) ||
         transaction.date.includes(search) ||
         transaction.category.toLowerCase().includes(search.toLowerCase()) ||
-        transaction.amount.toString().includes(search)
+        transaction.amount.toString().includes(search) ||
+        transaction.direction.toString().includes(search)
       );
     });
   };
@@ -49,8 +50,25 @@ function SearchBar({ transactions, search, onSearch }) {
               <option value="Groceries">Groceries</option>
               <option value="Housing">Housing</option>
               <option value="Insurance">Insurance</option>
-              <option value="Others">Others</option>
             </StyledSearchInputSelect>
+          </StyledFilterItem>
+          <StyledFilterItem>
+            <label>Direction</label>
+            <StyledSearchInputSelect
+              onChange={(event) => onSearch(event.target.value)}
+            >
+              <option value="">All</option>
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+            </StyledSearchInputSelect>
+          </StyledFilterItem>
+          <StyledFilterItem>
+            <label>Amount</label>
+            <StyledSearchInput
+              type="search"
+              placeholder="Search by Amount"
+              onChange={(event) => onSearch(event.target.value)}
+            />
           </StyledFilterItem>
         </StyledFilterContainer>
       </StyledSearchForm>
