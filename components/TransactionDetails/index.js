@@ -15,15 +15,11 @@ export default function TransactionDetails({
   currentTransaction,
   deleteTransaction,
 }) {
-  const [isAktiv, setIsAktiv] = useState(false);
+  const [isDeleteMode, setIsDeleteMode] = useState(false);
 
-  function toggleDeleteQuery() {
-    setIsAktiv(!isAktiv);
-  }
-  console.log(isAktiv);
   return (
     <main>
-      {isAktiv ? (
+      {isDeleteMode ? (
         <article>
           <StyledDetailsContainer>
             <StyledItemContainer>
@@ -32,7 +28,9 @@ export default function TransactionDetails({
             </StyledItemContainer>
           </StyledDetailsContainer>
           <StyledItemContainer>
-            <StyledButton onClick={toggleDeleteQuery}>Cancel</StyledButton>
+            <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
+              Cancel
+            </StyledButton>
             <StyledButton
               onClick={() => deleteTransaction(currentTransaction.id)}
             >
@@ -58,7 +56,9 @@ export default function TransactionDetails({
             <p>{currentTransaction.category}</p>
             <p>{currentTransaction.description}</p>
           </StyledDetailsContainer>
-          <StyledButton onClick={toggleDeleteQuery}>Delete</StyledButton>
+          <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
+            Delete
+          </StyledButton>
         </article>
       )}
     </main>
