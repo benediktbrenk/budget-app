@@ -4,7 +4,10 @@ import TransactionDetails from "@/components/TransactionDetails";
 import { StyledMain } from "@/components/Main/Main.styled";
 import ArrowLeft from "@/components/ArrowLeft";
 
-export default function TransactionDetailsPage({ transactions }) {
+export default function TransactionDetailsPage({
+  transactions,
+  deleteTransaction,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -26,6 +29,7 @@ export default function TransactionDetailsPage({ transactions }) {
       <Header title="Details"></Header>
       <TransactionDetails
         currentTransaction={currentTransaction}
+        deleteTransaction={deleteTransaction}
       ></TransactionDetails>
     </StyledMain>
   );
