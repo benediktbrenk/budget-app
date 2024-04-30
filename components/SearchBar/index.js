@@ -12,7 +12,7 @@ import {
   StyledSearchUl,
 } from "./SearchBar.styled";
 
-function SearchBar({ transactions, search, onSearch }) {
+function SearchBar({ transactions, search, onSearch, hasEntry }) {
   const filterTransactions = () => {
     return transactions.filter((transaction) => {
       // Suche nach Name, Datum, Kategorie, Betrag und Richtung
@@ -53,7 +53,6 @@ function SearchBar({ transactions, search, onSearch }) {
     });
   };
   const [isFilter, setIsFilter] = useState(false);
-
 
   function handleIsFilter() {
     setIsFilter((prevState) => !prevState);
@@ -172,9 +171,13 @@ function SearchBar({ transactions, search, onSearch }) {
       )}
 
       <StyledSearchUl>
-        {filterTransactions().map((transaction) => (
-          <TransactionCard key={transaction.id} transaction={transaction} />
-        ))}
+        {hasEntry ? (
+          filterTransactions().map((transaction) => (
+            <TransactionCard key={transaction.id} transaction={transaction} />
+          ))
+        ) : (
+          <></>
+        )}
       </StyledSearchUl>
     </StyledSearchContainer>
   );

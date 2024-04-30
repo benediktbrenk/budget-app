@@ -32,6 +32,8 @@ export default function HomePage({ transactions }) {
     amountTo: "",
   });
 
+  const hasEntry = Object.values(search).some((value) => value !== "");
+
   return (
     <main>
       <Header title="Transactions" />
@@ -40,10 +42,11 @@ export default function HomePage({ transactions }) {
           transactions={transactions}
           search={search}
           onSearch={setSearch}
+          hasEntry={hasEntry}
         />
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
       </StyledDiv>
-      {search !== "" ? <></> : <TransactionList transactions={transactions} />}
+      {hasEntry ? <></> : <TransactionList transactions={transactions} />}
     </main>
   );
 }
