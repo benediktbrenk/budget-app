@@ -1,6 +1,6 @@
 import { AgChartsReact } from "ag-charts-react";
 import { useState } from "react";
-import { StyledDiv } from "./BarChart.styled";
+import { StyledDiv } from "./PieChart.styled";
 import { transactions } from "@/db/data";
 
 const getCategoryTotalAmount = (category) => {
@@ -16,34 +16,30 @@ const ChartData = categories.map((category) => ({
   amount: getCategoryTotalAmount(category),
 }));
 
-export const BarChart = () => {
+export const PieChart = () => {
   const [chartOptions, setChartOptions] = useState({
     title: { text: "Expense Total" },
+    padding: { left: 200 },
     legend: {
+      position: "left",
       item: {
         label: {
-          fontSize: 20,
+          fontSize: 8,
         },
       },
     },
-    axes: [
+    series: [
       {
-        type: "number",
-        position: "left",
+        type: "pie",
+        angleKey: "amount",
+        calloutLabelKey: "category",
+        calloutLabel: { enabled: true },
         label: {
-          fontSize: 16,
-        },
-      },
-      {
-        type: "category",
-        position: "bottom",
-        label: {
-          fontSize: 16,
+          fontSize: 8,
         },
       },
     ],
     data: ChartData,
-    series: [{ type: "bar", xKey: "category", yKey: "amount" }],
   });
 
   return (
