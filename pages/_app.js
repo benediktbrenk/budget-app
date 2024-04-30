@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
     router.push("/");
   }
 
-  function handleDeleteTransaction(id) {
+  function deleteTransaction(id) {
     setTransactions(
       transactions.filter((transaction) => transaction.id !== id)
     );
@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         transactions={transactions}
         addNewTransaction={handleAddTransaction}
-        deleteTransaction={handleDeleteTransaction}
+        deleteTransaction={deleteTransaction}
       />
     </>
   );

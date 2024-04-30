@@ -17,29 +17,31 @@ export default function TransactionDetails({
 }) {
   const [isAktiv, setIsAktiv] = useState(false);
 
-  function toggleDeleteQuestion() {
+  function toggleDeleteQuery() {
     setIsAktiv(!isAktiv);
   }
   console.log(isAktiv);
   return (
     <main>
       {isAktiv ? (
-        <div>
+        <article>
           <StyledDetailsContainer>
             <StyledItemContainer>
-              <p>Delete Entry</p>
+              <p>Delete Entry:</p>
               <p>Are you sure?</p>
             </StyledItemContainer>
           </StyledDetailsContainer>
-          <StyledButton onClick={toggleDeleteQuestion}>Cancel</StyledButton>
-          <StyledButton
-            onClick={() => deleteTransaction(currentTransaction.id)}
-          >
-            Delete
-          </StyledButton>
-        </div>
+          <StyledItemContainer>
+            <StyledButton onClick={toggleDeleteQuery}>Cancel</StyledButton>
+            <StyledButton
+              onClick={() => deleteTransaction(currentTransaction.id)}
+            >
+              Delete
+            </StyledButton>
+          </StyledItemContainer>
+        </article>
       ) : (
-        <div>
+        <article>
           <StyledDetailsContainer>
             <StyledItemContainer>
               <p>{currentTransaction.name}</p>
@@ -56,10 +58,9 @@ export default function TransactionDetails({
             <p>{currentTransaction.category}</p>
             <p>{currentTransaction.description}</p>
           </StyledDetailsContainer>
-          <StyledButton onClick={toggleDeleteQuestion}>Delete</StyledButton>
-        </div>
+          <StyledButton onClick={toggleDeleteQuery}>Delete</StyledButton>
+        </article>
       )}
     </main>
   );
 }
-// onClick={() => deleteTransaction(currentTransaction.id)}
