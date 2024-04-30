@@ -22,7 +22,15 @@ const StyledLink = styled(Link)`
 `;
 
 export default function HomePage({ transactions }) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState({
+    name: "",
+    category: "",
+    direction: "",
+    dateFrom: "",
+    dateTo: "",
+    amountFrom: "",
+    amountTo: "",
+  });
 
   return (
     <main>

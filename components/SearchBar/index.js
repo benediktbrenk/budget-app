@@ -1,7 +1,10 @@
+import { useState } from "react";
 import TransactionCard from "../TransactionCard/index";
 import {
+  StyledFilterButton,
   StyledFilterContainer,
   StyledFilterItem,
+  StyledSearchAndFilter,
   StyledSearchContainer,
   StyledSearchForm,
   StyledSearchInput,
@@ -12,74 +15,148 @@ import {
 function SearchBar({ transactions, search, onSearch }) {
   const filterTransactions = () => {
     return transactions.filter((transaction) => {
-      // Suche nach Name, Datum, Kategorie und Betrag
+      // Suche nach Name, Datum, Kategorie, Betrag und Richtung
+      const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
+      const dateTo = search.dateTo ? new Date(search.dateTo) : null;
+      const transactionDate = new Date(transaction.date);
+      const amountFrom = search.amountFrom
+        ? parseFloat(search.amountFrom)
+        : null;
+      const amountTo = search.amountTo ? parseFloat(search.amountTo) : null;
+      const transactionAmount = parseFloat(transaction.amount);
+
+      const nameMatches = transaction.name
+        .toLowerCase()
+        .includes(search.name.toLowerCase());
+      const categoryMatches =
+        search.category === "" ||
+        transaction.category.toLowerCase() === search.category.toLowerCase();
+      const directionMatches =
+        search.direction === "" ||
+        transaction.direction.toLowerCase() === search.direction.toLowerCase();
+      const dateMatches =
+        !dateFrom ||
+        !dateTo ||
+        (transactionDate >= dateFrom && transactionDate <= dateTo);
+      const amountMatches =
+        !amountFrom ||
+        !amountTo ||
+        (transactionAmount >= amountFrom && transactionAmount <= amountTo);
+
       return (
-        transaction.name.toLowerCase().includes(search.toLowerCase()) ||
-        transaction.date.includes(search) ||
-        transaction.category.toLowerCase().includes(search.toLowerCase()) ||
-        transaction.amount.toString().includes(search) ||
-        transaction.direction.toString().includes(search)
+        nameMatches &&
+        categoryMatches &&
+        directionMatches &&
+        dateMatches &&
+        amountMatches
       );
     });
   };
+  const [isFilter, setIsFilter] = useState(false);
+
+  function handleIsFilter() {
+    setIsFilter((prevState) => !prevState);
+  }
 
   return (
     <StyledSearchContainer>
-      <StyledSearchForm>
-        <label>Search</label>
+      <StyledSearchAndFilter>
         <StyledSearchInput
           type="search"
           placeholder="Search Transactions..."
-          onChange={(event) => onSearch(event.target.value)}
+          value={search.name}
+          onChange={(event) =>
+            onSearch({ ...search, name: event.target.value })
+          }
         />
-        <StyledFilterContainer>
-          <StyledFilterItem>
-            <label>Date</label>
-            <StyledSearchInput
-              type="date"
-              placeholder="Search by date..."
-              onChange={(event) => onSearch(event.target.value)}
-            />
-          </StyledFilterItem>
-          <StyledFilterItem>
-            <label>Category</label>
-            <StyledSearchInputSelect
-              onChange={(event) => onSearch(event.target.value)}
-            >
-              <option value="">All</option>
-              <option value="Groceries">Groceries</option>
-              <option value="Housing">Housing</option>
-              <option value="Insurance">Insurance</option>
-            </StyledSearchInputSelect>
-          </StyledFilterItem>
-          <StyledFilterItem>
-            <label>Direction</label>
-            <StyledSearchInputSelect
-              onChange={(event) => onSearch(event.target.value)}
-            >
-              <option value="">All</option>
-              <option value="Income">Income</option>
-              <option value="Expense">Expense</option>
-            </StyledSearchInputSelect>
-          </StyledFilterItem>
-          <StyledFilterItem>
-            <label>Amount</label>
-            <StyledSearchInput
-              type="search"
-              placeholder="Search by Amount"
-              onChange={(event) => onSearch(event.target.value)}
-            />
-          </StyledFilterItem>
-        </StyledFilterContainer>
-      </StyledSearchForm>
+        <StyledFilterButton onClick={handleIsFilter}>Filter</StyledFilterButton>
+      </StyledSearchAndFilter>
+      {isFilter ? (
+        <>
+          <StyledFilterContainer>
+            <StyledFilterItem>
+              <label>Category</label>
+              <StyledSearchInputSelect
+                value={search.category}
+                onChange={(event) =>
+                  onSearch({ ...search, category: event.target.value })
+                }
+              >
+                <option value="">All</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Housing">Housing</option>
+                <option value="Insurance">Insurance</option>
+              </StyledSearchInputSelect>
+            </StyledFilterItem>
+            <StyledFilterItem>
+              <label>Direction</label>
+              <StyledSearchInputSelect
+                value={search.direction}
+                onChange={(event) =>
+                  onSearch({ ...search, direction: event.target.value })
+                }
+              >
+                <option value="">All</option>
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+              </StyledSearchInputSelect>
+            </StyledFilterItem>
+          </StyledFilterContainer>
+          <StyledFilterContainer>
+            <StyledFilterItem>
+              <label>Date From</label>
+              <StyledSearchInput
+                type="date"
+                value={search.dateFrom}
+                onChange={(event) =>
+                  onSearch({ ...search, dateFrom: event.target.value })
+                }
+              />
+            </StyledFilterItem>
+            <StyledFilterItem>
+              <label>Date To</label>
+              <StyledSearchInput
+                type="date"
+                value={search.dateTo}
+                onChange={(event) =>
+                  onSearch({ ...search, dateTo: event.target.value })
+                }
+              />
+            </StyledFilterItem>
+          </StyledFilterContainer>
+          <StyledFilterContainer>
+            <StyledFilterItem>
+              <label>Amount From</label>
+              <StyledSearchInput
+                type="number"
+                placeholder="Search by Amount From"
+                value={search.amountFrom}
+                onChange={(event) =>
+                  onSearch({ ...search, amountFrom: event.target.value })
+                }
+              />
+            </StyledFilterItem>
+            <StyledFilterItem>
+              <label>Amount To</label>
+              <StyledSearchInput
+                type="number"
+                placeholder="Search by Amount To"
+                value={search.amountTo}
+                onChange={(event) =>
+                  onSearch({ ...search, amountTo: event.target.value })
+                }
+              />
+            </StyledFilterItem>
+          </StyledFilterContainer>
+        </>
+      ) : (
+        <></>
+      )}
+
       <StyledSearchUl>
-        {filterTransactions().map((transaction) => {
-          return search == "" ? (
-            <></>
-          ) : (
-            <TransactionCard key={transaction.id} transaction={transaction} />
-          );
-        })}
+        {filterTransactions().map((transaction) => (
+          <TransactionCard key={transaction.id} transaction={transaction} />
+        ))}
       </StyledSearchUl>
     </StyledSearchContainer>
   );

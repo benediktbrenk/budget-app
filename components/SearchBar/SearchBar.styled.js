@@ -16,6 +16,16 @@ export const StyledSearchForm = styled.form`
   width: 100%;
 `;
 
+export const StyledSearchAndFilter = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem;
+  padding: 0.5rem;
+`;
+
 export const StyledSearchUl = styled.ul`
   display: flex;
   flex-direction: column;
@@ -42,18 +52,16 @@ export const StyledSearchInput = styled.input`
   border: 1px solid black;
   width: 100%;
   height: 50px;
-  font-size: 1rem;
+  font-size: 0.7rem;
   padding: 1rem;
-  margin-top: 5px;
 `;
 export const StyledSearchInputSelect = styled.select`
   border-radius: 8px;
   border: 1px solid black;
   width: 100%;
   height: 50px;
-  font-size: 1rem;
+  font-size: 0.7rem;
   padding: 1rem;
-  margin-top: 5px;
 `;
 
 export const StyledFilterContainer = styled.div`
@@ -63,7 +71,7 @@ export const StyledFilterContainer = styled.div`
   align-items: center;
   margin: 0.75rem;
   padding: 0.5rem;
-  gap: 4rem;
+  gap: 0.5rem;
 `;
 
 export const StyledFilterItem = styled.div`
@@ -71,5 +79,13 @@ export const StyledFilterItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.2rem;
+`;
+
+export const StyledFilterButton = styled.button`
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  font-size: 1rem;
 `;
