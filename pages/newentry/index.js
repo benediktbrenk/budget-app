@@ -7,7 +7,10 @@ function NewEntryPage({ handleAddTransaction }) {
     <>
       <Header title="New Transaction" />
       <ArrowLeft></ArrowLeft>
-      <TransactionEntryForm updateTransactions={handleAddTransaction} />
+      <TransactionEntryForm
+        updateTransactions={handleAddTransaction}
+        mode="add"
+      />
     </>
   );
 }
