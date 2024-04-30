@@ -2,34 +2,27 @@ import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
 import { StyledMain } from "@/components/Main/Main.styled";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
+import { useRouter } from "next/router";
 
-export default function EditPage() {
-  /* how does the Page know which entry to edit ?
-  
+export default function EditPage({ handleEditTransaction }) {
   const router = useRouter();
 
-    const { id } = router.query;
+  const { id } = router.query;
 
-  
-    if (!id) {
-      return null;
-    }
-  
-    const currentTransaction = transactions.find(
-      (transaction) => transaction.id == id
-    );
-  
-    if (!currentTransaction) {
-      return null;
-    }
-   */
+  if (!id) {
+    return null;
+  }
+
   return (
     <StyledMain>
       <ArrowLeft></ArrowLeft>
       {/* where shall the back Button lead to ?! */}
       <Header title="Edit"></Header>
 
-      <TransactionEntryForm></TransactionEntryForm>
+      <TransactionEntryForm
+        updateTransactions={handleEditTransaction}
+        id={id}
+      ></TransactionEntryForm>
     </StyledMain>
   );
 }

@@ -2,12 +2,12 @@ import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 
-function NewEntryPage({ addNewTransaction }) {
+function NewEntryPage({ handleAddTransaction }) {
   return (
     <>
       <Header title="New Transaction" />
       <ArrowLeft></ArrowLeft>
-      <TransactionEntryForm onSubmit={addNewTransaction} />
+      <TransactionEntryForm updateTransactions={handleAddTransaction} />
     </>
   );
 }

@@ -25,7 +25,9 @@ export default function TransactionDetails({ currentTransaction }) {
         <p>{currentTransaction.description}</p>
       </StyledDetailsContainer>
       <StyledDiv>
-        <StyledLink href="../edit"> Edit Entry </StyledLink>
+        <StyledLink href={`../edit/${currentTransaction.id}`}>
+          Edit Entry
+        </StyledLink>
       </StyledDiv>
     </>
   );

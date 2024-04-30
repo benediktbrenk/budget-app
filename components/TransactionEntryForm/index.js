@@ -1,16 +1,25 @@
-import Header from "../Header";
-import ArrowLeft from "@/components/ArrowLeft";
 import { StyledMain } from "../Main/Main.styled";
 import {
   StyledFormContainer,
   StyledFormField,
   StyledFormButton,
 } from "./TransactionEntryForm.styled";
+import { useRouter } from "next/router";
 
-function TransactionEntryForm({ onSubmit }) {
+function TransactionEntryForm({ updateTransactions, id }) {
+  const router = useRouter();
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    console.log(data);
+    updateTransactions(data, id);
+    event.target.reset();
+    router.push("/");
+  }
   return (
     <StyledMain>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit}>
         <StyledFormContainer>
           <StyledFormField>
             <label htmlFor="direction">Direction</label>
