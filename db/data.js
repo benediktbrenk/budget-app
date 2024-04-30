@@ -18,7 +18,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Monthly rent payment",
     category: "Housing",
-    paymentMethod: "Bank Transfer",
+    paymentMethod: "Card",
     direction: "Expense",
   },
   {
@@ -29,7 +29,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Monthly car insurance premium",
     category: "Insurance",
-    paymentMethod: "Direct Debit",
+    paymentMethod: "Cash",
     direction: "Expense",
   },
   {
@@ -40,7 +40,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Dinner at a restaurant",
     category: "Dining Out",
-    paymentMethod: "Credit Card",
+    paymentMethod: "Card",
     direction: "Expense",
   },
   {
@@ -51,7 +51,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Monthly gym membership fee",
     category: "Fitness",
-    paymentMethod: "Standing Order",
+    paymentMethod: "Cash",
     direction: "Expense",
   },
   {
@@ -73,7 +73,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Tickets for a movie night",
     category: "Entertainment",
-    paymentMethod: "Online Booking",
+    paymentMethod: "Card",
     direction: "Expense",
   },
   {
@@ -84,7 +84,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Purchase of hobby supplies",
     category: "Hobbies",
-    paymentMethod: "Credit Card",
+    paymentMethod: "Card",
     direction: "Expense",
   },
   {
@@ -94,8 +94,8 @@ export const transactions = [
     currency: "€",
     date: "2024-04-26",
     description: "Pain Money monthly",
-    category: "salary",
-    paymentMethod: "Direct Debit",
+    category: "Salary",
+    paymentMethod: "Cash",
     direction: "Income",
   },
   {
@@ -106,7 +106,7 @@ export const transactions = [
     date: "2024-04-26",
     description: "Monthly internet service bill",
     category: "Utilities",
-    paymentMethod: "Bank Transfer",
+    paymentMethod: "Card",
     direction: "Expense",
   },
 ];
