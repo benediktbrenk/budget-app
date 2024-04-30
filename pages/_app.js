@@ -19,6 +19,13 @@ export default function App({ Component, pageProps }) {
     router.push("/");
   }
 
+  function handleDeleteTransaction(id) {
+    setTransactions(
+      transactions.filter((transaction) => transaction.id !== id)
+    );
+    router.push("/");
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -26,6 +33,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         transactions={transactions}
         addNewTransaction={handleAddTransaction}
+        deleteTransaction={handleDeleteTransaction}
       />
     </>
   );
