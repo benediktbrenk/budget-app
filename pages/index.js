@@ -1,7 +1,9 @@
 import Header from "@/components/Header";
+import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
 import { styled } from "styled-components";
+import { useState } from "react";
 
 const StyledDiv = styled.div`
   padding: 1rem;
@@ -20,14 +22,20 @@ const StyledLink = styled(Link)`
 `;
 
 export default function HomePage({ transactions }) {
+  const [search, setSearch] = useState("");
+
   return (
     <main>
       <Header title="Transactions" />
       <StyledDiv>
+        <SearchBar
+          transactions={transactions}
+          search={search}
+          onSearch={setSearch}
+        />
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
       </StyledDiv>
-
-      <TransactionList transactions={transactions} />
+      {search !== "" ? <></> : <TransactionList transactions={transactions} />}
     </main>
   );
 }
