@@ -67,7 +67,7 @@ export const StyledSearchInputSelect = styled.select`
 export const StyledFilterContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: 0.75rem;
   padding: 0.5rem;

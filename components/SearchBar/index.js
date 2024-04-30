@@ -54,8 +54,20 @@ function SearchBar({ transactions, search, onSearch }) {
   };
   const [isFilter, setIsFilter] = useState(false);
 
+
   function handleIsFilter() {
     setIsFilter((prevState) => !prevState);
+  }
+  function handleResetFilters() {
+    onSearch({
+      name: "",
+      category: "",
+      direction: "",
+      dateFrom: "",
+      dateTo: "",
+      amountFrom: "",
+      amountTo: "",
+    });
   }
 
   return (
@@ -104,7 +116,7 @@ function SearchBar({ transactions, search, onSearch }) {
           </StyledFilterContainer>
           <StyledFilterContainer>
             <StyledFilterItem>
-              <label>Date From</label>
+              <label>Date Start</label>
               <StyledSearchInput
                 type="date"
                 value={search.dateFrom}
@@ -114,7 +126,7 @@ function SearchBar({ transactions, search, onSearch }) {
               />
             </StyledFilterItem>
             <StyledFilterItem>
-              <label>Date To</label>
+              <label>Date End</label>
               <StyledSearchInput
                 type="date"
                 value={search.dateTo}
@@ -146,6 +158,12 @@ function SearchBar({ transactions, search, onSearch }) {
                   onSearch({ ...search, amountTo: event.target.value })
                 }
               />
+            </StyledFilterItem>
+            <StyledFilterItem>
+              <label>X</label>
+              <StyledFilterButton onClick={handleResetFilters}>
+                Clear Filter
+              </StyledFilterButton>
             </StyledFilterItem>
           </StyledFilterContainer>
         </>
