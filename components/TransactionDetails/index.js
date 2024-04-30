@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { StyledItemContainer } from "./TransactionDetails.styled";
+import {
+  StyledDiv,
+  StyledItemContainer,
+  StyledLink,
+} from "./TransactionDetails.styled";
 import { StyledDetailsContainer } from "./TransactionDetails.styled";
 import { useState } from "react";
 
@@ -56,9 +60,16 @@ export default function TransactionDetails({
             <p>{currentTransaction.category}</p>
             <p>{currentTransaction.description}</p>
           </StyledDetailsContainer>
-          <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
-            Delete
-          </StyledButton>
+          <StyledItemContainer>
+            <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
+              Delete
+            </StyledButton>{" "}
+            <StyledDiv>
+              <StyledLink href={`../edit/${currentTransaction.id}`}>
+                Edit Entry
+              </StyledLink>
+            </StyledDiv>
+          </StyledItemContainer>
         </article>
       )}
     </main>

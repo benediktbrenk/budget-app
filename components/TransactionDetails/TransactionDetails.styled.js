@@ -1,3 +1,4 @@
+import Link from "next/link";
 const { default: styled } = require("styled-components");
 
 export const StyledDetailsContainer = styled.article`
@@ -14,4 +15,14 @@ export const StyledDetailsContainer = styled.article`
 export const StyledItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
+export const StyledDiv = styled.div`
+  background-color: #d7d7d7;
+  padding: 1rem;
 `;
