@@ -46,7 +46,7 @@ export default function HomePage({ transactions }) {
         />
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
       </StyledDiv>
-      {isSearchEntry ? <></> : <TransactionList transactions={transactions} />}
+      {!isSearchEntry && <TransactionList transactions={transactions} />}
     </main>
   );
 }
