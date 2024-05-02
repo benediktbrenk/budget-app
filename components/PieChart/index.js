@@ -1,5 +1,5 @@
 import { AgChartsReact } from "ag-charts-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyledDiv } from "./PieChart.styled";
 
 export function PieChart({ ChartData }) {
@@ -25,6 +25,13 @@ export function PieChart({ ChartData }) {
     ],
     data: ChartData,
   });
+
+  useEffect(() => {
+    setChartOptions((prevOptions) => ({
+      ...prevOptions,
+      data: ChartData,
+    }));
+  }, [ChartData]);
 
   return (
     <StyledDiv>

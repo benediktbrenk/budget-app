@@ -9,19 +9,31 @@ import { BarChart } from "../BarChart";
 import { PieChart } from "../PieChart";
 import { DataTable } from "../Table";
 
-export function TabMenu({ data }) {
+export function Report({ filter, filteredTransactions }) {
   const [activeTab, setActiveTab] = useState("BarChart");
 
-  const openTab = (tabName) => {
-    setActiveTab(tabName);
-  };
+  function getCategoryTotalAmount(category) {
+    return filteredTransactions
+      .filter(
+        (filteredTransaction) => filteredTransaction.category === category
+      )
+      .reduce(
+        (total, filteredTransaction) => total + filteredTransaction.amount,
+        0
+      );
+  }
+
+  const data = filter.categories.map((category) => ({
+    category,
+    amount: getCategoryTotalAmount(category),
+  }));
 
   return (
     <>
       <TabContainer>
-        <TabButton onClick={() => openTab("BarChart")}>BarChart</TabButton>
-        <TabButton onClick={() => openTab("PieChart")}>Table</TabButton>
-        <TabButton onClick={() => openTab("Table")}>PieChart</TabButton>
+        <TabButton onClick={() => setActiveTab("BarChart")}>BarChart</TabButton>
+        <TabButton onClick={() => setActiveTab("PieChart")}>Table</TabButton>
+        <TabButton onClick={() => setActiveTab("Table")}>PieChart</TabButton>
       </TabContainer>
       <TabContent active={activeTab === "BarChart"}>
         <StyledHeadline>Expense Total</StyledHeadline>
