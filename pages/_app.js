@@ -8,14 +8,36 @@ const initialTransactions = transactions;
 
 export default function App({ Component, pageProps }) {
   const [transactions, setTransactions] = useState(initialTransactions);
+
   const router = useRouter();
 
-  function handleAddTransaction(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const newTransaction = Object.fromEntries(formData);
+  function handleAddTransaction(newTransaction) {
     setTransactions([{ id: uid(), ...newTransaction }, ...transactions]);
-    event.target.reset();
+  }
+
+  function handleEditTransaction(updatedTransaction, id) {
+    const updatedTransactions = transactions.map((transaction) =>
+      transaction.id == id
+        ? {
+            ...transaction,
+            name: updatedTransaction.name,
+            amount: updatedTransaction.amount,
+            currency: updatedTransaction.currency,
+            date: updatedTransaction.date,
+            description: updatedTransaction.description,
+            category: updatedTransaction.category,
+            paymentMethod: updatedTransaction.paymentMethod,
+            direction: updatedTransaction.direction,
+          }
+        : transaction
+    );
+    setTransactions(updatedTransactions);
+  }
+
+  function deleteTransaction(id) {
+    setTransactions(
+      transactions.filter((transaction) => transaction.id !== id)
+    );
     router.push("/");
   }
 
@@ -25,7 +47,9 @@ export default function App({ Component, pageProps }) {
       <Component
         {...pageProps}
         transactions={transactions}
-        addNewTransaction={handleAddTransaction}
+        deleteTransaction={deleteTransaction}
+        handleAddTransaction={handleAddTransaction}
+        handleEditTransaction={handleEditTransaction}
       />
     </>
   );

@@ -4,7 +4,6 @@ import {
   StyledLi,
   StyledLink,
 } from "./TransactionCard.styled";
-import Link from "next/link";
 
 function TransactionCard({ transaction }) {
   return (

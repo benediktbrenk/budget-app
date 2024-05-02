@@ -1,3 +1,4 @@
+import Link from "next/link";
 const { default: styled } = require("styled-components");
 
 export const StyledDetailsContainer = styled.article`
@@ -14,4 +15,29 @@ export const StyledDetailsContainer = styled.article`
 export const StyledItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  align-items: center;
+`;
+
+export const StyledDiv = styled.div`
+  background-color: #d7d7d7;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: lightgray;
+  border: solid 1px lightgray;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+`;
+
+export const StyledButton = styled.button`
+  padding: 0 1rem;
+  border-radius: 8px;
+  background-color: lightgray;
+  border: solid 1px lightgray;
+  font-size: 1rem;
 `;

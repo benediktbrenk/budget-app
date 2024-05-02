@@ -1,13 +1,10 @@
-import Header from "@/components/Header";
-import { useRouter } from "next/router";
-import TransactionDetails from "@/components/TransactionDetails";
-import { StyledMain } from "@/components/Main/Main.styled";
 import ArrowLeft from "@/components/ArrowLeft";
+import Header from "@/components/Header";
+import { StyledMain } from "@/components/Main/Main.styled";
+import TransactionEntryForm from "@/components/TransactionEntryForm";
+import { useRouter } from "next/router";
 
-export default function TransactionDetailsPage({
-  transactions,
-  deleteTransaction,
-}) {
+export default function EditPage({ handleEditTransaction, transactions }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -26,11 +23,14 @@ export default function TransactionDetailsPage({
   return (
     <StyledMain>
       <ArrowLeft></ArrowLeft>
-      <Header title="Details"></Header>
-      <TransactionDetails
+      <Header title="Edit"></Header>
+
+      <TransactionEntryForm
+        updateTransactions={handleEditTransaction}
         currentTransaction={currentTransaction}
-        deleteTransaction={deleteTransaction}
-      ></TransactionDetails>
+        id={id}
+        mode="edit"
+      ></TransactionEntryForm>
     </StyledMain>
   );
 }
