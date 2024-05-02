@@ -1,6 +1,13 @@
 import { styled } from "styled-components";
 
-export const StyledSearchContainer = styled.div`
+export const FilterBox = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +15,7 @@ export const StyledSearchContainer = styled.div`
   width: 100%;
 `;
 
-export const StyledSearchForm = styled.form`
+export const SearchForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +23,7 @@ export const StyledSearchForm = styled.form`
   width: 100%;
 `;
 
-export const StyledSearchAndFilter = styled.div`
+export const SearchAndFilter = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,16 +33,15 @@ export const StyledSearchAndFilter = styled.div`
   padding: 0.5rem;
 `;
 
-export const StyledSearchUl = styled.ul`
+export const SearchUl = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //align-items: center;
   width: 100%;
   list-style: none;
 `;
 
-export const StyledSearchLi = styled.li`
+export const SearchLi = styled.li`
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -47,7 +53,7 @@ export const StyledSearchLi = styled.li`
   width: 100%;
 `;
 
-export const StyledSearchInput = styled.input`
+export const SearchInput = styled.input`
   border-radius: 8px;
   border: 1px solid black;
   width: 100%;
@@ -55,7 +61,7 @@ export const StyledSearchInput = styled.input`
   font-size: 0.7rem;
   padding: 1rem;
 `;
-export const StyledSearchInputSelect = styled.select`
+export const SearchInputSelect = styled.select`
   border-radius: 8px;
   border: 1px solid black;
   width: 100%;
@@ -64,7 +70,7 @@ export const StyledSearchInputSelect = styled.select`
   padding: 1rem;
 `;
 
-export const StyledFilterContainer = styled.div`
+export const FilterContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -74,7 +80,7 @@ export const StyledFilterContainer = styled.div`
   gap: 0.5rem;
 `;
 
-export const StyledFilterItem = styled.div`
+export const FilterItem = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,7 +88,7 @@ export const StyledFilterItem = styled.div`
   gap: 0.2rem;
 `;
 
-export const StyledFilterButton = styled.button`
+export const FilterButton = styled.button`
   padding: 1rem;
   margin: 0.5rem;
   border: 1px solid lightgray;

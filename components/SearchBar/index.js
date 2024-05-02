@@ -1,20 +1,11 @@
 import { useState } from "react";
 import TransactionCard from "../TransactionCard/index";
-import {
-  StyledFilterButton,
-  StyledFilterContainer,
-  StyledFilterItem,
-  StyledSearchAndFilter,
-  StyledSearchContainer,
-  StyledSearchInput,
-  StyledSearchInputSelect,
-  StyledSearchUl,
-} from "./SearchBar.styled";
+import * as Styled from "./SearchBar.styled";
 
 function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
 
-  const filterTransactions = () => {
+  function filterTransactions() {
     return transactions.filter((transaction) => {
       const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
       const dateTo = search.dateTo ? new Date(search.dateTo) : null;
@@ -51,7 +42,7 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
         amountMatches
       );
     });
-  };
+  }
   const [isFilter, setIsFilter] = useState(false);
 
   function handleResetFilters() {
@@ -80,9 +71,9 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
   };
 
   return (
-    <StyledSearchContainer>
-      <StyledSearchAndFilter>
-        <StyledSearchInput
+    <Styled.SearchContainer>
+      <Styled.SearchAndFilter>
+        <Styled.SearchInput
           type="search"
           placeholder="Search Transactions..."
           pattern="^(?!.*\s{2,}).+$"
@@ -91,18 +82,18 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
           onKeyDown={handleKeyDown}
           maxLength={30}
         />
-        <StyledFilterButton
+        <Styled.FilterButton
           onClick={() => setIsFilter((isFilter) => !isFilter)}
         >
           Filter
-        </StyledFilterButton>
-      </StyledSearchAndFilter>
-      {isFilter ? (
-        <>
-          <StyledFilterContainer>
-            <StyledFilterItem>
+        </Styled.FilterButton>
+      </Styled.SearchAndFilter>
+      {isFilter && (
+        <Styled.FilterBox>
+          <Styled.FilterContainer>
+            <Styled.FilterItem>
               <label>Category</label>
-              <StyledSearchInputSelect
+              <Styled.SearchInputSelect
                 value={search.category}
                 onChange={(event) =>
                   onSearch({ ...search, category: event.target.value })
@@ -112,11 +103,11 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
                 <option value="Groceries">Groceries</option>
                 <option value="Housing">Housing</option>
                 <option value="Insurance">Insurance</option>
-              </StyledSearchInputSelect>
-            </StyledFilterItem>
-            <StyledFilterItem>
+              </Styled.SearchInputSelect>
+            </Styled.FilterItem>
+            <Styled.FilterItem>
               <label>Direction</label>
-              <StyledSearchInputSelect
+              <Styled.SearchInputSelect
                 value={search.direction}
                 onChange={(event) =>
                   onSearch({ ...search, direction: event.target.value })
@@ -125,35 +116,35 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
                 <option value="">All</option>
                 <option value="Income">Income</option>
                 <option value="Expense">Expense</option>
-              </StyledSearchInputSelect>
-            </StyledFilterItem>
-          </StyledFilterContainer>
-          <StyledFilterContainer>
-            <StyledFilterItem>
+              </Styled.SearchInputSelect>
+            </Styled.FilterItem>
+          </Styled.FilterContainer>
+          <Styled.FilterContainer>
+            <Styled.FilterItem>
               <label>Date Start</label>
-              <StyledSearchInput
+              <Styled.SearchInput
                 type="date"
                 value={search.dateFrom}
                 onChange={(event) =>
                   onSearch({ ...search, dateFrom: event.target.value })
                 }
               />
-            </StyledFilterItem>
-            <StyledFilterItem>
+            </Styled.FilterItem>
+            <Styled.FilterItem>
               <label>Date End</label>
-              <StyledSearchInput
+              <Styled.SearchInput
                 type="date"
                 value={search.dateTo}
                 onChange={(event) =>
                   onSearch({ ...search, dateTo: event.target.value })
                 }
               />
-            </StyledFilterItem>
-          </StyledFilterContainer>
-          <StyledFilterContainer>
-            <StyledFilterItem>
+            </Styled.FilterItem>
+          </Styled.FilterContainer>
+          <Styled.FilterContainer>
+            <Styled.FilterItem>
               <label>Amount From</label>
-              <StyledSearchInput
+              <Styled.SearchInput
                 type="number"
                 placeholder="Search by Amount From"
                 value={search.amountFrom}
@@ -161,10 +152,10 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
                   onSearch({ ...search, amountFrom: event.target.value })
                 }
               />
-            </StyledFilterItem>
-            <StyledFilterItem>
+            </Styled.FilterItem>
+            <Styled.FilterItem>
               <label>Amount To</label>
-              <StyledSearchInput
+              <Styled.SearchInput
                 type="number"
                 placeholder="Search by Amount To"
                 value={search.amountTo}
@@ -172,29 +163,24 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
                   onSearch({ ...search, amountTo: event.target.value })
                 }
               />
-            </StyledFilterItem>
-            <StyledFilterItem>
+            </Styled.FilterItem>
+            <Styled.FilterItem>
               <label>X</label>
-              <StyledFilterButton onClick={handleResetFilters}>
+              <Styled.FilterButton onClick={handleResetFilters}>
                 Clear Filter
-              </StyledFilterButton>
-            </StyledFilterItem>
-          </StyledFilterContainer>
-        </>
-      ) : (
-        <></>
+              </Styled.FilterButton>
+            </Styled.FilterItem>
+          </Styled.FilterContainer>
+        </Styled.FilterBox>
       )}
 
-      <StyledSearchUl>
-        {isSearchEntry ? (
+      <Styled.SearchUl>
+        {isSearchEntry &&
           filterTransactions().map((transaction) => (
             <TransactionCard key={transaction.id} transaction={transaction} />
-          ))
-        ) : (
-          <></>
-        )}
-      </StyledSearchUl>
-    </StyledSearchContainer>
+          ))}
+      </Styled.SearchUl>
+    </Styled.SearchContainer>
   );
 }
 
