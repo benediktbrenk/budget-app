@@ -2,7 +2,7 @@ import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
 import { StyledMain } from "@/components/Main/Main.styled";
 import ReportFilter from "@/components/ReportFilter";
-import TabMenu from "@/components/TabMenu";
+import TabMenu from "@/components/Report";
 import { useState } from "react";
 
 export default function ReportsPage({ transactions }) {

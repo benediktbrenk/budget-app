@@ -25,6 +25,7 @@ export default function HomePage({ transactions }) {
       <Header title="Transactions" />
       <StyledDiv>
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
+        <StyledLink href="/reports">See reports</StyledLink>
       </StyledDiv>
 
       <TransactionList transactions={transactions} />

@@ -51,4 +51,4 @@ export function Report({ filter, filteredTransactions }) {
   );
 }
 
-export default TabMenu;
+export default Report;
