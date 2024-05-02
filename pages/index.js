@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import { StyledMain } from "@/components/Main/Main.styled";
 import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
 import { styled } from "styled-components";
@@ -21,14 +22,16 @@ const StyledLink = styled(Link)`
 
 export default function HomePage({ transactions }) {
   return (
-    <main>
+    <>
       <Header title="Transactions" />
-      <StyledDiv>
-        <StyledLink href="/newentry">Add New Transaction</StyledLink>
-        <StyledLink href="/reports">See reports</StyledLink>
-      </StyledDiv>
+      <StyledMain>
+        <StyledDiv>
+          <StyledLink href="/newentry">Add New Transaction</StyledLink>
+          <StyledLink href="/reports">See reports</StyledLink>
+        </StyledDiv>
 
-      <TransactionList transactions={transactions} />
-    </main>
+        <TransactionList transactions={transactions} />
+      </StyledMain>
+    </>
   );
 }

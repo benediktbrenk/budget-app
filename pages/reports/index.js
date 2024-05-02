@@ -41,9 +41,9 @@ export default function ReportsPage({ transactions }) {
 
   return (
     <>
+      <ArrowLeft></ArrowLeft>
+      <Header title="Edit"></Header>
       <StyledMain>
-        <ArrowLeft></ArrowLeft>
-        <Header title="Edit"></Header>
         <ReportFilter
           filter={filter}
           setFilter={setFilter}
