@@ -6,16 +6,14 @@ import {
   StyledFilterItem,
   StyledSearchAndFilter,
   StyledSearchContainer,
-  StyledSearchForm,
   StyledSearchInput,
   StyledSearchInputSelect,
   StyledSearchUl,
 } from "./SearchBar.styled";
 
-function SearchBar({ transactions, search, onSearch, hasEntry }) {
+function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
   const filterTransactions = () => {
     return transactions.filter((transaction) => {
-      // Suche nach Name, Datum, Kategorie, Betrag und Richtung
       const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
       const dateTo = search.dateTo ? new Date(search.dateTo) : null;
       const transactionDate = new Date(transaction.date);
@@ -54,9 +52,6 @@ function SearchBar({ transactions, search, onSearch, hasEntry }) {
   };
   const [isFilter, setIsFilter] = useState(false);
 
-  function handleIsFilter() {
-    setIsFilter((prevState) => !prevState);
-  }
   function handleResetFilters() {
     onSearch({
       name: "",
@@ -80,7 +75,11 @@ function SearchBar({ transactions, search, onSearch, hasEntry }) {
             onSearch({ ...search, name: event.target.value })
           }
         />
-        <StyledFilterButton onClick={handleIsFilter}>Filter</StyledFilterButton>
+        <StyledFilterButton
+          onClick={() => setIsFilter((isFilter) => !isFilter)}
+        >
+          Filter
+        </StyledFilterButton>
       </StyledSearchAndFilter>
       {isFilter ? (
         <>
@@ -171,7 +170,7 @@ function SearchBar({ transactions, search, onSearch, hasEntry }) {
       )}
 
       <StyledSearchUl>
-        {hasEntry ? (
+        {isSearchEntry ? (
           filterTransactions().map((transaction) => (
             <TransactionCard key={transaction.id} transaction={transaction} />
           ))

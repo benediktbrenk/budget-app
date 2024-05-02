@@ -32,7 +32,7 @@ export default function HomePage({ transactions }) {
     amountTo: "",
   });
 
-  const hasEntry = Object.values(search).some((value) => value !== "");
+  const isSearchEntry = Object.values(search).some((value) => value !== "");
 
   return (
     <main>
@@ -42,11 +42,11 @@ export default function HomePage({ transactions }) {
           transactions={transactions}
           search={search}
           onSearch={setSearch}
-          hasEntry={hasEntry}
+          isSearchEntry={isSearchEntry}
         />
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
       </StyledDiv>
-      {hasEntry ? <></> : <TransactionList transactions={transactions} />}
+      {isSearchEntry ? <></> : <TransactionList transactions={transactions} />}
     </main>
   );
 }
