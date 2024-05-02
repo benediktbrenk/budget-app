@@ -12,6 +12,8 @@ import {
 } from "./SearchBar.styled";
 
 function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
+  const [searchNameValue, setSearchNameValue] = useState(search.name);
+
   const filterTransactions = () => {
     return transactions.filter((transaction) => {
       const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
@@ -23,9 +25,11 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
       const amountTo = search.amountTo ? parseFloat(search.amountTo) : null;
       const transactionAmount = parseFloat(transaction.amount);
 
-      const nameMatches = transaction.name
-        .toLowerCase()
-        .includes(search.name.toLowerCase());
+      const nameMatches =
+        search.name.trim() === "" ||
+        transaction.name
+          .toLowerCase()
+          .includes(search.name.toLowerCase().trim());
       const categoryMatches =
         search.category === "" ||
         transaction.category.toLowerCase() === search.category.toLowerCase();
@@ -64,6 +68,12 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
     });
   }
 
+  const handleSearchChange = (event) => {
+    const trimmedValue = event.target.value.trim();
+    setSearchNameValue(trimmedValue);
+    onSearch({ ...search, name: trimmedValue });
+  };
+
   return (
     <StyledSearchContainer>
       <StyledSearchAndFilter>
@@ -71,9 +81,7 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
           type="search"
           placeholder="Search Transactions..."
           value={search.name}
-          onChange={(event) =>
-            onSearch({ ...search, name: event.target.value })
-          }
+          onChange={handleSearchChange}
         />
         <StyledFilterButton
           onClick={() => setIsFilter((isFilter) => !isFilter)}
