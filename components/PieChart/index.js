@@ -4,8 +4,6 @@ import { StyledDiv } from "./PieChart.styled";
 
 export function PieChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
-    title: { text: "Expense Total" },
-    padding: { left: 200 },
     legend: {
       position: "left",
       item: {

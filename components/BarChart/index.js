@@ -4,7 +4,6 @@ import { StyledDiv } from "./BarChart.styled";
 
 export function BarChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
-    title: { text: "Expense Total" },
     legend: {
       item: {
         label: {

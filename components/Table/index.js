@@ -3,7 +3,6 @@ import { StyledHeadline, StyledTable } from "./Table.styled";
 export function DataTable({ TableData }) {
   return (
     <>
-      <StyledHeadline>Expense Total</StyledHeadline>
       <StyledTable>
         <thead>
           <tr>

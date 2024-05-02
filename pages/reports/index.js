@@ -3,6 +3,7 @@ import { BarChart } from "@/components/BarChart";
 import Header from "@/components/Header";
 import { StyledMain } from "@/components/Main/Main.styled";
 import { PieChart } from "@/components/PieChart";
+import TabMenu from "@/components/TabMenu";
 import { DataTable } from "@/components/Table";
 
 export default function ReportsPage({ transactions }) {
@@ -30,9 +31,7 @@ export default function ReportsPage({ transactions }) {
       <StyledMain>
         <ArrowLeft></ArrowLeft>
         <Header title="Edit"></Header>
-        <BarChart ChartData={data}></BarChart>
-        <PieChart ChartData={data}></PieChart>
-        <DataTable TableData={data}></DataTable>
+        <TabMenu data={data}></TabMenu>
       </StyledMain>
     </>
   );
