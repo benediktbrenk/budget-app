@@ -1,20 +1,6 @@
-import { transactions } from "@/db/data";
-import { StyledHeadline, StyledTable, StyledTableHeader } from "./Table.styled";
+import { StyledHeadline, StyledTable } from "./Table.styled";
 
-const getCategoryTotalAmount = (category) => {
-  return transactions
-    .filter((transaction) => transaction.category === category)
-    .reduce((total, transaction) => total + transaction.amount, 0);
-};
-
-const categories = ["Groceries", "Salary", "Housing", "Insurance", "Utilities"];
-
-const TableData = categories.map((category) => ({
-  category,
-  amount: getCategoryTotalAmount(category),
-}));
-
-export function DataTable() {
+export function DataTable({ TableData }) {
   return (
     <>
       <StyledHeadline>Expense Total</StyledHeadline>

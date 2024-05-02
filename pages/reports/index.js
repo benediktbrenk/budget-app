@@ -5,15 +5,34 @@ import { StyledMain } from "@/components/Main/Main.styled";
 import { PieChart } from "@/components/PieChart";
 import { DataTable } from "@/components/Table";
 
-export default function ReportsPage() {
+export default function ReportsPage({ transactions }) {
+  const getCategoryTotalAmount = (category) => {
+    return transactions
+      .filter((transaction) => transaction.category === category)
+      .reduce((total, transaction) => total + transaction.amount, 0);
+  };
+
+  const categories = [
+    "Groceries",
+    "Salary",
+    "Housing",
+    "Insurance",
+    "Utilities",
+  ];
+
+  const data = categories.map((category) => ({
+    category,
+    amount: getCategoryTotalAmount(category),
+  }));
+
   return (
     <>
       <StyledMain>
         <ArrowLeft></ArrowLeft>
         <Header title="Edit"></Header>
-        <BarChart></BarChart>
-        <PieChart></PieChart>
-        <DataTable></DataTable>
+        <BarChart ChartData={data}></BarChart>
+        <PieChart ChartData={data}></PieChart>
+        <DataTable TableData={data}></DataTable>
       </StyledMain>
     </>
   );

@@ -1,22 +1,8 @@
 import { AgChartsReact } from "ag-charts-react";
 import { useState } from "react";
 import { StyledDiv } from "./BarChart.styled";
-import { transactions } from "@/db/data";
 
-const getCategoryTotalAmount = (category) => {
-  return transactions
-    .filter((transaction) => transaction.category === category)
-    .reduce((total, transaction) => total + transaction.amount, 0);
-};
-
-const categories = ["Groceries", "Salary", "Housing", "Insurance", "Utilities"];
-
-const ChartData = categories.map((category) => ({
-  category,
-  amount: getCategoryTotalAmount(category),
-}));
-
-export const BarChart = () => {
+export function BarChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
     title: { text: "Expense Total" },
     legend: {
@@ -51,4 +37,4 @@ export const BarChart = () => {
       <AgChartsReact options={chartOptions} />
     </StyledDiv>
   );
-};
+}
