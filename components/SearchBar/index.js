@@ -1,57 +1,9 @@
-import { useEffect, useState } from "react";
-import TransactionCard from "../TransactionCard/index";
+import { useState } from "react";
 import * as Styled from "./SearchBar.styled";
 
-function SearchBar({
-  transactions,
-  search,
-  onSearch,
-  isSearchEntry,
-  onFilter,
-}) {
+function SearchBar({ search, onSearch }) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
   const [isFilter, setIsFilter] = useState(false);
-
-  useEffect(() => {
-    const filteredSearch = transactions.filter((transaction) => {
-      const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
-      const dateTo = search.dateTo ? new Date(search.dateTo) : null;
-      const transactionDate = new Date(transaction.date);
-      const amountFrom = search.amountFrom
-        ? parseFloat(search.amountFrom)
-        : null;
-      const amountTo = search.amountTo ? parseFloat(search.amountTo) : null;
-      const transactionAmount = parseFloat(transaction.amount);
-
-      const nameMatches =
-        search.name === "" ||
-        transaction.name.toLowerCase().includes(search.name.toLowerCase());
-      const categoryMatches =
-        search.category === "" ||
-        transaction.category.toLowerCase() === search.category.toLowerCase();
-      const directionMatches =
-        search.direction === "" ||
-        transaction.direction.toLowerCase() === search.direction.toLowerCase();
-      const dateMatches =
-        !dateFrom ||
-        !dateTo ||
-        (transactionDate >= dateFrom && transactionDate <= dateTo);
-      const amountMatches =
-        !amountFrom ||
-        !amountTo ||
-        (transactionAmount >= amountFrom && transactionAmount <= amountTo);
-
-      return (
-        nameMatches &&
-        categoryMatches &&
-        directionMatches &&
-        dateMatches &&
-        amountMatches
-      );
-    });
-
-    onFilter(filteredSearch);
-  }, [transactions, search, onFilter]);
 
   function handleResetFilters() {
     onSearch({
@@ -64,7 +16,6 @@ function SearchBar({
       amountTo: "",
     });
     setSearchNameValue("");
-    onFilter(transactions);
   }
 
   function handleKeyDown(event) {
@@ -80,10 +31,6 @@ function SearchBar({
     if (trimmedValue === "") {
       handleResetFilters();
     }
-  }
-
-  function handleCategoryChange(event) {
-    onSearch({ ...search, category: event.target.value });
   }
 
   return (
@@ -111,7 +58,9 @@ function SearchBar({
               <label>Category</label>
               <Styled.SearchInputSelect
                 value={search.category}
-                onChange={(event) => handleCategoryChange(event)}
+                onChange={(event) =>
+                  onSearch({ ...search, category: event.target.value })
+                }
               >
                 <option value="">All</option>
                 <option value="Groceries">Groceries</option>
