@@ -4,6 +4,7 @@ import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
 import { styled } from "styled-components";
 import { useState } from "react";
+import { StyledMain } from "@/components/Main/Main.styled";
 
 const StyledDiv = styled.div`
   padding: 1rem;
