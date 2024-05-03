@@ -8,7 +8,7 @@ import {
 function TransactionCard({ transaction }) {
   return (
     <StyledLink href={`/details/${transaction.id}`}>
-      <StyledLi>
+      <StyledLi key={transaction.id}>
         <StyledItemContainer>
           <p>{transaction.name}</p>
           <p>

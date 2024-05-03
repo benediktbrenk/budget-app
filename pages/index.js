@@ -1,7 +1,9 @@
 import Header from "@/components/Header";
+import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
 import { styled } from "styled-components";
+import { useState } from "react";
 
 const StyledDiv = styled.div`
   padding: 1rem;
@@ -20,14 +22,65 @@ const StyledLink = styled(Link)`
 `;
 
 export default function HomePage({ transactions }) {
+  const [search, setSearch] = useState({
+    name: "",
+    category: "",
+    direction: "",
+    dateFrom: "",
+    dateTo: "",
+    amountFrom: "",
+    amountTo: "",
+  });
+
+  const isSearchEntry = Object.values(search).some((value) => value !== "");
+
+  const filteredSearch = transactions.filter((transaction) => {
+    const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
+    const dateTo = search.dateTo ? new Date(search.dateTo) : null;
+    const transactionDate = new Date(transaction.date);
+    const amountFrom = search.amountFrom ? parseFloat(search.amountFrom) : null;
+    const amountTo = search.amountTo ? parseFloat(search.amountTo) : null;
+    const transactionAmount = parseFloat(transaction.amount);
+
+    const nameMatches =
+      search.name === "" ||
+      transaction.name.toLowerCase().includes(search.name.toLowerCase());
+    const categoryMatches =
+      search.category === "" ||
+      transaction.category.toLowerCase() === search.category.toLowerCase();
+    const directionMatches =
+      search.direction === "" ||
+      transaction.direction.toLowerCase() === search.direction.toLowerCase();
+    const dateMatches =
+      !dateFrom ||
+      !dateTo ||
+      (transactionDate >= dateFrom && transactionDate <= dateTo);
+    const amountMatches =
+      (amountFrom === null || transactionAmount >= amountFrom) &&
+      (amountTo === null || transactionAmount <= amountTo);
+
+    return (
+      nameMatches &&
+      categoryMatches &&
+      directionMatches &&
+      dateMatches &&
+      amountMatches
+    );
+  });
+
   return (
     <main>
       <Header title="Transactions" />
       <StyledDiv>
+        <SearchBar
+          transactions={transactions}
+          search={search}
+          onSearch={setSearch}
+          isSearchEntry={isSearchEntry}
+        />
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
       </StyledDiv>
-
-      <TransactionList transactions={transactions} />
+      <TransactionList transactions={filteredSearch} />
     </main>
   );
 }
