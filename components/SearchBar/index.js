@@ -85,7 +85,7 @@ function SearchBar({
 
   function handleCategoryChange(event) {
     onSearch({ ...search, category: event.target.value });
-    onFilter((state) => filterTransactions(state));
+    onFilter(() => filterTransactions());
   }
 
   return (
