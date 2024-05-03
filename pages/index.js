@@ -33,6 +33,7 @@ export default function HomePage({ transactions }) {
   });
 
   const isSearchEntry = Object.values(search).some((value) => value !== "");
+  const [filteredSearch, setFilteredSearch] = useState(transactions);
 
   return (
     <main>
@@ -43,10 +44,11 @@ export default function HomePage({ transactions }) {
           search={search}
           onSearch={setSearch}
           isSearchEntry={isSearchEntry}
+          onFilter={setFilteredSearch}
         />
         <StyledLink href="/newentry">Add New Transaction</StyledLink>
       </StyledDiv>
-      {!isSearchEntry && <TransactionList transactions={transactions} />}
+      <TransactionList transactions={filteredSearch} />
     </main>
   );
 }

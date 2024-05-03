@@ -2,11 +2,17 @@ import { useState } from "react";
 import TransactionCard from "../TransactionCard/index";
 import * as Styled from "./SearchBar.styled";
 
-function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
+function SearchBar({
+  transactions,
+  search,
+  onSearch,
+  isSearchEntry,
+  onFilter,
+}) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
 
   function filterTransactions() {
-    return transactions.filter((transaction) => {
+    const filterdSearch = transactions.filter((transaction) => {
       const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
       const dateTo = search.dateTo ? new Date(search.dateTo) : null;
       const transactionDate = new Date(transaction.date);
@@ -42,6 +48,7 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
         amountMatches
       );
     });
+    return filterdSearch;
   }
   const [isFilter, setIsFilter] = useState(false);
 
@@ -56,19 +63,30 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
       amountTo: "",
     });
     setSearchNameValue("");
+    onFilter(transactions);
   }
 
-  const handleKeyDown = (event) => {
+  function handleKeyDown(event) {
     if (event.key === " " && event.target.selectionStart === 0) {
       event.preventDefault();
     }
-  };
+  }
 
-  const handleSearchChange = (event) => {
+  function handleSearchChange(event) {
     const trimmedValue = event.target.value.trimStart();
     setSearchNameValue(trimmedValue);
     onSearch({ ...search, name: trimmedValue });
-  };
+    onFilter(() => filterTransactions());
+
+    if (trimmedValue === "") {
+      handleResetFilters();
+    }
+  }
+
+  function handleCategoryChange(event) {
+    onSearch({ ...search, category: event.target.value });
+    onFilter((state) => filterTransactions(state));
+  }
 
   return (
     <Styled.SearchContainer>
@@ -78,8 +96,8 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
           placeholder="Search Transactions..."
           pattern="^(?!.*\s{2,}).+$"
           value={searchNameValue}
-          onChange={handleSearchChange}
-          onKeyDown={handleKeyDown}
+          onChange={(event) => handleSearchChange(event)}
+          onKeyDown={(event) => handleKeyDown(event)}
           maxLength={30}
         />
         <Styled.FilterButton
@@ -95,9 +113,7 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
               <label>Category</label>
               <Styled.SearchInputSelect
                 value={search.category}
-                onChange={(event) =>
-                  onSearch({ ...search, category: event.target.value })
-                }
+                onChange={(event) => handleCategoryChange(event)}
               >
                 <option value="">All</option>
                 <option value="Groceries">Groceries</option>
@@ -109,9 +125,9 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
               <label>Direction</label>
               <Styled.SearchInputSelect
                 value={search.direction}
-                onChange={(event) =>
-                  onSearch({ ...search, direction: event.target.value })
-                }
+                onChange={(event) => {
+                  onSearch({ ...search, direction: event.target.value });
+                }}
               >
                 <option value="">All</option>
                 <option value="Income">Income</option>
@@ -174,12 +190,12 @@ function SearchBar({ transactions, search, onSearch, isSearchEntry }) {
         </Styled.FilterBox>
       )}
 
-      <Styled.SearchUl>
+      {/* <Styled.SearchUl>
         {isSearchEntry &&
           filterTransactions().map((transaction) => (
             <TransactionCard key={transaction.id} transaction={transaction} />
           ))}
-      </Styled.SearchUl>
+      </Styled.SearchUl> */}
     </Styled.SearchContainer>
   );
 }
