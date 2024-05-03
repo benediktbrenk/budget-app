@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TransactionCard from "../TransactionCard/index";
 import * as Styled from "./SearchBar.styled";
 
@@ -10,9 +10,10 @@ function SearchBar({
   onFilter,
 }) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
+  const [isFilter, setIsFilter] = useState(false);
 
-  function filterTransactions() {
-    const filterdSearch = transactions.filter((transaction) => {
+  useEffect(() => {
+    const filteredSearch = transactions.filter((transaction) => {
       const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
       const dateTo = search.dateTo ? new Date(search.dateTo) : null;
       const transactionDate = new Date(transaction.date);
@@ -48,9 +49,9 @@ function SearchBar({
         amountMatches
       );
     });
-    return filterdSearch;
-  }
-  const [isFilter, setIsFilter] = useState(false);
+
+    onFilter(filteredSearch);
+  }, [transactions, search, onFilter]);
 
   function handleResetFilters() {
     onSearch({
@@ -76,8 +77,6 @@ function SearchBar({
     const trimmedValue = event.target.value.trimStart();
     setSearchNameValue(trimmedValue);
     onSearch({ ...search, name: trimmedValue });
-    onFilter(() => filterTransactions());
-
     if (trimmedValue === "") {
       handleResetFilters();
     }
@@ -85,7 +84,6 @@ function SearchBar({
 
   function handleCategoryChange(event) {
     onSearch({ ...search, category: event.target.value });
-    onFilter(() => filterTransactions());
   }
 
   return (
