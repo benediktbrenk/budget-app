@@ -6,5 +6,4 @@ export const StyledMain = styled.main`
   align-items: center;
   position: relative;
   gap: ${({ $gap = 24 }) => `${$gap}px`};
-  padding-block: 48px;
 `;

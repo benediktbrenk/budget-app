@@ -4,6 +4,7 @@ export const StyledFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding-top: 3rem;
   gap: 0.75rem;
   min-width: 300px;
   max-width: 800px;

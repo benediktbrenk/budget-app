@@ -1,5 +1,6 @@
 import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
+import { StyledMain } from "@/components/Main/Main.styled";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 
 function NewEntryPage({ handleAddTransaction }) {
@@ -7,10 +8,12 @@ function NewEntryPage({ handleAddTransaction }) {
     <>
       <Header title="New Transaction" />
       <ArrowLeft></ArrowLeft>
-      <TransactionEntryForm
-        updateTransactions={handleAddTransaction}
-        mode="add"
-      />
+      <StyledMain>
+        <TransactionEntryForm
+          updateTransactions={handleAddTransaction}
+          mode="add"
+        />
+      </StyledMain>
     </>
   );
 }

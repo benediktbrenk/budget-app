@@ -4,6 +4,7 @@ import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
 import { styled } from "styled-components";
 import { useState } from "react";
+import { StyledMain } from "@/components/Main/Main.styled";
 
 const StyledDiv = styled.div`
   padding: 1rem;
@@ -69,18 +70,21 @@ export default function HomePage({ transactions }) {
   });
 
   return (
-    <main>
+    <>
       <Header title="Transactions" />
-      <StyledDiv>
-        <SearchBar
-          transactions={transactions}
-          search={search}
-          onSearch={setSearch}
-          isSearchEntry={isSearchEntry}
-        />
-        <StyledLink href="/newentry">Add New Transaction</StyledLink>
-      </StyledDiv>
-      <TransactionList transactions={filteredSearch} />
-    </main>
+      <StyledMain>
+        <StyledDiv>
+          <SearchBar
+            transactions={transactions}
+            search={search}
+            onSearch={setSearch}
+            isSearchEntry={isSearchEntry}
+          />
+          <StyledLink href="/newentry">Add New Transaction</StyledLink>
+          <StyledLink href="/reports">See reports</StyledLink>
+        </StyledDiv>
+        <TransactionList transactions={filteredSearch} />
+      </StyledMain>
+    </>
   );
 }

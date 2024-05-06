@@ -24,13 +24,15 @@ export default function TransactionDetailsPage({
   }
 
   return (
-    <StyledMain>
-      <ArrowLeft></ArrowLeft>
+    <>
       <Header title="Details"></Header>
-      <TransactionDetails
-        currentTransaction={currentTransaction}
-        deleteTransaction={deleteTransaction}
-      ></TransactionDetails>
-    </StyledMain>
+      <ArrowLeft></ArrowLeft>
+      <StyledMain>
+        <TransactionDetails
+          currentTransaction={currentTransaction}
+          deleteTransaction={deleteTransaction}
+        ></TransactionDetails>
+      </StyledMain>
+    </>
   );
 }
