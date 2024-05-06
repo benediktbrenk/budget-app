@@ -25,6 +25,7 @@ export default function ReportsPage({ transactions }) {
     const dateFrom = filter.dateFrom ? new Date(filter.dateFrom) : null;
     const dateTo = filter.dateTo ? new Date(filter.dateTo) : null;
     const transactionDate = new Date(transaction.date);
+    const direction = transaction.direction;
 
     const dateMatches =
       !dateFrom ||
@@ -36,7 +37,9 @@ export default function ReportsPage({ transactions }) {
       transaction.paymentMethod.toLowerCase() ===
         filter.paymentMethod.toLowerCase();
 
-    return dateMatches && paymentMethodMatches;
+    const directionExpense = direction === "Expense";
+
+    return dateMatches && paymentMethodMatches && directionExpense;
   });
 
   return (
