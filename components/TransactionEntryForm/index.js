@@ -1,4 +1,3 @@
-import { StyledMain } from "../Main/Main.styled";
 import {
   StyledFormContainer,
   StyledFormField,
@@ -18,8 +17,8 @@ function TransactionEntryForm({
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
-    updateTransactions(data, id);
+    const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
+    updateTransactions(updatedTransaction, id);
     event.target.reset();
     router.push("/");
   }
