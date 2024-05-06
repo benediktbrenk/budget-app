@@ -42,7 +42,7 @@ export default function ReportsPage({ transactions }) {
   return (
     <>
       <ArrowLeft></ArrowLeft>
-      <Header title="Edit"></Header>
+      <Header title="Reports"></Header>
       <StyledMain>
         <ReportFilter
           filter={filter}
