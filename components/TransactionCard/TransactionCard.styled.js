@@ -3,16 +3,16 @@ import Link from "next/link";
 
 export const CardLink = styled(Link)`
   text-decoration: none;
-  color: black;
-`;
-
-export const CardContainer = styled.li`
-  list-style: none;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   padding: 1rem;
   border-radius: 8px;
+  color: black;
+`;
+
+export const CardContainer = styled.li`
+  list-style: none;
 `;
 
 export const ColorField = styled.div`
