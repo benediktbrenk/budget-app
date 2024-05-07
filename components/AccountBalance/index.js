@@ -2,6 +2,8 @@ import {
   StyledAccountBalance,
   StyledBalance,
   StyledBalanceContainer,
+  StyledExpense,
+  StyledIncome,
   StyledIncomeExpenseContainer,
   StyledP,
 } from "./AccountBalance.styled";
@@ -28,17 +30,18 @@ export default function AccountBalance({ transactions }) {
   return (
     <StyledAccountBalance>
       <StyledBalanceContainer>
-        <StyledP>Balance:</StyledP>
+        <StyledP>Balance</StyledP>
         <StyledBalance>{`${totalBalanceAmount}`} €</StyledBalance>
       </StyledBalanceContainer>
       <StyledIncomeExpenseContainer>
-        <div>
-          <FaAngleUp /> {`${totalIncomeAmount}`} €
-        </div>
-        <div>
+        <StyledIncome>
+          <FaAngleUp />
+          {`${totalIncomeAmount}`} €
+        </StyledIncome>
+        <StyledExpense>
           <FaAngleDown />
           {`${totalExpenseAmount}`} €
-        </div>
+        </StyledExpense>
       </StyledIncomeExpenseContainer>
     </StyledAccountBalance>
   );

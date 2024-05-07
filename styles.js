@@ -6,10 +6,12 @@ export default createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
-  
+
   :root{
---amount-color-red: EF476F;
---amount-color-green:06D6A0;
+ --amount-color-red: #EF476F;
+ --amount-color-green: #06D6A0;
+ --lightgrey: #F5F6F6;
+
 }
 
   body {
