@@ -39,6 +39,7 @@ function SearchBar({ search, onSearch }) {
       <Styled.SearchAndFilter>
         <Styled.SearchInput
           type="search"
+          id="search"
           placeholder="Search Transactions..."
           pattern="^(?!.*\s{2,}).+$"
           value={searchNameValue}
@@ -56,9 +57,10 @@ function SearchBar({ search, onSearch }) {
         <Styled.FilterBox>
           <Styled.FilterContainer>
             <Styled.FilterItem>
-              <label>Category</label>
+              <label for="category">Category</label>
               <Styled.SearchInputSelect
                 value={search.category}
+                id="category"
                 onChange={(event) =>
                   onSearch({ ...search, category: event.target.value })
                 }
@@ -72,9 +74,10 @@ function SearchBar({ search, onSearch }) {
               </Styled.SearchInputSelect>
             </Styled.FilterItem>
             <Styled.FilterItem>
-              <label>Direction</label>
+              <label for="direction">Direction</label>
               <Styled.SearchInputSelect
                 value={search.direction}
+                id="direction"
                 onChange={(event) => {
                   onSearch({ ...search, direction: event.target.value });
                 }}
@@ -87,9 +90,10 @@ function SearchBar({ search, onSearch }) {
           </Styled.FilterContainer>
           <Styled.FilterContainer>
             <Styled.FilterItem>
-              <label>Date Start</label>
+              <label for="date_start">Date Start</label>
               <Styled.SearchInput
                 type="date"
+                id="date_start"
                 value={search.dateFrom}
                 onChange={(event) =>
                   onSearch({ ...search, dateFrom: event.target.value })
@@ -97,9 +101,10 @@ function SearchBar({ search, onSearch }) {
               />
             </Styled.FilterItem>
             <Styled.FilterItem>
-              <label>Date End</label>
+              <label for="date_end">Date End</label>
               <Styled.SearchInput
                 type="date"
+                id="date_end"
                 value={search.dateTo}
                 onChange={(event) =>
                   onSearch({ ...search, dateTo: event.target.value })
@@ -109,9 +114,10 @@ function SearchBar({ search, onSearch }) {
           </Styled.FilterContainer>
           <Styled.FilterContainer>
             <Styled.FilterItem>
-              <label>Amount From</label>
+              <label for="amount_from">Amount From</label>
               <Styled.SearchInput
                 type="number"
+                id="amount_from"
                 placeholder="Search by Amount From"
                 value={search.amountFrom}
                 onChange={(event) =>
@@ -120,9 +126,10 @@ function SearchBar({ search, onSearch }) {
               />
             </Styled.FilterItem>
             <Styled.FilterItem>
-              <label>Amount To</label>
+              <label for="amount_to">Amount To</label>
               <Styled.SearchInput
                 type="number"
+                id="amount_to"
                 placeholder="Search by Amount To"
                 value={search.amountTo}
                 onChange={(event) =>
@@ -131,21 +138,14 @@ function SearchBar({ search, onSearch }) {
               />
             </Styled.FilterItem>
             <Styled.FilterItem>
-              <label>clear</label>
-              <Styled.FilterButton onClick={handleResetFilters}>
+              <label for="clear">clear</label>
+              <Styled.FilterButton id="clear" onClick={handleResetFilters}>
                 <FaArrowsRotate />
               </Styled.FilterButton>
             </Styled.FilterItem>
           </Styled.FilterContainer>
         </Styled.FilterBox>
       )}
-
-      {/* <Styled.SearchUl>
--        {isSearchEntry &&
--          filterTransactions().map((transaction) => (
--            <TransactionCard key={transaction.id} transaction={transaction} />
--          ))}
--      </Styled.SearchUl> */}
     </Styled.SearchContainer>
   );
 }

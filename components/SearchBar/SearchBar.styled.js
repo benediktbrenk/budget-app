@@ -41,7 +41,6 @@ export const SearchAndFilter = styled.div`
   width: 100%;
   min-width: 375px;
   margin: 0.2rem;
-  //padding: 0.5rem;
 `;
 
 export const SearchUl = styled.ul`
