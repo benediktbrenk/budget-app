@@ -15,11 +15,14 @@ export default createGlobalStyle`
 
   :root {
     /* Color styles */
-  --groceries-color: #F5A623;
-  --housing-color: #7ED321;
-  --salary-color: #4A90E2; 
-  --insurance-color: #FF6347; 
-  --utilities-color: #9013FE; 
+  --groceries-color: #FFB6C1;
+  --housing-color: #ADD8E6;
+  --salary-color: #9370DB;
+  --insurance-color: #00CED1;
+  --utilities-color: #FFD700;
+
+  --amount-color-red: #EF476F;
+  --amount-color-green: #06D6A0;
 
     /* Font styles */
   --font-family: ${inter.style.fontFamily};

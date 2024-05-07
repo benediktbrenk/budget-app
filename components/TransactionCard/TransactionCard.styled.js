@@ -10,7 +10,6 @@ export const CardContainer = styled.li`
   list-style: none;
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 1rem;
   padding: 1rem;
   border-radius: 8px;
@@ -18,8 +17,8 @@ export const CardContainer = styled.li`
 
 export const ColorField = styled.div`
   height: 2rem;
-  width: 2rem;
-  border-radius: 8px;
+  width: 0.5rem;
+  border-radius: 3px;
   background-color: ${(props) => {
     switch (props.category) {
       case "Groceries":
@@ -42,7 +41,7 @@ export const ContentContainer = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 export const TransactionName = styled.p`
@@ -58,9 +57,11 @@ export const TransactionDate = styled.p`
 export const TransactionAmount = styled.p`
   flex: 1;
   color: ${(props) => {
-    return props.direction === "Income" ? "green" : "red";
+    return props.direction === "Income"
+      ? "var(--amount-color-green)"
+      : "var(--amount-color-red)";
   }};
   margin: 0;
-  font: 400 14px/16px var(--font-family);
+  font: 600 14px/16px var(--font-family);
   text-align: right;
 `;
