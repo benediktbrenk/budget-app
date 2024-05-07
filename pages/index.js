@@ -72,7 +72,6 @@ export default function HomePage({ transactions }) {
 
   return (
     <>
-      <Header title="Transactions" />
       <StyledMain>
         <StyledDiv>
           <SearchBar

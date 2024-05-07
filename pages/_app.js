@@ -3,6 +3,7 @@ import GlobalStyle from "../styles";
 import { transactions } from "@/db/data.js";
 import { uid } from "uid";
 import { useRouter } from "next/router";
+import Layout from "./layout";
 
 const initialTransactions = transactions;
 
@@ -44,13 +45,15 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        transactions={transactions}
-        deleteTransaction={deleteTransaction}
-        handleAddTransaction={handleAddTransaction}
-        handleEditTransaction={handleEditTransaction}
-      />
+      <Layout>
+        <Component
+          {...pageProps}
+          transactions={transactions}
+          deleteTransaction={deleteTransaction}
+          handleAddTransaction={handleAddTransaction}
+          handleEditTransaction={handleEditTransaction}
+        />
+      </Layout>
     </>
   );
 }

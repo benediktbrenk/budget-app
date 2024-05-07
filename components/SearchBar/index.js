@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as Styled from "./SearchBar.styled";
+import { FaArrowsRotate, FaSliders } from "react-icons/fa6";
 
 function SearchBar({ search, onSearch }) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
@@ -48,7 +49,7 @@ function SearchBar({ search, onSearch }) {
         <Styled.FilterButton
           onClick={() => setIsFilter((isFilter) => !isFilter)}
         >
-          Filter
+          <FaSliders />
         </Styled.FilterButton>
       </Styled.SearchAndFilter>
       {isFilter && (
@@ -130,9 +131,9 @@ function SearchBar({ search, onSearch }) {
               />
             </Styled.FilterItem>
             <Styled.FilterItem>
-              <label>X</label>
+              <label>clear</label>
               <Styled.FilterButton onClick={handleResetFilters}>
-                Clear Filter
+                <FaArrowsRotate />
               </Styled.FilterButton>
             </Styled.FilterItem>
           </Styled.FilterContainer>

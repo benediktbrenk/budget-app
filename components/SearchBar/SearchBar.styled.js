@@ -27,10 +27,11 @@ export const SearchAndFilter = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 0.7rem;
   width: 100%;
-  margin: 1rem;
-  padding: 0.5rem;
+  min-width: 375px;
+  margin: 0.2rem;
+  //padding: 0.5rem;
 `;
 
 export const SearchUl = styled.ul`
@@ -60,6 +61,7 @@ export const SearchInput = styled.input`
   height: 50px;
   font-size: 0.7rem;
   padding: 1rem;
+  margin-left: 1rem;
 `;
 export const SearchInputSelect = styled.select`
   border-radius: 8px;
@@ -89,9 +91,9 @@ export const FilterItem = styled.div`
 `;
 
 export const FilterButton = styled.button`
-  padding: 1rem;
+  padding: 0.8rem;
   margin: 0.5rem;
   border: 1px solid lightgray;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.2rem;
 `;

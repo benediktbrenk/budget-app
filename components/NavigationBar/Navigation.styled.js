@@ -22,21 +22,22 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   display: flex;
   justify-content: center;
-  color: inherit;
+  //color: inherit;
   border: none;
   //width: 100%;
   height: fit-content;
-  max-width: 15dvh;
+  //max-width: 15dvh;
   //max-width: 700px;
-  padding: 1rem 3rem;
+  padding: 1rem;
+
+  &:visited {
+    color: #343a40;
+  }
 
   &:hover {
     cursor: pointer;
-    background-color: #dee2e6;
+    color: #f8f9fa;
+    background-color: #343a40;
     border-radius: 6px;
-  }
-
-  &:visited {
-    color: inherit;
   }
 `;
