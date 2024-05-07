@@ -140,11 +140,11 @@ function SearchBar({ search, onSearch }) {
       )}
 
       {/* <Styled.SearchUl>
-        {isSearchEntry &&
-          filterTransactions().map((transaction) => (
-            <TransactionCard key={transaction.id} transaction={transaction} />
-          ))}
-      </Styled.SearchUl> */}
+-        {isSearchEntry &&
+-          filterTransactions().map((transaction) => (
+-            <TransactionCard key={transaction.id} transaction={transaction} />
+-          ))}
+-      </Styled.SearchUl> */}
     </Styled.SearchContainer>
   );
 }
