@@ -1,12 +1,5 @@
-import React from "react";
 import TransactionCard from "../TransactionCard";
-import styled from "styled-components";
-
-const Ul = styled.ul`
-  display: flex;
-  flex-direction: column;
-  width: min(100% - 50px, 395px - 50px);
-`;
+import { Ul } from "./TransactionList.styled";
 
 function TransactionList({ transactions }) {
   return (
