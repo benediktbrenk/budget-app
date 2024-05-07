@@ -6,6 +6,11 @@ export default createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
+  
+  :root{
+--amount-color-red: EF476F;
+--amount-color-green:06D6A0;
+}
 
   body {
     margin: 0;
