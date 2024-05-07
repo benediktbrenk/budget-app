@@ -1,3 +1,13 @@
+import {
+  StyledAccountBalance,
+  StyledBalance,
+  StyledBalanceContainer,
+  StyledIncomeExpenseContainer,
+  StyledP,
+} from "./AccountBalance.styled";
+import { FaAngleDown } from "react-icons/fa6";
+import { FaAngleUp } from "react-icons/fa6";
+
 export default function AccountBalance({ transactions }) {
   function getTotalExpenseAmount(transactions) {
     return transactions
@@ -16,10 +26,20 @@ export default function AccountBalance({ transactions }) {
   const totalBalanceAmount = totalIncomeAmount - totalExpenseAmount;
 
   return (
-    <div>
-      <div>Balance{`${totalBalanceAmount}`}</div>
-      <div>Income{`${totalIncomeAmount}`}</div>
-      <div>Expense {`${totalExpenseAmount}`}</div>
-    </div>
+    <StyledAccountBalance>
+      <StyledBalanceContainer>
+        <StyledP>Balance:</StyledP>
+        <StyledBalance>{`${totalBalanceAmount}`} €</StyledBalance>
+      </StyledBalanceContainer>
+      <StyledIncomeExpenseContainer>
+        <div>
+          <FaAngleUp /> {`${totalIncomeAmount}`} €
+        </div>
+        <div>
+          <FaAngleDown />
+          {`${totalExpenseAmount}`} €
+        </div>
+      </StyledIncomeExpenseContainer>
+    </StyledAccountBalance>
   );
 }
