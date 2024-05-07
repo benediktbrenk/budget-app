@@ -13,6 +13,16 @@ export const SearchContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+
+  @media (min-width: 600px) {
+    margin-left: 80px;
+    min-width: 80dvw;
+    max-width: 60%;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
 `;
 
 export const SearchForm = styled.form`
@@ -56,20 +66,22 @@ export const SearchLi = styled.li`
 
 export const SearchInput = styled.input`
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid #f8f9fa;
   width: 100%;
   height: 50px;
   font-size: 0.7rem;
   padding: 1rem;
   margin-left: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;
 export const SearchInputSelect = styled.select`
   border-radius: 8px;
-  border: 1px solid black;
+  border: 1px solid #f8f9fa;
   width: 100%;
   height: 50px;
   font-size: 0.7rem;
   padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 export const FilterContainer = styled.div`
@@ -96,4 +108,5 @@ export const FilterButton = styled.button`
   border: 1px solid lightgray;
   border-radius: 8px;
   font-size: 1.2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;

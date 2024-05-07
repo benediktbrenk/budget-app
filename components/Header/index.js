@@ -1,8 +1,12 @@
 import React from "react";
-import { StyledHeader } from "./Header.styled";
+import * as Styled from "./Header.styled";
 
 function Header({ title }) {
-  return <StyledHeader>{title}</StyledHeader>;
+  return (
+    <Styled.HeaderContainer>
+      <Styled.HeaderH1>{title}</Styled.HeaderH1>
+    </Styled.HeaderContainer>
+  );
 }
 
 export default Header;

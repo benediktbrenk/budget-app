@@ -5,7 +5,8 @@ import styled from "styled-components";
 const Ul = styled.ul`
   display: flex;
   flex-direction: column;
-  width: min(100% - 50px, 395px - 50px);
+  width: min(100% - 50px, 450px - 50px);
+  margin-bottom: 70px;
 `;
 
 function TransactionList({ transactions }) {

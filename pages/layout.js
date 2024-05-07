@@ -4,7 +4,7 @@ import NavigationBar from "@/components/NavigationBar";
 export default function Layout({ children }) {
   return (
     <>
-      <Header title="Transactions" />
+      <Header title="Budget App" />
       <main>{children}</main>
       <NavigationBar />
     </>

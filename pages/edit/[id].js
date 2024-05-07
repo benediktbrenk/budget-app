@@ -22,7 +22,6 @@ export default function EditPage({ handleEditTransaction, transactions }) {
 
   return (
     <StyledMain>
-      <ArrowLeft></ArrowLeft>
       <Header title="Edit"></Header>
 
       <TransactionEntryForm

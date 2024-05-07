@@ -2,32 +2,53 @@ import { styled } from "styled-components";
 import Link from "next/link";
 
 export const NavBar = styled.nav`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
   background-color: #f8f9fa;
   z-index: 5;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.5rem;
   bottom: 0;
   position: fixed;
   height: 60px;
   width: 100%;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+
+  @media (min-width: 600px) {
+    left: 0;
+    height: 100dvh;
+    width: 100px;
+    flex-direction: column;
+  }
+`;
+
+export const NavContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 700px;
+  min-height: 700px;
+  gap: 4rem;
+
+  @media (min-width: 600px) {
+    left: 0;
+    height: 100dvh;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
 `;
 
 export const NavLink = styled(Link)`
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-decoration: none;
   display: flex;
   justify-content: center;
-  //color: inherit;
   border: none;
-  //width: 100%;
+  width: 100%;
   height: fit-content;
-  //max-width: 15dvh;
-  //max-width: 700px;
   padding: 1rem;
 
   &:visited {
