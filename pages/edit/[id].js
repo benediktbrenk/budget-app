@@ -1,4 +1,3 @@
-import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
 import { StyledMain } from "@/components/Main/Main.styled";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
