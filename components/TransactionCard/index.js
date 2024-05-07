@@ -1,27 +1,30 @@
 import React from "react";
 import {
-  StyledItemContainer,
-  StyledLi,
-  StyledLink,
+  AmountContainer,
+  CardContainer,
+  CardLink,
+  ColorField,
+  ContentContainer,
 } from "./TransactionCard.styled";
 
 function TransactionCard({ transaction }) {
   return (
-    <StyledLink href={`/details/${transaction.id}`}>
-      <StyledLi key={transaction.id}>
-        <StyledItemContainer>
+    <CardLink href={`/details/${transaction.id}`}>
+      <CardContainer key={transaction.id}>
+        <ColorField category={transaction.category}></ColorField>
+        <ContentContainer>
           <p>{transaction.name}</p>
+          <p>{transaction.date}</p>
+        </ContentContainer>
+        <AmountContainer direction={transaction.direction}>
           <p>
             {transaction.direction === "Expense" ? "- " : "+ "}
             {transaction.amount}
             {transaction.currency}
           </p>
-        </StyledItemContainer>
-        <StyledItemContainer>
-          <p>{transaction.date}</p>
-        </StyledItemContainer>
-      </StyledLi>
-    </StyledLink>
+        </AmountContainer>
+      </CardContainer>
+    </CardLink>
   );
 }
 
