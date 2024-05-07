@@ -14,7 +14,7 @@ export const NavBar = styled.nav`
   width: 100%;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
 
-  @media (min-width: 600px) {
+  @media (min-width: 1100px) {
     left: 0;
     height: 100dvh;
     width: 100px;
@@ -31,7 +31,7 @@ export const NavContainer = styled.div`
   min-height: 700px;
   gap: 4rem;
 
-  @media (min-width: 600px) {
+  @media (min-width: 1100px) {
     left: 0;
     height: 100dvh;
     width: 100px;

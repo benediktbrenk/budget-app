@@ -15,9 +15,9 @@ export const SearchContainer = styled.div`
   width: 100%;
 
   @media (min-width: 600px) {
-    margin-left: 80px;
-    min-width: 80dvw;
-    max-width: 60%;
+    margin-left: 10px;
+    max-width: 60dvw;
+    min-width: 60vw;
     width: 100px;
     flex-direction: column;
     justify-content: center;
