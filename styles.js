@@ -14,19 +14,21 @@ export default createGlobalStyle`
   }
 
   :root {
+    /* Color styles */
   --groceries-color: #F5A623;
   --housing-color: #7ED321;
   --salary-color: #4A90E2; 
   --insurance-color: #FF6347; 
   --utilities-color: #9013FE; 
 
-  --font-family: ${inter.style.fontFamily}, serif;
+    /* Font styles */
+  --font-family: ${inter.style.fontFamily};
 }
 
   body {
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    font-family: var(--font-family), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
@@ -34,16 +36,8 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  a {
-    font-family:  var(--font-family);
-  }
-
-  p {
-    font-family:  var(--font-family);
-  }
-
   ul {
-  margin: 0;
-  padding:0;
+    margin: 0;
+    padding:0;
   }
 `;

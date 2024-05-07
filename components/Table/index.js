@@ -1,4 +1,4 @@
-import { StyledHeadline, StyledTable } from "./Table.styled";
+import { StyledTable } from "./Table.styled";
 
 export function DataTable({ TableData }) {
   return (
