@@ -1,4 +1,10 @@
 import { createGlobalStyle } from "styled-components";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  style: ["normal"],
+});
 
 export default createGlobalStyle`
   *,
@@ -13,7 +19,8 @@ export default createGlobalStyle`
   --salary-color: #4A90E2; 
   --insurance-color: #FF6347; 
   --utilities-color: #9013FE; 
-  --default-color: #CCCCCC;
+
+  --font-family: ${inter.style.fontFamily}, serif;
 }
 
   body {
@@ -26,8 +33,17 @@ export default createGlobalStyle`
   h1 {
     margin: 0;
   }
-ul{
-margin: 0;
-padding:0;
-}
+
+  a {
+    font-family:  var(--font-family);
+  }
+
+  p {
+    font-family:  var(--font-family);
+  }
+
+  ul {
+  margin: 0;
+  padding:0;
+  }
 `;

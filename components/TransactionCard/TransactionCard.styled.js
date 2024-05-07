@@ -34,7 +34,7 @@ export const ColorField = styled.div`
       case "Utilities":
         return "var(--utilities-color)";
       default:
-        return "var(--default-color)";
+        return "#CCCCCC";
     }
   }};
 `;
@@ -52,4 +52,12 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+`;
+
+export const TransactionName = styled.p`
+  margin: 0;
+`;
+
+export const TransactionDate = styled.p`
+  margin: 0;
 `;

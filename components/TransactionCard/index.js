@@ -5,6 +5,8 @@ import {
   CardLink,
   ColorField,
   ContentContainer,
+  TransactionDate,
+  TransactionName,
 } from "./TransactionCard.styled";
 
 function TransactionCard({ transaction }) {
@@ -13,8 +15,8 @@ function TransactionCard({ transaction }) {
       <CardContainer key={transaction.id}>
         <ColorField category={transaction.category}></ColorField>
         <ContentContainer>
-          <p>{transaction.name}</p>
-          <p>{transaction.date}</p>
+          <TransactionName>{transaction.name}</TransactionName>
+          <TransactionDate>{transaction.date}</TransactionDate>
         </ContentContainer>
         <AmountContainer direction={transaction.direction}>
           <p>
