@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledAccountBalance = styled.article`
+export const AccountBalanceCard = styled.article`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -12,30 +12,30 @@ export const StyledAccountBalance = styled.article`
   max-width: 300px;
 `;
 
-export const StyledBalanceContainer = styled.div`
+export const BalanceContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 `;
 
-export const StyledP = styled.div`
+export const BalanceTitle = styled.div`
   font-weight: lighter;
 `;
 
-export const StyledBalance = styled.div`
+export const BalanceSum = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
 `;
 
-export const StyledIncomeExpenseContainer = styled.div`
+export const IncomeExpenseContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
 `;
 
-export const StyledIncome = styled.p`
+export const TotalIncome = styled.p`
   color: var(--amount-color-green);
 `;
-export const StyledExpense = styled.p`
+export const TotalExpense = styled.p`
   color: var(--amount-color-red);
 `;
