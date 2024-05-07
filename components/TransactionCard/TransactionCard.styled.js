@@ -41,7 +41,7 @@ export const ContentContainer = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  gap: 0.2rem;
 `;
 
 export const TransactionName = styled.p`
@@ -51,7 +51,7 @@ export const TransactionName = styled.p`
 
 export const TransactionDate = styled.p`
   margin: 0;
-  font: 400 14px/16px var(--font-family);
+  font: 400 12px/14px var(--font-family);
 `;
 
 export const TransactionAmount = styled.p`
