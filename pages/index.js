@@ -81,8 +81,8 @@ export default function HomePage({ transactions }) {
             onSearch={setSearch}
             isSearchEntry={isSearchEntry}
           />
-          <StyledLink href="/newentry">Add New Transaction</StyledLink>
-          <StyledLink href="/reports">See reports</StyledLink>
+          {/* <StyledLink href="/newentry">Add New Transaction</StyledLink>
+          <StyledLink href="/reports">See reports</StyledLink> */}
         </StyledDiv>
         <TransactionList transactions={filteredSearch} />
       </StyledMain>
