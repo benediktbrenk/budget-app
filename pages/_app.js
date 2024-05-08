@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
   const [transactions, setTransactions] = useState(initialTransactions);
   const router = useRouter();
 
-  const { data, isLoading } = useSWR(`/pages/api/transactions`, fetcher);
+  const { data, isLoading } = useSWR(`/api/transactions`, fetcher);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
