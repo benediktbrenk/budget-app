@@ -51,7 +51,6 @@ export const NavLink = styled.a`
   height: fit-content;
   padding: 0.6rem;
 
-
   &:hover {
     cursor: pointer;
     color: #f8f9fa;
@@ -64,5 +63,6 @@ export const NavLink = styled.a`
     css`
       color: #ffffff;
       background-color: #343a40;
+      border-radius: 6px;
     `}
 `;
