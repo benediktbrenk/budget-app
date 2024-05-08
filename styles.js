@@ -20,7 +20,7 @@ export default createGlobalStyle`
   --salary-color: #9370DB;
   --insurance-color: #00CED1;
   --utilities-color: #FFD700;
-
+  --lightgrey: #F5F6F6;
   --amount-color-red: #EF476F;
   --amount-color-green: #06D6A0;
 

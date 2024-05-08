@@ -73,7 +73,6 @@ function TransactionEntryForm({
           >
             <option value="Default">--Select Option--</option>
             <option value="€">€</option>
-            <option value="$">$</option>
           </select>
         </StyledFormField>
         <StyledFormField>

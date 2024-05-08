@@ -1,10 +1,10 @@
-import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
 import { styled } from "styled-components";
 import { useState } from "react";
 import { StyledMain } from "@/components/Main/Main.styled";
+import AccountBalance from "@/components/AccountBalance";
 import NavigationBar from "@/components/NavigationBar";
 
 const StyledDiv = styled.div`
@@ -73,6 +73,7 @@ export default function HomePage({ transactions }) {
   return (
     <>
       <StyledMain>
+        <AccountBalance transactions={transactions} />
         <StyledDiv>
           <SearchBar
             transactions={transactions}
