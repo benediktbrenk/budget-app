@@ -1,5 +1,5 @@
 import TransactionCard from "../TransactionCard";
-import { Ul } from "./TransactionList.styled";
+import * as Styled from "./TransactionList.styled";
 
 function TransactionList({ transactions }) {
   function filterTransactionsByMonth(transactions, currentMonth) {
@@ -10,24 +10,64 @@ function TransactionList({ transactions }) {
     return transactionsPerMonth;
   }
 
-  const transactionsPerMonth = filterTransactionsByMonth(transactions, 3);
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-  const transactionsPerMonths = [...Array(12).keys()].map((month) => {
-    const transactionsPerMonth = filterTransactionsByMonth(transactions, month);
+  function sortMonthsByCurrentMonth() {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const sortedMonths = [
+      ...months.slice(currentMonth + 1),
+      ...months.slice(0, currentMonth + 1),
+    ];
+    return sortedMonths;
+  }
+  const sortedMonths = sortMonthsByCurrentMonth();
+  const reversedMonths = sortedMonths.reverse();
+
+  console.log(reversedMonths);
+
+  const transactionsPerMonths = sortedMonths.map((month) => {
+    // Finde den Index des aktuellen Monats im sortierten Monatsarray
+    const index = months.indexOf(month);
+    const transactionsPerMonth = filterTransactionsByMonth(transactions, index);
     if (transactionsPerMonth.length === 0) {
       return null;
     }
-    return transactionsPerMonth;
+    return { month, transactions: transactionsPerMonth };
   });
 
-  console.log(transactionsPerMonths);
-
   return (
-    <Ul>
-      {transactionsPerMonth.map((transaction) => (
-        <TransactionCard key={transaction.id} transaction={transaction} />
-      ))}
-    </Ul>
+    <>
+      {transactionsPerMonths.map(
+        (transactionsPerMonth, index) =>
+          transactionsPerMonth && (
+            <Styled.MonthContainer key={index}>
+              <Styled.Headline>{transactionsPerMonth.month}</Styled.Headline>
+              <Styled.Ul>
+                {transactionsPerMonth.transactions.map((transaction) => (
+                  <TransactionCard
+                    key={transaction.id}
+                    transaction={transaction}
+                  />
+                ))}
+              </Styled.Ul>
+            </Styled.MonthContainer>
+          )
+      )}
+    </>
   );
 }
 
