@@ -23,16 +23,16 @@ export default function AccountBalance({ transactions }) {
     <Styled.AccountBalanceCard>
       <Styled.BalanceContainer>
         <Styled.BalanceTitle>Balance</Styled.BalanceTitle>
-        <Styled.BalanceSum>{`${totalBalanceAmount}`} €</Styled.BalanceSum>
+        <Styled.BalanceSum>{totalBalanceAmount} €</Styled.BalanceSum>
       </Styled.BalanceContainer>
       <Styled.IncomeExpenseContainer>
         <Styled.TotalIncome>
           <FaAngleUp />
-          {`${totalIncomeAmount}`} €
+          {totalIncomeAmount} €
         </Styled.TotalIncome>
         <Styled.TotalExpense>
           <FaAngleDown />
-          {`${totalExpenseAmount}`} €
+          {totalExpenseAmount} €
         </Styled.TotalExpense>
       </Styled.IncomeExpenseContainer>
     </Styled.AccountBalanceCard>
