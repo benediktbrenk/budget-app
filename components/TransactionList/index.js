@@ -3,18 +3,28 @@ import { Ul } from "./TransactionList.styled";
 
 function TransactionList({ transactions }) {
   function filterTransactionsByMonth(transactions, currentMonth) {
-    const transactionsInMarch = transactions.filter((transaction) => {
+    const transactionsPerMonth = transactions.filter((transaction) => {
       const month = new Date(transaction.date).getMonth();
       return month === currentMonth;
     });
-    return transactionsInMarch;
+    return transactionsPerMonth;
   }
 
-  const transactionsInMarch = filterTransactionsByMonth(transactions, 4);
+  const transactionsPerMonth = filterTransactionsByMonth(transactions, 3);
+
+  const transactionsPerMonths = [...Array(12).keys()].map((month) => {
+    const transactionsPerMonth = filterTransactionsByMonth(transactions, month);
+    if (transactionsPerMonth.length === 0) {
+      return null;
+    }
+    return transactionsPerMonth;
+  });
+
+  console.log(transactionsPerMonths);
 
   return (
     <Ul>
-      {transactionsInMarch.map((transaction) => (
+      {transactionsPerMonth.map((transaction) => (
         <TransactionCard key={transaction.id} transaction={transaction} />
       ))}
     </Ul>
