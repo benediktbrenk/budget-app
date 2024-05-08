@@ -1,4 +1,3 @@
-import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
 import { StyledMain } from "@/components/Main/Main.styled";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
@@ -22,7 +21,6 @@ export default function EditPage({ handleEditTransaction, transactions }) {
 
   return (
     <StyledMain>
-      <ArrowLeft></ArrowLeft>
       <Header title="Edit"></Header>
 
       <TransactionEntryForm

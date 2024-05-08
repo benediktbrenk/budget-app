@@ -6,6 +6,7 @@ import { styled } from "styled-components";
 import { useState } from "react";
 import { StyledMain } from "@/components/Main/Main.styled";
 import AccountBalance from "@/components/AccountBalance";
+import NavigationBar from "@/components/NavigationBar";
 
 const StyledDiv = styled.div`
   padding: 1rem;
@@ -72,7 +73,6 @@ export default function HomePage({ transactions }) {
 
   return (
     <>
-      <Header title="Transactions" />
       <StyledMain>
         <AccountBalance transactions={transactions} />
         <StyledDiv>
@@ -82,11 +82,10 @@ export default function HomePage({ transactions }) {
             onSearch={setSearch}
             isSearchEntry={isSearchEntry}
           />
-          <StyledLink href="/newentry">Add New Transaction</StyledLink>
-          <StyledLink href="/reports">See reports</StyledLink>
         </StyledDiv>
         <TransactionList transactions={filteredSearch} />
       </StyledMain>
+      <NavigationBar />
     </>
   );
 }

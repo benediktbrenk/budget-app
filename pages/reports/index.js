@@ -1,4 +1,3 @@
-import ArrowLeft from "@/components/ArrowLeft";
 import Header from "@/components/Header";
 import { StyledMain } from "@/components/Main/Main.styled";
 import ReportFilter from "@/components/ReportFilter";
@@ -44,7 +43,6 @@ export default function ReportsPage({ transactions }) {
 
   return (
     <>
-      <ArrowLeft></ArrowLeft>
       <Header title="Reports"></Header>
       <StyledMain>
         <ReportFilter
