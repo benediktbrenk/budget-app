@@ -3,22 +3,41 @@ import GlobalStyle from "../styles";
 import { transactions } from "@/db/data.js";
 import { uid } from "uid";
 import { useRouter } from "next/router";
+import useSWR from "swr";
+import { SWRConfig } from "swr";
 import Layout from "./layout";
 
-const initialTransactions = transactions;
+const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
-  const [transactions, setTransactions] = useState(initialTransactions);
-
+  // This is only meant as a temporary solution to keep the App working as long as backend create, update and delete are not implemented (next US)
+  const [transactions, setTransactions] = useState([]);
   const router = useRouter();
 
-  function handleAddTransaction(newTransaction) {
-    setTransactions([{ id: uid(), ...newTransaction }, ...transactions]);
+  const { data: initialTransactions, isLoading } = useSWR(
+    `/api/transactions`,
+    fetcher
+  );
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
   }
 
+  if (!initialTransactions) {
+    return;
+  }
+
+  if (initialTransactions && !transactions.length) {
+    setTransactions(initialTransactions);
+  }
+  // Until here
+
+  function handleAddTransaction(newTransaction) {
+    setTransactions([{ _id: uid(), ...newTransaction }, ...transactions]);
+  }
   function handleEditTransaction(updatedTransaction, id) {
     const updatedTransactions = transactions.map((transaction) =>
-      transaction.id == id
+      transaction._id == id
         ? {
             ...transaction,
             name: updatedTransaction.name,
@@ -34,26 +53,26 @@ export default function App({ Component, pageProps }) {
     );
     setTransactions(updatedTransactions);
   }
-
   function deleteTransaction(id) {
     setTransactions(
-      transactions.filter((transaction) => transaction.id !== id)
+      transactions.filter((transaction) => transaction._id !== id)
     );
     router.push("/");
   }
-
   return (
     <>
       <GlobalStyle />
-      <Layout>
-        <Component
-          {...pageProps}
-          transactions={transactions}
-          deleteTransaction={deleteTransaction}
-          handleAddTransaction={handleAddTransaction}
-          handleEditTransaction={handleEditTransaction}
-        />
-      </Layout>
+      <SWRConfig value={{ fetcher }}>
+        <Layout>
+          <Component
+            {...pageProps}
+            transactions={transactions}
+            deleteTransaction={deleteTransaction}
+            handleAddTransaction={handleAddTransaction}
+            handleEditTransaction={handleEditTransaction}
+          />
+        </Layout>
+      </SWRConfig>
     </>
   );
 }
