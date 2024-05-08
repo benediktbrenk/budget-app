@@ -6,4 +6,9 @@ export const StyledMain = styled.main`
   align-items: center;
   position: relative;
   gap: ${({ $gap = 24 }) => `${$gap}px`};
+  margin-bottom: 60px;
+
+  @media (min-width: 1100px) {
+    margin-bottom: 5px;
+  }
 `;

@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
 import { StyledMain } from "@/components/Main/Main.styled";
-import ArrowLeft from "@/components/ArrowLeft";
+
 
 export default function TransactionDetailsPage({
   transactions,
@@ -26,7 +26,6 @@ export default function TransactionDetailsPage({
   return (
     <>
       <Header title="Details"></Header>
-      <ArrowLeft></ArrowLeft>
       <StyledMain>
         <TransactionDetails
           currentTransaction={currentTransaction}

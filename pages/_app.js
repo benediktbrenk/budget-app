@@ -5,6 +5,7 @@ import { uid } from "uid";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import { SWRConfig } from "swr";
+import Layout from "./layout";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -62,13 +63,15 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <SWRConfig value={{ fetcher }}>
-        <Component
-          {...pageProps}
-          transactions={transactions}
-          deleteTransaction={deleteTransaction}
-          handleAddTransaction={handleAddTransaction}
-          handleEditTransaction={handleEditTransaction}
-        />
+        <Layout>
+          <Component
+            {...pageProps}
+            transactions={transactions}
+            deleteTransaction={deleteTransaction}
+            handleAddTransaction={handleAddTransaction}
+            handleEditTransaction={handleEditTransaction}
+          />
+        </Layout>
       </SWRConfig>
     </>
   );
