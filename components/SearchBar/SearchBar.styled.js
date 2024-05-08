@@ -103,7 +103,7 @@ export const FilterItem = styled.div`
 
 export const FilterButton = styled.button`
   padding: 0.8rem;
-  margin: 0.5rem;
+  margin: 0.3rem;
   border: 1px solid lightgray;
   border-radius: 8px;
   font-size: 1.2rem;
