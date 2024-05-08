@@ -28,7 +28,7 @@ export default function TransactionDetailsPage({
       <StyledMain>
         <TransactionDetails
           currentTransaction={currentTransaction}
-          deleteTransaction={deleteTransaction}
+          deleteTransaction={() => deleteTransaction(id)}
         ></TransactionDetails>
       </StyledMain>
     </>

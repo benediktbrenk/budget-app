@@ -56,29 +56,48 @@ export default function App({ Component, pageProps }) {
     mutate();
   }
 
-  function handleEditTransaction(updatedTransaction, id) {
-    const updatedTransactions = transactions.map((transaction) =>
-      transaction._id == id
-        ? {
-            ...transaction,
-            name: updatedTransaction.name,
-            amount: updatedTransaction.amount,
-            currency: updatedTransaction.currency,
-            date: updatedTransaction.date,
-            description: updatedTransaction.description,
-            category: updatedTransaction.category,
-            paymentMethod: updatedTransaction.paymentMethod,
-            direction: updatedTransaction.direction,
-          }
-        : transaction
-    );
-    setTransactions(updatedTransactions);
+  async function handleEditTransaction(updatedTransaction, id) {
+    // const updatedTransactions = transactions.map((transaction) =>
+    //   transaction._id == id
+    //     ? {
+    //         ...transaction,
+    //         name: updatedTransaction.name,
+    //         amount: updatedTransaction.amount,
+    //         currency: updatedTransaction.currency,
+    //         date: updatedTransaction.date,
+    //         description: updatedTransaction.description,
+    //         category: updatedTransaction.category,
+    //         paymentMethod: updatedTransaction.paymentMethod,
+    //         direction: updatedTransaction.direction,
+    //       }
+    //     : transaction
+    // );
+    // setTransactions(updatedTransactions);
+    const response = await fetch(`/api/transactions/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTransaction),
+    });
+
+    if (response.ok) {
+      mutate();
+    }
   }
-  function deleteTransaction(id) {
-    setTransactions(
-      transactions.filter((transaction) => transaction._id !== id)
-    );
-    router.push("/");
+  async function deleteTransaction(id) {
+    // setTransactions(
+    //   transactions.filter((transaction) => transaction._id !== id)
+    // );
+    // router.push("/");
+    const response = await fetch(`/api/transactions/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      mutate();
+      router.push("/");
+    }
   }
   return (
     <>
