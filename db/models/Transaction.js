@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const { Schema, ObjectId } = mongoose;
 
 const transactionSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
+  _id: String,
   name: String,
   amount: Number,
   currency: String,
-  date: Date,
+  date: String,
   description: String,
   category: String,
   paymentMethod: String,
