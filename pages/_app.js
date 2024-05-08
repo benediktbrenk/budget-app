@@ -14,10 +14,11 @@ export default function App({ Component, pageProps }) {
   const [transactions, setTransactions] = useState([]);
   const router = useRouter();
 
-  const { data: initialTransactions, isLoading } = useSWR(
-    `/api/transactions`,
-    fetcher
-  );
+  const {
+    data: initialTransactions,
+    isLoading,
+    mutate,
+  } = useSWR(`/api/transactions`, fetcher);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -27,14 +28,34 @@ export default function App({ Component, pageProps }) {
     return;
   }
 
-  if (initialTransactions && !transactions.length) {
-    setTransactions(initialTransactions);
-  }
+  // if (initialTransactions && !transactions.length) {
+  //   setTransactions(initialTransactions);
+  // }
   // Until here
 
-  function handleAddTransaction(newTransaction) {
-    setTransactions([{ _id: uid(), ...newTransaction }, ...transactions]);
+  async function handleAddTransaction(newTransaction) {
+    // setTransactions([{ _id: uid(), ...newTransaction }, ...transactions]);
+    //event.preventDefault();
+
+    // const formData = new FormData(newTransaction);
+    // const transactionData = Object.fromEntries(formData);
+
+    const response = await fetch("/api/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTransaction),
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+
+    mutate();
   }
+
   function handleEditTransaction(updatedTransaction, id) {
     const updatedTransactions = transactions.map((transaction) =>
       transaction._id == id
@@ -66,7 +87,7 @@ export default function App({ Component, pageProps }) {
         <Layout>
           <Component
             {...pageProps}
-            transactions={transactions}
+            transactions={initialTransactions}
             deleteTransaction={deleteTransaction}
             handleAddTransaction={handleAddTransaction}
             handleEditTransaction={handleEditTransaction}
