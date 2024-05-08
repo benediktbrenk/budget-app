@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
 
 export const NavBar = styled.nav`
@@ -29,31 +29,28 @@ export const NavContainer = styled.div`
   align-items: center;
   max-width: 700px;
   min-height: 700px;
-  gap: 4rem;
+  gap: 3rem;
 
   @media (min-width: 1100px) {
     left: 0;
     height: 100dvh;
-    width: 100px;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
-    gap: 5rem;
   }
 `;
 
-export const NavLink = styled(Link)`
+export const NavLink = styled.a`
   font-size: 2rem;
+  color: #343a40;
   text-decoration: none;
   display: flex;
   justify-content: center;
   border: none;
   width: 100%;
   height: fit-content;
-  padding: 1rem;
+  padding: 0.6rem;
 
-  &:visited {
-    color: #343a40;
-  }
 
   &:hover {
     cursor: pointer;
@@ -61,4 +58,11 @@ export const NavLink = styled(Link)`
     background-color: #343a40;
     border-radius: 6px;
   }
+
+  ${(props) =>
+    props.active &&
+    css`
+      color: #ffffff;
+      background-color: #343a40;
+    `}
 `;
