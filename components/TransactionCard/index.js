@@ -12,8 +12,8 @@ import {
 
 function TransactionCard({ transaction }) {
   return (
-    <CardContainer key={transaction.id}>
-      <CardLink href={`/details/${transaction.id}`}>
+    <CardContainer key={transaction._id}>
+      <CardLink href={`/details/${transaction._id}`}>
         <ColorField category={transaction.category}></ColorField>
         <ContentContainer>
           <TransactionName>{transaction.name}</TransactionName>

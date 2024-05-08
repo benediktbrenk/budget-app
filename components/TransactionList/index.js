@@ -5,7 +5,7 @@ function TransactionList({ transactions }) {
   return (
     <Ul>
       {transactions.map((transaction) => (
-        <TransactionCard key={transaction.id} transaction={transaction} />
+        <TransactionCard key={transaction._id} transaction={transaction} />
       ))}
     </Ul>
   );

@@ -16,7 +16,7 @@ export default function TransactionDetailsPage({
   }
 
   const currentTransaction = transactions.find(
-    (transaction) => transaction.id == id
+    (transaction) => transaction._id == id
   );
 
   if (!currentTransaction) {

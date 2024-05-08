@@ -32,11 +32,11 @@ export default function App({ Component, pageProps }) {
   // Until here
 
   function handleAddTransaction(newTransaction) {
-    setTransactions([{ id: uid(), ...newTransaction }, ...transactions]);
+    setTransactions([{ _id: uid(), ...newTransaction }, ...transactions]);
   }
   function handleEditTransaction(updatedTransaction, id) {
     const updatedTransactions = transactions.map((transaction) =>
-      transaction.id == id
+      transaction._id == id
         ? {
             ...transaction,
             name: updatedTransaction.name,
@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }) {
   }
   function deleteTransaction(id) {
     setTransactions(
-      transactions.filter((transaction) => transaction.id !== id)
+      transactions.filter((transaction) => transaction._id !== id)
     );
     router.push("/");
   }
