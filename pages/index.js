@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import Link from "next/link";
