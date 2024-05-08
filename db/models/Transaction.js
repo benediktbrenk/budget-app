@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
-const { Schema, ObjectId } = mongoose;
+const { Schema } = mongoose;
 
 const transactionSchema = new Schema({
-  _id: String,
   name: String,
   amount: Number,
   currency: String,

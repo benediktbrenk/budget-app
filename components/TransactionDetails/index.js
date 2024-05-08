@@ -59,7 +59,7 @@ export default function TransactionDetails({
               Delete
             </StyledButton>
             <StyledDiv>
-              <StyledLink href={`../edit/${currentTransaction._id}`}>
+              <StyledLink href={`/edit/${currentTransaction._id}`}>
                 Edit Entry
               </StyledLink>
             </StyledDiv>

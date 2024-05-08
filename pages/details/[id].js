@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
 import { StyledMain } from "@/components/Main/Main.styled";
 
-
 export default function TransactionDetailsPage({
   transactions,
   deleteTransaction,
@@ -16,7 +15,7 @@ export default function TransactionDetailsPage({
   }
 
   const currentTransaction = transactions.find(
-    (transaction) => transaction._id == id
+    (transaction) => transaction._id === id
   );
 
   if (!currentTransaction) {
