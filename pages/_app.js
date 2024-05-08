@@ -3,18 +3,30 @@ import GlobalStyle from "../styles";
 import { transactions } from "@/db/data.js";
 import { uid } from "uid";
 import { useRouter } from "next/router";
+import useSWR from "swr";
+import { SWRConfig } from "swr";
+
+const fetcher = (url) => fetch(url).then((response) => response.json());
 
 const initialTransactions = transactions;
-
 export default function App({ Component, pageProps }) {
   const [transactions, setTransactions] = useState(initialTransactions);
-
   const router = useRouter();
 
+  const { data, isLoading } = useSWR(`/pages/api/transactions`, fetcher);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (!data) {
+    console.log("no data");
+    return;
+  }
+  console.log(data);
   function handleAddTransaction(newTransaction) {
     setTransactions([{ id: uid(), ...newTransaction }, ...transactions]);
   }
-
   function handleEditTransaction(updatedTransaction, id) {
     const updatedTransactions = transactions.map((transaction) =>
       transaction.id == id
@@ -33,24 +45,26 @@ export default function App({ Component, pageProps }) {
     );
     setTransactions(updatedTransactions);
   }
-
   function deleteTransaction(id) {
     setTransactions(
       transactions.filter((transaction) => transaction.id !== id)
     );
     router.push("/");
   }
-
   return (
     <>
       <GlobalStyle />
-      <Component
-        {...pageProps}
-        transactions={transactions}
-        deleteTransaction={deleteTransaction}
-        handleAddTransaction={handleAddTransaction}
-        handleEditTransaction={handleEditTransaction}
-      />
+      <SWRConfig value={{ fetcher }}>
+        <Component {...pageProps} />
+
+        <Component
+          {...pageProps}
+          transactions={transactions}
+          deleteTransaction={deleteTransaction}
+          handleAddTransaction={handleAddTransaction}
+          handleEditTransaction={handleEditTransaction}
+        />
+      </SWRConfig>
     </>
   );
 }
