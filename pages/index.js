@@ -32,7 +32,7 @@ export default function HomePage({ transactions }) {
     amountFrom: "",
     amountTo: "",
   });
-  console.log(transactions);
+
   const isSearchEntry = Object.values(search).some((value) => value !== "");
 
   const filteredSearch = transactions.filter((transaction) => {

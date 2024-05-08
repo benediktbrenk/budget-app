@@ -8,22 +8,29 @@ import { SWRConfig } from "swr";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
-const initialTransactions = transactions;
 export default function App({ Component, pageProps }) {
-  const [transactions, setTransactions] = useState(initialTransactions);
+  // This is only meant as a temporary solution to keep the App working as long as backend create, update and delete are not implemented (next US)
+  const [transactions, setTransactions] = useState([]);
   const router = useRouter();
 
-  const { data, isLoading } = useSWR(`/api/transactions`, fetcher);
+  const { data: initialTransactions, isLoading } = useSWR(
+    `/api/transactions`,
+    fetcher
+  );
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
-  if (!data) {
-    console.log("no data");
+  if (!initialTransactions) {
     return;
   }
-  console.log(data);
+
+  if (initialTransactions && !transactions.length) {
+    setTransactions(initialTransactions);
+  }
+  // Until here
+
   function handleAddTransaction(newTransaction) {
     setTransactions([{ id: uid(), ...newTransaction }, ...transactions]);
   }
@@ -55,8 +62,6 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <SWRConfig value={{ fetcher }}>
-        <Component {...pageProps} />
-
         <Component
           {...pageProps}
           transactions={transactions}
