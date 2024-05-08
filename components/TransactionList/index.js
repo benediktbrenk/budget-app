@@ -25,27 +25,24 @@ function TransactionList({ transactions }) {
     "December",
   ];
 
-  function sortMonthsByCurrentMonth() {
+  function SortMonths() {
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
-    const sortedMonths = [
+    const reversedSortedMonths = [
       ...months.slice(currentMonth + 1),
       ...months.slice(0, currentMonth + 1),
-    ];
-    return sortedMonths;
+    ].reverse();
+    return reversedSortedMonths;
   }
-  const sortedMonths = sortMonthsByCurrentMonth();
-  const reversedMonths = sortedMonths.reverse();
-
-  console.log(reversedMonths);
+  const sortedMonths = SortMonths();
 
   const transactionsPerMonths = sortedMonths.map((month) => {
-    // Finde den Index des aktuellen Monats im sortierten Monatsarray
     const index = months.indexOf(month);
     const transactionsPerMonth = filterTransactionsByMonth(transactions, index);
     if (transactionsPerMonth.length === 0) {
       return null;
     }
+    transactionsPerMonth.sort((a, b) => new Date(b.date) - new Date(a.date));
     return { month, transactions: transactionsPerMonth };
   });
 
