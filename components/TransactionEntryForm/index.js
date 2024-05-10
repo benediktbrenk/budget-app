@@ -41,7 +41,7 @@ function TransactionEntryForm({
           <input
             type="text"
             name="name"
-            maxLength={20}
+            maxLength={30}
             required
             defaultValue={mode === "add" ? "" : currentTransaction.name}
           />
@@ -51,8 +51,9 @@ function TransactionEntryForm({
           <input
             type="number"
             name="amount"
-            max={999999}
-            min={0}
+            max="999999.99"
+            min="0.00"
+            step="0.01"
             required
             defaultValue={mode === "add" ? "" : currentTransaction.amount}
           />
