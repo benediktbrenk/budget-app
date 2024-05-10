@@ -1,6 +1,6 @@
 import { AgChartsReact } from "ag-charts-react";
 import { useEffect, useState } from "react";
-import { StyledDiv } from "./BarChart.styled";
+import * as Styled from "./BarChart.styled";
 
 export function BarChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
@@ -39,8 +39,8 @@ export function BarChart({ ChartData }) {
   }, [ChartData]);
 
   return (
-    <StyledDiv>
+    <Styled.ChartContainer>
       <AgChartsReact options={chartOptions} />
-    </StyledDiv>
+    </Styled.ChartContainer>
   );
 }

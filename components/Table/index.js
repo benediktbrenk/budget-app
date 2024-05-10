@@ -1,9 +1,9 @@
-import { StyledTable } from "./Table.styled";
+import * as Styled from "./Table.styled";
 
 export function DataTable({ TableData }) {
   return (
     <>
-      <StyledTable>
+      <Styled.Table>
         <thead>
           <tr>
             <th>Category</th>
@@ -18,7 +18,7 @@ export function DataTable({ TableData }) {
             </tr>
           ))}
         </tbody>
-      </StyledTable>
+      </Styled.Table>
     </>
   );
 }

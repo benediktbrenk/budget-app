@@ -1,13 +1,13 @@
 import TransactionCard from "../TransactionCard";
-import { Ul } from "./TransactionList.styled";
+import * as Styled from "./TransactionList.styled";
 
 function TransactionList({ transactions }) {
   return (
-    <Ul>
+    <Styled.TransactionList>
       {transactions.map((transaction) => (
         <TransactionCard key={transaction._id} transaction={transaction} />
       ))}
-    </Ul>
+    </Styled.TransactionList>
   );
 }
 

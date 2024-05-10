@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { StyledArrow } from "./ArrowLeft.styles";
+import * as Styled from "./ArrowLeft.styled";
 import { FaAngleLeft } from "react-icons/fa6";
 
 export default function ArrowLeft() {
   return (
-    <StyledArrow>
+    <Styled.Arrow>
       <Link href="/">
         <FaAngleLeft />
       </Link>
-    </StyledArrow>
+    </Styled.Arrow>
   );
 }
