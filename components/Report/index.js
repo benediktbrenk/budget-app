@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  StyledHeadline,
-  TabButton,
-  TabContainer,
-  TabContent,
-} from "./TabMenu.styled";
+import * as Styled from "./TabMenu.styled";
 import { BarChart } from "../BarChart";
 import { PieChart } from "../PieChart";
 import { DataTable } from "../Table";
@@ -30,23 +25,29 @@ export function Report({ filter, filteredTransactions }) {
 
   return (
     <>
-      <TabContainer>
-        <TabButton onClick={() => setActiveTab("BarChart")}>BarChart</TabButton>
-        <TabButton onClick={() => setActiveTab("PieChart")}>Table</TabButton>
-        <TabButton onClick={() => setActiveTab("Table")}>PieChart</TabButton>
-      </TabContainer>
-      <TabContent active={activeTab === "BarChart"}>
-        <StyledHeadline>Expense Total</StyledHeadline>
+      <Styled.TabContainer>
+        <Styled.TabButton onClick={() => setActiveTab("BarChart")}>
+          BarChart
+        </Styled.TabButton>
+        <Styled.TabButton onClick={() => setActiveTab("PieChart")}>
+          Table
+        </Styled.TabButton>
+        <Styled.TabButton onClick={() => setActiveTab("Table")}>
+          PieChart
+        </Styled.TabButton>
+      </Styled.TabContainer>
+      <Styled.TabContent active={activeTab === "BarChart"}>
+        <Styled.Headline>Expense Total</Styled.Headline>
         <BarChart ChartData={data}></BarChart>
-      </TabContent>
-      <TabContent active={activeTab === "Table"}>
-        <StyledHeadline>Expense Total</StyledHeadline>
+      </Styled.TabContent>
+      <Styled.TabContent active={activeTab === "Table"}>
+        <Styled.Headline>Expense Total</Styled.Headline>
         <PieChart ChartData={data}></PieChart>
-      </TabContent>
-      <TabContent active={activeTab === "PieChart"}>
-        <StyledHeadline>Expense Total</StyledHeadline>
+      </Styled.TabContent>
+      <Styled.TabContent active={activeTab === "PieChart"}>
+        <Styled.Headline>Expense Total</Styled.Headline>
         <DataTable TableData={data}></DataTable>
-      </TabContent>
+      </Styled.TabContent>
     </>
   );
 }

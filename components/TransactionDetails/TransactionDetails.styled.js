@@ -1,7 +1,7 @@
 import Link from "next/link";
 const { default: styled } = require("styled-components");
 
-export const StyledDetailsContainer = styled.article`
+export const DetailsContainer = styled.article`
   display: flex;
   flex-direction: column;
   background-color: #d7d7d7;
@@ -12,18 +12,18 @@ export const StyledDetailsContainer = styled.article`
   max-width: 300px;
 `;
 
-export const StyledItemContainer = styled.div`
+export const ItemContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-export const StyledLink = styled(Link)`
+export const EditLink = styled(Link)`
   text-decoration: none;
   color: black;
   align-items: center;
 `;
 
-export const StyledDiv = styled.div`
+export const ButtonContainer = styled.div`
   background-color: #d7d7d7;
   padding: 1rem;
   border-radius: 8px;
@@ -34,7 +34,7 @@ export const StyledDiv = styled.div`
   display: flex;
 `;
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   padding: 0 1rem;
   border-radius: 8px;
   background-color: lightgray;

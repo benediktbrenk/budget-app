@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHeadline = styled.h2`
+export const Headline = styled.h2`
   margin: 0 0 0.5rem 0;
 `;
 

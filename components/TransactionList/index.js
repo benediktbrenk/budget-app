@@ -60,6 +60,11 @@ function TransactionList({ transactions }) {
         </Fragment>
       ))}
     </>
+    <Styled.TransactionList>
+      {transactions.map((transaction) => (
+        <TransactionCard key={transaction._id} transaction={transaction} />
+      ))}
+    </Styled.TransactionList>
   );
 }
 

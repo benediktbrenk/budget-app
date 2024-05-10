@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import { StyledMain } from "@/components/Main/Main.styled";
 import ReportFilter from "@/components/ReportFilter";
 import TabMenu from "@/components/Report";
 import { useState } from "react";
@@ -43,18 +41,15 @@ export default function ReportsPage({ transactions }) {
 
   return (
     <>
-      <Header title="Reports"></Header>
-      <StyledMain>
-        <ReportFilter
-          filter={filter}
-          setFilter={setFilter}
-          categories={categories}
-        ></ReportFilter>
-        <TabMenu
-          filter={filter}
-          filteredTransactions={filteredTransactions}
-        ></TabMenu>
-      </StyledMain>
+      <ReportFilter
+        filter={filter}
+        setFilter={setFilter}
+        categories={categories}
+      ></ReportFilter>
+      <TabMenu
+        filter={filter}
+        filteredTransactions={filteredTransactions}
+      ></TabMenu>
     </>
   );
 }

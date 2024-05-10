@@ -43,26 +43,6 @@ export const SearchAndFilter = styled.div`
   margin: 0.2rem;
 `;
 
-export const SearchUl = styled.ul`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  list-style: none;
-`;
-
-export const SearchLi = styled.li`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: lightgray;
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  width: 100%;
-`;
-
 export const SearchInput = styled.input`
   border-radius: 8px;
   border: 1px solid #f8f9fa;

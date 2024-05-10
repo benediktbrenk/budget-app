@@ -17,7 +17,7 @@ export const Headline = styled.h2`
   font: 700 20px var(--font-family);
 `;
 
-export const Ul = styled.ul`
+export const TransactionList = styled.ul`
   display: flex;
   flex-direction: column;
 `;
