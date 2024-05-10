@@ -1,8 +1,9 @@
 import {
   StyledButton,
-  StyledDiv,
   StyledItemContainer,
   StyledLink,
+  StyledLabel,
+  StyledButtonContainer,
 } from "./TransactionDetails.styled";
 import { StyledDetailsContainer } from "./TransactionDetails.styled";
 import { useState } from "react";
@@ -15,61 +16,55 @@ export default function TransactionDetails({
 
   return (
     <main>
-      {isDeleteMode ? (
-        <article>
-          <StyledDetailsContainer>
-            <StyledItemContainer>
-              <p>Delete Entry:</p>
-              <p>Are you sure?</p>
-            </StyledItemContainer>
-          </StyledDetailsContainer>
+      <article>
+        <StyledDetailsContainer>
           <StyledItemContainer>
+            <StyledLabel>Title:</StyledLabel>
+            <p>{currentTransaction.name}</p>
+
+            <StyledLabel>Amount:</StyledLabel>
+            <p>
+              {currentTransaction.direction === "Expense" ? "- " : "+ "}
+              {currentTransaction.amount}
+              {currentTransaction.currency}
+            </p>
+
+            <StyledLabel>Date:</StyledLabel>
+            <p>{currentTransaction.date}</p>
+
+            <StyledLabel>Description:</StyledLabel>
+            <p>{currentTransaction.description}</p>
+
+            <StyledLabel>Direction:</StyledLabel>
+            <p>{currentTransaction.paymentMethod}</p>
+          </StyledItemContainer>
+        </StyledDetailsContainer>
+        <StyledButtonContainer>
+          <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
+            Delete
+          </StyledButton>
+
+          <StyledLink href={`/edit/${currentTransaction._id}`}>
+            Edit Entry
+          </StyledLink>
+        </StyledButtonContainer>
+      </article>
+      {isDeleteMode && (
+        <article>
+          <StyledItemContainer>
+            <p>Delete Entry:</p>
+            <p>Are you sure?</p>
+          </StyledItemContainer>
+          <StyledButtonContainer>
             <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
               Cancel
             </StyledButton>
-            <StyledDiv>
-              <StyledButton
-                onClick={() => deleteTransaction(currentTransaction._id)}
-              >
-                Delete
-              </StyledButton>
-            </StyledDiv>
-          </StyledItemContainer>
-        </article>
-      ) : (
-        <article>
-          <StyledDetailsContainer>
-            <StyledItemContainer>
-              <label>Title:</label>
-              <p>{currentTransaction.name}</p>
-              <p>
-                {currentTransaction.direction === "Expense" ? "- " : "+ "}
-                <label>Amount:</label>
-                {currentTransaction.amount}
-                {currentTransaction.currency}
-              </p>
-            </StyledItemContainer>
-            <StyledItemContainer>
-              <label>Date:</label>
-              <p>{currentTransaction.date}</p>
-            </StyledItemContainer>
-            <label>Category:</label>
-            <p>{currentTransaction.category}</p>
-            <label>description</label>
-            <p>{currentTransaction.description}</p>
-            <label>Direction: </label>
-            <p>{currentTransaction.paymentMethod}</p>
-          </StyledDetailsContainer>
-          <StyledItemContainer>
-            <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>
+            <StyledButton
+              onClick={() => deleteTransaction(currentTransaction._id)}
+            >
               Delete
             </StyledButton>
-            <StyledDiv>
-              <StyledLink href={`/edit/${currentTransaction._id}`}>
-                Edit Entry
-              </StyledLink>
-            </StyledDiv>
-          </StyledItemContainer>
+          </StyledButtonContainer>
         </article>
       )}
     </main>
