@@ -17,24 +17,14 @@ export default async function handler(request, response) {
     }
 
     if (request.method === "PUT") {
-      try {
-        const updatedTransaction = request.body;
-        await Transaction.findByIdAndUpdate(id, updatedTransaction);
-        return response.status(200).json({ status: "Transaction updated." });
-      } catch (error) {
-        console.error(error);
-        return response.status(400).json({ error: error.message });
-      }
+      const updatedTransaction = request.body;
+      await Transaction.findByIdAndUpdate(id, updatedTransaction);
+      return response.status(200).json({ status: "Transaction updated." });
     }
 
     if (request.method === "DELETE") {
-      try {
-        await Transaction.findByIdAndDelete(id);
-        return response.status(200).json({ status: "Transaction deleted." });
-      } catch (error) {
-        console.error(error);
-        return response.status(400).json({ error: error.message });
-      }
+      await Transaction.findByIdAndDelete(id);
+      return response.status(200).json({ status: "Transaction deleted." });
     }
   } catch (error) {
     console.error("Error fetching transactions:", error.message);
