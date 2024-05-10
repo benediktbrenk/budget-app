@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const StyledFormContainer = styled.div`
+export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -11,14 +11,14 @@ export const StyledFormContainer = styled.div`
   margin-bottom: 80px;
 `;
 
-export const StyledFormField = styled.div`
+export const FormField = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
 `;
 
-export const StyledFormButton = styled.div`
+export const FormButton = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2rem;

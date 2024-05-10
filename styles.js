@@ -39,6 +39,10 @@ export default createGlobalStyle`
     margin: 0;
   }
 
+  h2 {
+    margin: 0;
+  }
+
   ul {
     margin: 0;
     padding:0;

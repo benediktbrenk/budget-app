@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
   margin-bottom: 25px;
 `;
 
-export const HeaderH1 = styled.h1`
+export const Headline = styled.h1`
   color: black;
   font-size: 2rem;
   text-align: center;
