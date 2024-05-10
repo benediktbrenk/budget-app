@@ -24,13 +24,8 @@ function TransactionList({ transactions }) {
         const transactionsPerMonth = filterTransactionsByMonth(
           transactionsPerYear,
           monthIndex
-        );
-        if (transactionsPerMonth.length === 0) {
-          return { month, transactions: [] };
-        }
-        transactionsPerMonth.toSorted(
-          (a, b) => new Date(b.date) - new Date(a.date)
-        );
+        ).toSorted((a, b) => new Date(b.date) - new Date(a.date));
+
         return { month, transactions: transactionsPerMonth };
       });
 
