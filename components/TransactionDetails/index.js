@@ -40,19 +40,25 @@ export default function TransactionDetails({
         <article>
           <StyledDetailsContainer>
             <StyledItemContainer>
+              <label>Title:</label>
               <p>{currentTransaction.name}</p>
               <p>
                 {currentTransaction.direction === "Expense" ? "- " : "+ "}
+                <label>Amount:</label>
                 {currentTransaction.amount}
                 {currentTransaction.currency}
               </p>
             </StyledItemContainer>
             <StyledItemContainer>
+              <label>Date:</label>
               <p>{currentTransaction.date}</p>
-              <p>{currentTransaction.paymentMethod}</p>
             </StyledItemContainer>
+            <label>Category:</label>
             <p>{currentTransaction.category}</p>
+            <label>description</label>
             <p>{currentTransaction.description}</p>
+            <label>Direction: </label>
+            <p>{currentTransaction.paymentMethod}</p>
           </StyledDetailsContainer>
           <StyledItemContainer>
             <StyledButton onClick={() => setIsDeleteMode(!isDeleteMode)}>

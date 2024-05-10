@@ -18,9 +18,18 @@ export const StyledItemContainer = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
-  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  background-color: lightgray;
+  border: none;
   color: black;
-  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: lightblue;
+  }
 `;
 
 export const StyledDiv = styled.div`
@@ -35,9 +44,16 @@ export const StyledDiv = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  padding: 0 1rem;
+  padding: 0.8rem 1.5rem;
   border-radius: 8px;
   background-color: lightgray;
-  border: solid 1px lightgray;
+  border: none;
+  color: black;
   font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: red;
+  }
 `;
