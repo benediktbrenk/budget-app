@@ -15,14 +15,9 @@ function TransactionList({ transactions }) {
   const transactionsPerYearsAndMonths = yearsInTransactions.map(
     (year, index) => {
       const transactionsPerYear = filterTransactionsByYear(transactions, year);
-      if (transactionsPerYear.length === 0) {
-        return null;
-      }
 
       const monthsToMap =
-        index === 0
-          ? sortMonths(new Date().getMonth())
-          : months.slice().reverse();
+        index === 0 ? sortMonths(new Date().getMonth()) : months.toReversed();
 
       const transactionsPerMonths = monthsToMap.map((month) => {
         const monthIndex = months.indexOf(month);
@@ -31,9 +26,9 @@ function TransactionList({ transactions }) {
           monthIndex
         );
         if (transactionsPerMonth.length === 0) {
-          return null;
+          return { month, transactions: [] };
         }
-        transactionsPerMonth.sort(
+        transactionsPerMonth.toSorted(
           (a, b) => new Date(b.date) - new Date(a.date)
         );
         return { month, transactions: transactionsPerMonth };
@@ -45,12 +40,14 @@ function TransactionList({ transactions }) {
 
   return (
     <>
-      {transactionsPerYearsAndMonths.map((year, index) => (
-        <Fragment key={index}>
+      {transactionsPerYearsAndMonths.map((year) => (
+        <Fragment key={year}>
           {year.transactionsPerMonths.map(
-            (transactionsPerMonth, monthIndex) =>
-              transactionsPerMonth && (
-                <Styled.MonthContainer key={monthIndex}>
+            (transactionsPerMonth) =>
+              transactionsPerMonth.transactions.length > 0 && (
+                <Styled.MonthContainer
+                  key={`${year}-${transactionsPerMonth.month}`}
+                >
                   <Styled.Headline>
                     {transactionsPerMonth.month} {year.year}
                   </Styled.Headline>
