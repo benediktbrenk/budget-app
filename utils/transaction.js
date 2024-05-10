@@ -30,9 +30,6 @@ export function filterTransactionsByMonth(transactions, currentMonth) {
 export function sortMonths() {
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
-  const reversedSortedMonths = [
-    ...months.slice(currentMonth + 1),
-    ...months.slice(0, currentMonth + 1),
-  ].reverse();
+  const reversedSortedMonths = [...months.slice(0, currentMonth + 1)].reverse();
   return reversedSortedMonths;
 }
