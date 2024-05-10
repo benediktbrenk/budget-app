@@ -15,7 +15,7 @@ export const globalButton = styled.button`
         return `var(--button-background)`;
     }
   }};
-  color: ${(props) => (props.color === "white" ? "white" : "black")};
+  color: ${(props) => (props.textColor === "white" ? "white" : "black")};
   font-size: larger;
   padding: 10px 20px;
   border-radius: 8px;
