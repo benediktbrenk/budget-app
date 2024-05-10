@@ -23,6 +23,8 @@ export default createGlobalStyle`
   --lightgrey: #F5F6F6;
   --amount-color-red: #EF476F;
   --amount-color-green: #06D6A0;
+  --button-background: lightgrey;
+  --button-hover: darkgray;
 
     /* Font styles */
   --font-family: ${inter.style.fontFamily};
