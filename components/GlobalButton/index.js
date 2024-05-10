@@ -1,5 +1,9 @@
 import * as Styled from "./GlobalButton.styled";
 
-export default function GlobalButton({ name, onClick }) {
-  return <Styled.globalButton onClick={onClick}>{name}</Styled.globalButton>;
+export default function GlobalButton({ name, onClick, type, textColor }) {
+  return (
+    <Styled.globalButton onClick={onClick} type={type} texColor={textColor}>
+      {name}
+    </Styled.globalButton>
+  );
 }
