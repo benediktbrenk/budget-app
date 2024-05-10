@@ -46,25 +46,20 @@ function TransactionList({ transactions }) {
                   <Styled.Headline>
                     {transactionsPerMonth.month} {year.year}
                   </Styled.Headline>
-                  <Styled.Ul>
+                  <Styled.TransactionList>
                     {transactionsPerMonth.transactions.map((transaction) => (
                       <TransactionCard
                         key={transaction.id}
                         transaction={transaction}
                       />
                     ))}
-                  </Styled.Ul>
+                  </Styled.TransactionList>
                 </Styled.MonthContainer>
               )
           )}
         </Fragment>
       ))}
     </>
-    <Styled.TransactionList>
-      {transactions.map((transaction) => (
-        <TransactionCard key={transaction._id} transaction={transaction} />
-      ))}
-    </Styled.TransactionList>
   );
 }
 
