@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTable = styled.table`
+export const Table = styled.table`
   width: 80%;
   border-collapse: collapse;
   margin-bottom: 20px;

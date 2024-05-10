@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
-import { StyledMain } from "@/components/Main/Main.styled";
 
 export default function TransactionDetailsPage({
   transactions,
@@ -25,12 +24,10 @@ export default function TransactionDetailsPage({
   return (
     <>
       <Header title="Details"></Header>
-      <StyledMain>
-        <TransactionDetails
-          currentTransaction={currentTransaction}
-          deleteTransaction={deleteTransaction}
-        ></TransactionDetails>
-      </StyledMain>
+      <TransactionDetails
+        currentTransaction={currentTransaction}
+        deleteTransaction={deleteTransaction}
+      ></TransactionDetails>
     </>
   );
 }

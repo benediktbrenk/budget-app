@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import { StyledMain } from "@/components/Main/Main.styled";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useRouter } from "next/router";
 
@@ -20,15 +18,11 @@ export default function EditPage({ handleEditTransaction, transactions }) {
   }
 
   return (
-    <StyledMain>
-      <Header title="Edit"></Header>
-
-      <TransactionEntryForm
-        updateTransactions={handleEditTransaction}
-        currentTransaction={currentTransaction}
-        id={id}
-        mode="edit"
-      ></TransactionEntryForm>
-    </StyledMain>
+    <TransactionEntryForm
+      updateTransactions={handleEditTransaction}
+      currentTransaction={currentTransaction}
+      id={id}
+      mode="edit"
+    ></TransactionEntryForm>
   );
 }

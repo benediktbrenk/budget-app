@@ -1,27 +1,7 @@
 import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
-import Link from "next/link";
-import { styled } from "styled-components";
 import { useState } from "react";
-import { StyledMain } from "@/components/Main/Main.styled";
 import AccountBalance from "@/components/AccountBalance";
-import NavigationBar from "@/components/NavigationBar";
-
-const StyledDiv = styled.div`
-  padding: 1rem;
-`;
-
-const StyledLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem;
-  text-decoration: none;
-  color: black;
-  background-color: grey;
-  margin: 1rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-`;
 
 export default function HomePage({ transactions }) {
   const [search, setSearch] = useState({
@@ -72,19 +52,14 @@ export default function HomePage({ transactions }) {
 
   return (
     <>
-      <StyledMain>
-        <AccountBalance transactions={transactions} />
-        <StyledDiv>
-          <SearchBar
-            transactions={transactions}
-            search={search}
-            onSearch={setSearch}
-            isSearchEntry={isSearchEntry}
-          />
-        </StyledDiv>
-        <TransactionList transactions={filteredSearch} />
-      </StyledMain>
-      <NavigationBar />
+      <AccountBalance transactions={transactions} />
+      <SearchBar
+        transactions={transactions}
+        search={search}
+        onSearch={setSearch}
+        isSearchEntry={isSearchEntry}
+      />
+      <TransactionList transactions={filteredSearch} />
     </>
   );
 }
