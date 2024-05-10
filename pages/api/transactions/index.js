@@ -11,7 +11,7 @@ export default async function handler(request, response) {
 
     if (request.method === "POST") {
       const transactionData = request.body;
-      const transaction = await Transaction(transactionData).save();
+      await Transaction.create(transactionData);
       return response.status(201).json({ status: "Transaction added." });
     }
     
