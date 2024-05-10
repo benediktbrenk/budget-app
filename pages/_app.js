@@ -12,17 +12,13 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-  const {
-    data: initialTransactions,
-    isLoading,
-    mutate,
-  } = useSWR(`/api/transactions`, fetcher);
+  const { data, isLoading, mutate } = useSWR(`/api/transactions`, fetcher);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
-  if (!initialTransactions) {
+  if (!data) {
     return;
   }
 
@@ -52,19 +48,24 @@ export default function App({ Component, pageProps }) {
       body: JSON.stringify(updatedTransaction),
     });
 
-    if (response.ok) {
-      mutate();
+    if (!response.ok) {
+      console.error(response.status);
+      return;
     }
+    mutate();
   }
+
   async function deleteTransaction(id) {
     const response = await fetch(`/api/transactions/${id}`, {
       method: "DELETE",
     });
 
-    if (response.ok) {
-      mutate();
-      router.push("/");
+    if (!response.ok) {
+      console.error(response.status);
+      return;
     }
+    mutate();
+    router.push("/");
   }
   return (
     <>
@@ -73,7 +74,7 @@ export default function App({ Component, pageProps }) {
         <Layout>
           <Component
             {...pageProps}
-            transactions={initialTransactions}
+            transactions={data}
             deleteTransaction={deleteTransaction}
             handleAddTransaction={handleAddTransaction}
             handleEditTransaction={handleEditTransaction}

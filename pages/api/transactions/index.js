@@ -10,15 +10,9 @@ export default async function handler(request, response) {
     }
 
     if (request.method === "POST") {
-      try {
-        const transactionData = request.body;
-        const transaction = new Transaction(transactionData);
-        await transaction.save();
-        return response.status(201).json({ status: "Transaction added." });
-      } catch (error) {
-        console.error(error);
-        return response.status(400).json({ error: error.message });
-      }
+      const transactionData = request.body;
+      const transaction = await Transaction(transactionData).save();
+      return response.status(201).json({ status: "Transaction added." });
     }
     
   } catch (error) {
