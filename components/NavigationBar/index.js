@@ -12,17 +12,13 @@ function NavigationBar() {
  return (
    <Styled.NavBar>
      <Styled.NavContainer>
-       <Styled.NavLink
-         key="home"
-         onClick={() => router.push("/")}
-         active={isActive("/")}
-       >
+       <Styled.NavLink key="home" href="/" active={isActive("/")}>
          <FaHouse />
        </Styled.NavLink>
 
        <Styled.NavLink
          key="newentry"
-         onClick={() => router.push("/newentry")}
+         href="/newentry"
          active={isActive("/newentry")}
        >
          <FaPlus />
@@ -30,7 +26,7 @@ function NavigationBar() {
 
        <Styled.NavLink
          key="reports"
-         onClick={() => router.push("/reports")}
+         href="/reports"
          active={isActive("/reports")}
        >
          <FaChartPie />
