@@ -1,8 +1,4 @@
-import {
-  StyledFormContainer,
-  StyledFormField,
-  StyledFormButton,
-} from "./TransactionEntryForm.styled";
+import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
 
 function TransactionEntryForm({
@@ -24,8 +20,8 @@ function TransactionEntryForm({
   }
   return (
     <form onSubmit={handleSubmit}>
-      <StyledFormContainer>
-        <StyledFormField>
+      <Styled.FormContainer>
+        <Styled.FormField>
           <label htmlFor="direction">Direction</label>
           <select
             type="text"
@@ -39,29 +35,30 @@ function TransactionEntryForm({
             <option value="Expense">Expense</option>
             <option value="Income">Income</option>
           </select>
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="name">Title</label>
           <input
             type="text"
             name="name"
-            maxLength={20}
+            maxLength={30}
             required
             defaultValue={mode === "add" ? "" : currentTransaction.name}
           />
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="amount">Amount</label>
           <input
             type="number"
             name="amount"
-            max={999999}
-            min={0}
+            max="999999.99"
+            min="0.00"
+            step="0.01"
             required
             defaultValue={mode === "add" ? "" : currentTransaction.amount}
           />
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="currency">Currency</label>
           <select
             type="text"
@@ -74,8 +71,8 @@ function TransactionEntryForm({
             <option value="Default">--Select Option--</option>
             <option value="€">€</option>
           </select>
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="date">Date</label>
           <input
             type="date"
@@ -83,8 +80,8 @@ function TransactionEntryForm({
             required
             defaultValue={mode === "add" ? "" : currentTransaction.date}
           />
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="paymentMethod">Payment Method</label>
           <select
             type="text"
@@ -98,8 +95,8 @@ function TransactionEntryForm({
             <option value="Cash">Cash</option>
             <option value="Card">Card</option>
           </select>
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="category">Category</label>
           <select type="text" name="category" required defaultValue="Groceries">
             <option value="Groceries">Groceries</option>
@@ -108,8 +105,8 @@ function TransactionEntryForm({
             <option value="Insurance">Insurance</option>
             <option value="Utilities">Utilities</option>
           </select>
-        </StyledFormField>
-        <StyledFormField>
+        </Styled.FormField>
+        <Styled.FormField>
           <label htmlFor="description">Description</label>
           <textarea
             rows="7"
@@ -118,11 +115,11 @@ function TransactionEntryForm({
             name="description"
             defaultValue={mode === "add" ? "" : currentTransaction.description}
           />
-        </StyledFormField>
-        <StyledFormButton>
+        </Styled.FormField>
+        <Styled.FormButton>
           <button type="submit">Submit</button>
-        </StyledFormButton>
-      </StyledFormContainer>
+        </Styled.FormButton>
+      </Styled.FormContainer>
     </form>
   );
 }

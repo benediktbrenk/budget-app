@@ -69,8 +69,8 @@ function SearchBar({ search, onSearch }) {
                 <option value="Groceries">Groceries</option>
                 <option value="Housing">Housing</option>
                 <option value="Insurance">Insurance</option>
-                <option value="Insurance">Salary</option>
-                <option value="Insurance">Utilities</option>
+                <option value="Salary">Salary</option>
+                <option value="Utilities">Utilities</option>
               </Styled.SearchInputSelect>
             </Styled.FilterItem>
             <Styled.FilterItem>

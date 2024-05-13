@@ -1,32 +1,23 @@
 import React from "react";
-import {
-  AmountContainer,
-  CardContainer,
-  CardLink,
-  ColorField,
-  ContentContainer,
-  TransactionAmount,
-  TransactionDate,
-  TransactionName,
-} from "./TransactionCard.styled";
+import * as Styled from "./TransactionCard.styled";
 
 function TransactionCard({ transaction }) {
   return (
-    <CardContainer key={transaction._id}>
-      <CardLink href={`/details/${transaction._id}`}>
-        <ColorField category={transaction.category}></ColorField>
-        <ContentContainer>
-          <TransactionName>{transaction.name}</TransactionName>
-          <TransactionDate>{transaction.date}</TransactionDate>
-        </ContentContainer>
+    <Styled.CardContainer key={transaction._id}>
+      <Styled.CardLink href={`/details/${transaction._id}`}>
+        <Styled.ColorField category={transaction.category}></Styled.ColorField>
+        <Styled.ContentContainer>
+          <Styled.TransactionName>{transaction.name}</Styled.TransactionName>
+          <Styled.TransactionDate>{transaction.date}</Styled.TransactionDate>
+        </Styled.ContentContainer>
 
-        <TransactionAmount direction={transaction.direction}>
+        <Styled.TransactionAmount direction={transaction.direction}>
           {transaction.direction === "Expense" ? "- " : "+ "}
           {transaction.amount}
           {transaction.currency}
-        </TransactionAmount>
-      </CardLink>
-    </CardContainer>
+        </Styled.TransactionAmount>
+      </Styled.CardLink>
+    </Styled.CardContainer>
   );
 }
 

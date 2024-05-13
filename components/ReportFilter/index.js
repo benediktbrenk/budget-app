@@ -1,13 +1,4 @@
-import {
-  FilterButton,
-  FilterContainer,
-  FilterInput,
-  FilterInputCheckbox,
-  FilterInputSelect,
-  FilterItem,
-  FilterSegmentContainer,
-  StyledSearchInput,
-} from "./ReportFilter.styled";
+import * as Styled from "./ReportFilter.styled";
 
 export default function ReportFilter({ filter, setFilter, categories }) {
   function handleResetFilters() {
@@ -34,13 +25,13 @@ export default function ReportFilter({ filter, setFilter, categories }) {
   }
 
   return (
-    <FilterContainer>
-      <FilterSegmentContainer style={{ "--flex-direction": "column" }}>
+    <Styled.FilterContainer>
+      <Styled.FilterSegmentContainer style={{ "--flex-direction": "column" }}>
         <label>Category</label>
-        <FilterItem style={{ "--flex-direction": "row" }}>
+        <Styled.FilterItem style={{ "--flex-direction": "row" }}>
           {categories.map((category) => (
             <label key={category}>
-              <FilterInputCheckbox
+              <Styled.FilterInputCheckbox
                 type="checkbox"
                 value={category}
                 checked={filter.categories.includes(category)}
@@ -49,12 +40,12 @@ export default function ReportFilter({ filter, setFilter, categories }) {
               {category}
             </label>
           ))}
-        </FilterItem>
-      </FilterSegmentContainer>
-      <FilterSegmentContainer>
-        <FilterItem>
+        </Styled.FilterItem>
+      </Styled.FilterSegmentContainer>
+      <Styled.FilterSegmentContainer>
+        <Styled.FilterItem>
           <label>Payment Method</label>
-          <FilterInputSelect
+          <Styled.FilterInputSelect
             value={filter.paymentMethod}
             onChange={(event) =>
               setFilter({ ...filter, paymentMethod: event.target.value })
@@ -63,34 +54,36 @@ export default function ReportFilter({ filter, setFilter, categories }) {
             <option value="">All</option>
             <option value="Cash">Cash</option>
             <option value="Card">Card</option>
-          </FilterInputSelect>
-        </FilterItem>
-      </FilterSegmentContainer>
-      <FilterSegmentContainer>
-        <FilterItem>
+          </Styled.FilterInputSelect>
+        </Styled.FilterItem>
+      </Styled.FilterSegmentContainer>
+      <Styled.FilterSegmentContainer>
+        <Styled.FilterItem>
           <label>Date Start</label>
-          <FilterInput
+          <Styled.FilterInput
             type="date"
             value={filter.dateFrom}
             onChange={(event) =>
               setFilter({ ...filter, dateFrom: event.target.value })
             }
           />
-        </FilterItem>
-        <FilterItem>
+        </Styled.FilterItem>
+        <Styled.FilterItem>
           <label>Date End</label>
-          <FilterInput
+          <Styled.FilterInput
             type="date"
             value={filter.dateTo}
             onChange={(event) =>
               setFilter({ ...filter, dateTo: event.target.value })
             }
           />
-        </FilterItem>
-        <FilterItem>
-          <FilterButton onClick={handleResetFilters}>Clear Filter</FilterButton>
-        </FilterItem>
-      </FilterSegmentContainer>
-    </FilterContainer>
+        </Styled.FilterItem>
+        <Styled.FilterItem>
+          <Styled.FilterButton onClick={handleResetFilters}>
+            Clear Filter
+          </Styled.FilterButton>
+        </Styled.FilterItem>
+      </Styled.FilterSegmentContainer>
+    </Styled.FilterContainer>
   );
 }
