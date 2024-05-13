@@ -4,7 +4,7 @@ const { default: styled } = require("styled-components");
 export const StyledDetailsContainer = styled.article`
   display: flex;
   flex-direction: column;
-  border: 1px solid;
+  
   background-color: white;
   padding: 0.5rem;
   margin: 1rem;
@@ -20,21 +20,20 @@ export const StyledDetailsContainer = styled.article`
     content: "";
     position: absolute;
     top: 2%;
-    left: 0.3rem;
+    left: 0rem;
     width: 0.8rem;
     height: 96%;
     background-color: lightblue;
-    border-radius: 1rem;
+    border-radius: 0 1rem 0 1rem;
   }
 `;
 
 export const StyledItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 0.5rem;
   font-size: 1.1rem;
-  padding: 0.3rem;
-  gap: 1.5rem;
+  padding: 0.2rem;
+  gap: 0.2rem;
 `;
 
 export const StyledButtonContainer = styled.div`
@@ -51,7 +50,7 @@ export const StyledLink = styled(Link)`
   transition: background-color 0.3s ease;
   background-color: #d7d7d7;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 50px;
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -64,7 +63,7 @@ export const StyledLink = styled(Link)`
 
 export const StyledButton = styled.button`
   padding: 0.8rem 1.5rem;
-  border-radius: 8px;
+  border-radius: 50px;
   background-color: white;
   border: none;
   color: black;
@@ -77,8 +76,11 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledLabel = styled.label`
-  color: gray;
+  color: darkgrey;
   font-size: 0.9rem;
+  font-weight: bold;
   margin-top: 0.4rem;
-  border-bottom: 1px solid lightblue;
+  margin-left: 0.1rem;
+  border-bottom: 0.2rem solid lightblue;
+  border-radius: 0.9rem 0.9rem 0.9rem 0;
 `;
