@@ -15,15 +15,15 @@ export default function AccountBalance({ transactions }) {
       .reduce((total, transaction) => total + transaction.amount, 0);
   }
 
-  const totalIncomeAmount = getTotalIncomeAmount(transactions);
-  const totalExpenseAmount = getTotalExpenseAmount(transactions);
+  const totalIncomeAmount = getTotalIncomeAmount(transactions).toFixed(2);
+  const totalExpenseAmount = getTotalExpenseAmount(transactions).toFixed(2);
   const totalBalanceAmount = totalIncomeAmount - totalExpenseAmount;
 
   return (
     <Styled.AccountBalanceCard>
       <Styled.BalanceContainer>
         <Styled.BalanceTitle>Balance</Styled.BalanceTitle>
-        <Styled.BalanceSum>{totalBalanceAmount} €</Styled.BalanceSum>
+        <Styled.BalanceSum>{totalBalanceAmount.toFixed(2)} €</Styled.BalanceSum>
       </Styled.BalanceContainer>
       <Styled.IncomeExpenseContainer>
         <Styled.TotalIncome>
