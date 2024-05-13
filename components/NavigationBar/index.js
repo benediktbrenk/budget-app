@@ -7,7 +7,7 @@ function NavigationBar() {
 
  function isActive(path) {
    if (!path) {
-     return;
+     return false;
    }
    return router.pathname === path;
  }
