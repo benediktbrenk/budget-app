@@ -28,7 +28,6 @@ export const NavContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   max-width: 700px;
-  min-height: 700px;
   gap: 3rem;
 
   @media (min-width: 1100px) {
