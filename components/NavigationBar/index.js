@@ -5,33 +5,42 @@ import { FaHouse, FaPlus, FaChartPie } from "react-icons/fa6";
 function NavigationBar() {
   const router = useRouter();
 
-  const isActive = (path) => {
-    return router.pathname === path;
-  };
+ function isActive(path) {
+   if (!path || path == undefined) {
+     return;
+   }
+   return router.pathname === path;
+ }
 
-  return (
-    <Styled.NavBar>
-      <Styled.NavContainer>
-        <Styled.NavLink onClick={() => router.push("/")} active={isActive("/")}>
-          <FaHouse />
-        </Styled.NavLink>
+ return (
+   <Styled.NavBar>
+     <Styled.NavContainer>
+       <Styled.NavLink
+         key="home"
+         onClick={() => router.push("/")}
+         active={isActive("/").toString()}
+       >
+         <FaHouse />
+       </Styled.NavLink>
 
-        <Styled.NavLink
-          onClick={() => router.push("/newentry")}
-          active={isActive("/newentry")}
-        >
-          <FaPlus />
-        </Styled.NavLink>
+       <Styled.NavLink
+         key="newentry"
+         onClick={() => router.push("/newentry")}
+         active={isActive("/newentry").toString()}
+       >
+         <FaPlus />
+       </Styled.NavLink>
 
-        <Styled.NavLink
-          onClick={() => router.push("/reports")}
-          active={isActive("/reports")}
-        >
-          <FaChartPie />
-        </Styled.NavLink>
-      </Styled.NavContainer>
-    </Styled.NavBar>
-  );
+       <Styled.NavLink
+         key="reports"
+         onClick={() => router.push("/reports")}
+         active={isActive("/reports").toString()}
+       >
+         <FaChartPie />
+       </Styled.NavLink>
+     </Styled.NavContainer>
+   </Styled.NavBar>
+ );
 }
 
 export default NavigationBar;
