@@ -6,7 +6,7 @@ function NavigationBar() {
   const router = useRouter();
 
  function isActive(path) {
-   if (!path || path == undefined) {
+   if (!path) {
      return;
    }
    return router.pathname === path;
@@ -18,7 +18,7 @@ function NavigationBar() {
        <Styled.NavLink
          key="home"
          onClick={() => router.push("/")}
-         active={isActive("/").toString()}
+         active={isActive("/")}
        >
          <FaHouse />
        </Styled.NavLink>
@@ -26,7 +26,7 @@ function NavigationBar() {
        <Styled.NavLink
          key="newentry"
          onClick={() => router.push("/newentry")}
-         active={isActive("/newentry").toString()}
+         active={isActive("/newentry")}
        >
          <FaPlus />
        </Styled.NavLink>
@@ -34,7 +34,7 @@ function NavigationBar() {
        <Styled.NavLink
          key="reports"
          onClick={() => router.push("/reports")}
-         active={isActive("/reports").toString()}
+         active={isActive("/reports")}
        >
          <FaChartPie />
        </Styled.NavLink>
