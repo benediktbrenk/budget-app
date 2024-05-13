@@ -21,6 +21,8 @@ export const globalButton = styled.button`
   border-radius: 8px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
   border: none;
+  min-height: 48px;
+  min-width: 48px;
 
   &:hover {
     background-color: ${(props) => {

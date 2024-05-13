@@ -1,3 +1,4 @@
+import GlobalButton from "../GlobalButton";
 import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
 
