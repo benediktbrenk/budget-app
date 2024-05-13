@@ -1,54 +1,57 @@
 import Link from "next/link";
 const { default: styled } = require("styled-components");
 
-export const StyledDetailsContainer = styled.article`
+export const DetailsContainer = styled.article`
   display: flex;
   flex-direction: column;
-  
-  background-color: white;
-  padding: 0.5rem;
-  margin: 1rem;
+  background-color: #f5f6f6;
+  padding: 15px 0 0 35px;
+
+  margin: 20px 0;
   border-radius: 0.75rem;
   min-width: 250px;
   max-width: 300px;
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightblue;);
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
   position: relative;
-
-  padding-left: 1rem;
 
   &:before {
     content: "";
     position: absolute;
     top: 2%;
-    left: 0rem;
-    width: 0.8rem;
+    left: 10px;
+    width: 17px;
     height: 96%;
     background-color: lightblue;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 6px;
   }
 `;
 
-export const StyledItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+export const ItemContainer = styled.div`
   font-size: 1.1rem;
-  padding: 0.2rem;
   gap: 0.2rem;
 `;
 
-export const StyledButtonContainer = styled.div`
+export const ItemText = styled.p`
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 15px;
+`;
+
+export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
-export const StyledLink = styled(Link)`
+export const EditLink = styled(Link)`
   text-decoration: none;
   color: black;
   display: flex;
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  background-color: #d7d7d7;
+  background-color: #f5f6f6;
   padding: 1rem;
   border-radius: 50px;
   background-color: white;
@@ -58,13 +61,13 @@ export const StyledLink = styled(Link)`
   &:hover {
     background-color: lightblue;
   }
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem lightblue;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 `;
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   padding: 0.8rem 1.5rem;
   border-radius: 50px;
-  background-color: white;
+  background-color: #f5f6f6;
   border: none;
   color: black;
   font-size: 1rem;
@@ -72,15 +75,15 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: red;
   }
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem red;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 `;
 
-export const StyledLabel = styled.label`
+export const Label = styled.label`
   color: darkgrey;
   font-size: 0.9rem;
+
   font-weight: bold;
-  margin-top: 0.4rem;
-  margin-left: 0.1rem;
-  border-bottom: 0.2rem solid lightblue;
-  border-radius: 0.9rem 0.9rem 0.9rem 0;
+  padding: 0 0.5rem 0 0.5rem;
+  margin-top: 0.5rem;
+  margin-right: 0.9rem;
 `;
