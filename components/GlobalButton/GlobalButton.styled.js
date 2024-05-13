@@ -18,13 +18,15 @@ export const globalButton = styled.button`
     }
   }};
   color: ${(props) => (props.textColor === "white" ? "white" : "black")};
-  font-size: larger;
+
   padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
   border: none;
   min-height: 48px;
   min-width: 48px;
+  cursor: pointer;
+  font: 600 18px var(--font-family);
 
   &:hover {
     background-color: ${(props) => {
