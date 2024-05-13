@@ -58,7 +58,7 @@ export const NavLink = styled.a`
   }
 
   ${(props) =>
-    props.$active &&
+    props.active &&
     css`
       color: #ffffff;
       background-color: #343a40;
