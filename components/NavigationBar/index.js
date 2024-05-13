@@ -12,23 +12,15 @@ function NavigationBar() {
  return (
    <Styled.NavBar>
      <Styled.NavContainer>
-       <Styled.NavLink key="home" href="/" active={isActive("/")}>
+       <Styled.NavLink href="/" $active={isActive("/")}>
          <FaHouse />
        </Styled.NavLink>
 
-       <Styled.NavLink
-         key="newentry"
-         href="/newentry"
-         active={isActive("/newentry")}
-       >
+       <Styled.NavLink href="/newentry" $active={isActive("/newentry")}>
          <FaPlus />
        </Styled.NavLink>
 
-       <Styled.NavLink
-         key="reports"
-         href="/reports"
-         active={isActive("/reports")}
-       >
+       <Styled.NavLink href="/reports" $active={isActive("/reports")}>
          <FaChartPie />
        </Styled.NavLink>
      </Styled.NavContainer>
