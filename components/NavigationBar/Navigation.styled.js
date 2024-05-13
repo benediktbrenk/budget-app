@@ -39,7 +39,7 @@ export const NavContainer = styled.div`
   }
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled(Link)`
   font-size: 2rem;
   color: #343a40;
   text-decoration: none;
