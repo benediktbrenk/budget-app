@@ -118,7 +118,7 @@ function TransactionEntryForm({
           />
         </Styled.FormField>
         <Styled.FormButton>
-          <button type="submit">Submit</button>
+          <GlobalButton type="submit" name="Submit"></GlobalButton>
         </Styled.FormButton>
       </Styled.FormContainer>
     </form>
