@@ -6,9 +6,6 @@ function NavigationBar() {
   const router = useRouter();
 
  function isActive(path) {
-   if (!path) {
-     return false;
-   }
    return router.pathname === path;
  }
 
