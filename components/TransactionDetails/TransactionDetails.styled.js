@@ -24,7 +24,7 @@ export const StyledDetailsContainer = styled.article`
     width: 0.8rem;
     height: 96%;
     background-color: lightblue;
-    border-radius: 0 1rem 0 1rem;
+    border-radius: 0 1rem 1rem 0;
   }
 `;
 
