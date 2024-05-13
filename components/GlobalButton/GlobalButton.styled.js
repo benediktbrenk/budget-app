@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const globalButton = styled.button`
   background-color: ${(props) => {
     switch (props.type) {
+      case "submit":
+        return `var(--button-submit)`;
       case "edit":
         return `var(--button-edit)`;
       case "succes":
@@ -27,6 +29,8 @@ export const globalButton = styled.button`
   &:hover {
     background-color: ${(props) => {
       switch (props.type) {
+        case "submit":
+          return `var(--button-submit)`;
         case "edit":
           return `var(--button-edit-hover)`;
         case "success":

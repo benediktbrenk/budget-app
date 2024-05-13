@@ -1,6 +1,10 @@
-// import * as Styled from "./GlobalLink.styled";
-import Link from "next/link";
+import * as Styled from "./GlobalLink.styled";
 
-export default function GlobalLink() {
-  return <Link href="/">hallo</Link>;
+export default function GlobalLink({ href, name, type }) {
+  console.log(href);
+  return (
+    <Styled.LinkButton href={href} type={type}>
+      {name}
+    </Styled.LinkButton>
+  );
 }
