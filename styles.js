@@ -26,6 +26,7 @@ export default createGlobalStyle`
 
   /* button colors */
   --button-background: lightgrey;
+  --button-submit:aqua;
   --button-edit:lightgreen;
   --button-save:lightblue;
   --button-cancel:lightcoral;
@@ -33,6 +34,7 @@ export default createGlobalStyle`
 
   /* button hover color */
   --button-hover: darkgray;
+  --button-submit-hover:aqua;
   --button-edit-hover:darkgreen;
   --button-save-hover:blue;
   --button-cancel-hover:coral;
