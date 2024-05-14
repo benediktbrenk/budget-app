@@ -2,6 +2,7 @@ import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
+import GoToTopButton from "@/components/GoToTopButton";
 
 export default function HomePage({ transactions }) {
   const [search, setSearch] = useState({
@@ -52,6 +53,7 @@ export default function HomePage({ transactions }) {
 
   return (
     <>
+      <div id="scroll-to-top" />
       <AccountBalance transactions={transactions} />
       <SearchBar
         transactions={transactions}
@@ -60,6 +62,9 @@ export default function HomePage({ transactions }) {
         isSearchEntry={isSearchEntry}
       />
       <TransactionList transactions={filteredSearch} />
+      <a href="#scroll-to-top">
+        <GoToTopButton />
+      </a>
     </>
   );
 }
