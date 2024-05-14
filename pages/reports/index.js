@@ -1,8 +1,10 @@
 import ReportFilter from "@/components/ReportFilter";
 import TabMenu from "@/components/Report";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function ReportsPage({ transactions }) {
+  const { data: session, status } = useSession();
   const categories = [
     "Groceries",
     "Salary",
@@ -38,6 +40,10 @@ export default function ReportsPage({ transactions }) {
 
     return dateMatches && paymentMethodMatches && directionExpense;
   });
+
+  if (status !== "authenticated") {
+    return <h2>Access denied!</h2>;
+  }
 
   return (
     <>

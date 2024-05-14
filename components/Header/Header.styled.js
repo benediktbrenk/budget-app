@@ -4,6 +4,9 @@ export const HeaderContainer = styled.header`
   width: 100%;
   height: 60px;
   margin-bottom: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 export const Headline = styled.h1`

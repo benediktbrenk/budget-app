@@ -2,8 +2,11 @@ import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
+import { useSession } from "next-auth/react";
 
 export default function HomePage({ transactions }) {
+  const { data: session } = useSession();
+
   const [search, setSearch] = useState({
     name: "",
     category: "",
@@ -52,14 +55,20 @@ export default function HomePage({ transactions }) {
 
   return (
     <>
-      <AccountBalance transactions={transactions} />
-      <SearchBar
-        transactions={transactions}
-        search={search}
-        onSearch={setSearch}
-        isSearchEntry={isSearchEntry}
-      />
-      <TransactionList transactions={filteredSearch} />
+      {session ? (
+        <>
+          <AccountBalance transactions={transactions} />
+          <SearchBar
+            transactions={transactions}
+            search={search}
+            onSearch={setSearch}
+            isSearchEntry={isSearchEntry}
+          />
+          <TransactionList transactions={filteredSearch} />
+        </>
+      ) : (
+        <h2>Login and check your Budget!</h2>
+      )}
     </>
   );
 }
