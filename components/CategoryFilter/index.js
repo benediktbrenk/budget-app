@@ -7,6 +7,7 @@ export default function CategoryFilter({ onSearch, search }) {
 			{categories.map((category) => (
 				<Styled.FilterButton
 					key={category}
+					active={search.category === category}
 					category={category}
 					onClick={() => onSearch({ ...search, category: category })}
 				>
