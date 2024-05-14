@@ -53,7 +53,6 @@ export default function HomePage({ transactions }) {
 
   return (
     <>
-      <div id="scroll-to-top" />
       <AccountBalance transactions={transactions} />
       <SearchBar
         transactions={transactions}

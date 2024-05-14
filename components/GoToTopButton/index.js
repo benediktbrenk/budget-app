@@ -13,7 +13,7 @@ export default function GoToTopButton() {
 
       const scrollPercentage = (scrolled / (fullHeight - windowHeight)) * 100;
 
-      setShowButton(scrollPercentage >= 10);
+      setShowButton(scrollPercentage >= 15);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -29,5 +29,3 @@ export default function GoToTopButton() {
     </Styled.IconButton>
   );
 }
-
-// style={{ display: showButton ? "" : "none" }}
