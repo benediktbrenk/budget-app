@@ -6,7 +6,7 @@ function TransactionCard({ transaction, deleteTransaction }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <Styled.CardContainer key={transaction._id}>
+    <Styled.CardContainer key={transaction._id} category={transaction.category}>
       <ModalDelete
         showModal={showModal}
         setShowModal={setShowModal}
@@ -16,7 +16,9 @@ function TransactionCard({ transaction, deleteTransaction }) {
 
       <Styled.ColorField category={transaction.category}></Styled.ColorField>
       <Styled.ContentContainer>
-        <Styled.TransactionName>{transaction.name}</Styled.TransactionName>
+        <Styled.TextLink href={`/details/${transaction._id}`}>
+          <Styled.TransactionName>{transaction.name}</Styled.TransactionName>
+        </Styled.TextLink>
         <Styled.TransactionDate>{transaction.date}</Styled.TransactionDate>
         <Styled.ActionLinkContainer>
           <Styled.ActionLink href={`/details/${transaction._id}`}>
@@ -28,19 +30,15 @@ function TransactionCard({ transaction, deleteTransaction }) {
           <Styled.ActionButton onClick={() => setShowModal(true)}>
             <Styled.ActionDelete />
           </Styled.ActionButton>
-          <Styled.TransactionAmount direction={transaction.direction}>
-            {transaction.direction === "Expense" ? "- " : "+ "}
-            {transaction.amount}
-            {transaction.currency}
-          </Styled.TransactionAmount>
+          <Styled.AmountLink href={`/details/${transaction._id}`}>
+            <Styled.TransactionAmount direction={transaction.direction}>
+              {transaction.direction === "Expense" ? "- " : "+ "}
+              {transaction.amount}
+              {transaction.currency}
+            </Styled.TransactionAmount>
+          </Styled.AmountLink>
         </Styled.ActionLinkContainer>
       </Styled.ContentContainer>
-
-      <Styled.TransactionAmount direction={transaction.direction}>
-        {transaction.direction === "Expense" ? "- " : "+ "}
-        {transaction.amount}
-        {transaction.currency}
-      </Styled.TransactionAmount>
     </Styled.CardContainer>
   );
 }

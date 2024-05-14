@@ -49,7 +49,7 @@ function TransactionList({ transactions, deleteTransaction }) {
                   <Styled.TransactionList>
                     {transactionsPerMonth.transactions.map((transaction) => (
                       <TransactionCard
-                        key={transaction.id}
+                        key={transaction._id}
                         transaction={transaction}
                         deleteTransaction={deleteTransaction}
                       />

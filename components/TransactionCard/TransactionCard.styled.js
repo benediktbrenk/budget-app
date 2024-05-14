@@ -4,22 +4,35 @@ import { TiEdit } from "react-icons/ti";
 import { IoInformationCircleOutline } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
 
-export const CardLink = styled(Link)`
-  text-decoration: none;
+export const CardContainer = styled.li`
+  border: 0.5px solid lightgrey;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
-  padding: 1rem;
   border-radius: 8px;
-  color: black;
-`;
-
-export const CardContainer = styled.li`
-  list-style: none;
+  background-color: ${(props) => {
+    switch (props.category) {
+      case "Groceries":
+        return "var(--groceries-color-soft)";
+      case "Housing":
+        return "var(--housing-color-soft)";
+      case "Salary":
+        return "var(--salary-color-soft)";
+      case "Insurance":
+        return "var(--insurance-color-soft)";
+      case "Utilities":
+        return "var(--utilities-color-soft)";
+      default:
+        return "#CCCCCC";
+    }
+  }};
 `;
 
 export const ColorField = styled.div`
-  height: 2rem;
+  height: 65px;
   width: 0.5rem;
   border-radius: 3px;
   background-color: ${(props) => {
@@ -44,7 +57,13 @@ export const ContentContainer = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
+  padding-left: 10px;
   gap: 0.2rem;
+`;
+
+export const TextLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 export const TransactionName = styled.p`
@@ -102,8 +121,13 @@ export const ActionDelete = styled(FaRegTrashCan)`
   width: 21px;
 `;
 
-export const TransactionAmount = styled.p`
+export const AmountLink = styled(Link)`
   flex: 1;
+  text-decoration: none;
+  color: black;
+`;
+
+export const TransactionAmount = styled.p`
   color: ${(props) => {
     return props.direction === "Income"
       ? "var(--amount-color-green)"
