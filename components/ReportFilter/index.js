@@ -1,7 +1,7 @@
 import CategoryFilter from "../CategoryFilter";
 import * as Styled from "./ReportFilter.styled";
 
-export default function ReportFilter({ filter, setFilter, categories }) {
+export default function ReportFilter({ filter, setFilter }) {
 	function handleResetFilters() {
 		setFilter({
 			categories: [],
@@ -29,20 +29,6 @@ export default function ReportFilter({ filter, setFilter, categories }) {
 		<Styled.FilterContainer>
 			<Styled.FilterSegmentContainer style={{ "--flex-direction": "column" }}>
 				<CategoryFilter search={filter} onClick={handleToggleOption} />
-				<label>Category</label>
-				<Styled.FilterItem style={{ "--flex-direction": "row" }}>
-					{categories.map((category) => (
-						<label key={category}>
-							<Styled.FilterInputCheckbox
-								type="checkbox"
-								value={category}
-								checked={filter.categories.includes(category)}
-								onChange={() => handleToggleOption(category)}
-							/>
-							{category}
-						</label>
-					))}
-				</Styled.FilterItem>
 			</Styled.FilterSegmentContainer>
 			<Styled.FilterSegmentContainer>
 				<Styled.FilterItem>
