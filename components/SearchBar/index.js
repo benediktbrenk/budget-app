@@ -37,7 +37,6 @@ function SearchBar({ search, onSearch }) {
 
 	return (
 		<Styled.SearchContainer>
-			<CategoryFilter></CategoryFilter>
 			<Styled.SearchAndFilter>
 				<Styled.SearchInput
 					type="search"
@@ -55,26 +54,10 @@ function SearchBar({ search, onSearch }) {
 					<FaSliders />
 				</Styled.FilterButton>
 			</Styled.SearchAndFilter>
+			<CategoryFilter onSearch={onSearch} search={search} />
 			{isFilter && (
 				<Styled.FilterBox>
 					<Styled.FilterContainer>
-						<Styled.FilterItem>
-							<label for="category">Category</label>
-							<Styled.SearchInputSelect
-								value={search.category}
-								id="category"
-								onChange={(event) =>
-									onSearch({ ...search, category: event.target.value })
-								}
-							>
-								<option value="">All</option>
-								<option value="Groceries">Groceries</option>
-								<option value="Housing">Housing</option>
-								<option value="Insurance">Insurance</option>
-								<option value="Salary">Salary</option>
-								<option value="Utilities">Utilities</option>
-							</Styled.SearchInputSelect>
-						</Styled.FilterItem>
 						<Styled.FilterItem>
 							<label for="direction">Direction</label>
 							<Styled.SearchInputSelect
