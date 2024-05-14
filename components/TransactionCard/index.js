@@ -2,20 +2,9 @@ import React, { useState } from "react";
 import * as Styled from "./TransactionCard.styled";
 import ModalDelete from "../ModalDelete";
 
-function TransactionCard({ transaction }) {
+function TransactionCard({ transaction, deleteTransaction }) {
   const [showModal, setShowModal] = useState(false);
-  async function deleteTransaction(id) {
-    const response = await fetch(`/api/transactions/${id}`, {
-      method: "DELETE",
-    });
 
-    if (!response.ok) {
-      console.error(response.status);
-      return;
-    }
-    mutate();
-    router.push("/");
-  }
   return (
     <Styled.CardContainer key={transaction._id}>
       <ModalDelete

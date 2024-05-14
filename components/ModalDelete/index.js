@@ -4,10 +4,9 @@ import {
   ModalContent,
   ModalTitle,
   ModalButton,
-  HiddenModal,
 } from "./ModalDelete.styled.js";
 
-function ModalDelete({ showModal, setShowModal, id }) {
+function ModalDelete({ showModal, setShowModal, id, deleteTransaction }) {
   function handleDelete() {
     deleteTransaction(id);
     setShowModal(false);
@@ -19,12 +18,10 @@ function ModalDelete({ showModal, setShowModal, id }) {
         <ModalContainer>
           <ModalContent>
             <ModalTitle>Do you really want to delete?</ModalTitle>
-            <ModalButton onClick={() => setShowModal(false)} className="cancel">
+            <ModalButton onClick={() => setShowModal(false)}>
               Cancel
             </ModalButton>
-            <ModalButton onClick={handleDelete} className="delete">
-              Delete
-            </ModalButton>
+            <ModalButton onClick={handleDelete}>Delete</ModalButton>
           </ModalContent>
         </ModalContainer>
       )}

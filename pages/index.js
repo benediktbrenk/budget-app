@@ -3,7 +3,7 @@ import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
 
-export default function HomePage({ transactions }) {
+export default function HomePage({ transactions, deleteTransaction }) {
   const [search, setSearch] = useState({
     name: "",
     category: "",
@@ -59,7 +59,10 @@ export default function HomePage({ transactions }) {
         onSearch={setSearch}
         isSearchEntry={isSearchEntry}
       />
-      <TransactionList transactions={filteredSearch} />
+      <TransactionList
+        transactions={filteredSearch}
+        deleteTransaction={deleteTransaction}
+      />
     </>
   );
 }
