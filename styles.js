@@ -25,12 +25,12 @@ export default createGlobalStyle`
   --amount-color-green: #06D6A0;
 
   /* button colors */
-  --button-background: lightgrey;
+  --button: lightgrey;
   --button-submit:aqua;
   --button-edit:lightgreen;
   --button-save:lightblue;
   --button-cancel:lightcoral;
-  --button-delete:red;
+  --button-danger:red;
 
   /* button hover color */
   --button-hover: darkgray;
@@ -38,7 +38,7 @@ export default createGlobalStyle`
   --button-edit-hover:darkgreen;
   --button-save-hover:blue;
   --button-cancel-hover:coral;
-  --button-delete-hover:darkred;
+  --button-danger-hover:darkred;
 
 
     /* Font styles */

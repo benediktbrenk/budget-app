@@ -1,4 +1,4 @@
-import GlobalButton from "../GlobalButton";
+import GlobalButton from "../Button";
 import * as Styled from "./ReportFilter.styled";
 
 export default function ReportFilter({ filter, setFilter, categories }) {

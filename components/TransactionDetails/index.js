@@ -1,7 +1,6 @@
-import GlobalButton from "../GlobalButton";
-import GlobalLink from "../GlobalLink";
+import { Button } from "../Button/Button.styled";
+import { StyledLink } from "../Link/Link.styled";
 import * as Styled from "./TransactionDetails.styled";
-
 import { useState } from "react";
 
 export default function TransactionDetails({
@@ -33,14 +32,15 @@ export default function TransactionDetails({
           </Styled.ItemContainer>
         </Styled.DetailsContainer>
         <Styled.ButtonContainer>
-          <GlobalButton
+          <Button
             onClick={() => setIsDeleteMode(!isDeleteMode)}
-            name="Delete"
-            type="danger"
-            textColor="white"
-          />
+            $type="danger"
+            $textColor="white"
+          >
+            Delete
+          </Button>
 
-          <GlobalLink href={`/edit/${currentTransaction._id}`} name="Edit" />
+          <StyledLink href={`/edit/${currentTransaction._id}`}>Edit</StyledLink>
         </Styled.ButtonContainer>
       </article>
       {isDeleteMode && (
@@ -50,16 +50,16 @@ export default function TransactionDetails({
             <p>Are you sure?</p>
           </Styled.ItemContainer>
           <Styled.ButtonContainer>
-            <GlobalButton
-              onClick={() => setIsDeleteMode(!isDeleteMode)}
-              name="Cancel"
-            />
-            <GlobalButton
+            <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
+              Cancel
+            </Button>
+            <Button
               onClick={() => deleteTransaction(currentTransaction._id)}
-              name="Delete"
-              type="danger"
-              textColor="white"
-            />
+              $type="danger"
+              $textColor="white"
+            >
+              Delete
+            </Button>
           </Styled.ButtonContainer>
         </article>
       )}
