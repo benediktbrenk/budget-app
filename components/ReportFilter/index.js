@@ -1,4 +1,4 @@
-import GlobalButton from "../Button";
+import { Button } from "../Button/Button.styled";
 import * as Styled from "./ReportFilter.styled";
 
 export default function ReportFilter({ filter, setFilter, categories }) {
@@ -80,7 +80,7 @@ export default function ReportFilter({ filter, setFilter, categories }) {
           />
         </Styled.FilterItem>
         <Styled.FilterItem>
-          <GlobalButton onClick={handleResetFilters} name="Clear Filter" />
+          <Button onClick={handleResetFilters}>Clear Filter</Button>
         </Styled.FilterItem>
       </Styled.FilterSegmentContainer>
     </Styled.FilterContainer>
