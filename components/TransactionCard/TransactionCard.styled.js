@@ -84,6 +84,7 @@ export const ActionButton = styled.button`
   border: none;
   background-color: transparent;
   padding: 0;
+  cursor: pointer;
 `;
 
 export const ActionInfo = styled(IoInformationCircleOutline)`

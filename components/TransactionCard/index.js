@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Styled from "./TransactionCard.styled";
+import ModalDelete from "../ModalDelete";
 
 function TransactionCard({ transaction }) {
+  const [showModal, setShowModal] = useState(false);
+  async function deleteTransaction(id) {
+    const response = await fetch(`/api/transactions/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+    mutate();
+    router.push("/");
+  }
   return (
     <Styled.CardContainer key={transaction._id}>
+      <ModalDelete
+        showModal={showModal}
+        setShowModal={setShowModal}
+        deleteTransaction={deleteTransaction}
+        id={transaction._id}
+      ></ModalDelete>
+
       <Styled.ColorField category={transaction.category}></Styled.ColorField>
       <Styled.ContentContainer>
         <Styled.TransactionName>{transaction.name}</Styled.TransactionName>
@@ -15,7 +36,7 @@ function TransactionCard({ transaction }) {
           <Styled.ActionLink href={`/edit/${transaction._id}`}>
             <Styled.ActionDetails />
           </Styled.ActionLink>
-          <Styled.ActionButton>
+          <Styled.ActionButton onClick={() => setShowModal(true)}>
             <Styled.ActionDelete />
           </Styled.ActionButton>
           <Styled.TransactionAmount direction={transaction.direction}>
