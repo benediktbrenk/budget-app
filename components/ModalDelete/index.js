@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ModalContainer,
-  ModalContent,
-  ModalTitle,
-  ModalButton,
-} from "./ModalDelete.styled.js";
+import * as Styled from "./ModalDelete.styled.js";
 
 function ModalDelete({ showModal, setShowModal, id, deleteTransaction }) {
   function handleDelete() {
@@ -15,15 +10,17 @@ function ModalDelete({ showModal, setShowModal, id, deleteTransaction }) {
   return (
     <div>
       {showModal && (
-        <ModalContainer>
-          <ModalContent>
-            <ModalTitle>Do you really want to delete?</ModalTitle>
-            <ModalButton onClick={() => setShowModal(false)}>
+        <Styled.ModalContainer>
+          <Styled.ModalContent>
+            <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
+            <Styled.ModalButton onClick={() => setShowModal(false)}>
               Cancel
-            </ModalButton>
-            <ModalButton onClick={handleDelete}>Delete</ModalButton>
-          </ModalContent>
-        </ModalContainer>
+            </Styled.ModalButton>
+            <Styled.ModalButton onClick={handleDelete}>
+              Delete
+            </Styled.ModalButton>
+          </Styled.ModalContent>
+        </Styled.ModalContainer>
       )}
     </div>
   );
