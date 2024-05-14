@@ -1,7 +1,7 @@
 import * as Styled from "./CategoryFilter.styled";
 import { categories } from "@/utils/categories";
 
-export default function CategoryFilter({ onSearch, search }) {
+export default function CategoryFilter({ search, onClick }) {
 	return (
 		<Styled.CategoryFilterContainer>
 			{categories.map((category) => (
@@ -9,7 +9,7 @@ export default function CategoryFilter({ onSearch, search }) {
 					key={category}
 					active={search.category === category}
 					category={category}
-					onClick={() => onSearch({ ...search, category: category })}
+					onClick={() => onClick(category)}
 				>
 					{category}
 				</Styled.FilterButton>

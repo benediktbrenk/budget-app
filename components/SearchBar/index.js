@@ -3,7 +3,7 @@ import * as Styled from "./SearchBar.styled";
 import { FaArrowsRotate, FaSliders } from "react-icons/fa6";
 import CategoryFilter from "../CategoryFilter";
 
-function SearchBar({ search, onSearch }) {
+function SearchBar({ search, onSearch, handleCategoryFilter }) {
 	const [searchNameValue, setSearchNameValue] = useState(search.name);
 	const [isFilter, setIsFilter] = useState(false);
 
@@ -54,7 +54,7 @@ function SearchBar({ search, onSearch }) {
 					<FaSliders />
 				</Styled.FilterButton>
 			</Styled.SearchAndFilter>
-			<CategoryFilter onSearch={onSearch} search={search} />
+			<CategoryFilter search={search} onClick={handleCategoryFilter} />
 			{isFilter && (
 				<Styled.FilterBox>
 					<Styled.FilterContainer>
