@@ -6,7 +6,6 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 export const CardContainer = styled.li`
   border: 0.5px solid lightgrey;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin: 10px;
   list-style: none;
@@ -14,21 +13,21 @@ export const CardContainer = styled.li`
   flex-direction: row;
   border-radius: 8px;
   background-color: ${(props) => {
-    switch (props.category) {
-      case "Groceries":
-        return "var(--groceries-color-soft)";
-      case "Housing":
-        return "var(--housing-color-soft)";
-      case "Salary":
-        return "var(--salary-color-soft)";
-      case "Insurance":
-        return "var(--insurance-color-soft)";
-      case "Utilities":
-        return "var(--utilities-color-soft)";
-      default:
-        return "#CCCCCC";
-    }
-  }};
+		switch (props.category) {
+			case "Groceries":
+				return "var(--groceries-color-soft)";
+			case "Housing":
+				return "var(--housing-color-soft)";
+			case "Salary":
+				return "var(--salary-color-soft)";
+			case "Insurance":
+				return "var(--insurance-color-soft)";
+			case "Utilities":
+				return "var(--utilities-color-soft)";
+			default:
+				return "#CCCCCC";
+		}
+	}};
 `;
 
 export const ColorField = styled.div`
@@ -36,21 +35,21 @@ export const ColorField = styled.div`
   width: 0.5rem;
   border-radius: 3px;
   background-color: ${(props) => {
-    switch (props.category) {
-      case "Groceries":
-        return "var(--groceries-color)";
-      case "Housing":
-        return "var(--housing-color)";
-      case "Salary":
-        return "var(--salary-color)";
-      case "Insurance":
-        return "var(--insurance-color)";
-      case "Utilities":
-        return "var(--utilities-color)";
-      default:
-        return "#CCCCCC";
-    }
-  }};
+		switch (props.category) {
+			case "Groceries":
+				return "var(--groceries-color)";
+			case "Housing":
+				return "var(--housing-color)";
+			case "Salary":
+				return "var(--salary-color)";
+			case "Insurance":
+				return "var(--insurance-color)";
+			case "Utilities":
+				return "var(--utilities-color)";
+			default:
+				return "#CCCCCC";
+		}
+	}};
 `;
 
 export const ContentContainer = styled.div`
@@ -129,10 +128,10 @@ export const AmountLink = styled(Link)`
 
 export const TransactionAmount = styled.p`
   color: ${(props) => {
-    return props.direction === "Income"
-      ? "var(--amount-color-green)"
-      : "var(--amount-color-red)";
-  }};
+		return props.direction === "Income"
+			? "var(--amount-color-green)"
+			: "var(--amount-color-red)";
+	}};
   margin: 0;
   font: 600 16px/18px var(--font-family);
   text-align: right;
