@@ -11,8 +11,8 @@ export default function CategoryFilter({ search, onClick }) {
       {categories.map((category) => (
         <Styled.FilterButton
           key={category}
-          active={activeCategories.includes(category)}
-          category={category}
+          $active={activeCategories.includes(category)}
+          $category={category}
           onClick={() => onClick(category)}
         >
           {category}
