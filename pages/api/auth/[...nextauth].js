@@ -17,11 +17,11 @@ export const authOptions = {
       },
       async authorize(credentials) {
         if (
-          credentials.username === "fisch" &&
-          credentials.password === "fisch"
+          credentials.username === "test" &&
+          credentials.password === "test"
         ) {
           return {
-            name: "Neuer Fisch",
+            name: "Neuer User",
             email: "test@example.com",
           };
         } else {

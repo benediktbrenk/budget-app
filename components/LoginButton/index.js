@@ -1,19 +1,19 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import { SignItemContainer, SignLink } from "./LoginButton.styled";
+import { SignButton, SignItemContainer, SignLink } from "./LoginButton.styled";
 export default function LoginButton() {
   const { data: session } = useSession();
   if (session) {
     return (
       <>
         Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
+        <SignButton onClick={() => signOut()}>Sign out</SignButton>
       </>
     );
   }
   return (
     <SignItemContainer>
       <p>Not signed in</p>
-      <button onClick={() => signIn()}>Login</button>
+      <SignButton onClick={() => signIn()}>Login</SignButton>
       {/* <SignLink href="/register">Register</SignLink> */}
     </SignItemContainer>
   );
