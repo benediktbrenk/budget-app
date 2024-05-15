@@ -5,6 +5,7 @@ import NavigationBar from "@/components/NavigationBar";
 export default function Layout({ children }) {
   return (
     <>
+      <div id="scroll-to-top" />
       <Header />
       <Main>{children}</Main>
       <NavigationBar />
