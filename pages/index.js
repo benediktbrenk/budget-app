@@ -3,6 +3,7 @@ import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
 import { useSession } from "next-auth/react";
+import { SectionContainer } from "./Homepage.styled";
 
 export default function HomePage({ transactions }) {
   const { data: session } = useSession();
@@ -57,6 +58,7 @@ export default function HomePage({ transactions }) {
     <>
       {session ? (
         <>
+          {/* <h5>Hello {session.user.name}</h5> */}
           <AccountBalance transactions={transactions} />
           <SearchBar
             transactions={transactions}
@@ -67,7 +69,19 @@ export default function HomePage({ transactions }) {
           <TransactionList transactions={filteredSearch} />
         </>
       ) : (
-        <h2>Login and check your Budget!</h2>
+        <SectionContainer>
+          <h2>Login and check your Budget!</h2>
+          <p>This way you can keep an eye on your finances</p>
+          <span>
+            <p>Try our Test Account:</p>
+            <p>
+              <strong>username:</strong> user
+            </p>
+            <p>
+              <strong>password:</strong> user
+            </p>
+          </span>
+        </SectionContainer>
       )}
     </>
   );

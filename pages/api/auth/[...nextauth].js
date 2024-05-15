@@ -5,10 +5,10 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
-    GithubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
+    // GithubProvider({
+    //   clientId: process.env.GITHUB_ID,
+    //   clientSecret: process.env.GITHUB_SECRET,
+    // }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -17,12 +17,20 @@ export const authOptions = {
       },
       async authorize(credentials) {
         if (
-          credentials.username === "test" &&
-          credentials.password === "test"
+          credentials.username === "fisch" &&
+          credentials.password === "fisch"
         ) {
           return {
-            name: "Neuer User",
+            name: "Max",
             email: "test@example.com",
+          };
+        } else if (
+          credentials.username === "user" &&
+          credentials.password === "user"
+        ) {
+          return {
+            name: "User",
+            email: "user@example.com",
           };
         } else {
           return null;

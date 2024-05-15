@@ -75,15 +75,13 @@ export default function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>
           <Layout>
-            <Auth>
-              <Component
-                {...pageProps}
-                transactions={data}
-                deleteTransaction={deleteTransaction}
-                handleAddTransaction={handleAddTransaction}
-                handleEditTransaction={handleEditTransaction}
-              />
-            </Auth>
+            <Component
+              {...pageProps}
+              transactions={data}
+              deleteTransaction={deleteTransaction}
+              handleAddTransaction={handleAddTransaction}
+              handleEditTransaction={handleEditTransaction}
+            />
           </Layout>
         </SWRConfig>
       </SessionProvider>

@@ -1,9 +1,20 @@
 import dbConnect from "@/db/connect.js";
 import Transaction from "@/db/models/Transaction";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(request, response) {
+  const session = await getServerSession(request, response, authOptions);
+  if (!session) {
+    return response.status(401).json({ status: "Not authorized" });
+  }
+
   await dbConnect();
   const { id } = request.query;
+
+  if (!id) {
+    return;
+  }
 
   try {
     if (request.method === "GET") {
