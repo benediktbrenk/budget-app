@@ -3,29 +3,31 @@ import * as Styled from "./GoToTopButton.styled";
 import { FaAnglesUp } from "react-icons/fa6";
 
 export default function GoToTopButton() {
-  const [showButton, setShowButton] = useState(false);
+	const [showButton, setShowButton] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const fullHeight = document.body.scrollHeight;
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrolled = window.scrollY;
+			const windowHeight = window.innerHeight;
+			const fullHeight = document.body.scrollHeight;
 
-      const scrollPercentage = (scrolled / (fullHeight - windowHeight)) * 100;
+			const scrollPercentage = (scrolled / (fullHeight - windowHeight)) * 100;
 
-      setShowButton(scrollPercentage >= 15);
-    };
+			setShowButton(scrollPercentage >= 15);
+		};
 
-    window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [showButton]);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, [showButton]);
 
-  return (
-    <Styled.IconButton showButton={showButton}>
-      <FaAnglesUp />
-    </Styled.IconButton>
-  );
+	return (
+		<a href="#scroll-to-top">
+			<Styled.IconButton showButton={showButton}>
+				<FaAnglesUp />
+			</Styled.IconButton>
+		</a>
+	);
 }

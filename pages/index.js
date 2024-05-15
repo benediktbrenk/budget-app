@@ -6,18 +6,18 @@ import { useSession } from "next-auth/react";
 import { SectionContainer } from "./Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
 
-export default function HomePage({ transactions }) {
-  const { data: session } = useSession();
+export default function HomePage({ transactions, deleteTransaction }) {
+	const [search, setSearch] = useState({
+		name: "",
+		category: "",
+		direction: "",
+		dateFrom: "",
+		dateTo: "",
+		amountFrom: "",
+		amountTo: "",
+	});
 
-  const [search, setSearch] = useState({
-    name: "",
-    category: "",
-    direction: "",
-    dateFrom: "",
-    dateTo: "",
-    amountFrom: "",
-    amountTo: "",
-  });
+  const { data: session } = useSession();
 
   const isSearchEntry = Object.values(search).some((value) => value !== "");
 
@@ -67,6 +67,9 @@ export default function HomePage({ transactions }) {
             isSearchEntry={isSearchEntry}
           />
           <TransactionList transactions={filteredSearch} />
+          <a href="#scroll-to-top">
+            <GoToTopButton />
+          </a>
         </>
       ) : (
         <SectionContainer>

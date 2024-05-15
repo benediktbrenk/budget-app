@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
 import * as Styled from "@/components/Main/Main.styled";
