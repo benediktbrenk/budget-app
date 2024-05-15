@@ -1,7 +1,7 @@
 import * as Styled from "./Header.styled";
 import Image from "next/image";
 
-function Header({ title }) {
+export default function Header() {
   return (
     <Styled.HeaderContainer>
       <Image
@@ -14,5 +14,3 @@ function Header({ title }) {
     </Styled.HeaderContainer>
   );
 }
-
-export default Header;

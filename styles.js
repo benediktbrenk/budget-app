@@ -16,8 +16,9 @@ export default createGlobalStyle`
   :root {
 
     /* Header */
---header-background: rgb(174 174 178);
---header-textColor:black;
+--header-background-color-1: #6CB9D0;
+--header-background-color-2: #8AC6D1;
+--header-textColor: black;
 
     /* Color styles */
   --groceries-color: #FFB6C1;
