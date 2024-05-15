@@ -11,6 +11,7 @@ export const CategoryFilterContainer = styled.div`
     calc(100% - ${doubledBorder}),
     calc(${minimalDeviceWidth} - ${doubledBorder})
   );
+  gap: 10px;
 `;
 
 export const FilterButton = styled.button`
@@ -35,13 +36,12 @@ export const FilterButton = styled.button`
         return "#CCCCCC";
     }
   }};
-  margin-right: 10px;
   
   ${(props) =>
     props.active &&
     css`
       outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
     `}
 
   &:hover {
