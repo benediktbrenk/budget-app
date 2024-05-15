@@ -58,8 +58,8 @@ export const NavLink = styled(Link)`
   }
 
   ${(props) =>
-		props.$active &&
-		css`
+    props.$active &&
+    css`
       color: #ffffff;
       background-color: #343a40;
       border-radius: 6px;
