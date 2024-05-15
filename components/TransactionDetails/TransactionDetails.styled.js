@@ -1,4 +1,3 @@
-import Link from "next/link";
 const { default: styled } = require("styled-components");
 
 export const DetailsContainer = styled.article`
@@ -42,40 +41,6 @@ export const ItemText = styled.p`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-export const EditLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: #f5f6f6;
-  padding: 1rem;
-  border-radius: 50px;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  &:hover {
-    background-color: lightblue;
-  }
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
-`;
-
-export const Button = styled.button`
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  background-color: #f5f6f6;
-  border: none;
-  color: black;
-  font-size: 1rem;
-  cursor: pointer;
-  &:hover {
-    background-color: red;
-  }
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 `;
 
 export const Label = styled.label`

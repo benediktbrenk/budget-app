@@ -1,4 +1,5 @@
 import CategoryFilter from "../CategoryFilter";
+import { Button } from "../Button/Button.styled";
 import * as Styled from "./ReportFilter.styled";
 
 export default function ReportFilter({ filter, setFilter }) {
@@ -67,9 +68,7 @@ export default function ReportFilter({ filter, setFilter }) {
           />
         </Styled.FilterItem>
         <Styled.FilterItem>
-          <Styled.FilterButton onClick={handleResetFilters}>
-            Clear Filter
-          </Styled.FilterButton>
+          <Button onClick={handleResetFilters}>Clear Filter</Button>
         </Styled.FilterItem>
       </Styled.FilterSegmentContainer>
     </Styled.FilterContainer>
