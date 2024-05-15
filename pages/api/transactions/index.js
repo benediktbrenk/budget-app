@@ -14,7 +14,6 @@ export default async function handler(request, response) {
       await Transaction.create(transactionData);
       return response.status(201).json({ status: "Transaction added." });
     }
-    
   } catch (error) {
     console.error("Error fetching transactions:", error.message);
     return response.status(400).json({ error: "Internal Server Error" });

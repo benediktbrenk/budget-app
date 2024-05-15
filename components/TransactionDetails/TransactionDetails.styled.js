@@ -87,4 +87,3 @@ export const Label = styled.label`
   margin-top: 0.5rem;
   margin-right: 0.9rem;
 `;
-

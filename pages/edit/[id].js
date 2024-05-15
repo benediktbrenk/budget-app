@@ -10,7 +10,7 @@ export default function EditPage({ handleEditTransaction, transactions }) {
   }
 
   const currentTransaction = transactions.find(
-    (transaction) => transaction._id === id
+    (transaction) => transaction._id === id,
   );
 
   if (!currentTransaction) {

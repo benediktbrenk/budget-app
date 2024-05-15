@@ -20,26 +20,26 @@ export const FilterButton = styled.button`
   height: 60px;
   width: 70px;
   background-color: ${(props) => {
-		switch (props.category) {
-			case "Groceries":
-				return "var(--groceries-color)";
-			case "Housing":
-				return "var(--housing-color)";
-			case "Salary":
-				return "var(--salary-color)";
-			case "Insurance":
-				return "var(--insurance-color)";
-			case "Utilities":
-				return "var(--utilities-color)";
-			default:
-				return "#CCCCCC";
-		}
-	}};
+    switch (props.category) {
+      case "Groceries":
+        return "var(--groceries-color)";
+      case "Housing":
+        return "var(--housing-color)";
+      case "Salary":
+        return "var(--salary-color)";
+      case "Insurance":
+        return "var(--insurance-color)";
+      case "Utilities":
+        return "var(--utilities-color)";
+      default:
+        return "#CCCCCC";
+    }
+  }};
   margin-right: 10px;
   
   ${(props) =>
-		props.active &&
-		css`
+    props.active &&
+    css`
       outline: none;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
     `}
