@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button.styled";
 import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
 import React from "react";
@@ -136,13 +137,12 @@ function TransactionEntryForm({
             defaultValue={mode === "add" ? "" : currentTransaction.description}
           />
         </Styled.FormField>
-          </Styled.FormContainer>
-          <Styled.FormButton>
-            <Styled.EditButton type="submit">Edit</Styled.EditButton>
-            <Styled.CancelButton onClick={handleBack}>Cancel</Styled.CancelButton>
-          </Styled.FormButton>
-        </form>
-      </div>
+        <Styled.FormButton>
+          <Button $type="submit">Submit</Button>
+        </Styled.FormButton>
+      </Styled.FormContainer>
+    </form>
+    </div>
     </>
   );
 }

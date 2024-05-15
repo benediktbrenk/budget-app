@@ -1,5 +1,6 @@
+import { Button } from "../Button/Button.styled";
+import { StyledLink } from "../Link/Link.styled";
 import * as Styled from "./TransactionDetails.styled";
-import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function TransactionDetails({
@@ -31,13 +32,15 @@ export default function TransactionDetails({
           </Styled.ItemContainer>
         </Styled.DetailsContainer>
         <Styled.ButtonContainer>
-          <Styled.Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
+          <Button
+            onClick={() => setIsDeleteMode(!isDeleteMode)}
+            $type="danger"
+            $textColor="white"
+          >
             Delete
-          </Styled.Button>
+          </Button>
 
-          <Styled.EditLink href={`/edit/${currentTransaction._id}`}>
-            Edit Entry
-          </Styled.EditLink>
+          <StyledLink href={`/edit/${currentTransaction._id}`}>Edit</StyledLink>
         </Styled.ButtonContainer>
       </article>
       {isDeleteMode && (
@@ -47,14 +50,16 @@ export default function TransactionDetails({
             <p>Are you sure?</p>
           </Styled.ItemContainer>
           <Styled.ButtonContainer>
-            <Styled.Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
+            <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
               Cancel
-            </Styled.Button>
-            <Styled.Button
+            </Button>
+            <Button
               onClick={() => deleteTransaction(currentTransaction._id)}
+              $type="danger"
+              $textColor="white"
             >
               Delete
-            </Styled.Button>
+            </Button>
           </Styled.ButtonContainer>
         </article>
       )}
