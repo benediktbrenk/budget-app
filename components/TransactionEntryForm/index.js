@@ -3,16 +3,14 @@ import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
 import React from "react";
 
-function TransactionEntryForm({
+export default function TransactionEntryForm({
   updateTransactions,
   id,
   currentTransaction,
   mode,
 }) {
 
-  
   const router = useRouter();
-
   
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -146,5 +144,3 @@ function TransactionEntryForm({
     </>
   );
 }
-
-export default TransactionEntryForm;
