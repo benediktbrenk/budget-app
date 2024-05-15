@@ -24,12 +24,12 @@ export default function TransactionDetailsPage({
 
   return (
     <>
-      <Header title="Details"></Header>
+      <Header title="Details" />
       <Styled.Main>
         <TransactionDetails
           currentTransaction={currentTransaction}
           deleteTransaction={() => deleteTransaction(id)}
-        ></TransactionDetails>
+        />
       </Styled.Main>
     </>
   );

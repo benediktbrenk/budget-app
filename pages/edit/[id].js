@@ -23,6 +23,6 @@ export default function EditPage({ handleEditTransaction, transactions }) {
       currentTransaction={currentTransaction}
       id={id}
       mode="edit"
-    ></TransactionEntryForm>
+    />
   );
 }
