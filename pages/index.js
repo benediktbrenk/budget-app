@@ -4,8 +4,7 @@ import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
 import GoToTopButton from "@/components/GoToTopButton";
 
-export default function HomePage({ transactions }) {
-  console.log(transactions);
+export default function HomePage({ transactions, deleteTransaction }) {
   const [search, setSearch] = useState({
     name: "",
     category: "",
@@ -80,10 +79,12 @@ export default function HomePage({ transactions }) {
         handleCategoryFilter={handleCategoryFilter}
         isSearchEntry={isSearchEntry}
       />
-      <TransactionList transactions={filteredSearch} />
-      <a href="#scroll-to-top">
-        <GoToTopButton />
-      </a>
+      <TransactionList
+        transactions={filteredSearch}
+        deleteTransaction={deleteTransaction}
+      />
+
+      <GoToTopButton />
     </>
   );
 }
