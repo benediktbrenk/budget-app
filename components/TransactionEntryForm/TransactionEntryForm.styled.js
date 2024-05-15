@@ -5,7 +5,6 @@ display: flex;
 flex-direction: column;
 background-color: #f5f6f6;
 padding: 15px 35px 15px 35px;
-
 margin: 20px 0;
 border-radius: 0.75rem;
 min-width: 250px;
@@ -33,19 +32,49 @@ export const FormField = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding-left: 20px;
-  gap: 0.4rem;
+  gap: 0.1rem;
+  margin: 5px;
+  
  
 `;
 
 export const FormButton = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  
 `;
 
-export const Button = styled.button`
+export const CancelButton = styled.button`
 padding: 0.8rem 1.5rem;
-display: flex;
-
-justisfy-content: space-between;
+border-radius: 0.75rem;
+border: none;
+box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+cursor: pointer;
+  &:hover {
+    background-color: red;
+  }
 `;
+
+export const EditButton = styled.button`
+padding: 0.8rem 1.5rem;
+border-radius: 0.75rem;
+border: none;
+box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+cursor: pointer;
+  &:hover {
+    background-color: lightblue;
+  }
+`;
+
+export const OpenButton = styled.button`
+padding: 0.8rem 1.5rem;
+border-radius: 0.75rem;
+border: none;
+box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+cursor: pointer;
+  &:hover {
+    background-color: lightblue;
+  }
+`

@@ -36,7 +36,7 @@ function TransactionEntryForm({
 
   return (
     <>
-      <button onClick={openModal}>Edit</button>
+      <Styled.OpenButton onClick={openModal}>Open</Styled.OpenButton>
       {showModal && (
         <div className="modal">
           <form onSubmit={handleSubmit}>
@@ -146,10 +146,10 @@ function TransactionEntryForm({
                 />
               </Styled.FormField>
             </Styled.FormContainer>
-            
-              <Styled.Button type="submit">Submit</Styled.Button>
-              <Styled.Button type="button" onClick={closeModal}>Cancel</Styled.Button>
-            
+            <Styled.FormButton>
+              <Styled.EditButton type="submit">Save</Styled.EditButton>
+              <Styled.CancelButton type="button" onClick={closeModal}>Cancel</Styled.CancelButton>
+            </Styled.FormButton>
           </form>
         </div>
       )}
