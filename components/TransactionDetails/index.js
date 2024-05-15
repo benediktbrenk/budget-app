@@ -1,5 +1,5 @@
 import * as Styled from "./TransactionDetails.styled";
-
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function TransactionDetails({

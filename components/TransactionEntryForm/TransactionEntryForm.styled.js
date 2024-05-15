@@ -34,7 +34,28 @@ export const FormField = styled.div`
   padding-left: 20px;
   gap: 0.1rem;
   margin: 5px;
+
+  label {
+    padding-left: 7px;
+    color: darkgray;
+    font-weight: bold;
+  }
+
+  input,
+  select,
+  textarea {
+    border: none;
+    border-radius: 0.5rem; 
+  }
+
+  input,
+  select {
+    padding: 5px;
+  }
   
+  textarea {
+    height: 50px;
+  }
  
 `;
 
@@ -54,9 +75,8 @@ box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 cursor: pointer;
   &:hover {
     background-color: red;
-  }
-`;
-
+  }`
+    
 export const EditButton = styled.button`
 padding: 0.8rem 1.5rem;
 border-radius: 0.75rem;
@@ -67,14 +87,3 @@ cursor: pointer;
     background-color: lightblue;
   }
 `;
-
-export const OpenButton = styled.button`
-padding: 0.8rem 1.5rem;
-border-radius: 0.75rem;
-border: none;
-box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
-cursor: pointer;
-  &:hover {
-    background-color: lightblue;
-  }
-`
