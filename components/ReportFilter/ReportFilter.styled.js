@@ -44,14 +44,6 @@ export const FilterItem = styled.div`
   gap: 0.2rem;
 `;
 
-export const FilterButton = styled.button`
-  padding: 1rem;
-  margin: 0.5rem;
-  border: 1px solid lightgray;
-  border-radius: 8px;
-  font-size: 1rem;
-`;
-
 export const FilterInput = styled.input`
   border-radius: 8px;
   border: 1px solid black;

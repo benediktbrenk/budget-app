@@ -24,6 +24,23 @@ export default createGlobalStyle`
   --amount-color-red: #EF476F;
   --amount-color-green: #06D6A0;
 
+  /* button colors */
+  --button: lightgrey;
+  --button-submit:aqua;
+  --button-edit:lightgreen;
+  --button-save:lightblue;
+  --button-cancel:lightcoral;
+  --button-danger:red;
+
+  /* button hover color */
+  --button-hover: darkgray;
+  --button-submit-hover:aqua;
+  --button-edit-hover:darkgreen;
+  --button-save-hover:blue;
+  --button-cancel-hover:coral;
+  --button-danger-hover:darkred;
+
+
     /* Font styles */
   --font-family: ${inter.style.fontFamily};
 }

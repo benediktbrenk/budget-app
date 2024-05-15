@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button.styled";
 import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
 
@@ -117,7 +118,7 @@ function TransactionEntryForm({
           />
         </Styled.FormField>
         <Styled.FormButton>
-          <button type="submit">Submit</button>
+          <Button $type="submit">Submit</Button>
         </Styled.FormButton>
       </Styled.FormContainer>
     </form>
