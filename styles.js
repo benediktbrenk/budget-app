@@ -14,6 +14,11 @@ export default createGlobalStyle`
   }
 
   :root {
+
+    /* Header */
+--header-background: rgb(174 174 178);
+--header-textColor:black;
+
     /* Color styles */
   --groceries-color: #FFB6C1;
   --housing-color: #ADD8E6;

@@ -1,10 +1,16 @@
-import React from "react";
 import * as Styled from "./Header.styled";
+import Image from "next/image";
 
 function Header({ title }) {
   return (
     <Styled.HeaderContainer>
-      <Styled.Headline>{title}</Styled.Headline>
+      <Image
+        width={70}
+        height={50}
+        alt="app-logo"
+        src="/assets/expenso-logo.png"
+      ></Image>
+      <Styled.Headline>Expenso</Styled.Headline>
     </Styled.HeaderContainer>
   );
 }
