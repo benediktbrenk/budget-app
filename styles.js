@@ -15,16 +15,6 @@ export default createGlobalStyle`
 
   :root {
     /* Color styles */
-  --groceries-color: #FFB6C1;
-  --housing-color: #ADD8E6;
-  --salary-color: #9370DB;
-  --insurance-color: #00CED1;
-  --utilities-color: #FFD700;
-  --groceries-color-soft: #FFB6C120;
-  --housing-color-soft: #ADD8E620;
-  --salary-color-soft: #9370DB20;
-  --insurance-color-soft: #00CED120;
-  --utilities-color-soft: #FFD70020;
   --lightgrey: #F5F6F6;
   --amount-color-red: #EF476F;
   --amount-color-green: #06D6A0;

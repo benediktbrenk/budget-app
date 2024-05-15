@@ -3,7 +3,7 @@ const { default: styled } = require("styled-components");
 export const DetailsContainer = styled.article`
   display: flex;
   flex-direction: column;
-  background-color: #f5f6f6;
+  background-color: ${(props) => props.$softColor || "#CCCCCC"};
   padding: 15px 0 0 35px;
 
   margin: 20px 0;
@@ -20,7 +20,7 @@ export const DetailsContainer = styled.article`
     left: 10px;
     width: 17px;
     height: 96%;
-    background-color: lightblue;
+    background-color: ${(props) => props.$color || "#CCCCCC"};
     border-radius: 6px;
   }
 `;

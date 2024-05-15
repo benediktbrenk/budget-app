@@ -5,7 +5,7 @@ import { categories } from "@/utils/categories";
 
 export default function ReportsPage({ transactions }) {
   const [filter, setFilter] = useState({
-    categories: categories,
+    categories: categories.map((category) => category.name),
     dateFrom: "",
     dateTo: "",
     paymentMethod: "",
@@ -34,11 +34,7 @@ export default function ReportsPage({ transactions }) {
 
   return (
     <>
-      <ReportFilter
-        filter={filter}
-        setFilter={setFilter}
-        categories={categories}
-      />
+      <ReportFilter filter={filter} setFilter={setFilter} />
       <TabMenu filter={filter} filteredTransactions={filteredTransactions} />
     </>
   );

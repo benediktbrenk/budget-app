@@ -1,3 +1,4 @@
+import { categories } from "@/utils/categories";
 import { Button } from "../Button/Button.styled";
 import { StyledLink } from "../Link/Link.styled";
 import * as Styled from "./TransactionDetails.styled";
@@ -9,10 +10,17 @@ export default function TransactionDetails({
 }) {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
+  const currentCategory = categories.find(
+    (category) => category.name === currentTransaction.category,
+  );
+
   return (
-    <main>
+    <>
       <article>
-        <Styled.DetailsContainer>
+        <Styled.DetailsContainer
+          $color={currentCategory.color}
+          $softColor={currentCategory.softColor}
+        >
           <Styled.ItemContainer>
             <Styled.Label>Title:</Styled.Label>
             <Styled.ItemText>{currentTransaction.name}</Styled.ItemText>
@@ -63,6 +71,6 @@ export default function TransactionDetails({
           </Styled.ButtonContainer>
         </article>
       )}
-    </main>
+    </>
   );
 }

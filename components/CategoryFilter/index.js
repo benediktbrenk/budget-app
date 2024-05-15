@@ -10,12 +10,13 @@ export default function CategoryFilter({ search, onClick }) {
     <Styled.CategoryFilterContainer>
       {categories.map((category) => (
         <Styled.FilterButton
-          key={category}
-          $active={activeCategories.includes(category)}
-          $category={category}
-          onClick={() => onClick(category)}
+          key={category.name}
+          $active={activeCategories.includes(category.name)}
+          $category={category.name}
+          $color={category.color}
+          onClick={() => onClick(category.name)}
         >
-          {category}
+          {category.name}
         </Styled.FilterButton>
       ))}
     </Styled.CategoryFilterContainer>

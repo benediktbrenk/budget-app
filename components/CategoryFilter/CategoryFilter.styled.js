@@ -20,25 +20,10 @@ export const FilterButton = styled.button`
   border-radius: 4px;
   height: 60px;
   width: 70px;
-  background-color: ${(props) => {
-    switch (props.category) {
-      case "Groceries":
-        return "var(--groceries-color)";
-      case "Housing":
-        return "var(--housing-color)";
-      case "Salary":
-        return "var(--salary-color)";
-      case "Insurance":
-        return "var(--insurance-color)";
-      case "Utilities":
-        return "var(--utilities-color)";
-      default:
-        return "#CCCCCC";
-    }
-  }};
+  background-color: ${(props) => props.$color || "#CCCCCC"};
   
   ${(props) =>
-    props.active &&
+    props.$active &&
     css`
       outline: none;
       box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
