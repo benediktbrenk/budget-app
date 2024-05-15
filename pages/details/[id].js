@@ -4,33 +4,33 @@ import TransactionDetails from "@/components/TransactionDetails";
 import * as Styled from "@/components/Main/Main.styled";
 
 export default function TransactionDetailsPage({
-  transactions,
-  deleteTransaction,
+	transactions,
+	deleteTransaction,
 }) {
-  const router = useRouter();
-  const { id } = router.query;
+	const router = useRouter();
+	const { id } = router.query;
 
-  if (!id) {
-    return null;
-  }
+	if (!id) {
+		return null;
+	}
 
-  const currentTransaction = transactions.find(
-    (transaction) => transaction._id === id
-  );
+	const currentTransaction = transactions.find(
+		(transaction) => transaction._id === id,
+	);
 
-  if (!currentTransaction) {
-    return null;
-  }
+	if (!currentTransaction) {
+		return null;
+	}
 
-  return (
-    <>
-      <Header title="Details"></Header>
-      <Styled.Main>
-        <TransactionDetails
-          currentTransaction={currentTransaction}
-          deleteTransaction={() => deleteTransaction(id)}
-        ></TransactionDetails>
-      </Styled.Main>
-    </>
-  );
+	return (
+		<>
+			<Header title="Details"></Header>
+			<Styled.Main>
+				<TransactionDetails
+					currentTransaction={currentTransaction}
+					deleteTransaction={() => deleteTransaction(id)}
+				></TransactionDetails>
+			</Styled.Main>
+		</>
+	);
 }
