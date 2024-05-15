@@ -7,7 +7,6 @@ export default function LoginButton() {
   if (session) {
     return (
       <SignItemContainer>
-        {/* Signed in as {session.user.email} <br /> */}
         <p>
           <FaCircleUser />
         </p>

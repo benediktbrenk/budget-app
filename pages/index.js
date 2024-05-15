@@ -59,7 +59,6 @@ export default function HomePage({ transactions }) {
     <>
       {session ? (
         <>
-          {/* <h5>Hello {session.user.name}</h5> */}
           <AccountBalance transactions={transactions} />
           <SearchBar
             transactions={transactions}

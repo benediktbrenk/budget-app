@@ -16,5 +16,4 @@ export const Headline = styled.h1`
   color: black;
   font-size: 1.6rem;
   text-align: center;
-  //padding: 48px 0 0 0;
 `;

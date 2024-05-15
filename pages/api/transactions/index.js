@@ -8,8 +8,7 @@ export default async function handler(request, response) {
   await dbConnect();
   try {
     if (request.method === "GET") {
-      // const transactions = await Transaction.find();
-      // return response.status(200).json(transactions);
+
       if (session) {
         const transactions = await Transaction.find({
           author: session.user.email,
@@ -20,9 +19,6 @@ export default async function handler(request, response) {
         return response.status(200).json(transactions);
       }
     } else if (request.method === "POST") {
-      // const transactionData = request.body;
-      // await Transaction.create(transactionData);
-      // return response.status(201).json({ status: "Transaction added." });
       if (session) {
         const transactionData = request.body;
         await Transaction.create({
