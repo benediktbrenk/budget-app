@@ -67,6 +67,7 @@ export default function App({ Component, pageProps }) {
     mutate();
     router.push("/");
   }
+
   return (
     <>
       <GlobalStyle />
