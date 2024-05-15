@@ -52,3 +52,10 @@ export const Label = styled.label`
   margin-top: 0.5rem;
   margin-right: 0.9rem;
 `;
+
+export const FrontCard = styled.div`
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  background-color: hotpink;
+`;
