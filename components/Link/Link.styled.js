@@ -4,50 +4,50 @@ import css from "styled-jsx/css";
 
 export const StyledLink = styled(Link)`
   ${(props) => {
-    switch (props.$type) {
-      case "submit":
-        return css`
+		switch (props.$type) {
+			case "submit":
+				return css`
           background-color: var(--button-submit);
           &:hover {
             background-color: var(--button-submit-hover);
           }
         `;
-      case "edit":
-        return css`
+			case "edit":
+				return css`
           background-color: var(--button-edit);
           &:hover {
             background-color: var(--button-edit-hover);
           }
         `;
-      case "save":
-        return css`
+			case "save":
+				return css`
           background-color: var(--button-save);
           &:hover {
             background-color: var(--button-save-hover);
           }
         `;
-      case "cancel":
-        return css`
+			case "cancel":
+				return css`
           background-color: var(--button-cancel);
           &:hover {
             background-color: var(--button-cancel-hover);
           }
         `;
-      case "danger":
-        return css`
+			case "danger":
+				return css`
           background-color: var(--button-danger);
           &:hover {
             background-color: var(--button-danger-hover);
           }
         `;
-        return css`
+				return css`
           background-color: var(--button);
           &:hover {
             background-color: var(--button-hover);
           }
         `;
-    }
-  }};
+		}
+	}};
   color: ${(props) => (props.textColor === "white" ? "white" : "black")};
   padding: 10px 18px;
   border-radius: 8px;
