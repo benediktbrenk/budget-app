@@ -13,6 +13,9 @@ export default function TransactionDetails({
     <main>
       <article>
         <Styled.DetailsContainer>
+          <Styled.ItemText>
+            <strong>Details</strong>
+          </Styled.ItemText>
           <Styled.ItemContainer>
             <Styled.Label>Title:</Styled.Label>
             <Styled.ItemText>{currentTransaction.name}</Styled.ItemText>

@@ -6,9 +6,10 @@ export const HeaderContainer = styled.header`
   margin-top: 10px;
   margin-bottom: 15px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 25px;
+  gap: 20px;
 `;
 
 export const Headline = styled.h1`

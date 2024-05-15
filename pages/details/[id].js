@@ -24,7 +24,6 @@ export default function TransactionDetailsPage({
 
   return (
     <>
-      <Header title="Details"></Header>
       <Styled.Main>
         <TransactionDetails
           currentTransaction={currentTransaction}
