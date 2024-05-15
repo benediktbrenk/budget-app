@@ -29,6 +29,23 @@ export default createGlobalStyle`
   --amount-color-red: #EF476F;
   --amount-color-green: #06D6A0;
 
+  /* button colors */
+  --button: lightgrey;
+  --button-submit:aqua;
+  --button-edit:lightgreen;
+  --button-save:lightblue;
+  --button-cancel:lightcoral;
+  --button-danger:red;
+
+  /* button hover color */
+  --button-hover: darkgray;
+  --button-submit-hover:aqua;
+  --button-edit-hover:darkgreen;
+  --button-save-hover:blue;
+  --button-cancel-hover:coral;
+  --button-danger-hover:darkred;
+
+
     /* Font styles */
   --font-family: ${inter.style.fontFamily};
 }
@@ -38,6 +55,7 @@ export default createGlobalStyle`
     padding: 0;
     font-family: var(--font-family), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
   }
 
   h1 {
