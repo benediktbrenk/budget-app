@@ -28,27 +28,37 @@ export default function HomePage({ transactions }) {
     const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
     const dateTo = search.dateTo ? new Date(search.dateTo) : null;
     const transactionDate = new Date(transaction.date);
-    const amountFrom = search.amountFrom ? parseFloat(search.amountFrom) : null;
-    const amountTo = search.amountTo ? parseFloat(search.amountTo) : null;
-    const transactionAmount = parseFloat(transaction.amount);
+    const amountFrom = search.amountFrom
+      ? Number.parseFloat(search.amountFrom)
+      : null;
+    const amountTo = search.amountTo
+      ? Number.parseFloat(search.amountTo)
+      : null;
+    const transactionAmount = Number.parseFloat(transaction.amount);
 
     const nameMatches =
-      search.name === "" ||
-      transaction.name.toLowerCase().includes(search.name.toLowerCase());
+      !search.name ||
+      transaction.name?.toLowerCase().includes(search.name.toLowerCase());
+
     const categoryMatches =
-      search.category === "" ||
-      (transaction.category &&
-        transaction.category.toLowerCase() === search.category.toLowerCase());
+      !search.category ||
+      transaction.category?.toLowerCase() === search.category.toLowerCase();
+
     const directionMatches =
-      search.direction === "" ||
-      transaction.direction.toLowerCase() === search.direction.toLowerCase();
+      !search.direction ||
+      transaction.direction?.toLowerCase() === search.direction.toLowerCase();
+
     const dateMatches =
+      !search.dateFrom ||
+      !search.dateTo ||
       !dateFrom ||
       !dateTo ||
       (transactionDate >= dateFrom && transactionDate <= dateTo);
+
     const amountMatches =
-      (amountFrom === null || transactionAmount >= amountFrom) &&
-      (amountTo === null || transactionAmount <= amountTo);
+      (!search.amountFrom && !search.amountTo) ||
+      ((amountFrom === null || transactionAmount >= amountFrom) &&
+        (amountTo === null || transactionAmount <= amountTo));
 
     return (
       nameMatches &&

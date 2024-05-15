@@ -24,8 +24,8 @@ export default function ReportsPage({ transactions }) {
 
     const paymentMethodMatches =
       filter.paymentMethod === "" ||
-      transaction.paymentMethod.toLowerCase() ===
-        filter.paymentMethod.toLowerCase();
+      transaction.paymentMethod?.toLowerCase() ===
+        filter.paymentMethod?.toLowerCase();
 
     const directionExpense = direction === "Expense";
 
@@ -38,11 +38,8 @@ export default function ReportsPage({ transactions }) {
         filter={filter}
         setFilter={setFilter}
         categories={categories}
-      ></ReportFilter>
-      <TabMenu
-        filter={filter}
-        filteredTransactions={filteredTransactions}
-      ></TabMenu>
+      />
+      <TabMenu filter={filter} filteredTransactions={filteredTransactions} />
     </>
   );
 }
