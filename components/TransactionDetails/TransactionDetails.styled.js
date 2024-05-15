@@ -44,40 +44,6 @@ export const ButtonContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const EditLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: #f5f6f6;
-  padding: 1rem;
-  border-radius: 50px;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  &:hover {
-    background-color: lightblue;
-  }
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
-`;
-
-export const Button = styled.button`
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  background-color: #f5f6f6;
-  border: none;
-  color: black;
-  font-size: 1rem;
-  cursor: pointer;
-  &:hover {
-    background-color: red;
-  }
-  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
-`;
-
 export const Label = styled.label`
   color: darkgrey;
   font-size: 0.9rem;
@@ -87,4 +53,3 @@ export const Label = styled.label`
   margin-top: 0.5rem;
   margin-right: 0.9rem;
 `;
-
