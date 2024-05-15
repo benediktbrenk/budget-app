@@ -16,7 +16,10 @@ export default function HomePage({ transactions }) {
   });
 
   function handleCategoryFilter(category) {
-    setSearch({ ...search, category: category });
+    setSearch((prevSearch) => ({
+      ...prevSearch,
+      category: prevSearch.category === category ? "" : category,
+    }));
   }
 
   const isSearchEntry = Object.values(search).some((value) => value !== "");

@@ -5,7 +5,7 @@ function TransactionCard({ transaction }) {
   return (
     <Styled.CardContainer key={transaction._id}>
       <Styled.CardLink href={`/details/${transaction._id}`}>
-        <Styled.ColorField category={transaction.category}></Styled.ColorField>
+        <Styled.ColorField category={transaction.category} />
         <Styled.ContentContainer>
           <Styled.TransactionName>{transaction.name}</Styled.TransactionName>
           <Styled.TransactionDate>{transaction.date}</Styled.TransactionDate>
