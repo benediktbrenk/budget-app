@@ -137,6 +137,7 @@ export default function TransactionEntryForm({
         </Styled.FormField>
         <Styled.FormButton>
           <Button $type="submit">Submit</Button>
+          <Button onClick={handleBack}>Cancel</Button>
         </Styled.FormButton>
       </Styled.FormContainer>
     </form>
