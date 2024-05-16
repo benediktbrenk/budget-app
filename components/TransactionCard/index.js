@@ -29,6 +29,7 @@ function TransactionCard({ transaction, deleteTransaction }) {
     <TransactionEntryForm
 setShowModal={setShowEditModal}
 currentTransaction={transaction}
+mode="edit"
 /></Modal>
 
       <Modal

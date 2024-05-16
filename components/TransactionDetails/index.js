@@ -16,7 +16,7 @@ export default function TransactionDetails({
   );
 
   return (
-    <> <Styled.DetailsContainer $showModal={showModal}>
+    <> <Styled.DetailsContainer $visible={showModal}>
       <Styled.DetailsCard
           $color={currentCategory.color}
           $softColor={currentCategory.softColor}

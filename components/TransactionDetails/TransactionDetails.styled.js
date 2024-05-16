@@ -1,7 +1,7 @@
 const { default: styled } = require("styled-components");
 
 export const DetailsContainer = styled.div`
-display: ${(props) => props.$showModal ? "none" : "block"}; `
+display: ${(props) => props.$visible ? "none" : "block"}; `
 
 
 export const DetailsCard = styled.article`

@@ -37,7 +37,6 @@ function TransactionEntryForm({
   
 
   return (
-    <>
       <form onSubmit={handleSubmit}>
         <Styled.FormContainer
            $color={currentCategory.color}
@@ -147,17 +146,13 @@ function TransactionEntryForm({
         </Styled.FormContainer>
         <Styled.FormButton>
           <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
-          <Button $visible={mode === "add" ? true : false}
+          <Button $visible={mode === "edit"}
           $type="danger"
           $textColor="white"
           onClick={() => setShowModal(false)}
           >Cancel</Button>
         </Styled.FormButton>
       </form>
-
-  
-  
-</>
   )
 }
 
