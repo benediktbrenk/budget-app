@@ -5,67 +5,90 @@ import AccountBalance from "@/components/AccountBalance";
 import GoToTopButton from "@/components/GoToTopButton";
 
 export default function HomePage({ transactions, deleteTransaction }) {
-	const [search, setSearch] = useState({
-		name: "",
-		category: "",
-		direction: "",
-		dateFrom: "",
-		dateTo: "",
-		amountFrom: "",
-		amountTo: "",
-	});
+  const [search, setSearch] = useState({
+    name: "",
+    category: "",
+    direction: "",
+    dateFrom: "",
+    dateTo: "",
+    amountFrom: "",
+    amountTo: "",
+  });
 
-	const isSearchEntry = Object.values(search).some((value) => value !== "");
+  function handleCategoryFilter(category) {
+    setSearch((prevSearch) => ({
+      ...prevSearch,
+      category: prevSearch.category === category ? "" : category,
+    }));
+  }
 
-	const filteredSearch = transactions.filter((transaction) => {
-		const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
-		const dateTo = search.dateTo ? new Date(search.dateTo) : null;
-		const transactionDate = new Date(transaction.date);
-		const amountFrom = search.amountFrom ? parseFloat(search.amountFrom) : null;
-		const amountTo = search.amountTo ? parseFloat(search.amountTo) : null;
-		const transactionAmount = parseFloat(transaction.amount);
+  function handleSearch(searchEntry) {
+    setSearch(searchEntry);
+  }
 
-		const nameMatches =
-			search.name === "" ||
-			transaction.name.toLowerCase().includes(search.name.toLowerCase());
-		const categoryMatches =
-			search.category === "" ||
-			transaction.category.toLowerCase() === search.category.toLowerCase();
-		const directionMatches =
-			search.direction === "" ||
-			transaction.direction.toLowerCase() === search.direction.toLowerCase();
-		const dateMatches =
-			!dateFrom ||
-			!dateTo ||
-			(transactionDate >= dateFrom && transactionDate <= dateTo);
-		const amountMatches =
-			(amountFrom === null || transactionAmount >= amountFrom) &&
-			(amountTo === null || transactionAmount <= amountTo);
+  const isSearchEntry = Object.values(search).some((value) => value !== "");
 
-		return (
-			nameMatches &&
-			categoryMatches &&
-			directionMatches &&
-			dateMatches &&
-			amountMatches
-		);
-	});
+  const filteredSearch = transactions.filter((transaction) => {
+    const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
+    const dateTo = search.dateTo ? new Date(search.dateTo) : null;
+    const transactionDate = new Date(transaction.date);
+    const amountFrom = search.amountFrom
+      ? Number.parseFloat(search.amountFrom)
+      : null;
+    const amountTo = search.amountTo
+      ? Number.parseFloat(search.amountTo)
+      : null;
+    const transactionAmount = Number.parseFloat(transaction.amount);
 
-	return (
-		<>
-			<AccountBalance transactions={transactions} />
-			<SearchBar
-				transactions={transactions}
-				search={search}
-				onSearch={setSearch}
-				isSearchEntry={isSearchEntry}
-			/>
-			<TransactionList
-				transactions={filteredSearch}
-				deleteTransaction={deleteTransaction}
-			/>
+    const nameMatches =
+      !search.name ||
+      transaction.name?.toLowerCase().includes(search.name.toLowerCase());
 
-			<GoToTopButton />
-		</>
-	);
+    const categoryMatches =
+      !search.category ||
+      transaction.category?.toLowerCase() === search.category.toLowerCase();
+
+    const directionMatches =
+      !search.direction ||
+      transaction.direction?.toLowerCase() === search.direction.toLowerCase();
+
+    const dateMatches =
+      !search.dateFrom ||
+      !search.dateTo ||
+      !dateFrom ||
+      !dateTo ||
+      (transactionDate >= dateFrom && transactionDate <= dateTo);
+
+    const amountMatches =
+      (!search.amountFrom && !search.amountTo) ||
+      ((amountFrom === null || transactionAmount >= amountFrom) &&
+        (amountTo === null || transactionAmount <= amountTo));
+
+    return (
+      nameMatches &&
+      categoryMatches &&
+      directionMatches &&
+      dateMatches &&
+      amountMatches
+    );
+  });
+
+  return (
+    <>
+      <AccountBalance transactions={transactions} />
+      <SearchBar
+        transactions={transactions}
+        search={search}
+        onSearch={handleSearch}
+        handleCategoryFilter={handleCategoryFilter}
+        isSearchEntry={isSearchEntry}
+      />
+      <TransactionList
+        transactions={filteredSearch}
+        deleteTransaction={deleteTransaction}
+      />
+
+      <GoToTopButton />
+    </>
+  );
 }

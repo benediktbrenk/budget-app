@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import * as Styled from "./TransactionCard.styled";
 import ModalDelete from "../ModalDelete";
+import { categories } from "@/utils/categories";
 
 function TransactionCard({ transaction, deleteTransaction }) {
   const [showModal, setShowModal] = useState(false);
+  const currentCategory = categories.find(
+    (category) => category.name === transaction.category,
+  );
 
   return (
-    <Styled.CardContainer key={transaction._id} category={transaction.category}>
+    <Styled.CardContainer
+      key={transaction._id}
+      category={transaction.category}
+      $color={currentCategory.softColor}
+    >
       <ModalDelete
         showModal={showModal}
         setShowModal={setShowModal}
@@ -14,7 +22,7 @@ function TransactionCard({ transaction, deleteTransaction }) {
         id={transaction._id}
       />
 
-      <Styled.ColorField category={transaction.category} />
+      <Styled.ColorField $color={currentCategory.color} />
       <Styled.ContentContainer>
         <Styled.TransactionName href={`/details/${transaction._id}`}>
           {transaction.name}
