@@ -123,7 +123,7 @@ function TransactionEntryForm({
               type="text" 
               name="category" 
               required 
-              defaultValue="Groceries"
+              defaultValue={selectedCategory}
               onChange={(event) => setSelectedCategory(event.target.value)} 
             >
               <option value="Groceries">Groceries</option>
@@ -145,7 +145,7 @@ function TransactionEntryForm({
           </Styled.FormField>
         </Styled.FormContainer>
         <Styled.FormButton>
-          <Button type="submit">Submit</Button>
+          <Button  $type="submit">{mode === "add" ? "Add" : "Edit"}</Button>
           <Button onClick={handleBack}
           $type="danger"
           $textColor="white"
