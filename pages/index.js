@@ -3,19 +3,19 @@ import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
 import { useSession } from "next-auth/react";
-import { SectionContainer } from "./Homepage.styled";
+import { SectionContainer } from "../Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
 
 export default function HomePage({ transactions, deleteTransaction }) {
-	const [search, setSearch] = useState({
-		name: "",
-		category: "",
-		direction: "",
-		dateFrom: "",
-		dateTo: "",
-		amountFrom: "",
-		amountTo: "",
-	});
+  const [search, setSearch] = useState({
+    name: "",
+    category: "",
+    direction: "",
+    dateFrom: "",
+    dateTo: "",
+    amountFrom: "",
+    amountTo: "",
+  });
 
   const { data: session } = useSession();
 
@@ -66,7 +66,10 @@ export default function HomePage({ transactions, deleteTransaction }) {
             onSearch={setSearch}
             isSearchEntry={isSearchEntry}
           />
-          <TransactionList transactions={filteredSearch} />
+          <TransactionList
+            transactions={filteredSearch}
+            deleteTransaction={deleteTransaction}
+          />
           <a href="#scroll-to-top">
             <GoToTopButton />
           </a>
