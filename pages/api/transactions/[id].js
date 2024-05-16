@@ -12,9 +12,6 @@ export default async function handler(request, response) {
   await dbConnect();
   const { id } = request.query;
 
-  if (!id) {
-    return;
-  }
 
   try {
     if (request.method === "GET") {

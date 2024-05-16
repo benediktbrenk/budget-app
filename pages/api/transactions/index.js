@@ -16,7 +16,8 @@ export default async function handler(request, response) {
       const transactions = await Transaction.find({
         author: session.user.email,
       });
-      return response.status(200).json(transactions);
+      response.status(200).json(transactions);
+      return;
     }
 
     if (request.method === "POST") {
@@ -29,6 +30,7 @@ export default async function handler(request, response) {
     }
   } catch (error) {
     console.error("Error fetching transactions:", error.message);
-    return response.status(400).json({ error: "Internal Server Error" });
+    response.status(400).json({ error: "Internal Server Error" });
+    return;
   }
 }
