@@ -12,44 +12,14 @@ export const CardContainer = styled.li`
   margin: 10px;
   list-style: none;
   border-radius: 8px;
-  background-color: ${(props) => {
-    switch (props.category) {
-      case "Groceries":
-        return "var(--groceries-color-soft)";
-      case "Housing":
-        return "var(--housing-color-soft)";
-      case "Salary":
-        return "var(--salary-color-soft)";
-      case "Insurance":
-        return "var(--insurance-color-soft)";
-      case "Utilities":
-        return "var(--utilities-color-soft)";
-      default:
-        return "#CCCCCC";
-    }
-  }};
+  background-color: ${(props) => props.$color || "#CCCCCC"};
 `;
 
 export const ColorField = styled.div`
   height: 65px;
   width: 0.5rem;
   border-radius: 3px;
-  background-color: ${(props) => {
-    switch (props.category) {
-      case "Groceries":
-        return "var(--groceries-color)";
-      case "Housing":
-        return "var(--housing-color)";
-      case "Salary":
-        return "var(--salary-color)";
-      case "Insurance":
-        return "var(--insurance-color)";
-      case "Utilities":
-        return "var(--utilities-color)";
-      default:
-        return "#CCCCCC";
-    }
-  }};
+  background-color: ${(props) => props.$color || "#CCCCCC"};
 `;
 
 export const ContentContainer = styled.div`
