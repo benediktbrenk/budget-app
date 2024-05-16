@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function TransactionDetails({
   currentTransaction,
   deleteTransaction,
+  showModal, setShowModal
 }) {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
@@ -15,12 +16,12 @@ export default function TransactionDetails({
   );
 
   return (
-    <>
-      <article>
-        <Styled.DetailsContainer
+    <> <Styled.DetailsContainer $showModal={showModal}>
+      <Styled.DetailsCard
           $color={currentCategory.color}
           $softColor={currentCategory.softColor}
-        >
+          $showModal={showModal}>
+        
           <Styled.ItemContainer>
             <Styled.Label>Title:</Styled.Label>
             <Styled.ItemText>{currentTransaction.name}</Styled.ItemText>
@@ -38,7 +39,8 @@ export default function TransactionDetails({
             <Styled.Label>Description:</Styled.Label>
             <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
           </Styled.ItemContainer>
-        </Styled.DetailsContainer>
+        </Styled.DetailsCard>
+
         <Styled.ButtonContainer>
           <Button
             onClick={() => setIsDeleteMode(!isDeleteMode)}
@@ -48,15 +50,18 @@ export default function TransactionDetails({
             Delete
           </Button>
 
-          <StyledLink href={`/edit/${currentTransaction._id}`}>Edit</StyledLink>
+          <Button onClick={() => setShowModal(true)} >Edit
+          </Button>
         </Styled.ButtonContainer>
-      </article>
+      </Styled.DetailsContainer>
+      
       {isDeleteMode && (
-        <article>
+        <section>
           <Styled.ItemContainer>
             <p>Delete Entry:</p>
             <p>Are you sure?</p>
           </Styled.ItemContainer>
+
           <Styled.ButtonContainer>
             <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
               Cancel
@@ -69,7 +74,8 @@ export default function TransactionDetails({
               Delete
             </Button>
           </Styled.ButtonContainer>
-        </article>
+
+        </section>
       )}
     </>
   );

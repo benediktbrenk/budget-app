@@ -1,23 +1,34 @@
 import React, { useState } from "react";
 import * as Styled from "./TransactionCard.styled";
 import ModalDelete from "../ModalDelete";
+import Modal from "../Modal";
 import { categories } from "@/utils/categories";
+import TransactionEntryForm from "../TransactionEntryForm";
 
 function TransactionCard({ transaction, deleteTransaction }) {
-  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
+
   const currentCategory = categories.find(
     (category) => category.name === transaction.category,
   );
 
   return (
+    <>
     <Styled.CardContainer
       key={transaction._id}
       category={transaction.category}
       $color={currentCategory.softColor}
-    >
+    >   
+    <Modal showModal={showEditModal}>
+    <TransactionEntryForm
+setShowModal={setShowEditModal}
+currentTransaction={transaction}
+/></Modal>
+
       <ModalDelete
-        showModal={showModal}
-        setShowModal={setShowModal}
+        showModal={showDeleteModal}
+        setShowModal={setShowDeleteModal}
         deleteTransaction={deleteTransaction}
         id={transaction._id}
       />
@@ -33,10 +44,10 @@ function TransactionCard({ transaction, deleteTransaction }) {
             <Styled.ActionLink href={`/details/${transaction._id}`}>
               <Styled.ActionInfo />
             </Styled.ActionLink>
-            <Styled.ActionLink href={`/edit/${transaction._id}`}>
+            <Styled.ActionButton onClick={() => setShowEditModal(true)}>
               <Styled.ActionDetails />
-            </Styled.ActionLink>
-            <Styled.ActionButton onClick={() => setShowModal(true)}>
+            </Styled.ActionButton>
+            <Styled.ActionButton onClick={() => setShowDeleteModal(true)}>
               <Styled.ActionDelete />
             </Styled.ActionButton>
           </Styled.ActionLinkContainer>
@@ -51,7 +62,7 @@ function TransactionCard({ transaction, deleteTransaction }) {
         </Styled.BottomContainer>
       </Styled.ContentContainer>
     </Styled.CardContainer>
-  );
+  </>)
 }
 
 export default TransactionCard;

@@ -19,10 +19,7 @@ export default function EditPage({ handleEditTransaction, transactions }) {
 
   return (
     <TransactionEntryForm
-      updateTransactions={handleEditTransaction}
-      currentTransaction={currentTransaction}
-      id={id}
-      mode="edit"
+
     />
   );
 }

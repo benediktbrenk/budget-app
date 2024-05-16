@@ -9,6 +9,7 @@ function TransactionEntryForm({
   id,
   currentTransaction,
   mode,
+ setShowModal
 
 
 }) {
@@ -31,12 +32,12 @@ function TransactionEntryForm({
     router.push("/");
   }
 
-  const handleBack = () => {
-    router.back(); 
-  };
+ 
+    
+  
 
   return (
-    <div className="modal">
+    <>
       <form onSubmit={handleSubmit}>
         <Styled.FormContainer
            $color={currentCategory.color}
@@ -145,15 +146,24 @@ function TransactionEntryForm({
           </Styled.FormField>
         </Styled.FormContainer>
         <Styled.FormButton>
-          <Button  $type="submit">{mode === "add" ? "Add" : "Edit"}</Button>
-          <Button onClick={handleBack}
+          <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
+          <Button $visible={mode === "add" ? true : false}
           $type="danger"
           $textColor="white"
+          onClick={() => setShowModal(false)}
           >Cancel</Button>
         </Styled.FormButton>
       </form>
-    </div>
-  );
+
+  
+  
+</>
+  )
 }
 
+
+
+
 export default TransactionEntryForm;
+
+
