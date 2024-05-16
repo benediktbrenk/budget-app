@@ -5,7 +5,7 @@ export const FormContainer = styled.div`
 display: flex;
 flex-direction: column;
 background-color: ${(props) => props.$softColor || "#CCCCCC"};
-padding: 15px 35px 15px 35px;
+padding: 15px 35px 15px 20px;
 margin: 20px 0;
 border-radius: 0.75rem;
 min-width: 250px;
@@ -57,6 +57,7 @@ export const FormField = styled.div`
   
   textarea {
     height: 50px;
+  
     
     
   }

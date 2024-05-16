@@ -1,6 +1,6 @@
 import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../Button/Button.styled";
 import { categories } from "@/utils/categories"
 
@@ -12,9 +12,11 @@ function TransactionEntryForm({
 
 
 }) {
-
+  const [selectedCategory, setSelectedCategory] = useState(
+    mode === "add" ? "Groceries" : currentTransaction.category
+  )
   const currentCategory = categories.find(
-    (category) => category.name === currentTransaction.category,
+    (category) => category.name === selectedCategory
   );
   
   const router = useRouter();
@@ -122,6 +124,7 @@ function TransactionEntryForm({
               name="category" 
               required 
               defaultValue="Groceries"
+              onChange={(event) => setSelectedCategory(event.target.value)} 
             >
               <option value="Groceries">Groceries</option>
               <option value="Salary">Salary</option>
@@ -142,7 +145,7 @@ function TransactionEntryForm({
           </Styled.FormField>
         </Styled.FormContainer>
         <Styled.FormButton>
-          <Button type="submit">Edit</Button>
+          <Button type="submit">Submit</Button>
           <Button onClick={handleBack}
           $type="danger"
           $textColor="white"
