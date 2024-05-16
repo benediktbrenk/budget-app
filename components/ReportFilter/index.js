@@ -29,7 +29,7 @@ export default function ReportFilter({ filter, setFilter }) {
   return (
     <Styled.FilterContainer>
       <Styled.FilterSegmentContainer style={{ "--flex-direction": "column" }}>
-        <CategoryFilter search={filter} onClick={handleToggleOption} />
+        <CategoryFilter search={filter} onSelectCategory={handleToggleOption} />
       </Styled.FilterSegmentContainer>
       <Styled.FilterSegmentContainer>
         <Styled.FilterItem>

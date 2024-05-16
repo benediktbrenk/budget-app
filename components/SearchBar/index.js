@@ -54,7 +54,7 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
           <FaSliders />
         </Styled.FilterButton>
       </Styled.SearchAndFilter>
-      <CategoryFilter search={search} onClick={handleCategoryFilter} />
+      <CategoryFilter search={search} onSelectCategory={handleCategoryFilter} />
       {isFilter && (
         <Styled.FilterBox>
           <Styled.FilterContainer>

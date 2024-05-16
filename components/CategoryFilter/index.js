@@ -1,7 +1,7 @@
 import * as Styled from "./CategoryFilter.styled";
 import { categories } from "@/utils/categories";
 
-export default function CategoryFilter({ search, onClick }) {
+export default function CategoryFilter({ search, onSelectCategory }) {
   const activeCategories = search.categories
     ? search.categories
     : [search.category];
@@ -14,7 +14,7 @@ export default function CategoryFilter({ search, onClick }) {
           $active={activeCategories.includes(category.name)}
           $category={category.name}
           $color={category.color}
-          onClick={() => onClick(category.name)}
+          onClick={() => onSelectCategory(category.name)}
         >
           {category.name}
         </Styled.FilterButton>
