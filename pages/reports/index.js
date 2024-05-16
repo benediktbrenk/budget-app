@@ -11,6 +11,10 @@ export default function ReportsPage({ transactions }) {
     paymentMethod: "",
   });
 
+  function handleReportFilter(filterEntry) {
+    setFilter(filterEntry);
+  }
+
   const filteredTransactions = transactions.filter((transaction) => {
     const dateFrom = filter.dateFrom ? new Date(filter.dateFrom) : null;
     const dateTo = filter.dateTo ? new Date(filter.dateTo) : null;
@@ -34,7 +38,7 @@ export default function ReportsPage({ transactions }) {
 
   return (
     <>
-      <ReportFilter filter={filter} setFilter={setFilter} />
+      <ReportFilter filter={filter} onFilter={handleReportFilter} />
       <TabMenu filter={filter} filteredTransactions={filteredTransactions} />
     </>
   );

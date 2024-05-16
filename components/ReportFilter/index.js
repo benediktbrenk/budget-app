@@ -2,9 +2,9 @@ import CategoryFilter from "../CategoryFilter";
 import { Button } from "../Button/Button.styled";
 import * as Styled from "./ReportFilter.styled";
 
-export default function ReportFilter({ filter, setFilter }) {
+export default function ReportFilter({ filter, onFilter }) {
   function handleResetFilters() {
-    setFilter({
+    onFilter({
       categories: [],
       dateFrom: "",
       dateTo: "",
@@ -14,12 +14,12 @@ export default function ReportFilter({ filter, setFilter }) {
 
   function handleToggleOption(option) {
     if (filter.categories.includes(option)) {
-      setFilter({
+      onFilter({
         ...filter,
         categories: filter.categories.filter((category) => category !== option),
       });
     } else {
-      setFilter({
+      onFilter({
         ...filter,
         categories: [...filter.categories, option],
       });
@@ -37,7 +37,7 @@ export default function ReportFilter({ filter, setFilter }) {
           <Styled.FilterInputSelect
             value={filter.paymentMethod}
             onChange={(event) =>
-              setFilter({ ...filter, paymentMethod: event.target.value })
+              onFilter({ ...filter, paymentMethod: event.target.value })
             }
           >
             <option value="">All</option>
@@ -53,7 +53,7 @@ export default function ReportFilter({ filter, setFilter }) {
             type="date"
             value={filter.dateFrom}
             onChange={(event) =>
-              setFilter({ ...filter, dateFrom: event.target.value })
+              onFilter({ ...filter, dateFrom: event.target.value })
             }
           />
         </Styled.FilterItem>
@@ -63,7 +63,7 @@ export default function ReportFilter({ filter, setFilter }) {
             type="date"
             value={filter.dateTo}
             onChange={(event) =>
-              setFilter({ ...filter, dateTo: event.target.value })
+              onFilter({ ...filter, dateTo: event.target.value })
             }
           />
         </Styled.FilterItem>
