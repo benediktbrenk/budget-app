@@ -10,7 +10,9 @@ export default function LoginButton() {
         <p>
           <FaCircleUser />
         </p>
-        <SignButton onClick={() => signOut()}>Sign out</SignButton>
+        <SignButton onClick={() => signOut({ callbackUrl: "/" })}>
+          Sign out
+        </SignButton>
       </SignItemContainer>
     );
   }

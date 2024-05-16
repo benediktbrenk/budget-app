@@ -10,18 +10,19 @@ export default function EditPage({ handleEditTransaction, transactions }) {
   if (!id) {
     return null;
   }
+    if (status !== "authenticated") {
+      return <h2>Access denied!</h2>;
+    }
 
-  const currentTransaction = transactions.find(
-    (transaction) => transaction._id === id
-  );
+    const currentTransaction = transactions.find(
+      (transaction) => transaction._id === id
+    );
 
-  if (!currentTransaction) {
-    return null;
-  }
+    if (!currentTransaction) {
+      return null;
+    }
 
-  if (status !== "authenticated") {
-    return <h2>Access denied!</h2>;
-  }
+
   return (
     <TransactionEntryForm
       updateTransactions={handleEditTransaction}

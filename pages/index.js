@@ -19,6 +19,24 @@ export default function HomePage({ transactions, deleteTransaction }) {
 
   const { data: session } = useSession();
 
+  if (!session) {
+    return (
+      <SectionContainer>
+        <h2>Login and check your Budget!</h2>
+        <p>This way you can keep an eye on your finances</p>
+        <span>
+          <p>Try our Test Account:</p>
+          <p>
+            <strong>username:</strong> user
+          </p>
+          <p>
+            <strong>password:</strong> user
+          </p>
+        </span>
+      </SectionContainer>
+    );
+  }
+
   const isSearchEntry = Object.values(search).some((value) => value !== "");
 
   const filteredSearch = transactions.filter((transaction) => {
@@ -57,38 +75,20 @@ export default function HomePage({ transactions, deleteTransaction }) {
 
   return (
     <>
-      {session ? (
-        <>
-          <AccountBalance transactions={transactions} />
-          <SearchBar
-            transactions={transactions}
-            search={search}
-            onSearch={setSearch}
-            isSearchEntry={isSearchEntry}
-          />
-          <TransactionList
-            transactions={filteredSearch}
-            deleteTransaction={deleteTransaction}
-          />
-          <a href="#scroll-to-top">
-            <GoToTopButton />
-          </a>
-        </>
-      ) : (
-        <SectionContainer>
-          <h2>Login and check your Budget!</h2>
-          <p>This way you can keep an eye on your finances</p>
-          <span>
-            <p>Try our Test Account:</p>
-            <p>
-              <strong>username:</strong> user
-            </p>
-            <p>
-              <strong>password:</strong> user
-            </p>
-          </span>
-        </SectionContainer>
-      )}
+      <AccountBalance transactions={transactions} />
+      <SearchBar
+        transactions={transactions}
+        search={search}
+        onSearch={setSearch}
+        isSearchEntry={isSearchEntry}
+      />
+      <TransactionList
+        transactions={filteredSearch}
+        deleteTransaction={deleteTransaction}
+      />
+      <a href="#scroll-to-top">
+        <GoToTopButton />
+      </a>
     </>
   );
 }

@@ -27,16 +27,16 @@ export default async function handler(request, response) {
 			return response.status(200).json(transaction);
 		}
 
-		if (request.method === "PUT") {
-			const updatedTransaction = request.body;
-			await Transaction.findByIdAndUpdate(id, updatedTransaction);
-			return response.status(200).json({ status: "Transaction updated." });
-		}
+	if (request.method === "PUT") {
+    const updatedTransaction = request.body;
+    await Transaction.findByIdAndUpdate(id, updatedTransaction);
+    return response.status(200).json({ status: "Transaction updated." });
+  }
 
-		if (request.method === "DELETE") {
-			await Transaction.findByIdAndDelete(id);
-			return response.status(200).json({ status: "Transaction deleted." });
-		}
+	if (request.method === "DELETE") {
+    await Transaction.findByIdAndDelete(id);
+    return response.status(200).json({ status: "Transaction deleted." });
+  }
 	} catch (error) {
 		console.error("Error fetching transactions:", error.message);
 		return response.status(400).json({ error: "Internal Server Error" });
