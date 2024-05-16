@@ -10,18 +10,18 @@ export default function EditPage({ handleEditTransaction, transactions }) {
   if (!id) {
     return null;
   }
-    if (status !== "authenticated") {
-      return <h2>Access denied!</h2>;
-    }
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
+  }
 
-    const currentTransaction = transactions.find(
-      (transaction) => transaction._id === id
-    );
+  const currentTransaction = transactions.find(
+    (transaction) => transaction._id === id
+  );
 
-    if (!currentTransaction) {
-      return null;
-    }
-
+  if (!currentTransaction) {
+    return null;
+  }
 
   return (
     <TransactionEntryForm
@@ -29,6 +29,6 @@ export default function EditPage({ handleEditTransaction, transactions }) {
       currentTransaction={currentTransaction}
       id={id}
       mode="edit"
-    ></TransactionEntryForm>
+    />
   );
 }

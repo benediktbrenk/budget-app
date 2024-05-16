@@ -2,8 +2,10 @@ import ReportFilter from "@/components/ReportFilter";
 import TabMenu from "@/components/Report";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function ReportsPage({ transactions }) {
+  const router = useRouter();
   const { data: session, status } = useSession();
   const categories = [
     "Groceries",
@@ -19,6 +21,10 @@ export default function ReportsPage({ transactions }) {
     dateTo: "",
     paymentMethod: "",
   });
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
+  }
 
   const filteredTransactions = transactions.filter((transaction) => {
     const dateFrom = filter.dateFrom ? new Date(filter.dateFrom) : null;
@@ -40,10 +46,6 @@ export default function ReportsPage({ transactions }) {
 
     return dateMatches && paymentMethodMatches && directionExpense;
   });
-
-  if (status !== "authenticated") {
-    return <h2>Access denied!</h2>;
-  }
 
   return (
     <>

@@ -14,9 +14,10 @@ export default function TransactionDetailsPage({
   if (!id) {
     return null;
   }
-  if (status !== "authenticated") {
-    return <h2>Access denied!</h2>;
-  }
+ if (!session && status !== "authenticated") {
+   router.push("/login");
+   return;
+ }
   const currentTransaction = transactions.find(
     (transaction) => transaction._id === id
   );

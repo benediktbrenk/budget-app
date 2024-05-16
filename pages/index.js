@@ -5,8 +5,10 @@ import AccountBalance from "@/components/AccountBalance";
 import { useSession } from "next-auth/react";
 import { SectionContainer } from "../Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
+import { useRouter } from "next/router";
 
 export default function HomePage({ transactions, deleteTransaction }) {
+  const router = useRouter();
   const [search, setSearch] = useState({
     name: "",
     category: "",
@@ -17,24 +19,11 @@ export default function HomePage({ transactions, deleteTransaction }) {
     amountTo: "",
   });
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
-  if (!session) {
-    return (
-      <SectionContainer>
-        <h2>Login and check your Budget!</h2>
-        <p>This way you can keep an eye on your finances</p>
-        <span>
-          <p>Try our Test Account:</p>
-          <p>
-            <strong>username:</strong> user
-          </p>
-          <p>
-            <strong>password:</strong> user
-          </p>
-        </span>
-      </SectionContainer>
-    );
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
   }
 
   const isSearchEntry = Object.values(search).some((value) => value !== "");
