@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import * as Styled from "./TransactionCard.styled";
-import ModalDelete from "../ModalDelete";
 import Modal from "../Modal";
 import { categories } from "@/utils/categories";
 import TransactionEntryForm from "../TransactionEntryForm";
+import { Button } from "../Button/Button.styled";
 
 function TransactionCard({ transaction, deleteTransaction }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -12,6 +12,11 @@ function TransactionCard({ transaction, deleteTransaction }) {
   const currentCategory = categories.find(
     (category) => category.name === transaction.category,
   );
+
+  function handleDelete() {
+    deleteTransaction(id);
+    setShowDeleteModal(false);
+  }
 
   return (
     <>
@@ -26,12 +31,15 @@ setShowModal={setShowEditModal}
 currentTransaction={transaction}
 /></Modal>
 
-      <ModalDelete
+      <Modal
         showModal={showDeleteModal}
-        setShowModal={setShowDeleteModal}
-        deleteTransaction={deleteTransaction}
-        id={transaction._id}
-      />
+      >            <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
+      <Button $type="cancel" onClick={() => setShowDeleteModal(false)}>
+        Cancel
+      </Button>
+      <Button $type="danger" onClick={handleDelete}>
+        Delete
+      </Button></Modal>
 
       <Styled.ColorField $color={currentCategory.color} />
       <Styled.ContentContainer>
