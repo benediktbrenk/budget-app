@@ -5,7 +5,6 @@ export const DetailsContainer = styled.article`
   flex-direction: column;
   background-color: #f5f6f6;
   padding: 15px 0 0 35px;
-
   margin: 20px 0;
   border-radius: 0.75rem;
   min-width: 250px;
@@ -46,7 +45,6 @@ export const ButtonContainer = styled.div`
 export const Label = styled.label`
   color: darkgrey;
   font-size: 0.9rem;
-
   font-weight: bold;
   padding: 0 0.5rem 0 0.5rem;
   margin-top: 0.5rem;
@@ -57,5 +55,16 @@ export const FrontCard = styled.div`
   transition: transform 0.8s;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  background-color: hotpink;
+`;
+
+export const BackCard = styled.div`
+  position: absolute;
+  top: 60px;
+  transform: rotateY(180deg);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  width: 300px;
+  height: 300px;
+  background-color: blue;
 `;

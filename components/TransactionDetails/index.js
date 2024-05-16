@@ -15,7 +15,7 @@ export default function TransactionDetails({
     setIsFlipped(!isFlipped);
   }
   return (
-    <main>
+    <div>
       <Styled.FrontCard
         style={{ transform: isFlipped ? "rotateY(180deg)" : "none" }}
       >
@@ -49,7 +49,7 @@ export default function TransactionDetails({
             >
               Delete
             </Button>
-            <Button onClick={handleFlip}>flip</Button>
+
             <StyledLink href={`/edit/${currentTransaction._id}`}>
               Edit
             </StyledLink>
@@ -76,6 +76,10 @@ export default function TransactionDetails({
           </article>
         )}
       </Styled.FrontCard>
-    </main>
+      <Styled.BackCard
+        style={{ transform: isFlipped ? "none" : "rotateY(180deg)" }}
+      ></Styled.BackCard>
+      <Button onClick={handleFlip}>flip</Button>
+    </div>
   );
 }
