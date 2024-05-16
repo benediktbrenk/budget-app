@@ -4,7 +4,7 @@ import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
 import GoToTopButton from "@/components/GoToTopButton";
 
-export default function HomePage({ transactions, deleteTransaction }) {
+export default function HomePage({ transactions, deleteTransaction, handleEditTransaction }) {
   const [search, setSearch] = useState({
     name: "",
     category: "",
@@ -86,6 +86,7 @@ export default function HomePage({ transactions, deleteTransaction }) {
       <TransactionList
         transactions={filteredSearch}
         deleteTransaction={deleteTransaction}
+        updateTransactions={handleEditTransaction}
       />
 
       <GoToTopButton />

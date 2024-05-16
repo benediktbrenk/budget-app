@@ -5,7 +5,7 @@ import { categories } from "@/utils/categories";
 import TransactionEntryForm from "../TransactionEntryForm";
 import { Button } from "../Button/Button.styled";
 
-function TransactionCard({ transaction, deleteTransaction }) {
+function TransactionCard({ transaction, deleteTransaction, updateTransactions }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
@@ -27,9 +27,11 @@ function TransactionCard({ transaction, deleteTransaction }) {
     >   
     <Modal showModal={showEditModal}>
     <TransactionEntryForm
+    updateTransactions={updateTransactions}
 setShowModal={setShowEditModal}
 currentTransaction={transaction}
 mode="edit"
+id={transaction._id}
 /></Modal>
 
       <Modal

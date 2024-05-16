@@ -19,8 +19,6 @@ function TransactionEntryForm({
   const currentCategory = categories.find(
     (category) => category.name === selectedCategory
   );
-  
-  const router = useRouter();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -29,12 +27,8 @@ function TransactionEntryForm({
     const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
     updateTransactions(updatedTransaction, id);
     event.target.reset();
-    router.push("/");
+    setShowModal(false);
   }
-
- 
-    
-  
 
   return (
       <form onSubmit={handleSubmit}>
