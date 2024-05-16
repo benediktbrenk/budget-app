@@ -1,9 +1,10 @@
 import { styled } from "styled-components";
 
+
 export const FormContainer = styled.div`
 display: flex;
 flex-direction: column;
-background-color: #f5f6f6;
+background-color: ${(props) => props.$softColor || "#CCCCCC"};
 padding: 15px 35px 15px 35px;
 margin: 20px 0;
 border-radius: 0.75rem;
@@ -19,7 +20,7 @@ position: relative;
   left: 10px;
   width: 17px;
   height: 96%;
-  background-color: lightblue;
+  background-color: ${(props) => props.$color || "#CCCCCC"};
   border-radius: 6px;
 }
 
@@ -35,24 +36,29 @@ export const FormField = styled.div`
 
   label {
     padding-left: 7px;
-    color: darkgray;
+    color: darkgrey;
     font-weight: bold;
+    font-size: 0.9rem; 
   }
 
   input,
   select,
   textarea {
     border: none;
-    border-radius: 0.5rem; 
+    border-radius: 0.3rem; 
+    font-family: arial;
   }
 
   input,
   select {
     padding: 5px;
+    
   }
   
   textarea {
     height: 50px;
+    
+    
   }
  
 `;
@@ -65,26 +71,3 @@ export const FormButton = styled.div`
   
 `;
 
-export const CancelButton = styled.button`
-padding: 0.8rem 1.5rem;
-border-radius: 0.75rem;
-border: none;
-box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
-cursor: pointer;
-transition: transform 0.5s ease;
-transform-style: preserve-3d;
-  &:hover {
-    background-color: red;
-    transform: rotateY(180deg);
-  }`
-    
-export const EditButton = styled.button`
-padding: 0.8rem 1.5rem;
-border-radius: 0.75rem;
-border: none;
-box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
-cursor: pointer;
-  &:hover {
-    background-color: lightblue;
-  }
-`;
