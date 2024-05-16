@@ -22,6 +22,10 @@ export default function HomePage({ transactions, deleteTransaction }) {
     }));
   }
 
+  function handleSearch(searchEntry) {
+    setSearch(searchEntry);
+  }
+
   const isSearchEntry = Object.values(search).some((value) => value !== "");
 
   const filteredSearch = transactions.filter((transaction) => {
@@ -75,7 +79,7 @@ export default function HomePage({ transactions, deleteTransaction }) {
       <SearchBar
         transactions={transactions}
         search={search}
-        onSearch={setSearch}
+        onSearch={handleSearch}
         handleCategoryFilter={handleCategoryFilter}
         isSearchEntry={isSearchEntry}
       />
