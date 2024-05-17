@@ -1,7 +1,9 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export const DetailsContainer = styled.article`
+export const DetailsContainer = styled.div``;
+
+export const DetailsCard = styled.article`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.$softColor || "#CCCCCC"};

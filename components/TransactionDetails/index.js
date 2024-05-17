@@ -7,6 +7,8 @@ import { useState } from "react";
 export default function TransactionDetails({
   currentTransaction,
   deleteTransaction,
+  showModal,
+  setShowModal,
 }) {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
@@ -15,9 +17,9 @@ export default function TransactionDetails({
   );
 
   return (
-    <>
-      <article>
-        <Styled.DetailsContainer
+    !showModal && (
+      <Styled.DetailsContainer>
+        <Styled.DetailsCard
           $color={currentCategory.color}
           $softColor={currentCategory.softColor}
         >
@@ -38,7 +40,7 @@ export default function TransactionDetails({
             <Styled.Label>Description:</Styled.Label>
             <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
           </Styled.ItemContainer>
-        </Styled.DetailsContainer>
+        </Styled.DetailsCard>
         <Styled.ButtonContainer>
           <Button
             onClick={() => setIsDeleteMode(!isDeleteMode)}
@@ -48,29 +50,30 @@ export default function TransactionDetails({
             Delete
           </Button>
 
-          <StyledLink href={`/edit/${currentTransaction._id}`}>Edit</StyledLink>
+          <Button onClick={() => setShowModal(true)}>Edit</Button>
         </Styled.ButtonContainer>
-      </article>
-      {isDeleteMode && (
-        <article>
-          <Styled.ItemContainer>
-            <p>Delete Entry:</p>
-            <p>Are you sure?</p>
-          </Styled.ItemContainer>
-          <Styled.ButtonContainer>
-            <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
-              Cancel
-            </Button>
-            <Button
-              onClick={() => deleteTransaction(currentTransaction._id)}
-              $type="danger"
-              $textColor="white"
-            >
-              Delete
-            </Button>
-          </Styled.ButtonContainer>
-        </article>
-      )}
-    </>
+        {isDeleteMode && (
+          <section>
+            <Styled.ItemContainer>
+              <p>Delete Entry:</p>
+              <p>Are you sure?</p>
+            </Styled.ItemContainer>
+
+            <Styled.ButtonContainer>
+              <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
+                Cancel
+              </Button>
+              <Button
+                onClick={() => deleteTransaction(currentTransaction._id)}
+                $type="danger"
+                $textColor="white"
+              >
+                Delete
+              </Button>
+            </Styled.ButtonContainer>
+          </section>
+        )}
+      </Styled.DetailsContainer>
+    )
   );
 }

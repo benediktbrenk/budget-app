@@ -9,7 +9,11 @@ import {
 } from "../../utils/transaction";
 import { months } from "@/utils/months";
 
-function TransactionList({ transactions, deleteTransaction }) {
+function TransactionList({
+  transactions,
+  deleteTransaction,
+  updateTransactions,
+}) {
   const yearsInTransactions = findYearsInTransactions(transactions);
 
   const transactionsPerYearsAndMonths = yearsInTransactions.map(
@@ -23,14 +27,14 @@ function TransactionList({ transactions, deleteTransaction }) {
         const monthIndex = months.indexOf(month);
         const transactionsPerMonth = filterTransactionsByMonth(
           transactionsPerYear,
-          monthIndex,
+          monthIndex
         ).toSorted((a, b) => new Date(b.date) - new Date(a.date));
 
         return { month, transactions: transactionsPerMonth };
       });
 
       return { year, transactionsPerMonths };
-    },
+    }
   );
 
   return (
@@ -52,11 +56,12 @@ function TransactionList({ transactions, deleteTransaction }) {
                         key={transaction._id}
                         transaction={transaction}
                         deleteTransaction={deleteTransaction}
+                        updateTransactions={updateTransactions}
                       />
                     ))}
                   </Styled.TransactionList>
                 </Styled.MonthContainer>
-              ),
+              )
           )}
         </Fragment>
       ))}

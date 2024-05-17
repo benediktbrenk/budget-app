@@ -41,9 +41,9 @@ export const TransactionDate = styled.p`
 `;
 
 export const BottomContainer = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const ActionLinkContainer = styled.div`
@@ -100,4 +100,17 @@ export const Amount = styled(Link)`
   margin: 0;
   font: 600 16px/18px var(--font-family);
   text-align: right;
+`;
+
+export const ModalTitle = styled.h2`
+  margin-top: 0;
+  margin-bottom: 10px;
+`;
+
+export const ModalButton = styled.button`
+  margin: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 `;

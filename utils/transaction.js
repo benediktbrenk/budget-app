@@ -2,7 +2,7 @@ import { months } from "./months";
 
 export function findYearsInTransactions(transactions) {
   const years = transactions.map((transaction) =>
-    new Date(transaction.date).getFullYear(),
+    new Date(transaction.date).getFullYear()
   );
 
   const yearsInTransactions = [...new Set(years)];

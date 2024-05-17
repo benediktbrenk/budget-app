@@ -7,7 +7,11 @@ import { SectionContainer } from "../Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
 import { useRouter } from "next/router";
 
-export default function HomePage({ transactions, deleteTransaction }) {
+export default function HomePage({
+  transactions,
+  deleteTransaction,
+  handleEditTransaction,
+}) {
   const router = useRouter();
   const [search, setSearch] = useState({
     name: "",
@@ -19,7 +23,7 @@ export default function HomePage({ transactions, deleteTransaction }) {
     amountTo: "",
   });
 
-   const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
 
   if (!session && status !== "authenticated") {
     router.push("/login");
@@ -97,6 +101,7 @@ export default function HomePage({ transactions, deleteTransaction }) {
       <TransactionList
         transactions={filteredSearch}
         deleteTransaction={deleteTransaction}
+        updateTransactions={handleEditTransaction}
       />
 
       <GoToTopButton />

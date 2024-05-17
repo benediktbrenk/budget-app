@@ -1,14 +1,22 @@
-import { Button } from "../Button/Button.styled";
 import * as Styled from "./TransactionEntryForm.styled";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
+import { Button } from "../Button/Button.styled";
+import { categories } from "@/utils/categories";
 
 function TransactionEntryForm({
   updateTransactions,
   id,
   currentTransaction,
   mode,
+  setShowModal,
 }) {
-  const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState(
+    mode === "add" ? "Groceries" : currentTransaction.category
+  );
+  const currentCategory = categories.find(
+    (category) => category.name === selectedCategory
+  );
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,11 +25,15 @@ function TransactionEntryForm({
     const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
     updateTransactions(updatedTransaction, id);
     event.target.reset();
-    router.push("/");
+    setShowModal(false);
   }
+
   return (
     <form onSubmit={handleSubmit}>
-      <Styled.FormContainer>
+      <Styled.FormContainer
+        $color={currentCategory.color}
+        $softColor={currentCategory.softColor}
+      >
         <Styled.FormField>
           <label htmlFor="direction">Direction</label>
           <select
@@ -99,7 +111,13 @@ function TransactionEntryForm({
         </Styled.FormField>
         <Styled.FormField>
           <label htmlFor="category">Category</label>
-          <select type="text" name="category" required defaultValue="Groceries">
+          <select
+            type="text"
+            name="category"
+            required
+            defaultValue={selectedCategory}
+            onChange={(event) => setSelectedCategory(event.target.value)}
+          >
             <option value="Groceries">Groceries</option>
             <option value="Salary">Salary</option>
             <option value="Housing">Housing</option>
@@ -117,10 +135,19 @@ function TransactionEntryForm({
             defaultValue={mode === "add" ? "" : currentTransaction.description}
           />
         </Styled.FormField>
-        <Styled.FormButton>
-          <Button $type="submit">Submit</Button>
-        </Styled.FormButton>
       </Styled.FormContainer>
+      <Styled.FormButton>
+        <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
+        {mode === "edit" && (
+          <Button
+            $type="danger"
+            $textColor="white"
+            onClick={() => setShowModal(false)}
+          >
+            Cancel
+          </Button>
+        )}
+      </Styled.FormButton>
     </form>
   );
 }

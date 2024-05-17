@@ -15,13 +15,12 @@ export const CategoryFilterContainer = styled.div`
 `;
 
 export const FilterButton = styled.button`
-
   border: 2px solid;
   border-radius: 4px;
   height: 60px;
   width: 70px;
   background-color: ${(props) => props.$color || "#CCCCCC"};
-  
+
   ${(props) =>
     props.$active &&
     css`
