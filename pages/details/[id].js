@@ -3,6 +3,7 @@ import TransactionDetails from "@/components/TransactionDetails";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useState } from "react";
 import Modal from "@/components/Modal";
+import { useSession } from "next-auth/react";
 
 export default function TransactionDetailsPage({
   transactions,
@@ -10,13 +11,17 @@ export default function TransactionDetailsPage({
   handleEditTransaction,
 }) {
   const [showModal, setShowModal] = useState(false);
+  const { data: session, status } = useSession();
   const router = useRouter();
   const { id } = router.query;
 
   if (!id) {
     return null;
   }
-
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
+  }
   const currentTransaction = transactions.find(
     (transaction) => transaction._id === id
   );
