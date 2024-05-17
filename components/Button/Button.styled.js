@@ -2,8 +2,6 @@ import styled from "styled-components";
 import css from "styled-jsx/css";
 
 export const Button = styled.button`
-  display: ${(props) =>
-    props.$visible === undefined || props.$visible ? "block" : "none"};
   ${(props) => {
     switch (props.$type) {
       case "submit":

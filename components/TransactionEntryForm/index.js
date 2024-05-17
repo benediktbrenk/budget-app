@@ -138,14 +138,15 @@ function TransactionEntryForm({
       </Styled.FormContainer>
       <Styled.FormButton>
         <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
-        <Button
-          $visible={mode === "edit"}
-          $type="danger"
-          $textColor="white"
-          onClick={() => setShowModal(false)}
-        >
-          Cancel
-        </Button>
+        {mode === "edit" && (
+          <Button
+            $type="danger"
+            $textColor="white"
+            onClick={() => setShowModal(false)}
+          >
+            Cancel
+          </Button>
+        )}
       </Styled.FormButton>
     </form>
   );

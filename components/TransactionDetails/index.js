@@ -17,13 +17,11 @@ export default function TransactionDetails({
   );
 
   return (
-    <>
-      {" "}
-      <Styled.DetailsContainer $visible={showModal}>
+    !showModal && (
+      <Styled.DetailsContainer>
         <Styled.DetailsCard
           $color={currentCategory.color}
           $softColor={currentCategory.softColor}
-          $showModal={showModal}
         >
           <Styled.ItemContainer>
             <Styled.Label>Title:</Styled.Label>
@@ -43,7 +41,6 @@ export default function TransactionDetails({
             <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
           </Styled.ItemContainer>
         </Styled.DetailsCard>
-
         <Styled.ButtonContainer>
           <Button
             onClick={() => setIsDeleteMode(!isDeleteMode)}
@@ -55,28 +52,28 @@ export default function TransactionDetails({
 
           <Button onClick={() => setShowModal(true)}>Edit</Button>
         </Styled.ButtonContainer>
-      </Styled.DetailsContainer>
-      {isDeleteMode && (
-        <section>
-          <Styled.ItemContainer>
-            <p>Delete Entry:</p>
-            <p>Are you sure?</p>
-          </Styled.ItemContainer>
+        {isDeleteMode && (
+          <section>
+            <Styled.ItemContainer>
+              <p>Delete Entry:</p>
+              <p>Are you sure?</p>
+            </Styled.ItemContainer>
 
-          <Styled.ButtonContainer>
-            <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
-              Cancel
-            </Button>
-            <Button
-              onClick={() => deleteTransaction(currentTransaction._id)}
-              $type="danger"
-              $textColor="white"
-            >
-              Delete
-            </Button>
-          </Styled.ButtonContainer>
-        </section>
-      )}
-    </>
+            <Styled.ButtonContainer>
+              <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
+                Cancel
+              </Button>
+              <Button
+                onClick={() => deleteTransaction(currentTransaction._id)}
+                $type="danger"
+                $textColor="white"
+              >
+                Delete
+              </Button>
+            </Styled.ButtonContainer>
+          </section>
+        )}
+      </Styled.DetailsContainer>
+    )
   );
 }

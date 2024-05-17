@@ -40,7 +40,6 @@ function TransactionCard({
         </Modal>
 
         <Modal showModal={showDeleteModal}>
-          {" "}
           <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
           <Button $type="cancel" onClick={() => setShowDeleteModal(false)}>
             Cancel

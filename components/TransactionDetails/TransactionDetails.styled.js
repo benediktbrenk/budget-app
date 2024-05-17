@@ -1,8 +1,6 @@
 const { default: styled } = require("styled-components");
 
-export const DetailsContainer = styled.div`
-  display: ${(props) => (props.$visible ? "none" : "block")};
-`;
+export const DetailsContainer = styled.div``;
 
 export const DetailsCard = styled.article`
   display: flex;
