@@ -41,9 +41,9 @@ export const TransactionDate = styled.p`
 `;
 
 export const BottomContainer = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const ActionLinkContainer = styled.div`

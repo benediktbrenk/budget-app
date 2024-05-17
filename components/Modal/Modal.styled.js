@@ -13,7 +13,7 @@ export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  position:fixed;
+  position: fixed;
   top: 10px;
   padding: 15px 15px 10px 15px;
   border-radius: 8px;

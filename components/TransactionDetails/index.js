@@ -7,21 +7,24 @@ import { useState } from "react";
 export default function TransactionDetails({
   currentTransaction,
   deleteTransaction,
-  showModal, setShowModal
+  showModal,
+  setShowModal,
 }) {
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === currentTransaction.category,
+    (category) => category.name === currentTransaction.category
   );
 
   return (
-    <> <Styled.DetailsContainer $visible={showModal}>
-      <Styled.DetailsCard
+    <>
+      {" "}
+      <Styled.DetailsContainer $visible={showModal}>
+        <Styled.DetailsCard
           $color={currentCategory.color}
           $softColor={currentCategory.softColor}
-          $showModal={showModal}>
-        
+          $showModal={showModal}
+        >
           <Styled.ItemContainer>
             <Styled.Label>Title:</Styled.Label>
             <Styled.ItemText>{currentTransaction.name}</Styled.ItemText>
@@ -50,11 +53,9 @@ export default function TransactionDetails({
             Delete
           </Button>
 
-          <Button onClick={() => setShowModal(true)} >Edit
-          </Button>
+          <Button onClick={() => setShowModal(true)}>Edit</Button>
         </Styled.ButtonContainer>
       </Styled.DetailsContainer>
-      
       {isDeleteMode && (
         <section>
           <Styled.ItemContainer>
@@ -74,7 +75,6 @@ export default function TransactionDetails({
               Delete
             </Button>
           </Styled.ButtonContainer>
-
         </section>
       )}
     </>

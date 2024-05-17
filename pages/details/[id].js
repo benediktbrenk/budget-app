@@ -1,4 +1,3 @@
-
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
@@ -8,7 +7,7 @@ import Modal from "@/components/Modal";
 export default function TransactionDetailsPage({
   transactions,
   deleteTransaction,
-  handleEditTransaction
+  handleEditTransaction,
 }) {
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
@@ -19,7 +18,7 @@ export default function TransactionDetailsPage({
   }
 
   const currentTransaction = transactions.find(
-    (transaction) => transaction._id === id,
+    (transaction) => transaction._id === id
   );
 
   if (!currentTransaction) {
@@ -28,20 +27,21 @@ export default function TransactionDetailsPage({
 
   return (
     <>
-     
       <Modal showModal={showModal}>
-      <TransactionEntryForm  setShowModal={setShowModal}
-        currentTransaction={currentTransaction} 
-        updateTransactions={handleEditTransaction}
-        id={id}
-        mode="edit"/>
-        </Modal>
-        <TransactionDetails
-          showModal={showModal} setShowModal={setShowModal}
+        <TransactionEntryForm
+          setShowModal={setShowModal}
           currentTransaction={currentTransaction}
-          deleteTransaction={() => deleteTransaction(id)}
+          updateTransactions={handleEditTransaction}
+          id={id}
+          mode="edit"
         />
-      
+      </Modal>
+      <TransactionDetails
+        showModal={showModal}
+        setShowModal={setShowModal}
+        currentTransaction={currentTransaction}
+        deleteTransaction={() => deleteTransaction(id)}
+      />
     </>
   );
 }

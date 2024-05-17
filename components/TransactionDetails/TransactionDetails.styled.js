@@ -1,15 +1,15 @@
 const { default: styled } = require("styled-components");
 
 export const DetailsContainer = styled.div`
-display: ${(props) => props.$visible ? "none" : "block"}; `
-
+  display: ${(props) => (props.$visible ? "none" : "block")};
+`;
 
 export const DetailsCard = styled.article`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.$softColor || "#CCCCCC"};
   padding: 15px 0 0 35px;
-  
+
   margin: 20px 0;
   border-radius: 0.75rem;
   min-width: 250px;
@@ -56,4 +56,3 @@ export const Label = styled.label`
   margin-top: 0.5rem;
   margin-right: 0.9rem;
 `;
-
