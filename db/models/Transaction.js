@@ -11,6 +11,7 @@ const transactionSchema = new Schema({
   category: String,
   paymentMethod: String,
   direction: String,
+  author: String,
 });
 
 const Transaction =

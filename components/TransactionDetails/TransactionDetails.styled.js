@@ -1,4 +1,5 @@
-const { default: styled } = require("styled-components");
+import Link from "next/link";
+import styled from "styled-components";
 
 export const DetailsContainer = styled.article`
   display: flex;

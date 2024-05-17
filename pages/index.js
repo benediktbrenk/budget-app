@@ -2,9 +2,13 @@ import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
 import AccountBalance from "@/components/AccountBalance";
+import { useSession } from "next-auth/react";
+import { SectionContainer } from "../Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
+import { useRouter } from "next/router";
 
 export default function HomePage({ transactions, deleteTransaction }) {
+  const router = useRouter();
   const [search, setSearch] = useState({
     name: "",
     category: "",
@@ -14,6 +18,13 @@ export default function HomePage({ transactions, deleteTransaction }) {
     amountFrom: "",
     amountTo: "",
   });
+
+   const { data: session, status } = useSession();
+
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
+  }
 
   function handleCategoryFilter(category) {
     setSearch((prevSearch) => ({

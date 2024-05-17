@@ -11,7 +11,7 @@ export default function TransactionDetails({
   const [isDeleteMode, setIsDeleteMode] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === currentTransaction.category,
+    (category) => category.name === currentTransaction.category
   );
 
   return (
