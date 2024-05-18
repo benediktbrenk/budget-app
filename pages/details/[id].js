@@ -9,6 +9,8 @@ export default function TransactionDetailsPage({
   transactions,
   deleteTransaction,
   handleEditTransaction,
+  showEditModal,
+  setShowEditModal,
 }) {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -42,6 +44,8 @@ export default function TransactionDetailsPage({
         <TransactionEntryForm
           currentTransaction={currentTransaction}
           updateTransactions={handleEditTransaction}
+          showEditModal={showEditModal}
+          setShowEditModal={setShowEditModal}
           id={id}
           mode="edit"
           flip={flip}

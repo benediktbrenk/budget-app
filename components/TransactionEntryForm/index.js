@@ -10,6 +10,8 @@ function TransactionEntryForm({
   mode,
   flip,
   setFlip,
+  showEditModal,
+  setShowEditModal,
 }) {
   const [selectedCategory, setSelectedCategory] = useState(
     mode === "add" ? "Groceries" : currentTransaction.category
@@ -25,6 +27,14 @@ function TransactionEntryForm({
     const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
     updateTransactions(updatedTransaction, id);
     event.target.reset();
+  }
+
+  function handleCancelClick() {
+    if (showEditModal) {
+      setShowEditModal(!showEditModal);
+    } else {
+      setFlip(!flip);
+    }
   }
 
   return (
@@ -138,11 +148,7 @@ function TransactionEntryForm({
       <Styled.FormButton>
         <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
         {mode === "edit" && (
-          <Button
-            $type="danger"
-            $textColor="white"
-            onClick={() => setFlip(!flip)}
-          >
+          <Button $type="danger" $textColor="white" onClick={handleCancelClick}>
             Cancel
           </Button>
         )}
