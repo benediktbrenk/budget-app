@@ -137,7 +137,9 @@ function TransactionEntryForm({
         </Styled.FormField>
       </Styled.FormContainer>
       <Styled.FormButton>
-        <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
+        <Button $type="submit" onClick={router.push("/")}>
+          {mode === "add" ? "Add" : "Save"}
+        </Button>
         {mode === "edit" && (
           <Button
             $type="danger"

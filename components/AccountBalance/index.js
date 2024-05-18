@@ -22,7 +22,6 @@ export default function AccountBalance({ transactions }) {
   return (
     <Styled.AccountBalanceCard>
       <Styled.BalanceContainer>
-        <Styled.BalanceTitle>Balance</Styled.BalanceTitle>
         <Styled.BalanceSum>{totalBalanceAmount.toFixed(2)} €</Styled.BalanceSum>
       </Styled.BalanceContainer>
       <Styled.IncomeExpenseContainer>

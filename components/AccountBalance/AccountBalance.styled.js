@@ -4,12 +4,10 @@ export const AccountBalanceCard = styled.article`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: var(--lightgrey);
-  padding: 0.75;
-  margin: 1rem;
-  border-radius: 0.75rem;
+  background-color: transparent;
   min-width: 250px;
-  max-width: 300px;
+  max-width: 350px;
+  gap: 20px;
 `;
 
 export const BalanceContainer = styled.div`
@@ -18,19 +16,16 @@ export const BalanceContainer = styled.div`
   justify-content: space-evenly;
 `;
 
-export const BalanceTitle = styled.div`
-  font-weight: lighter;
-`;
-
 export const BalanceSum = styled.div`
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: bold;
 `;
 
 export const IncomeExpenseContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: left;
+  gap: 20px;
 `;
 
 export const TotalIncome = styled.p`
