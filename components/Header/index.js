@@ -11,8 +11,7 @@ export default function Header() {
         alt="app-logo"
         src="/assets/expenso-logo.png"
       ></Image>
-      <Styled.Headline>Expenso</Styled.Headline>
-      <Styled.Headline>{title}</Styled.Headline>
+      <Styled.Headline>expenso</Styled.Headline>
       <LoginButton />
     </Styled.HeaderContainer>
   );

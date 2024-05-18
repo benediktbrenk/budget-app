@@ -16,7 +16,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const Headline = styled.h1`
-  color: black;
+  color: var(--header-textColor);
   font-size: 1.6rem;
   text-align: center;
 `;
