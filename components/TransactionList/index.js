@@ -9,7 +9,11 @@ import {
 } from "../../utils/transaction";
 import { months } from "@/utils/months";
 
-function TransactionList({ transactions }) {
+function TransactionList({
+  transactions,
+  deleteTransaction,
+  updateTransactions,
+}) {
   const yearsInTransactions = findYearsInTransactions(transactions);
 
   const transactionsPerYearsAndMonths = yearsInTransactions.map(
@@ -49,8 +53,10 @@ function TransactionList({ transactions }) {
                   <Styled.TransactionList>
                     {transactionsPerMonth.transactions.map((transaction) => (
                       <TransactionCard
-                        key={transaction.id}
+                        key={transaction._id}
                         transaction={transaction}
+                        deleteTransaction={deleteTransaction}
+                        updateTransactions={updateTransactions}
                       />
                     ))}
                   </Styled.TransactionList>

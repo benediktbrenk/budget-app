@@ -1,19 +1,27 @@
-import Header from "@/components/Header";
 import { useRouter } from "next/router";
 import TransactionDetails from "@/components/TransactionDetails";
-import * as Styled from "@/components/Main/Main.styled";
+import TransactionEntryForm from "@/components/TransactionEntryForm";
+import { useState } from "react";
+import Modal from "@/components/Modal";
+import { useSession } from "next-auth/react";
 
 export default function TransactionDetailsPage({
   transactions,
   deleteTransaction,
+  handleEditTransaction,
 }) {
+  const [showModal, setShowModal] = useState(false);
+  const { data: session, status } = useSession();
   const router = useRouter();
   const { id } = router.query;
 
   if (!id) {
     return null;
   }
-
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
+  }
   const currentTransaction = transactions.find(
     (transaction) => transaction._id === id
   );
@@ -24,13 +32,21 @@ export default function TransactionDetailsPage({
 
   return (
     <>
-      <Header title="Details"></Header>
-      <Styled.Main>
-        <TransactionDetails
+      <Modal showModal={showModal}>
+        <TransactionEntryForm
+          setShowModal={setShowModal}
           currentTransaction={currentTransaction}
-          deleteTransaction={() => deleteTransaction(id)}
-        ></TransactionDetails>
-      </Styled.Main>
+          updateTransactions={handleEditTransaction}
+          id={id}
+          mode="edit"
+        />
+      </Modal>
+      <TransactionDetails
+        showModal={showModal}
+        setShowModal={setShowModal}
+        currentTransaction={currentTransaction}
+        deleteTransaction={() => deleteTransaction(id)}
+      />
     </>
   );
 }

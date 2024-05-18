@@ -49,6 +49,7 @@ export const Button = styled.button`
   }};
   color: ${(props) => (props.$textColor === "white" ? "white" : "black")};
   padding: 10px 20px;
+  margin: 10px 0;
   border-radius: 8px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
   border: none;

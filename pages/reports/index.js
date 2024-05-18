@@ -1,22 +1,29 @@
 import ReportFilter from "@/components/ReportFilter";
 import TabMenu from "@/components/Report";
 import { useState } from "react";
+import { categories } from "@/utils/categories";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function ReportsPage({ transactions }) {
-  const categories = [
-    "Groceries",
-    "Salary",
-    "Housing",
-    "Insurance",
-    "Utilities",
-  ];
+  const router = useRouter();
+  const { data: session, status } = useSession();
 
   const [filter, setFilter] = useState({
-    categories: categories,
+    categories: categories.map((category) => category.name),
     dateFrom: "",
     dateTo: "",
     paymentMethod: "",
   });
+
+  function handleReportFilter(filterEntry) {
+    setFilter(filterEntry);
+  }
+
+  if (!session && status !== "authenticated") {
+    router.push("/login");
+    return;
+  }
 
   const filteredTransactions = transactions.filter((transaction) => {
     const dateFrom = filter.dateFrom ? new Date(filter.dateFrom) : null;
@@ -31,8 +38,8 @@ export default function ReportsPage({ transactions }) {
 
     const paymentMethodMatches =
       filter.paymentMethod === "" ||
-      transaction.paymentMethod.toLowerCase() ===
-        filter.paymentMethod.toLowerCase();
+      transaction.paymentMethod?.toLowerCase() ===
+        filter.paymentMethod?.toLowerCase();
 
     const directionExpense = direction === "Expense";
 
@@ -41,15 +48,8 @@ export default function ReportsPage({ transactions }) {
 
   return (
     <>
-      <ReportFilter
-        filter={filter}
-        setFilter={setFilter}
-        categories={categories}
-      ></ReportFilter>
-      <TabMenu
-        filter={filter}
-        filteredTransactions={filteredTransactions}
-      ></TabMenu>
+      <ReportFilter filter={filter} onFilter={handleReportFilter} />
+      <TabMenu filter={filter} filteredTransactions={filteredTransactions} />
     </>
   );
 }

@@ -24,8 +24,10 @@ export default function GoToTopButton() {
   }, [showButton]);
 
   return (
-    <Styled.IconButton showButton={showButton}>
-      <FaAnglesUp />
-    </Styled.IconButton>
+    <a href="#scroll-to-top">
+      <Styled.IconButton showButton={showButton}>
+        <FaAnglesUp />
+      </Styled.IconButton>
+    </a>
   );
 }

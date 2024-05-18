@@ -6,20 +6,17 @@ export const HeaderContainer = styled.header`
   align-items: center;
   width: 100%;
   height: 70px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 25px;
   gap: 20px;
-  background: linear-gradient(
-    45deg,
-    var(--header-background-color-1),
-    var(--header-background-color-2)
-  );
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 export const Headline = styled.h1`
-  color: var(--header-textColor);
-  font-size: 22px;
+  color: black;
+  font-size: 1.6rem;
   text-align: center;
-  padding: 10px 0 0 0;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); */
 `;
