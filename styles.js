@@ -19,12 +19,12 @@ export default createGlobalStyle`
 --color-text-dark:white;
 
 --color-primary:#4893E9;
---color-secondary:#E9EFF2;
+--color-secondary-light:#E9EFF2;
+--color-secondary-dark:#454444;
 --color-background-light:white;
 --color-background-dark:#282828;
 --color-green:#07B789;
 --color-red:#EF476F;
---color-button:rgba(255, 255, 255, 0.7);
 /* --color-highlight-light:;
 --color-highlight-dark:; */
 
