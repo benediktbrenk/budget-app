@@ -1,6 +1,8 @@
 import CategoryFilter from "../CategoryFilter";
 import { Button } from "../Button/Button.styled";
 import * as Styled from "./ReportFilter.styled";
+import Modal from "../Modal";
+import Calendar from "../Calendar";
 
 export default function ReportFilter({ filter, onFilter }) {
   function handleResetFilters() {
@@ -67,6 +69,9 @@ export default function ReportFilter({ filter, onFilter }) {
             }
           />
         </Styled.FilterItem>
+        <Modal showModal={false}>
+          <Calendar />
+        </Modal>
         <Styled.FilterItem>
           <Button onClick={handleResetFilters}>Clear Filter</Button>
         </Styled.FilterItem>
