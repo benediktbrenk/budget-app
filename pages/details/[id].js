@@ -4,6 +4,7 @@ import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useState } from "react";
 import Modal from "@/components/Modal";
 import { useSession } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
 
 export default function TransactionDetailsPage({
   transactions,
@@ -47,6 +48,7 @@ export default function TransactionDetailsPage({
         currentTransaction={currentTransaction}
         deleteTransaction={() => deleteTransaction(id)}
       />
+      <ToastContainer autoClose={2000} />
     </>
   );
 }

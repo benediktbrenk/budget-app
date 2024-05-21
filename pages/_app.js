@@ -4,6 +4,8 @@ import useSWR from "swr";
 import { SWRConfig } from "swr";
 import Layout from "./layout";
 import { SessionProvider } from "next-auth/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -35,6 +37,10 @@ export default function App({ Component, pageProps }) {
     }
 
     mutate();
+    toast.success("Transaction successfully added!", {
+      progress: undefined,
+      autoClose: 2000,
+    });
   }
 
   async function handleEditTransaction(updatedTransaction, id) {
@@ -51,6 +57,10 @@ export default function App({ Component, pageProps }) {
       return;
     }
     mutate();
+    toast.success("Transaction successfully edited!", {
+      progress: undefined,
+      autoClose: 2000,
+    });
   }
 
   async function deleteTransaction(id) {
@@ -64,11 +74,16 @@ export default function App({ Component, pageProps }) {
     }
     mutate();
     router.push("/");
+    toast.success("Transaction successfully deleted!", {
+      progress: undefined,
+      autoClose: 2000,
+    });
   }
 
   return (
     <>
       <GlobalStyle />
+      <ToastContainer autoClose={2000} />
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>
           <Layout>

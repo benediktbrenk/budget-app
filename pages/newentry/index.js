@@ -2,6 +2,8 @@ import ProtectPage from "@/components/ProtectPages";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function NewEntryPage({ handleAddTransaction }) {
   const router = useRouter();
@@ -17,6 +19,7 @@ function NewEntryPage({ handleAddTransaction }) {
         updateTransactions={handleAddTransaction}
         mode="add"
       />
+      <ToastContainer />
     </>
   );
 }

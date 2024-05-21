@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react";
 import { SectionContainer } from "../Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
 import { useRouter } from "next/router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function HomePage({
   transactions,
@@ -103,7 +105,7 @@ export default function HomePage({
         deleteTransaction={deleteTransaction}
         updateTransactions={handleEditTransaction}
       />
-
+      <ToastContainer autoClose={2000} />
       <GoToTopButton />
     </>
   );

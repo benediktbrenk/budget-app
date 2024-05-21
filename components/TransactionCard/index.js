@@ -5,6 +5,7 @@ import { categories } from "@/utils/categories";
 import TransactionEntryForm from "../TransactionEntryForm";
 import { Button } from "../Button/Button.styled";
 
+
 function TransactionCard({
   transaction,
   deleteTransaction,
@@ -18,7 +19,7 @@ function TransactionCard({
   );
 
   function handleDelete() {
-    deleteTransaction(id);
+    deleteTransaction(transaction._id);
     setShowDeleteModal(false);
   }
 

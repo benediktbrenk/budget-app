@@ -25,7 +25,7 @@ function TransactionEntryForm({
     const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
     updateTransactions(updatedTransaction, id);
     event.target.reset();
-    setShowModal(false);
+    mode === "edit" && setShowModal(false);
   }
 
   return (
