@@ -1,11 +1,10 @@
 import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
-import AccountBalance from "@/components/AccountBalance";
 import { useSession } from "next-auth/react";
-import { SectionContainer } from "../Homepage.styled";
 import GoToTopButton from "@/components/GoToTopButton";
 import { useRouter } from "next/router";
+import BalanceBanner from "@/components/BalanceBanner";
 
 export default function HomePage({
   transactions,
@@ -90,7 +89,7 @@ export default function HomePage({
 
   return (
     <>
-      <AccountBalance transactions={transactions} />
+      <BalanceBanner transactions={transactions} />
       <SearchBar
         transactions={transactions}
         search={search}
