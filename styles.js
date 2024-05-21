@@ -15,15 +15,31 @@ export default createGlobalStyle`
 
   :root {
 
-    /* Header */
---header-background-color-1: #6CB9D0;
---header-background-color-2: #8AC6D1;
---header-textColor: #4893E9;
+--color-text-light:black;
+--color-text-dark:white;
 
-    /* Color styles */
-  --lightgrey: #F5F6F6;
-  --amount-color-red: #EF476F;
-  --amount-color-green: #06D6A0;
+--color-primary:#4893E9;
+--color-secondary:#E9EFF2;
+--color-background-light:white;
+--color-background-dark:#282828;
+--color-green:#07B789;
+--color-red:#EF476F;
+--color-button:rgba(255, 255, 255, 0.7);
+/* --color-highlight-light:;
+--color-highlight-dark:; */
+
+--border-radius:8px;
+--box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+--opacity-light:0.2;
+--opacity-dark:0.2;
+
+/* catergory colors */
+--category-groceries:#E468C9;
+--category-salary:#7678ED;
+--category-housing:#F7B801;
+--category-insurance:#F18701;
+--category-utilities:#4893E9;
+
 
   /* button colors */
   --button: lightgrey;
@@ -42,8 +58,19 @@ export default createGlobalStyle`
   --button-danger-hover:darkred;
 
 
-    /* Font styles */
-  --font-family: ${inter.style.fontFamily};
+    /* Header */
+--header-background-color-1: #6CB9D0;
+--header-background-color-2: #8AC6D1;
+--header-textColor: #4893E9;
+
+    /* Color styles */
+  --lightgrey: #F5F6F6;
+  --amount-color-red: #EF476F;
+  --amount-color-green: #06D6A0;
+
+   /* Font styles */
+   --font-family: ${inter.style.fontFamily};
+
 }
 
   body {
