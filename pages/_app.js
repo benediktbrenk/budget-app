@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { SWRConfig } from "swr";
 import Layout from "./layout";
 import { SessionProvider } from "next-auth/react";
+import ProfileManager from "@/components/ProfileManager"; // Assuming this is the location of your ProfileManager component
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -17,54 +18,14 @@ export default function App({ Component, pageProps }) {
   }
 
   if (!data) {
-    return;
+    return null; // or any other fallback if needed
   }
 
-  async function handleAddTransaction(newTransaction) {
-    const response = await fetch("/api/transactions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newTransaction),
-    });
+  async function handleAddTransaction(newTransaction) {}
 
-    if (!response.ok) {
-      console.error(response.status);
-      return;
-    }
+  async function handleEditTransaction(updatedTransaction, id) {}
 
-    mutate();
-  }
-
-  async function handleEditTransaction(updatedTransaction, id) {
-    const response = await fetch(`/api/transactions/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedTransaction),
-    });
-
-    if (!response.ok) {
-      console.error(response.status);
-      return;
-    }
-    mutate();
-  }
-
-  async function deleteTransaction(id) {
-    const response = await fetch(`/api/transactions/${id}`, {
-      method: "DELETE",
-    });
-
-    if (!response.ok) {
-      console.error(response.status);
-      return;
-    }
-    mutate();
-    router.push("/");
-  }
+  async function deleteTransaction(id) {}
 
   return (
     <>
@@ -72,6 +33,7 @@ export default function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>
           <Layout>
+            <ProfileManager />
             <Component
               {...pageProps}
               transactions={data}
