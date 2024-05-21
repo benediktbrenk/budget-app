@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <>
       <div id="scroll-to-top" />
-      <Header title="Budget App" />
+      <Header />
       <Main>{children}</Main>
       <ToastContainer autoClose={2000} />
       <NavigationBar />

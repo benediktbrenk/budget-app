@@ -1,14 +1,18 @@
-import React from "react";
 import * as Styled from "./Header.styled";
+import Image from "next/image";
 import LoginButton from "../LoginButton";
 
-function Header({ title }) {
+export default function Header() {
   return (
     <Styled.HeaderContainer>
-      <Styled.Headline>{title}</Styled.Headline>
+      <Image
+        width={70}
+        height={50}
+        alt="app-logo"
+        src="/assets/expenso-logo.png"
+      ></Image>
+      <Styled.Headline>expenso</Styled.Headline>
       <LoginButton />
     </Styled.HeaderContainer>
   );
 }
-
-export default Header;

@@ -33,7 +33,8 @@ function TransactionCard({
         <Modal showModal={showEditModal}>
           <TransactionEntryForm
             updateTransactions={updateTransactions}
-            setShowModal={setShowEditModal}
+            setShowEditModal={setShowEditModal}
+            showEditModal={showEditModal}
             currentTransaction={transaction}
             mode="edit"
             id={transaction._id}
