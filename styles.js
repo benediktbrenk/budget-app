@@ -60,4 +60,10 @@ export default createGlobalStyle`
     margin: 0;
     padding:0;
   }
+
+  button {
+    &:active {
+    transform: translateY(1px);
+  }
+  }
 `;
