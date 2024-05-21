@@ -15,9 +15,8 @@ export default createGlobalStyle`
 
   :root {
 
---color-text-light:black;
---color-text-dark:white;
-
+--color-text-black:black;
+--color-text-white:white;
 --color-primary:#4893E9;
 --color-secondary-light:#E9EFF2;
 --color-secondary-dark:#454444;
@@ -31,7 +30,9 @@ export default createGlobalStyle`
 --border-radius:8px;
 --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 --opacity-light:0.2;
---opacity-dark:0.2;
+--opacity-dark:0.4;
+--opacity-hover:0.75;
+--opacity-disabled:0.1;
 
 /* catergory colors */
 --category-groceries:#E468C9;
@@ -40,24 +41,6 @@ export default createGlobalStyle`
 --category-insurance:#F18701;
 --category-utilities:#4893E9;
 
-
-  /* button colors */
-  --button: lightgrey;
-  --button-submit:aqua;
-  --button-edit:lightgreen;
-  --button-save:lightblue;
-  --button-cancel:lightcoral;
-  --button-danger:red;
-
-  /* button hover color */
-  --button-hover: darkgray;
-  --button-submit-hover:aqua;
-  --button-edit-hover:darkgreen;
-  --button-save-hover:blue;
-  --button-cancel-hover:coral;
-  --button-danger-hover:darkred;
-
-
     /* Header */
 --header-background-color-1: #6CB9D0;
 --header-background-color-2: #8AC6D1;
@@ -65,8 +48,7 @@ export default createGlobalStyle`
 
     /* Color styles */
   --lightgrey: #F5F6F6;
-  --amount-color-red: #EF476F;
-  --amount-color-green: #06D6A0;
+
 
    /* Font styles */
    --font-family: ${inter.style.fontFamily};

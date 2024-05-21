@@ -69,8 +69,8 @@ function TransactionCard({
               </Styled.ActionButton>
             </Styled.ActionLinkContainer>
             <Styled.Amount
-              href={`/details/${transaction._id}`}
               $direction={transaction.direction}
+              href={`/details/${transaction._id}`}
             >
               {transaction.direction === "Expense" ? "- " : "+ "}
               {transaction.amount}
