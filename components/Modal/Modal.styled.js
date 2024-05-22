@@ -5,6 +5,7 @@ export const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: 2;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
 `;

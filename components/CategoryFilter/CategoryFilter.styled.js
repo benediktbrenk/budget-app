@@ -31,8 +31,4 @@ export const FilterButton = styled.button`
   &:hover {
     filter: brightness(1.1);
   }
-
-  &:active {
-    transform: translateY(1px);
-  }
 `;
