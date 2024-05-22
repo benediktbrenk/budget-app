@@ -146,7 +146,7 @@ function TransactionEntryForm({
         </Styled.FormField>
       </Styled.FormContainer>
       <Styled.FormButton>
-        <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
+        <Button $textColor="white">{mode === "add" ? "Add" : "Save"}</Button>
         {mode === "edit" && (
           <Button $type="danger" $textColor="white" onClick={handleCancelClick}>
             Cancel
