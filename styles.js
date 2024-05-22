@@ -34,21 +34,6 @@ export default createGlobalStyle`
 --opacity-hover:0.75;
 --opacity-disabled:0.1;
 
-/* catergory colors */
---category-groceries:#E468C9;
---category-salary:#7678ED;
---category-housing:#F7B801;
---category-insurance:#F18701;
---category-utilities:#4893E9;
-
-    /* Header */
---header-background-color-1: #6CB9D0;
---header-background-color-2: #8AC6D1;
---header-textColor: #4893E9;
-
-    /* Color styles */
-  --lightgrey: #F5F6F6;
-
 
    /* Font styles */
    --font-family: ${inter.style.fontFamily};
