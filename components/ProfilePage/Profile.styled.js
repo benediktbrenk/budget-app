@@ -42,6 +42,11 @@ export const Container = styled.div`
   p {
     font-size: 1.1rem;
   }
+
+  h1 {
+    color: darkgrey;
+    margin-bottom: 40px;
+  }
 `;
 
 export const Title = styled.h1`

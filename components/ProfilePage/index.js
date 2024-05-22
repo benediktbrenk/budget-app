@@ -19,7 +19,7 @@ const Profile = () => {
   return (
     <ProtectPage>
       <Styled.Container>
-        <Styled.Title>Profile Page</Styled.Title>
+        <h1>Profile</h1>
         <Styled.ProfileIconWrapper>
           <FaCircleUser size={50} />
         </Styled.ProfileIconWrapper>
