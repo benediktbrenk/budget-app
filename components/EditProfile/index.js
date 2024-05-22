@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaCircleUser } from "react-icons/fa6";
 import { Button } from "../Button/Button.styled";
 import { ProfileIconWrapper } from "../LoginButton/LoginButton.styled";
-
+import * as Styled from "./EditProfile.styled";
 export default function EditProfile({ userData, updateUserData }) {
   const [formData, setFormData] = useState({
     username: "",
@@ -33,7 +33,7 @@ export default function EditProfile({ userData, updateUserData }) {
         <FaCircleUser size={24} />
       </ProfileIconWrapper>
 
-      <form onSubmit={handleSubmit}>
+      <Styled.FormField onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
           <input
@@ -65,7 +65,7 @@ export default function EditProfile({ userData, updateUserData }) {
           />
         </div>
         <Button type="submit">Save</Button>
-      </form>
+      </Styled.FormField>
     </div>
   );
 }

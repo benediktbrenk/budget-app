@@ -5,8 +5,8 @@ import EditProfile from "../EditProfile";
 
 export default function ProfileManager() {
   const [userData, setUserData] = useState({
-    username: "example",
-    email: "example@example.com",
+    username: "",
+    email: "",
     password: "",
   });
 
@@ -25,7 +25,7 @@ export default function ProfileManager() {
         <ProfilePage userData={userData} />
       )}
       {router.pathname === "/EditProfile" && (
-        <EditProfile updateUserData={updateUserData} />
+        <EditProfile userData={userData} updateUserData={updateUserData} />
       )}
     </div>
   );
