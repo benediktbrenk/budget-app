@@ -1,4 +1,3 @@
-import ProtectPage from "@/components/ProtectPages";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
