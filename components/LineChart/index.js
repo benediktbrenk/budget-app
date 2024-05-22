@@ -5,7 +5,7 @@ import * as Styled from "./LineChart.styled";
 export function LineChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
     title: {
-      text: "Annual Balance Sheet",
+      text: "2024",
     },
     data: ChartData,
     series: [

@@ -5,9 +5,14 @@ import { PieChart } from "../PieChart";
 import { DataTable } from "../Table";
 import { LineChart } from "../LineChart";
 import { months } from "@/utils/months";
+import TabMenu from "../TabMenu";
 
 export function Report({ filter, filteredTransactions, transactions }) {
   const [activeTab, setActiveTab] = useState("BarChart");
+
+  function handleActiveTab(Tab) {
+    setActiveTab(Tab);
+  }
 
   function getCategoryTotalAmount(category) {
     return filteredTransactions
@@ -49,49 +54,19 @@ export function Report({ filter, filteredTransactions, transactions }) {
     <>
       <Styled.Headline>Expense Total</Styled.Headline>
       <Styled.TabContent active={activeTab === "BarChart"}>
-        <Styled.TabContainer>
-          <Styled.TabButton onClick={() => setActiveTab("BarChart")}>
-            BarChart
-          </Styled.TabButton>
-          <Styled.TabButton onClick={() => setActiveTab("PieChart")}>
-            Table
-          </Styled.TabButton>
-          <Styled.TabButton onClick={() => setActiveTab("Table")}>
-            PieChart
-          </Styled.TabButton>
-        </Styled.TabContainer>
+        <TabMenu handleActiveTab={handleActiveTab} />
         <BarChart ChartData={data} />
       </Styled.TabContent>
       <Styled.TabContent active={activeTab === "Table"}>
-        <Styled.TabContainer>
-          <Styled.TabButton onClick={() => setActiveTab("BarChart")}>
-            BarChart
-          </Styled.TabButton>
-          <Styled.TabButton onClick={() => setActiveTab("PieChart")}>
-            Table
-          </Styled.TabButton>
-          <Styled.TabButton onClick={() => setActiveTab("Table")}>
-            PieChart
-          </Styled.TabButton>
-        </Styled.TabContainer>
+        <TabMenu handleActiveTab={handleActiveTab} />
         <PieChart ChartData={data} />
       </Styled.TabContent>
       <Styled.TabContent active={activeTab === "PieChart"}>
-        <Styled.TabContainer>
-          <Styled.TabButton onClick={() => setActiveTab("BarChart")}>
-            BarChart
-          </Styled.TabButton>
-          <Styled.TabButton onClick={() => setActiveTab("PieChart")}>
-            Table
-          </Styled.TabButton>
-          <Styled.TabButton onClick={() => setActiveTab("Table")}>
-            PieChart
-          </Styled.TabButton>
-        </Styled.TabContainer>
+        <TabMenu handleActiveTab={handleActiveTab} />
         <DataTable TableData={data} />
       </Styled.TabContent>
+      <Styled.Headline>Annual Balance Sheet</Styled.Headline>
       <Styled.TabContent active={true}>
-        <Styled.Headline>Annual Balance Sheet</Styled.Headline>
         <LineChart ChartData={lineData} />
       </Styled.TabContent>
     </>
