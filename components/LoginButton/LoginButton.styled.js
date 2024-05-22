@@ -18,6 +18,7 @@ export const SignButton = styled.button`
   background-color: #4893e9;
   border-radius: 12px;
   color: white;
+  font-weight: 700;
   border: none;
 `;
 

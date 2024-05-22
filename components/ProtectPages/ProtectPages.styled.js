@@ -5,7 +5,7 @@ export const SectionContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
   padding: 25px;
   width: 100%;
   min-width: 325px;
@@ -31,7 +31,7 @@ export const ContainerBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   flex-wrap: wrap;
   margin: 20px;
   padding: 25px;
