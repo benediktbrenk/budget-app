@@ -30,10 +30,4 @@ export const TabContent = styled.div`
   font-family: Arial, sans-serif;
   margin-bottom: 80px;
   color: black;
-  input,
-  select,
-  textarea {
-    color: black;
-    -webkit-text-fill-color: black;
-  }
 `;
