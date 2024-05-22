@@ -10,11 +10,11 @@ export function Report({ filter, filteredTransactions }) {
   function getCategoryTotalAmount(category) {
     return filteredTransactions
       .filter(
-        (filteredTransaction) => filteredTransaction.category === category
+        (filteredTransaction) => filteredTransaction.category === category,
       )
       .reduce(
         (total, filteredTransaction) => total + filteredTransaction.amount,
-        0
+        0,
       );
   }
 
@@ -38,15 +38,15 @@ export function Report({ filter, filteredTransactions }) {
       </Styled.TabContainer>
       <Styled.TabContent active={activeTab === "BarChart"}>
         <Styled.Headline>Expense Total</Styled.Headline>
-        <BarChart ChartData={data}></BarChart>
+        <BarChart ChartData={data} />
       </Styled.TabContent>
       <Styled.TabContent active={activeTab === "Table"}>
         <Styled.Headline>Expense Total</Styled.Headline>
-        <PieChart ChartData={data}></PieChart>
+        <PieChart ChartData={data} />
       </Styled.TabContent>
       <Styled.TabContent active={activeTab === "PieChart"}>
         <Styled.Headline>Expense Total</Styled.Headline>
-        <DataTable TableData={data}></DataTable>
+        <DataTable TableData={data} />
       </Styled.TabContent>
     </>
   );

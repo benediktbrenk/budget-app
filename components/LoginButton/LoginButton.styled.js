@@ -6,6 +6,7 @@ export const SignItemContainer = styled.span`
   display: flex;
   gap: 20px;
   font-size: 28px;
+  align-items: center;
 `;
 
 export const SignButton = styled.button`
@@ -13,8 +14,6 @@ export const SignButton = styled.button`
   text-decoration: none;
   text-align: center;
   height: 48px;
-  align-self: center;
-
   color: black;
   background-color: lightblue;
   border-radius: 12px;

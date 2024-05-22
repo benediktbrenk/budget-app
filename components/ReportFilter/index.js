@@ -1,13 +1,20 @@
 import CategoryFilter from "../CategoryFilter";
 import { Button } from "../Button/Button.styled";
 import * as Styled from "./ReportFilter.styled";
+import Modal from "../Modal";
+import Calendar from "../Calendar";
+import { useState } from "react";
+import { LuCalendarDays } from "react-icons/lu";
 
 export default function ReportFilter({ filter, onFilter }) {
+  const [selectedTime, setSelectedTime] = useState();
+  const [showModal, setShowModal] = useState(false);
+
   function handleResetFilters() {
     onFilter({
       categories: [],
-      dateFrom: "",
-      dateTo: "",
+      dateFrom: null,
+      dateTo: null,
       paymentMethod: "",
     });
   }
@@ -26,51 +33,87 @@ export default function ReportFilter({ filter, onFilter }) {
     }
   }
 
+  function handleSelectDate(selectedRange) {
+    setSelectedTime(selectedRange);
+    onFilter({
+      ...filter,
+      dateFrom: selectedRange?.from?.setHours(0, 0, 0, 0) || null,
+      dateTo: selectedRange?.to?.setHours(0, 0, 0, 0) || null,
+    });
+  }
+
+  function handleModal() {
+    setShowModal(!showModal);
+  }
+
+  function getFormattedDate(selectedDate) {
+    const date = new Intl.DateTimeFormat("en-US", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).format(selectedDate);
+
+    return date;
+  }
+
   return (
-    <Styled.FilterContainer>
-      <Styled.FilterSegmentContainer style={{ "--flex-direction": "column" }}>
-        <CategoryFilter search={filter} onSelectCategory={handleToggleOption} />
-      </Styled.FilterSegmentContainer>
-      <Styled.FilterSegmentContainer>
-        <Styled.FilterItem>
-          <label>Payment Method</label>
-          <Styled.FilterInputSelect
-            value={filter.paymentMethod}
-            onChange={(event) =>
-              onFilter({ ...filter, paymentMethod: event.target.value })
-            }
-          >
-            <option value="">All</option>
-            <option value="Cash">Cash</option>
-            <option value="Card">Card</option>
-          </Styled.FilterInputSelect>
-        </Styled.FilterItem>
-      </Styled.FilterSegmentContainer>
-      <Styled.FilterSegmentContainer>
-        <Styled.FilterItem>
-          <label>Date Start</label>
-          <Styled.FilterInput
-            type="date"
-            value={filter.dateFrom}
-            onChange={(event) =>
-              onFilter({ ...filter, dateFrom: event.target.value })
-            }
+    <>
+      <Modal showModal={showModal}>
+        <Calendar
+          handleSelectDate={handleSelectDate}
+          selectedTime={selectedTime}
+          handleModal={handleModal}
+          getFormattedDate={getFormattedDate}
+        />
+      </Modal>
+      <Styled.FilterContainer>
+        <Styled.FilterSegmentContainer style={{ "--flex-direction": "column" }}>
+          <CategoryFilter
+            search={filter}
+            onSelectCategory={handleToggleOption}
           />
-        </Styled.FilterItem>
-        <Styled.FilterItem>
-          <label>Date End</label>
-          <Styled.FilterInput
-            type="date"
-            value={filter.dateTo}
-            onChange={(event) =>
-              onFilter({ ...filter, dateTo: event.target.value })
-            }
-          />
-        </Styled.FilterItem>
-        <Styled.FilterItem>
-          <Button onClick={handleResetFilters}>Clear Filter</Button>
-        </Styled.FilterItem>
-      </Styled.FilterSegmentContainer>
-    </Styled.FilterContainer>
+        </Styled.FilterSegmentContainer>
+        <Styled.FilterSegmentContainer>
+          <Styled.FilterItem>
+            {selectedTime ? (
+              <p>
+                Your Selection:
+                <br />
+                <br />
+                {getFormattedDate(selectedTime.from)}
+                {selectedTime.to &&
+                  selectedTime.from.toString() !== selectedTime.to.toString() &&
+                  ` - ${getFormattedDate(selectedTime.to)}`}
+              </p>
+            ) : (
+              <p>Select a single date or a range of dates</p>
+            )}
+          </Styled.FilterItem>
+          <Styled.FilterItem>
+            <Button onClick={handleModal}>
+              <LuCalendarDays />
+            </Button>
+          </Styled.FilterItem>
+        </Styled.FilterSegmentContainer>
+        <Styled.FilterSegmentContainer>
+          <Styled.FilterItem>
+            <label>Payment Method</label>
+            <Styled.FilterInputSelect
+              value={filter.paymentMethod}
+              onChange={(event) =>
+                onFilter({ ...filter, paymentMethod: event.target.value })
+              }
+            >
+              <option value="">All</option>
+              <option value="Cash">Cash</option>
+              <option value="Card">Card</option>
+            </Styled.FilterInputSelect>
+          </Styled.FilterItem>
+          <Styled.FilterItem>
+            <Button onClick={handleResetFilters}>Clear Filter</Button>
+          </Styled.FilterItem>
+        </Styled.FilterSegmentContainer>
+      </Styled.FilterContainer>
+    </>
   );
 }

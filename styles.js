@@ -14,6 +14,12 @@ export default createGlobalStyle`
   }
 
   :root {
+
+    /* Header */
+--header-background-color-1: #6CB9D0;
+--header-background-color-2: #8AC6D1;
+--header-textColor: #4893E9;
+
     /* Color styles */
   --lightgrey: #F5F6F6;
   --amount-color-red: #EF476F;
@@ -59,5 +65,11 @@ export default createGlobalStyle`
   ul {
     margin: 0;
     padding:0;
+  }
+
+  button {
+    &:active {
+    transform: translateY(1px);
+  }
   }
 `;
