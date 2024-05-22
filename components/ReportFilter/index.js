@@ -5,6 +5,7 @@ import Modal from "../Modal";
 import Calendar from "../Calendar";
 import { useState } from "react";
 import { LuCalendarDays } from "react-icons/lu";
+import { categories } from "@/utils/categories";
 
 export default function ReportFilter({ filter, onFilter }) {
   const [selectedTime, setSelectedTime] = useState();
@@ -20,15 +21,24 @@ export default function ReportFilter({ filter, onFilter }) {
   }
 
   function handleToggleOption(option) {
-    if (filter.categories.includes(option)) {
+    if (
+      filter.categories.some(
+        (filteredCategory) => filteredCategory.name === option,
+      )
+    ) {
       onFilter({
         ...filter,
-        categories: filter.categories.filter((category) => category !== option),
+        categories: filter.categories.filter(
+          (category) => category.name !== option,
+        ),
       });
     } else {
       onFilter({
         ...filter,
-        categories: [...filter.categories, option],
+        categories: [
+          ...filter.categories,
+          categories.find((category) => category.name === option),
+        ],
       });
     }
   }

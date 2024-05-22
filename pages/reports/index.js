@@ -10,7 +10,7 @@ export default function ReportsPage({ transactions }) {
   const { data: session, status } = useSession();
 
   const [filter, setFilter] = useState({
-    categories: categories.map((category) => category.name),
+    categories: categories,
     dateFrom: null,
     dateTo: null,
     paymentMethod: "",

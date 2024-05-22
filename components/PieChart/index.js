@@ -21,6 +21,10 @@ export function PieChart({ ChartData }) {
         label: {
           fontSize: 8,
         },
+        calloutLine: {
+          colors: ChartData.map((category) => category.color),
+        },
+        fills: ChartData.map((category) => category.color),
       },
     ],
     data: ChartData,
@@ -29,6 +33,15 @@ export function PieChart({ ChartData }) {
   useEffect(() => {
     setChartOptions((prevOptions) => ({
       ...prevOptions,
+      series: [
+        {
+          ...prevOptions.series[0],
+          calloutLine: {
+            colors: ChartData.map((category) => category.color),
+          },
+          fills: ChartData.map((category) => category.color),
+        },
+      ],
       data: ChartData,
     }));
   }, [ChartData]);

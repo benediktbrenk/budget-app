@@ -10,7 +10,7 @@ export function Report({ filter, filteredTransactions }) {
   function getCategoryTotalAmount(category) {
     return filteredTransactions
       .filter(
-        (filteredTransaction) => filteredTransaction.category === category,
+        (filteredTransaction) => filteredTransaction.category === category.name,
       )
       .reduce(
         (total, filteredTransaction) => total + filteredTransaction.amount,
@@ -19,8 +19,9 @@ export function Report({ filter, filteredTransactions }) {
   }
 
   const data = filter.categories.map((category) => ({
-    category,
+    category: category.name,
     amount: getCategoryTotalAmount(category),
+    color: category.color,
   }));
 
   return (
