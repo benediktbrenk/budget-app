@@ -82,3 +82,19 @@ export const ProfileAvatar = styled.span`
     display: flex;
   }
 `;
+
+export const LogoContainer = styled.span`
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  @media (min-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+`;

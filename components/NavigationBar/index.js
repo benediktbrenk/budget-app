@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import * as Styled from "./Navigation.styled";
 import { FaHouse, FaPlus, FaChartPie } from "react-icons/fa6";
 import LoginButton from "../LoginButton";
+import Logo from "../Logo";
+import Image from "next/image";
 
 function NavigationBar() {
   const router = useRouter();
@@ -12,6 +14,15 @@ function NavigationBar() {
 
   return (
     <Styled.NavBar>
+      <Styled.LogoContainer>
+        <Image
+          width={70}
+          height={50}
+          alt="app-logo"
+          src="/assets/expenso-logo-bunte-karten.png"
+        />
+      </Styled.LogoContainer>
+
       <Styled.NavContainer>
         <Styled.NavLink href="/" $active={isActive("/")}>
           <FaHouse />

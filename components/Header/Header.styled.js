@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
   margin-top: 5px;
   margin-bottom: 15px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
   gap: 20px;
@@ -21,7 +21,16 @@ export const Headline = styled.h1`
   padding-right: 50px;
 `;
 
-export const LoginButtonAvatar = styled.span`
+export const LoginButtonAvatar = styled.span``;
+
+export const LogoContainer = styled.span`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  left: 100px;
+
   @media (min-width: 1100px) {
     display: none;
   }
