@@ -111,9 +111,8 @@ function TransactionEntryForm({
               mode === "add" ? "" : currentTransaction.paymentMethod
             }
           >
-            <option value="Default">--Select Option--</option>
-            <option value="Cash">Cash</option>
             <option value="Card">Card</option>
+            <option value="Cash">Cash</option>
           </select>
         </Styled.FormField>
         <Styled.FormField>
