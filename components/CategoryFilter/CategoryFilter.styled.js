@@ -2,30 +2,32 @@ import styled from "styled-components";
 import css from "styled-jsx/css";
 
 const doubledBorder = "10px";
-const minimalDeviceWidth = "395px";
+const minimalDeviceWidth = "600px";
 
 export const CategoryFilterContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
   width: min(
     calc(100% - ${doubledBorder}),
     calc(${minimalDeviceWidth} - ${doubledBorder})
   );
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const FilterButton = styled.button`
-  border: 2px solid;
-  border-radius: 4px;
-  height: 60px;
-  width: 70px;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  width: 90px;
   background-color: ${(props) => props.$color || "#CCCCCC"};
 
   ${(props) =>
     props.$active &&
     css`
       outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 0 3px black;
     `}
 
   &:hover {

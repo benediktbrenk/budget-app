@@ -14,12 +14,6 @@ export default createGlobalStyle`
   }
 
   :root {
-
-    /* Header */
---header-background-color-1: #6CB9D0;
---header-background-color-2: #8AC6D1;
---header-textColor: #4893E9;
-
     /* Color styles */
   --lightgrey: #F5F6F6;
   --amount-color-red: #EF476F;
@@ -48,10 +42,8 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 0;
     font-family: var(--font-family), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
   }
 
   h1 {
@@ -66,10 +58,5 @@ export default createGlobalStyle`
     margin: 0;
     padding:0;
   }
-
-  button {
-    &:active {
-    transform: translateY(1px);
-  }
-  }
+  
 `;

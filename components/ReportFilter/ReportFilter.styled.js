@@ -1,12 +1,18 @@
 import { styled } from "styled-components";
 
+const doubledBorder = "30px";
+const minimalDeviceWidth = "600px";
+
 export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 2rem;
-  width: 100%;
+  width: min(
+  calc(100% - ${doubledBorder}),
+  calc(${minimalDeviceWidth} - ${doubledBorder})
+);
 `;
 
 export const FilterInputCheckbox = styled.input`

@@ -77,12 +77,7 @@ export default function ReportFilter({ filter, onFilter }) {
         />
       </Modal>
       <Styled.FilterContainer>
-        <Styled.FilterSegmentContainer style={{ "--flex-direction": "column" }}>
-          <CategoryFilter
-            search={filter}
-            onSelectCategory={handleToggleOption}
-          />
-        </Styled.FilterSegmentContainer>
+        <CategoryFilter search={filter} onSelectCategory={handleToggleOption} />
         <Styled.FilterSegmentContainer>
           <Styled.FilterItem>
             {selectedTime ? (
