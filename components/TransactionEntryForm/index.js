@@ -53,7 +53,6 @@ function TransactionEntryForm({
               mode === "add" ? "Default" : currentTransaction.direction
             }
           >
-            <option value="Default">--Select Option--</option>
             <option value="Expense">Expense</option>
             <option value="Income">Income</option>
           </select>
@@ -74,7 +73,7 @@ function TransactionEntryForm({
             type="number"
             name="amount"
             max="999999.99"
-            min="0.00"
+            min="0.01"
             step="0.01"
             required
             defaultValue={mode === "add" ? "" : currentTransaction.amount}
@@ -90,7 +89,6 @@ function TransactionEntryForm({
               mode === "add" ? "Default" : currentTransaction.currency
             }
           >
-            <option value="Default">--Select Option--</option>
             <option value="€">€</option>
           </select>
         </Styled.FormField>
@@ -113,9 +111,8 @@ function TransactionEntryForm({
               mode === "add" ? "" : currentTransaction.paymentMethod
             }
           >
-            <option value="Default">--Select Option--</option>
-            <option value="Cash">Cash</option>
             <option value="Card">Card</option>
+            <option value="Cash">Cash</option>
           </select>
         </Styled.FormField>
         <Styled.FormField>
@@ -146,7 +143,7 @@ function TransactionEntryForm({
         </Styled.FormField>
       </Styled.FormContainer>
       <Styled.FormButton>
-        <Button $type="submit">{mode === "add" ? "Add" : "Save"}</Button>
+        <Button $textColor="white">{mode === "add" ? "Add" : "Save"}</Button>
         {mode === "edit" && (
           <Button $type="danger" $textColor="white" onClick={handleCancelClick}>
             Cancel

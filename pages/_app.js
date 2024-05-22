@@ -20,11 +20,52 @@ export default function App({ Component, pageProps }) {
     return null;
   }
 
-  async function handleAddTransaction(newTransaction) {}
+  async function handleAddTransaction(newTransaction) {
+    const response = await fetch("/api/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTransaction),
+    });
 
-  async function handleEditTransaction(updatedTransaction, id) {}
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
 
-  async function deleteTransaction(id) {}
+    mutate();
+    router.push("/");
+  }
+
+  async function handleEditTransaction(updatedTransaction, id) {
+    const response = await fetch(`/api/transactions/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedTransaction),
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+    mutate();
+  }
+
+  async function deleteTransaction(id) {
+    const response = await fetch(`/api/transactions/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      console.error(response.status);
+      return;
+    }
+    mutate();
+    router.push("/");
+  }
 
   return (
     <>
