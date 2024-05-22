@@ -18,7 +18,7 @@ function TransactionCard({
   );
 
   function handleDelete() {
-    deleteTransaction(id);
+    deleteTransaction(transaction._id);
     setShowDeleteModal(false);
   }
 

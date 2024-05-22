@@ -27,6 +27,7 @@ function TransactionEntryForm({
     const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
     updateTransactions(updatedTransaction, id);
     event.target.reset();
+    setShowEditModal(false);
   }
 
   function handleCancelClick() {
@@ -143,7 +144,9 @@ function TransactionEntryForm({
         </Styled.FormField>
       </Styled.FormContainer>
       <Styled.FormButton>
-        <Button $textColor="white">{mode === "add" ? "Add" : "Save"}</Button>
+        <Button type="submit" $textColor="white">
+          {mode === "add" ? "Add" : "Save"}
+        </Button>
         {mode === "edit" && (
           <Button $type="danger" $textColor="white" onClick={handleCancelClick}>
             Cancel
