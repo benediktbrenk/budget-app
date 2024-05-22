@@ -93,7 +93,7 @@ export const ActionDelete = styled(FaRegTrashCan)`
 export const Amount = styled(Link)`
   text-decoration: none;
   color: ${(props) => {
-    return props.direction === "Income"
+    return props.$direction === "Income"
       ? "var(--amount-color-green)"
       : "var(--amount-color-red)";
   }};
