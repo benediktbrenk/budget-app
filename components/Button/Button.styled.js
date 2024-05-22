@@ -8,7 +8,7 @@ export const Button = styled.button`
         return css`
           background-color: var(--color-red);
           &:hover {
-            background-color: var(--button-danger-hover);
+            background-color: var(--color-red);
             opacity: var(--opacity-hover);
           }
         `;
