@@ -29,7 +29,6 @@ export function LineChart({ ChartData }) {
       ...prevOptions,
       data: ChartData,
     }));
-    console.log(ChartData);
   }, [ChartData]);
 
   return (

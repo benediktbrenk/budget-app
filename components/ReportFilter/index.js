@@ -8,17 +8,8 @@ import { LuCalendarDays } from "react-icons/lu";
 import { categories } from "@/utils/categories";
 
 export default function ReportFilter({ filter, onFilter }) {
-  const [selectedTime, setSelectedTime] = useState();
   const [showModal, setShowModal] = useState(false);
-
-  function handleResetFilters() {
-    onFilter({
-      categories: [],
-      dateFrom: null,
-      dateTo: null,
-      paymentMethod: "",
-    });
-  }
+  const [selectedTime, setSelectedTime] = useState();
 
   function handleToggleOption(option) {
     if (
@@ -77,32 +68,30 @@ export default function ReportFilter({ filter, onFilter }) {
         />
       </Modal>
       <Styled.FilterContainer>
-        <CategoryFilter search={filter} onSelectCategory={handleToggleOption} />
         <Styled.FilterSegmentContainer>
           <Styled.FilterItem>
             {selectedTime ? (
-              <p>
-                Your Selection:
-                <br />
-                <br />
-                {getFormattedDate(selectedTime.from)}
-                {selectedTime.to &&
-                  selectedTime.from.toString() !== selectedTime.to.toString() &&
-                  ` - ${getFormattedDate(selectedTime.to)}`}
-              </p>
+              <>
+                <Styled.FilterItem>
+                  Period: {getFormattedDate(selectedTime.from)}
+                  {selectedTime.to &&
+                    selectedTime.from.toString() !==
+                      selectedTime.to.toString() &&
+                    ` - ${getFormattedDate(selectedTime.to)}`}
+                </Styled.FilterItem>
+              </>
             ) : (
-              <p>Select a single date or a range of dates</p>
+              <Styled.FilterItem>Period: Total</Styled.FilterItem>
             )}
-          </Styled.FilterItem>
-          <Styled.FilterItem>
-            <Button onClick={handleModal}>
+            <Styled.CalendarButton
+              $color="var(--color-primary)"
+              onClick={handleModal}
+            >
               <LuCalendarDays />
-            </Button>
+            </Styled.CalendarButton>
           </Styled.FilterItem>
-        </Styled.FilterSegmentContainer>
-        <Styled.FilterSegmentContainer>
           <Styled.FilterItem>
-            <label>Payment Method</label>
+            <label>Payment:</label>
             <Styled.FilterInputSelect
               value={filter.paymentMethod}
               onChange={(event) =>
@@ -114,10 +103,13 @@ export default function ReportFilter({ filter, onFilter }) {
               <option value="Card">Card</option>
             </Styled.FilterInputSelect>
           </Styled.FilterItem>
-          <Styled.FilterItem>
-            <Button onClick={handleResetFilters}>Clear Filter</Button>
-          </Styled.FilterItem>
         </Styled.FilterSegmentContainer>
+        <CategoryFilter
+          search={filter}
+          onSelectCategory={handleToggleOption}
+          onFilter={onFilter}
+          mode="report"
+        />
       </Styled.FilterContainer>
     </>
   );

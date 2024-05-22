@@ -1,7 +1,12 @@
 import * as Styled from "./CategoryFilter.styled";
 import { categories } from "@/utils/categories";
 
-export default function CategoryFilter({ search, onSelectCategory }) {
+export default function CategoryFilter({
+  search,
+  onSelectCategory,
+  onFilter,
+  mode,
+}) {
   const activeCategories = search.categories
     ? search.categories
     : [search.category];
@@ -21,6 +26,14 @@ export default function CategoryFilter({ search, onSelectCategory }) {
           {category.name}
         </Styled.FilterButton>
       ))}
+      {mode === "report" && (
+        <Styled.FilterButton
+          $color="var(--color-primary)"
+          onClick={() => onFilter({ ...search, categories: categories })}
+        >
+          All
+        </Styled.FilterButton>
+      )}
     </Styled.CategoryFilterContainer>
   );
 }

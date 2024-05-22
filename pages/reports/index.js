@@ -1,4 +1,3 @@
-import ReportFilter from "@/components/ReportFilter";
 import { Report } from "@/components/Report";
 import { useState } from "react";
 import { categories } from "@/utils/categories";
@@ -46,13 +45,11 @@ export default function ReportsPage({ transactions }) {
   });
 
   return (
-    <>
-      <ReportFilter filter={filter} onFilter={handleReportFilter} />
-      <Report
-        filter={filter}
-        filteredTransactions={filteredTransactions}
-        transactions={transactions}
-      />
-    </>
+    <Report
+      filter={filter}
+      handleReportFilter={handleReportFilter}
+      filteredTransactions={filteredTransactions}
+      transactions={transactions}
+    />
   );
 }
