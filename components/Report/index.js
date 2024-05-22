@@ -30,8 +30,13 @@ export function Report({ filter, filteredTransactions, transactions }) {
     amount: getCategoryTotalAmount(category),
   }));
 
+  const transactionsIn2024 = transactions.filter((transaction) => {
+    const transactionDate = new Date(transaction.date);
+    return transactionDate.getFullYear() === 2024;
+  });
+
   function getTotalPerMonth(direction, month) {
-    return transactions
+    return transactionsIn2024
       .filter((transaction) => {
         const transactionDate = new Date(transaction.date);
         return (
@@ -47,8 +52,6 @@ export function Report({ filter, filteredTransactions, transactions }) {
     income: getTotalPerMonth("Income", month),
     expense: getTotalPerMonth("Expense", month),
   }));
-
-  console.log(lineData);
 
   return (
     <>
