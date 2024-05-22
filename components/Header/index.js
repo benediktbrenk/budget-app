@@ -9,7 +9,7 @@ export default function Header() {
         width={70}
         height={50}
         alt="app-logo"
-        src="/assets/expenso-logo.png"
+        src="/assets/expenso-logo-bunte-karten.png"
       ></Image>
       <Styled.Headline>expenso</Styled.Headline>
       <LoginButton />

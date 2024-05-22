@@ -38,9 +38,10 @@ export default function App({ Component, pageProps }) {
 
     mutate();
     toast.success("Transaction successfully added!", {
-      progress: undefined,
       autoClose: 2000,
+      containerId: "addToast",
     });
+    router.push("/");
   }
 
   async function handleEditTransaction(updatedTransaction, id) {
@@ -58,8 +59,8 @@ export default function App({ Component, pageProps }) {
     }
     mutate();
     toast.success("Transaction successfully edited!", {
-      progress: undefined,
       autoClose: 2000,
+      containerId: "editToast",
     });
   }
 
@@ -73,18 +74,34 @@ export default function App({ Component, pageProps }) {
       return;
     }
     mutate();
-    router.push("/");
+
     toast.success("Transaction successfully deleted!", {
-      progress: undefined,
       autoClose: 2000,
+      containerId: "deleteToast",
     });
+    router.push("/");
   }
 
   return (
     <>
       <GlobalStyle />
-      <ToastContainer autoClose={2000} />
+
       <SessionProvider session={pageProps.session}>
+        <ToastContainer
+          autoClose={1000}
+          position="top-right"
+          containerId="deleteToast"
+        />
+        <ToastContainer
+          autoClose={1000}
+          position="top-right"
+          containerId="addToast"
+        />
+        <ToastContainer
+          autoClose={1000}
+          position="top-right"
+          containerId="editToast"
+        />
         <SWRConfig value={{ fetcher }}>
           <Layout>
             <Component

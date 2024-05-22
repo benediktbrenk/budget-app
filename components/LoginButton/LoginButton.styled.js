@@ -15,6 +15,9 @@ export const SignButton = styled.button`
   text-align: center;
   height: 48px;
   color: black;
-  background-color: lightblue;
+  background-color: #4893e9;
   border-radius: 12px;
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;

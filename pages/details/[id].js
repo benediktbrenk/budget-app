@@ -3,7 +3,6 @@ import TransactionDetails from "@/components/TransactionDetails";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { ToastContainer } from "react-toastify";
 import ReactCardFlip from "react-card-flip";
 
 export default function TransactionDetailsPage({
@@ -53,7 +52,6 @@ export default function TransactionDetailsPage({
           setFlip={setFlip}
         />
       </ReactCardFlip>
-      <ToastContainer autoClose={2000} />
     </>
   );
 }
