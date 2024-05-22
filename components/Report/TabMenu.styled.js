@@ -29,4 +29,5 @@ export const TabContent = styled.div`
   height: 300px;
   font-family: Arial, sans-serif;
   margin-bottom: 80px;
+  color: black;
 `;
