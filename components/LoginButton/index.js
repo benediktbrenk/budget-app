@@ -2,19 +2,21 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { SignButton, SignItemContainer } from "./LoginButton.styled";
 import { FaCircleUser } from "react-icons/fa6";
 import { useRouter } from "next/router";
+import DropDownProfile from "../DropDownProfile";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function LoginButton() {
+  const [openProfileDropDown, setOpenProfileDropDown] = useState(false);
   const router = useRouter();
   const { data: session } = useSession();
   if (session) {
     return (
       <SignItemContainer>
-        <p>
+        <span onClick={() => setOpenProfileDropDown((state) => !state)}>
           <FaCircleUser />
-        </p>
-        <SignButton onClick={() => signOut({ callbackUrl: "/" })}>
-          Sign out
-        </SignButton>
+        </span>
+        {openProfileDropDown && <DropDownProfile />}
       </SignItemContainer>
     );
   }

@@ -20,3 +20,9 @@ export const Headline = styled.h1`
   margin-left: -15px;
   padding-right: 50px;
 `;
+
+export const LoginButtonAvatar = styled.span`
+  @media (min-width: 1100px) {
+    display: none;
+  }
+`;

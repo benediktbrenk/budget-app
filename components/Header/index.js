@@ -12,7 +12,9 @@ export default function Header() {
         src="/assets/expenso-logo.png"
       ></Image>
       <Styled.Headline>expenso</Styled.Headline>
-      <LoginButton />
+      <Styled.LoginButtonAvatar>
+        <LoginButton />
+      </Styled.LoginButtonAvatar>
     </Styled.HeaderContainer>
   );
 }

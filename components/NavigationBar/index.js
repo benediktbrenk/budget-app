@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import * as Styled from "./Navigation.styled";
 import { FaHouse, FaPlus, FaChartPie } from "react-icons/fa6";
+import LoginButton from "../LoginButton";
 
 function NavigationBar() {
   const router = useRouter();
@@ -24,6 +25,9 @@ function NavigationBar() {
           <FaChartPie />
         </Styled.NavLink>
       </Styled.NavContainer>
+      <Styled.ProfileAvatar>
+        <LoginButton />
+      </Styled.ProfileAvatar>
     </Styled.NavBar>
   );
 }

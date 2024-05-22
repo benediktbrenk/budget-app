@@ -65,3 +65,20 @@ export const NavLink = styled(Link)`
       border-radius: 6px;
     `}
 `;
+
+export const ProfileAvatar = styled.span`
+  font-size: 2rem;
+  color: #343a40;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  border: none;
+  width: 100%;
+  height: fit-content;
+  padding: 0.6rem;
+  display: none;
+
+  @media (min-width: 1100px) {
+    display: flex;
+  }
+`;
