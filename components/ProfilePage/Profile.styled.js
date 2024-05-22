@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const FormField = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,6 +8,7 @@ export const FormField = styled.div`
   padding: 40px;
   gap: 0.1rem;
   margin: 20px;
+
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 
   label {
@@ -33,12 +34,21 @@ export const FormField = styled.div`
   textarea {
     height: 50px;
   }
+
+  h3 {
+    color: darkgrey;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
 `;
 
-export const FormTitle = styled.h1`
+export const Title = styled.h1`
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: darkgrey;
 `;
 
 export const ProfileIconWrapper = styled.div`

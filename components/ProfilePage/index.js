@@ -2,29 +2,38 @@ import React from "react";
 import * as Styled from "./Profile.styled";
 import { ProfileIconWrapper } from "../LoginButton/LoginButton.styled";
 import { FaCircleUser } from "react-icons/fa6";
+import { useSession } from "next-auth/react";
+import ProtectPage from "../ProtectPages";
 
-const Profile = ({}) => {
+const Profile = () => {
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (!session) {
+    return <div>No session available. Please log in.</div>;
+  }
+
   return (
-    <Styled.FormField>
-      <Styled.FormTitle>Profile Page</Styled.FormTitle>
-      <Styled.ProfileIconWrapper>
-        <FaCircleUser size={1000} />
-      </Styled.ProfileIconWrapper>
-      <form>
+    <ProtectPage>
+      <Styled.Container>
+        <Styled.Title>Profile Page</Styled.Title>
+        <Styled.ProfileIconWrapper>
+          <FaCircleUser size={50} />
+        </Styled.ProfileIconWrapper>
+
         <div>
-          <label htmlFor="name">Name:</label>
-          <input type="text" name="name" />
+          <h3>Name:</h3>
+          <p>{session.user.name}</p>
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
-          <input type="email" name="email" />
+          <h3>Email:</h3>
+          <p>{session.user.email}</p>
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" />
-        </div>
-      </form>
-    </Styled.FormField>
+      </Styled.Container>
+    </ProtectPage>
   );
 };
 
