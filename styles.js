@@ -24,19 +24,14 @@ export default createGlobalStyle`
 --color-background-dark:#282828;
 --color-green:#07B789;
 --color-red:#EF476F;
-/* --color-highlight-light:;
---color-highlight-dark:; */
 
 --border-radius:8px;
 --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
---opacity-light:0.2;
---opacity-dark:0.4;
+--box-shadow-nav: 0 -2px 4px rgba(0, 0, 0, 0.2);
 --opacity-hover:0.75;
 --opacity-disabled:0.1;
 
-
-   /* Font styles */
-   --font-family: ${inter.style.fontFamily};
+--font-family: ${inter.style.fontFamily};
 
 }
 

@@ -12,7 +12,7 @@ export const NavBar = styled.nav`
   position: fixed;
   height: 60px;
   width: 100%;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-nav);
 
   @media (min-width: 1100px) {
     left: 0;
