@@ -48,7 +48,9 @@ export default function TransactionDetails({
           Delete
         </Button>
 
-        <Button onClick={() => setFlip(!flip)}>Edit</Button>
+        <Button $textColor="white" onClick={() => setFlip(!flip)}>
+          Edit
+        </Button>
       </Styled.ButtonContainer>
       {isDeleteMode && (
         <section>
@@ -58,7 +60,10 @@ export default function TransactionDetails({
           </Styled.ItemContainer>
 
           <Styled.ButtonContainer>
-            <Button onClick={() => setIsDeleteMode(!isDeleteMode)}>
+            <Button
+              $textColor="white"
+              onClick={() => setIsDeleteMode(!isDeleteMode)}
+            >
               Cancel
             </Button>
             <Button

@@ -14,30 +14,25 @@ export default createGlobalStyle`
   }
 
   :root {
-    /* Color styles */
-  --lightgrey: #F5F6F6;
-  --amount-color-red: #EF476F;
-  --amount-color-green: #06D6A0;
 
-  /* button colors */
-  --button: lightgrey;
-  --button-submit:aqua;
-  --button-edit:lightgreen;
-  --button-save:lightblue;
-  --button-cancel:lightcoral;
-  --button-danger:red;
+--color-text-black:black;
+--color-text-white:white;
+--color-primary:#4893E9;
+--color-secondary-light:#E9EFF2;
+--color-secondary-dark:#454444;
+--color-background-light:white;
+--color-background-dark:#282828;
+--color-green:#07B789;
+--color-red:#EF476F;
 
-  /* button hover color */
-  --button-hover: darkgray;
-  --button-submit-hover:aqua;
-  --button-edit-hover:darkgreen;
-  --button-save-hover:blue;
-  --button-cancel-hover:coral;
-  --button-danger-hover:darkred;
+--border-radius:8px;
+--box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+--box-shadow-nav: 0 -2px 4px rgba(0, 0, 0, 0.2);
+--opacity-hover:0.75;
+--opacity-disabled:0.1;
 
+--font-family: ${inter.style.fontFamily};
 
-    /* Font styles */
-  --font-family: ${inter.style.fontFamily};
 }
 
   body {

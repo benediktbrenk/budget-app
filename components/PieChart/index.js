@@ -4,14 +4,6 @@ import * as Styled from "./PieChart.styled";
 
 export function PieChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
-    legend: {
-      position: "left",
-      item: {
-        label: {
-          fontSize: 8,
-        },
-      },
-    },
     series: [
       {
         type: "pie",

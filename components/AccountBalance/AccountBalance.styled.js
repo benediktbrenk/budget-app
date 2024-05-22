@@ -4,12 +4,13 @@ export const AccountBalanceCard = styled.article`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: var(--lightgrey);
+  background-color: var(--color-secondary-light);
   padding: 0.75;
   margin: 1rem;
-  border-radius: 0.75rem;
-  min-width: 250px;
-  max-width: 300px;
+  border-radius: var(--border-radius);
+  min-width: 350px;
+  max-width: 650px;
+  border: 0.5px solid lightgrey;
 `;
 
 export const BalanceContainer = styled.div`
@@ -34,8 +35,8 @@ export const IncomeExpenseContainer = styled.div`
 `;
 
 export const TotalIncome = styled.p`
-  color: var(--amount-color-green);
+  color: var(--color-green);
 `;
 export const TotalExpense = styled.p`
-  color: var(--amount-color-red);
+  color: var(--color-red);
 `;

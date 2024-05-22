@@ -16,7 +16,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const Headline = styled.h1`
-  color: var(--header-textColor);
+  color: var(--color-primary);
   font-size: 1.6rem;
   text-align: center;
 `;

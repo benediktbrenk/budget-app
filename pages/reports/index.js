@@ -1,5 +1,5 @@
 import ReportFilter from "@/components/ReportFilter";
-import TabMenu from "@/components/Report";
+import { Report } from "@/components/Report";
 import { useState } from "react";
 import { categories } from "@/utils/categories";
 import { useSession } from "next-auth/react";
@@ -48,7 +48,11 @@ export default function ReportsPage({ transactions }) {
   return (
     <>
       <ReportFilter filter={filter} onFilter={handleReportFilter} />
-      <TabMenu filter={filter} filteredTransactions={filteredTransactions} />
+      <Report
+        filter={filter}
+        filteredTransactions={filteredTransactions}
+        transactions={transactions}
+      />
     </>
   );
 }
