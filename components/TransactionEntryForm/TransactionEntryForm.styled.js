@@ -10,7 +10,6 @@ export const FormContainer = styled.div`
   max-width: 300px;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
   position: relative;
-  color: black;
 
   &:before {
     content: "";
@@ -31,6 +30,7 @@ export const FormField = styled.div`
   padding-left: 20px;
   gap: 0.1rem;
   margin: 5px;
+  color: black;
 
   label {
     padding-left: 7px;
