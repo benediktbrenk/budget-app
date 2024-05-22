@@ -44,25 +44,21 @@ export const DropDownConatiner = styled.div`
 
   @media (min-width: 1100px) {
     left: 70px;
-    top: 87dvh;
-    bottom: 100px;
+    top: 92dvh;
   }
 
   @media (max-heigth: 850px) {
     left: 70px;
-    bottom: 50px;
   }
 
   @media (min-heigth: 1000px) {
     left: 70px;
-    bottom: 50px;
     top: 90dvh;
   }
 
   @media (min-heigth: 1500px) {
     left: 70px;
-    bottom: 50px;
-    top: 90dvh;
+    top: 98dvh;
   }
 `;
 
