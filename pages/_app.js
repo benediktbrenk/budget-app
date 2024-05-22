@@ -4,7 +4,6 @@ import useSWR from "swr";
 import { SWRConfig } from "swr";
 import Layout from "./layout";
 import { SessionProvider } from "next-auth/react";
-import ProfileManager from "@/components/ProfileManager"; // Assuming this is the location of your ProfileManager component
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -18,7 +17,7 @@ export default function App({ Component, pageProps }) {
   }
 
   if (!data) {
-    return null; // or any other fallback if needed
+    return null;
   }
 
   async function handleAddTransaction(newTransaction) {}
@@ -33,7 +32,6 @@ export default function App({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>
           <Layout>
-            <ProfileManager />
             <Component
               {...pageProps}
               transactions={data}

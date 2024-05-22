@@ -1,28 +1,31 @@
-import { ProfileIconWrapper } from "@/components/LoginButton/LoginButton.styled";
-import Link from "next/link";
+import React from "react";
+import * as Styled from "./Profile.styled";
+import { ProfileIconWrapper } from "../LoginButton/LoginButton.styled";
 import { FaCircleUser } from "react-icons/fa6";
 
-export default function ProfilePage({ userData }) {
-  if (!userData || !userData.username || !userData.email) {
-    return <div></div>;
-  }
-
+const Profile = ({}) => {
   return (
-    <div>
-      <h1>Profile Page</h1>
-      <ProfileIconWrapper>
-        <FaCircleUser size={24} />
-      </ProfileIconWrapper>
-      <div>
-        <p>Username: {userData.username}</p>
-        <p>Email: {userData.email}</p>
-      </div>
-
-      <div>
-        <Link href="/EditProfile">
-          <button>Edit Profile</button>
-        </Link>
-      </div>
-    </div>
+    <Styled.FormField>
+      <Styled.FormTitle>Profile Page</Styled.FormTitle>
+      <Styled.ProfileIconWrapper>
+        <FaCircleUser size={1000} />
+      </Styled.ProfileIconWrapper>
+      <form>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input type="text" name="name" />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input type="email" name="email" />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input type="password" name="password" />
+        </div>
+      </form>
+    </Styled.FormField>
   );
-}
+};
+
+export default Profile;
