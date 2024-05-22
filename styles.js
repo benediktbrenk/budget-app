@@ -15,35 +15,24 @@ export default createGlobalStyle`
 
   :root {
 
-    /* Header */
---header-background-color-1: #6CB9D0;
---header-background-color-2: #8AC6D1;
---header-textColor: #4893E9;
+--color-text-black:black;
+--color-text-white:white;
+--color-primary:#4893E9;
+--color-secondary-light:#E9EFF2;
+--color-secondary-dark:#454444;
+--color-background-light:white;
+--color-background-dark:#282828;
+--color-green:#07B789;
+--color-red:#EF476F;
 
-    /* Color styles */
-  --lightgrey: #F5F6F6;
-  --amount-color-red: #EF476F;
-  --amount-color-green: #06D6A0;
+--border-radius:8px;
+--box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+--box-shadow-nav: 0 -2px 4px rgba(0, 0, 0, 0.2);
+--opacity-hover:0.75;
+--opacity-disabled:0.1;
 
-  /* button colors */
-  --button: lightgrey;
-  --button-submit:aqua;
-  --button-edit:lightgreen;
-  --button-save:lightblue;
-  --button-cancel:lightcoral;
-  --button-danger:red;
+--font-family: ${inter.style.fontFamily};
 
-  /* button hover color */
-  --button-hover: darkgray;
-  --button-submit-hover:aqua;
-  --button-edit-hover:darkgreen;
-  --button-save-hover:blue;
-  --button-cancel-hover:coral;
-  --button-danger-hover:darkred;
-
-
-    /* Font styles */
-  --font-family: ${inter.style.fontFamily};
 }
 
   body {
@@ -65,5 +54,11 @@ export default createGlobalStyle`
   ul {
     margin: 0;
     padding:0;
+  }
+
+  button {
+    &:active {
+    transform: translateY(1px);
+  }
   }
 `;

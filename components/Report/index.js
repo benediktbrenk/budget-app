@@ -18,9 +18,11 @@ export function Report({ filter, filteredTransactions, transactions }) {
     return filteredTransactions
       .filter(
         (filteredTransaction) => filteredTransaction.category === category,
+        (filteredTransaction) => filteredTransaction.category === category,
       )
       .reduce(
         (total, filteredTransaction) => total + filteredTransaction.amount,
+        0,
         0,
       );
   }

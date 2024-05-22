@@ -12,5 +12,5 @@ export const TabContent = styled.div`
   border: 1px solid #ccc;
   width: 90%;
   height: 350px;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
 `;

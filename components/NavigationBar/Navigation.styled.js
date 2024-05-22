@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import Link from "next/link";
 
 export const NavBar = styled.nav`
-  background-color: #f8f9fa;
+  background-color: var(--color-secondary-light);
   z-index: 5;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@ export const NavBar = styled.nav`
   position: fixed;
   height: 60px;
   width: 100%;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-nav);
 
   @media (min-width: 1100px) {
     left: 0;

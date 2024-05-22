@@ -16,7 +16,7 @@ export const CategoryFilterContainer = styled.div`
 
 export const FilterButton = styled.button`
   border: 2px solid;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   height: 60px;
   width: 70px;
   background-color: ${(props) => props.$color || "#CCCCCC"};
@@ -30,9 +30,5 @@ export const FilterButton = styled.button`
 
   &:hover {
     filter: brightness(1.1);
-  }
-
-  &:active {
-    transform: translateY(1px);
   }
 `;
