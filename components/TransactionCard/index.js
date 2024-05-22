@@ -42,10 +42,19 @@ function TransactionCard({
 
         <Modal showModal={showDeleteModal}>
           <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
-          <Button $type="cancel" onClick={() => setShowDeleteModal(false)}>
+          <Button
+            type="button"
+            $textColor="white"
+            onClick={() => setShowDeleteModal(false)}
+          >
             Cancel
           </Button>
-          <Button $type="danger" onClick={handleDelete}>
+          <Button
+            type="button"
+            $type="danger"
+            $textColor="white"
+            onClick={handleDelete}
+          >
             Delete
           </Button>
         </Modal>
@@ -61,10 +70,16 @@ function TransactionCard({
               <Styled.ActionLink href={`/details/${transaction._id}`}>
                 <Styled.ActionInfo />
               </Styled.ActionLink>
-              <Styled.ActionButton onClick={() => setShowEditModal(true)}>
+              <Styled.ActionButton
+                type="button"
+                onClick={() => setShowEditModal(true)}
+              >
                 <Styled.ActionDetails />
               </Styled.ActionButton>
-              <Styled.ActionButton onClick={() => setShowDeleteModal(true)}>
+              <Styled.ActionButton
+                type="button"
+                onClick={() => setShowDeleteModal(true)}
+              >
                 <Styled.ActionDelete />
               </Styled.ActionButton>
             </Styled.ActionLinkContainer>
