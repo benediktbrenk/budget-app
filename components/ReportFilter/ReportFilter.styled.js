@@ -7,6 +7,7 @@ export const FilterContainer = styled.div`
   align-items: center;
   padding-top: 2rem;
   width: 100%;
+  color: black;
 `;
 
 export const FilterInputCheckbox = styled.input`

@@ -88,4 +88,5 @@ export const FilterButton = styled.button`
   border-radius: 8px;
   font-size: 1.2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: black;
 `;
