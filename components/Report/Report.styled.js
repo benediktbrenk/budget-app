@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Headline = styled.h2`
-  margin: 0 0 0.5rem 0;
+  margin: 0;
 `;
 
 export const TabContainer = styled.div`
@@ -28,5 +28,5 @@ export const TabContent = styled.div`
   width: 90%;
   height: 300px;
   font-family: Arial, sans-serif;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 `;

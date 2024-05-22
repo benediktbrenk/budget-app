@@ -11,14 +11,14 @@ export function LineChart({ ChartData }) {
     series: [
       {
         type: "line",
-        xKey: "category",
-        yKey: "amount",
+        xKey: "month",
+        yKey: "income",
         yName: "Income",
       },
       {
         type: "line",
-        xKey: "category",
-        yKey: "amount",
+        xKey: "month",
+        yKey: "expense",
         yName: "Expense",
       },
     ],
@@ -29,6 +29,7 @@ export function LineChart({ ChartData }) {
       ...prevOptions,
       data: ChartData,
     }));
+    console.log(ChartData);
   }, [ChartData]);
 
   return (
