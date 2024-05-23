@@ -8,12 +8,17 @@ import {
   DropDownLink,
 } from "./DropDownProfile.styled";
 
-function DropDownProfile() {
+function DropDownProfile({ setOpenProfileDropDown }) {
   return (
     <DropDownConatiner>
       <DropDownUl>
         <DropDownLi>
-          <DropDownLink href="/">Profile</DropDownLink>
+          <DropDownLink
+            href="/profilepage"
+            onClick={() => setOpenProfileDropDown((state) => !state)}
+          >
+            Profile
+          </DropDownLink>
         </DropDownLi>
         <Divider />
         <DropDownLi>
