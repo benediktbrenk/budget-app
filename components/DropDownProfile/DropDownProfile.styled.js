@@ -81,6 +81,7 @@ export const SignButton = styled.button`
   &:hover {
     //background-color: blue;
     opacity: 0.8;
+    cursor: pointer;
   }
 `;
 

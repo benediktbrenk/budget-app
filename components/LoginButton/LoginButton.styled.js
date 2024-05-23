@@ -7,6 +7,17 @@ export const SignItemContainer = styled.span`
   gap: 20px;
   font-size: 28px;
   align-items: center;
+  cursor: pointer;
+`;
+
+export const AvatarContainer = styled.span`
+  font-size: 36px;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    color: #4893e9;
+  }
 `;
 
 export const SignButton = styled.button`
@@ -20,4 +31,9 @@ export const SignButton = styled.button`
   color: white;
   font-weight: 700;
   border: none;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 `;
