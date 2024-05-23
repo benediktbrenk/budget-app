@@ -20,7 +20,7 @@ export const FormContainer = styled.div`
     width: 17px;
     height: 96%;
     background-color: ${(props) => props.$color || "#CCCCCC"};
-    border-radius: 6px;
+    border-radius: var(--border-radius);
   }
 `;
 

@@ -11,7 +11,7 @@ export const CardContainer = styled.li`
   padding: 10px;
   margin: 10px;
   list-style: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   background-color: ${(props) => props.$color || "#CCCCCC"};
 `;
 
@@ -30,7 +30,7 @@ export const ContentContainer = styled.div`
 
 export const TransactionName = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: var(--color-text-black);
   font: 700 14px/16px var(--font-family);
   margin: 0;
 `;
@@ -59,7 +59,7 @@ export const ActionLink = styled(Link)`
   align-items: center;
   height: 30px;
   width: 30px;
-  color: black;
+  color: var(--color-text-black);
 `;
 
 export const ActionButton = styled.button`

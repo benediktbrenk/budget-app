@@ -44,23 +44,23 @@ export const SearchAndFilter = styled.div`
 `;
 
 export const SearchInput = styled.input`
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   border: 1px solid #f8f9fa;
   width: 100%;
   height: 50px;
   font-size: 0.7rem;
   padding: 1rem;
   margin-left: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 `;
 export const SearchInputSelect = styled.select`
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   border: 1px solid #f8f9fa;
   width: 100%;
   height: 50px;
   font-size: 0.7rem;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--box-shadow);
 `;
 
 export const FilterContainer = styled.div`
@@ -85,8 +85,8 @@ export const FilterButton = styled.button`
   padding: 0.8rem;
   margin: 0.3rem;
   border: 1px solid lightgray;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   font-size: 1.2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   color: black;
+  box-shadow: var(--box-shadow);
 `;

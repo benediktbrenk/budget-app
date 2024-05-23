@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }) {
     }
 
     mutate();
+    router.push("/");
   }
 
   async function handleEditTransaction(updatedTransaction, id) {

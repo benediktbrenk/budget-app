@@ -46,7 +46,7 @@ export const FilterItem = styled.div`
 `;
 
 export const FilterInput = styled.input`
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   border: 1px solid black;
   width: 100%;
   height: 50px;
