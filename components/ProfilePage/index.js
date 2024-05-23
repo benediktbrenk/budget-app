@@ -14,7 +14,7 @@ const Profile = () => {
   if (!session) {
     return <div>No session available. Please log in.</div>;
   }
-  console.log(session);
+
 
   return (
     <Styled.ContainerBox>

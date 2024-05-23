@@ -12,11 +12,19 @@ export const SignItemContainer = styled.span`
 
 export const AvatarContainer = styled.span`
   font-size: 36px;
+  display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #4893e9;
+  overflow: hidden;
+  width: 24;
+  height: 24;
 
   &:hover {
     color: #4893e9;
+    filter: brightness(1.1);
   }
 `;
 

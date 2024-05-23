@@ -70,8 +70,7 @@ export const SignButton = styled.button`
   text-decoration: none;
   text-align: center;
   height: 30px;
-  color: black;
-  background-color: royalblue;
+  background-color: #4893e9;
   border-radius: 6px;
   border: none;
   font-weight: 700;
@@ -80,7 +79,7 @@ export const SignButton = styled.button`
 
   &:hover {
     //background-color: blue;
-    opacity: 0.8;
+    opacity: 0.7;
     cursor: pointer;
   }
 `;
