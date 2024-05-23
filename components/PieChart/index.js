@@ -2,6 +2,7 @@ import { AgChartsReact } from "ag-charts-react";
 import * as Styled from "./PieChart.styled";
 
 export function PieChart({ chartData }) {
+  console.log(chartData);
   const options = {
     legend: { enabled: false },
     series: [

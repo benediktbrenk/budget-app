@@ -22,7 +22,7 @@ export function DataTable({ tableData }) {
         </thead>
         <tbody>
           {formattedTableData.map((category) => (
-            <tr key={category}>
+            <tr key={category.category}>
               <td>{category.category}</td>
               <td>{category.amount}</td>
             </tr>
