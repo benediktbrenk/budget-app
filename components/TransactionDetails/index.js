@@ -33,6 +33,10 @@ export default function TransactionDetails({
           </Styled.ItemText>
           <Styled.Label>Date:</Styled.Label>
           <Styled.ItemText>{currentTransaction.date}</Styled.ItemText>
+
+          <Styled.Label>Category:</Styled.Label>
+          <Styled.ItemText>{currentTransaction.category}</Styled.ItemText>
+
           <Styled.Label>Description:</Styled.Label>
           <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
         </Styled.ItemContainer>
