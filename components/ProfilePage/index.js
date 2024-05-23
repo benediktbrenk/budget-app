@@ -36,12 +36,12 @@ const Profile = () => {
           </Styled.ProfileIconWrapper>
           <Styled.ProfileContent>
             <Styled.ProfileContentItem>
-              <h3>Name:</h3>
-              <p>{session.user.name}</p>
+              <p>Name:</p>
+              <h3>{session.user.name}</h3>
             </Styled.ProfileContentItem>
             <Styled.ProfileContentItem>
-              <h3>Email:</h3>
-              <p>{session.user.email ? session.user.email : "Secret"}</p>
+              <p>Email:</p>
+              <h3>{session.user.email ? session.user.email : "Secret"}</h3>
             </Styled.ProfileContentItem>
           </Styled.ProfileContent>
         </Styled.ContainerCard>

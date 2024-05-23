@@ -4,6 +4,7 @@ import { FaHouse, FaPlus, FaChartPie } from "react-icons/fa6";
 import LoginButton from "../LoginButton";
 import Logo from "../Logo";
 import Image from "next/image";
+import Link from "next/link";
 
 function NavigationBar() {
   const router = useRouter();
@@ -15,12 +16,14 @@ function NavigationBar() {
   return (
     <Styled.NavBar>
       <Styled.LogoContainer>
-        <Image
-          width={70}
-          height={50}
-          alt="app-logo"
-          src="/assets/expenso-logo-bunte-karten.png"
-        />
+        <Link href="/">
+          <Image
+            width={70}
+            height={50}
+            alt="app-logo"
+            src="/assets/expenso-logo-bunte-karten.png"
+          />
+        </Link>
       </Styled.LogoContainer>
       <Styled.ProfileAvatar>
         <LoginButton />

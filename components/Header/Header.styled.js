@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -21,7 +22,11 @@ export const Headline = styled.h1`
   padding-right: 50px;
 `;
 
-export const LoginButtonAvatar = styled.span``;
+export const LoginButtonAvatar = styled.span`
+  @media (min-width: 1100px) {
+    display: none;
+  }
+`;
 
 export const LogoContainer = styled.span`
   display: flex;
@@ -34,4 +39,8 @@ export const LogoContainer = styled.span`
   @media (min-width: 1100px) {
     display: none;
   }
+`;
+
+export const LogoLink = styled(Link)`
+  text-decoration: none;
 `;
