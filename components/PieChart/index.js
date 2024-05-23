@@ -2,7 +2,7 @@ import { AgChartsReact } from "ag-charts-react";
 import { useEffect, useState } from "react";
 import * as Styled from "./PieChart.styled";
 
-export function PieChart({ ChartData }) {
+export function PieChart({ chartData }) {
   const [chartOptions, setChartOptions] = useState({
     legend: { enabled: false },
     series: [
@@ -15,12 +15,12 @@ export function PieChart({ ChartData }) {
           fontSize: 8,
         },
         calloutLine: {
-          colors: ChartData.map((category) => category.color),
+          colors: chartData.map((category) => category.color),
         },
-        fills: ChartData.map((category) => category.color),
+        fills: chartData.map((category) => category.color),
       },
     ],
-    data: ChartData,
+    data: chartData,
   });
 
   useEffect(() => {
@@ -30,14 +30,14 @@ export function PieChart({ ChartData }) {
         {
           ...prevOptions.series[0],
           calloutLine: {
-            colors: ChartData.map((category) => category.color),
+            colors: chartData.map((category) => category.color),
           },
-          fills: ChartData.map((category) => category.color),
+          fills: chartData.map((category) => category.color),
         },
       ],
-      data: ChartData,
+      data: chartData,
     }));
-  }, [ChartData]);
+  }, [chartData]);
 
   return (
     <Styled.PieContainer>

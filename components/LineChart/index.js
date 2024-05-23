@@ -2,7 +2,7 @@ import { AgChartsReact } from "ag-charts-react";
 import { useEffect, useState } from "react";
 import * as Styled from "./LineChart.styled";
 
-export function LineChart({ ChartData }) {
+export function LineChart({ chartData }) {
   const [chartOptions, setChartOptions] = useState({
     legend: {
       item: {
@@ -30,7 +30,7 @@ export function LineChart({ ChartData }) {
     title: {
       text: "2024",
     },
-    data: ChartData,
+    data: chartData,
     series: [
       {
         type: "line",
@@ -50,9 +50,9 @@ export function LineChart({ ChartData }) {
   useEffect(() => {
     setChartOptions((prevOptions) => ({
       ...prevOptions,
-      data: ChartData,
+      data: chartData,
     }));
-  }, [ChartData]);
+  }, [chartData]);
 
   return (
     <Styled.PieContainer>

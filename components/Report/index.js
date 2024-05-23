@@ -33,7 +33,7 @@ export function Report({
 
   const data = filter.categories.map((category) => ({
     category: category.name,
-    amount: getCategoryTotalAmount(category),
+    amount: Number.parseFloat(getCategoryTotalAmount(category).toFixed(2)),
     color: category.color,
   }));
 
@@ -68,21 +68,21 @@ export function Report({
         <ReportFilter filter={filter} onFilter={handleReportFilter} />
         <Styled.TabContent active={activeTab === "BarChart"}>
           <TabMenu handleActiveTab={handleActiveTab} />
-          <BarChart ChartData={data} />
+          <BarChart chartData={data} />
         </Styled.TabContent>
         <Styled.TabContent active={activeTab === "Table"}>
           <TabMenu handleActiveTab={handleActiveTab} />
-          <PieChart ChartData={data} />
+          <PieChart chartData={data} />
         </Styled.TabContent>
         <Styled.TabContent active={activeTab === "PieChart"}>
           <TabMenu handleActiveTab={handleActiveTab} />
-          <DataTable TableData={data} />
+          <DataTable tableData={data} />
         </Styled.TabContent>
       </Styled.ContentContainer>
       <Styled.ContentContainer>
         <Styled.ContentHeadline>Annual Balance Sheet</Styled.ContentHeadline>
         <Styled.TabContent active={true}>
-          <LineChart ChartData={lineData} />
+          <LineChart chartData={lineData} />
         </Styled.TabContent>
       </Styled.ContentContainer>
     </>
