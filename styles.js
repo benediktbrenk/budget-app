@@ -14,10 +14,13 @@ export default createGlobalStyle`
 }
 
   :root {
-
---color-text-black:black;
+--color-text:black;
+--color-text-black:${(props) => (props.$isDarkModeOn ? "white" : "black")};
 --color-text-white:white;
+
 --color-primary:#4893E9;
+
+--color-secondary: ${(props) => (props.$isDarkModeOn ? "#454444" : "#E9EFF2")};
 --color-secondary-light:#E9EFF2;
 --color-secondary-dark:#454444;
 --color-background-light:white;
@@ -64,8 +67,8 @@ export default createGlobalStyle`
   }
 
   input, select, textarea {
-    color: black; /* Oder jede gewünschte Farbe */
-    -webkit-text-fill-color: black; /* Für iOS Autofill */
+    color: black; 
+    -webkit-text-fill-color: black; 
   }
 
   input:-webkit-autofill, 
