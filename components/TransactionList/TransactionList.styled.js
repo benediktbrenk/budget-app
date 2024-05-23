@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const doubledBorder = "30px";
-const minimalDeviceWidth = "395px";
+const minimalDeviceWidth = "600px";
 
 export const MonthContainer = styled.div`
   display: flex;
