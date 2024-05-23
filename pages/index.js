@@ -100,7 +100,6 @@ export default function HomePage({
         deleteTransaction={deleteTransaction}
         updateTransactions={handleEditTransaction}
       />
-
       <GoToTopButton />
     </Styled.MainContent>
   );

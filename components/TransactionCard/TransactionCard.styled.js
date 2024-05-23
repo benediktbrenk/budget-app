@@ -13,6 +13,7 @@ export const CardContainer = styled.li`
   list-style: none;
   border-radius: var(--border-radius);
   background-color: ${(props) => props.$color || "#CCCCCC"};
+
 `;
 
 export const ColorField = styled.div`
