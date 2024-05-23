@@ -4,51 +4,41 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding-top: 2rem;
-  width: 100%;
-`;
-
-export const FilterInputCheckbox = styled.input`
-  border-radius: 8px;
-  border: 1px solid black;
-  width: 100%;
-  height: 50px;
-  font-size: 0.7rem;
-  padding: 1rem;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
 `;
 
 export const FilterInputSelect = styled.select`
-  border-radius: 8px;
-  border: 1px solid black;
-  width: 100%;
-  height: 50px;
-  font-size: 0.7rem;
-  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  font: 400 12px/14px var(--font-family);
+  height: 30px;
 `;
 
 export const FilterSegmentContainer = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: var(--flex-direction, row);
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
-  gap: 0.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 `;
 
 export const FilterItem = styled.div`
   display: flex;
-  flex-direction: var(--flex-direction, column);
-  justify-content: center;
   align-items: center;
-  gap: 0.2rem;
+  gap: 10px;
 `;
 
-export const FilterInput = styled.input`
-  border-radius: 8px;
-  border: 1px solid black;
-  width: 100%;
-  height: 50px;
-  font-size: 0.7rem;
-  padding: 1rem;
+export const CalendarButton = styled.button`
+  border: none;
+  color: white;
+  border-radius: var(--border-radius);
+  height: 30px;
+  width: 40px;
+  background-color: ${(props) => props.$color || "#CCCCCC"};
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 `;

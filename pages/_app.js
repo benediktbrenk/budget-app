@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
   }
 
   if (!data) {
-    return;
+    return null;
   }
 
   async function handleAddTransaction(newTransaction) {

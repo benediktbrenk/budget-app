@@ -1,11 +1,12 @@
 import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import AccountBalance from "@/components/AccountBalance";
 import { useSession } from "next-auth/react";
 import GoToTopButton from "@/components/GoToTopButton";
 import { useRouter } from "next/router";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function HomePage({
   transactions,
@@ -17,8 +18,8 @@ export default function HomePage({
     name: "",
     category: "",
     direction: "",
-    dateFrom: "",
-    dateTo: "",
+    dateFrom: null,
+    dateTo: null,
     amountFrom: "",
     amountTo: "",
   });
@@ -44,9 +45,8 @@ export default function HomePage({
   const isSearchEntry = Object.values(search).some((value) => value !== "");
 
   const filteredSearch = transactions.filter((transaction) => {
-    const dateFrom = search.dateFrom ? new Date(search.dateFrom) : null;
-    const dateTo = search.dateTo ? new Date(search.dateTo) : null;
-    const transactionDate = new Date(transaction.date);
+    const { dateFrom, dateTo } = search;
+    const transactionDate = new Date(transaction.date).setHours(0, 0, 0, 0);
     const amountFrom = search.amountFrom
       ? Number.parseFloat(search.amountFrom)
       : null;
@@ -68,10 +68,8 @@ export default function HomePage({
       transaction.direction?.toLowerCase() === search.direction.toLowerCase();
 
     const dateMatches =
-      !search.dateFrom ||
-      !search.dateTo ||
-      !dateFrom ||
-      !dateTo ||
+      (!dateFrom && !dateTo) ||
+      (!dateTo && transactionDate === dateFrom) ||
       (transactionDate >= dateFrom && transactionDate <= dateTo);
 
     const amountMatches =

@@ -9,6 +9,12 @@ export const SignItemContainer = styled.span`
   align-items: center;
 `;
 
+export const ProfileIcon = styled.p`
+  display: flex;
+  align-items: center;
+  margin: 0;
+`;
+
 export const SignButton = styled.button`
   padding: 10px 15px;
   text-decoration: none;
@@ -20,4 +26,15 @@ export const SignButton = styled.button`
   color: white;
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+`;
+
+export const ProfileIconWrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 `;

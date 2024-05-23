@@ -10,6 +10,7 @@ export const FormContainer = styled.div`
   max-width: 300px;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
   position: relative;
+  color: black;
 
   &:before {
     content: "";
@@ -19,7 +20,7 @@ export const FormContainer = styled.div`
     width: 17px;
     height: 96%;
     background-color: ${(props) => props.$color || "#CCCCCC"};
-    border-radius: 6px;
+    border-radius: var(--border-radius);
   }
 `;
 

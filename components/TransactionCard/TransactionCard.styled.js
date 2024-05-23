@@ -11,7 +11,7 @@ export const CardContainer = styled.li`
   padding: 10px;
   margin: 10px;
   list-style: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   background-color: ${(props) => props.$color || "#CCCCCC"};
 `;
 
@@ -30,7 +30,7 @@ export const ContentContainer = styled.div`
 
 export const TransactionName = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: var(--color-text-black);
   font: 700 14px/16px var(--font-family);
   margin: 0;
 `;
@@ -59,7 +59,7 @@ export const ActionLink = styled(Link)`
   align-items: center;
   height: 30px;
   width: 30px;
-  color: black;
+  color: var(--color-text-black);
 `;
 
 export const ActionButton = styled.button`
@@ -73,6 +73,7 @@ export const ActionButton = styled.button`
   background-color: transparent;
   padding: 0;
   cursor: pointer;
+  color: black;
 `;
 
 export const ActionInfo = styled(IoInformationCircleOutline)`
@@ -93,9 +94,9 @@ export const ActionDelete = styled(FaRegTrashCan)`
 export const Amount = styled(Link)`
   text-decoration: none;
   color: ${(props) => {
-    return props.direction === "Income"
-      ? "var(--amount-color-green)"
-      : "var(--amount-color-red)";
+    return props.$direction === "Income"
+      ? "var(--color-green)"
+      : "var(--color-red)";
   }};
   margin: 0;
   font: 600 16px/18px var(--font-family);
