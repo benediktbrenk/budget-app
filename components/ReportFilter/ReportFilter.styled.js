@@ -17,6 +17,7 @@ export const FilterInputSelect = styled.select`
 `;
 
 export const FilterSegmentContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -31,7 +32,8 @@ export const FilterItem = styled.div`
 
 export const CalendarButton = styled.button`
   border: none;
-  border-radius: 20px;
+  color: white;
+  border-radius: var(--border-radius);
   height: 30px;
   width: 40px;
   background-color: ${(props) => props.$color || "#CCCCCC"};

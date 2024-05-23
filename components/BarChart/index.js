@@ -7,7 +7,7 @@ export function BarChart({ ChartData }) {
     legend: {
       item: {
         label: {
-          fontSize: 20,
+          fontSize: 14,
         },
       },
     },
@@ -16,14 +16,14 @@ export function BarChart({ ChartData }) {
         type: "number",
         position: "left",
         label: {
-          fontSize: 16,
+          fontSize: 12,
         },
       },
       {
         type: "category",
         position: "bottom",
         label: {
-          fontSize: 16,
+          fontSize: 12,
         },
       },
     ],

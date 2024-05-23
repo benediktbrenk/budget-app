@@ -4,6 +4,7 @@ import * as Styled from "./PieChart.styled";
 
 export function PieChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
+    legend: { enabled: false },
     series: [
       {
         type: "pie",

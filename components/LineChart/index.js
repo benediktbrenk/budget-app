@@ -4,6 +4,29 @@ import * as Styled from "./LineChart.styled";
 
 export function LineChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
+    legend: {
+      item: {
+        label: {
+          fontSize: 14,
+        },
+      },
+    },
+    axes: [
+      {
+        type: "number",
+        position: "left",
+        label: {
+          fontSize: 12,
+        },
+      },
+      {
+        type: "category",
+        position: "bottom",
+        label: {
+          fontSize: 12,
+        },
+      },
+    ],
     title: {
       text: "2024",
     },

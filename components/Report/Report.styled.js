@@ -16,8 +16,7 @@ export const ContentContainer = styled.div`
 export const Headline = styled.h2`
 margin-top: 20px;
 padding: 10px;
-font: 700 22px/20px var(--font-family);
-border: 1px solid #ccc;
+font: 700 34px/36px var(--font-family);
 border-radius: var(--border-radius);
 `;
 
@@ -32,6 +31,6 @@ export const TabContent = styled.div`
   align-items: center;
   padding: 10px 20px;
   border: 1px solid #ccc;
-  height: 350px;
   font-family: var(--font-family);
+  border-radius: var(--border-radius);
 `;
