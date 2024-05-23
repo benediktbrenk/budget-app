@@ -1,9 +1,8 @@
 import { AgChartsReact } from "ag-charts-react";
-import { useEffect, useState } from "react";
 import * as Styled from "./BarChart.styled";
 
 export function BarChart({ chartData }) {
-  const [chartOptions, setChartOptions] = useState({
+  const chartOptions = {
     legend: {
       item: {
         label: {
@@ -29,14 +28,7 @@ export function BarChart({ chartData }) {
     ],
     data: chartData,
     series: [{ type: "bar", xKey: "category", yKey: "amount" }],
-  });
-
-  useEffect(() => {
-    setChartOptions((prevOptions) => ({
-      ...prevOptions,
-      data: chartData,
-    }));
-  }, [chartData]);
+  };
 
   return (
     <Styled.ChartContainer>

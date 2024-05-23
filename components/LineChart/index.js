@@ -1,9 +1,8 @@
 import { AgChartsReact } from "ag-charts-react";
-import { useEffect, useState } from "react";
 import * as Styled from "./LineChart.styled";
 
 export function LineChart({ chartData }) {
-  const [chartOptions, setChartOptions] = useState({
+  const options = {
     legend: {
       item: {
         label: {
@@ -45,18 +44,11 @@ export function LineChart({ chartData }) {
         yName: "Expense",
       },
     ],
-  });
-
-  useEffect(() => {
-    setChartOptions((prevOptions) => ({
-      ...prevOptions,
-      data: chartData,
-    }));
-  }, [chartData]);
+  };
 
   return (
     <Styled.PieContainer>
-      <AgChartsReact options={chartOptions} />
+      <AgChartsReact options={options} />
     </Styled.PieContainer>
   );
 }
