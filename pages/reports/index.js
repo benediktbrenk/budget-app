@@ -1,5 +1,5 @@
 import ReportFilter from "@/components/ReportFilter";
-import TabMenu from "@/components/Report";
+import { Report } from "@/components/Report";
 import { useState } from "react";
 import { categories } from "@/utils/categories";
 import { useSession } from "next-auth/react";
@@ -11,8 +11,8 @@ export default function ReportsPage({ transactions }) {
 
   const [filter, setFilter] = useState({
     categories: categories.map((category) => category.name),
-    dateFrom: "",
-    dateTo: "",
+    dateFrom: null,
+    dateTo: null,
     paymentMethod: "",
   });
 
@@ -26,14 +26,13 @@ export default function ReportsPage({ transactions }) {
   }
 
   const filteredTransactions = transactions.filter((transaction) => {
-    const dateFrom = filter.dateFrom ? new Date(filter.dateFrom) : null;
-    const dateTo = filter.dateTo ? new Date(filter.dateTo) : null;
-    const transactionDate = new Date(transaction.date);
+    const { dateFrom, dateTo } = filter;
+    const transactionDate = new Date(transaction.date).setHours(0, 0, 0, 0);
     const direction = transaction.direction;
 
     const dateMatches =
-      !dateFrom ||
-      !dateTo ||
+      (!dateFrom && !dateTo) ||
+      (!dateTo && transactionDate === dateFrom) ||
       (transactionDate >= dateFrom && transactionDate <= dateTo);
 
     const paymentMethodMatches =
@@ -49,7 +48,11 @@ export default function ReportsPage({ transactions }) {
   return (
     <>
       <ReportFilter filter={filter} onFilter={handleReportFilter} />
-      <TabMenu filter={filter} filteredTransactions={filteredTransactions} />
+      <Report
+        filter={filter}
+        filteredTransactions={filteredTransactions}
+        transactions={transactions}
+      />
     </>
   );
 }

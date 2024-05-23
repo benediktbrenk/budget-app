@@ -25,7 +25,7 @@ export default function GoToTopButton() {
 
   return (
     <a href="#scroll-to-top">
-      <Styled.IconButton showButton={showButton}>
+      <Styled.IconButton $showButton={showButton}>
         <FaAnglesUp />
       </Styled.IconButton>
     </a>

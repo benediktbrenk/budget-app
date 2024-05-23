@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import { useSession } from "next-auth/react";
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [

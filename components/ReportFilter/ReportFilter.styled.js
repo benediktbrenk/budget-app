@@ -7,6 +7,7 @@ export const FilterContainer = styled.div`
   align-items: center;
   padding-top: 2rem;
   width: 100%;
+  color: black;
 `;
 
 export const FilterInputCheckbox = styled.input`
@@ -45,7 +46,7 @@ export const FilterItem = styled.div`
 `;
 
 export const FilterInput = styled.input`
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   border: 1px solid black;
   width: 100%;
   height: 50px;

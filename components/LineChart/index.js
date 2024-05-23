@@ -1,21 +1,27 @@
 import { AgChartsReact } from "ag-charts-react";
 import { useEffect, useState } from "react";
-import * as Styled from "./PieChart.styled";
+import * as Styled from "./LineChart.styled";
 
-export function PieChart({ ChartData }) {
+export function LineChart({ ChartData }) {
   const [chartOptions, setChartOptions] = useState({
+    title: {
+      text: "2024",
+    },
+    data: ChartData,
     series: [
       {
-        type: "pie",
-        angleKey: "amount",
-        calloutLabelKey: "category",
-        calloutLabel: { enabled: true },
-        label: {
-          fontSize: 8,
-        },
+        type: "line",
+        xKey: "month",
+        yKey: "income",
+        yName: "Income",
+      },
+      {
+        type: "line",
+        xKey: "month",
+        yKey: "expense",
+        yName: "Expense",
       },
     ],
-    data: ChartData,
   });
 
   useEffect(() => {
@@ -23,6 +29,7 @@ export function PieChart({ ChartData }) {
       ...prevOptions,
       data: ChartData,
     }));
+    console.log(ChartData);
   }, [ChartData]);
 
   return (

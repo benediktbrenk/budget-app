@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }) {
   }
 
   if (!data) {
-    return;
+    return null;
   }
 
   async function handleAddTransaction(newTransaction) {
@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }) {
     }
 
     mutate();
+    router.push("/");
   }
 
   async function handleEditTransaction(updatedTransaction, id) {

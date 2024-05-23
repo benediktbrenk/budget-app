@@ -1,5 +1,10 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import { SignButton, SignItemContainer } from "./LoginButton.styled";
+import Link from "next/link";
+import {
+  SignButton,
+  SignItemContainer,
+  ProfileIconWrapper,
+} from "./LoginButton.styled";
 import { FaCircleUser } from "react-icons/fa6";
 import { useRouter } from "next/router";
 import DropDownProfile from "../DropDownProfile";
@@ -10,6 +15,7 @@ export default function LoginButton() {
   const [openProfileDropDown, setOpenProfileDropDown] = useState(false);
   const router = useRouter();
   const { data: session } = useSession();
+
   if (session) {
     return (
       <SignItemContainer>
@@ -20,6 +26,7 @@ export default function LoginButton() {
       </SignItemContainer>
     );
   }
+
   return (
     <SignItemContainer>
       <SignButton onClick={() => signIn({ callbackUrl: "/" })}>

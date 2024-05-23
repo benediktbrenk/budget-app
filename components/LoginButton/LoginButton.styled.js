@@ -21,5 +21,3 @@ export const SignButton = styled.button`
   font-weight: 700;
   border: none;
 `;
-
-
