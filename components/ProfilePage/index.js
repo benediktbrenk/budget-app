@@ -1,9 +1,10 @@
 import React from "react";
 import * as Styled from "./Profile.styled";
-import { ProfileIconWrapper } from "../LoginButton/LoginButton.styled";
 import { FaCircleUser } from "react-icons/fa6";
 import { useSession } from "next-auth/react";
 import ProtectPage from "../ProtectPages";
+
+import DarkModeSwitch from "../Switch";
 
 const Profile = () => {
   const { data: session, status } = useSession();
@@ -23,7 +24,6 @@ const Profile = () => {
         <Styled.ProfileIconWrapper>
           <FaCircleUser size={50} />
         </Styled.ProfileIconWrapper>
-
         <div>
           <h3>Name:</h3>
           <p>{session.user.name}</p>
@@ -32,6 +32,7 @@ const Profile = () => {
           <h3>Email:</h3>
           <p>{session.user.email}</p>
         </div>
+        <DarkModeSwitch />
       </Styled.Container>
     </ProtectPage>
   );
