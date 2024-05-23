@@ -14,24 +14,29 @@ function TransactionEntryForm({
   setShowEditModal,
 }) {
   const [selectedCategory, setSelectedCategory] = useState(
-    mode === "add" ? "Groceries" : currentTransaction.category
+    mode === "add" ? "Groceries" : currentTransaction.category,
   );
   const currentCategory = categories.find(
-    (category) => category.name === selectedCategory
+    (category) => category.name === selectedCategory,
   );
 
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const updatedTransaction = { ...data, amount: parseFloat(data.amount) };
+    const updatedTransaction = {
+      ...data,
+      amount: Number.parseFloat(data.amount),
+    };
     updateTransactions(updatedTransaction, id);
+
+    setShowEditModal(false);
     event.target.reset();
   }
 
   function handleCancelClick() {
     if (showEditModal) {
-      setShowEditModal(!showEditModal);
+      setShowEditModal(false);
     } else {
       setFlip(!flip);
     }
@@ -143,9 +148,16 @@ function TransactionEntryForm({
         </Styled.FormField>
       </Styled.FormContainer>
       <Styled.FormButton>
-        <Button $textColor="white">{mode === "add" ? "Add" : "Save"}</Button>
+        <Button type="submit" $textColor="white">
+          {mode === "add" ? "Add" : "Save"}
+        </Button>
         {mode === "edit" && (
-          <Button $type="danger" $textColor="white" onClick={handleCancelClick}>
+          <Button
+            type="button"
+            $type="danger"
+            $textColor="white"
+            onClick={handleCancelClick}
+          >
             Cancel
           </Button>
         )}

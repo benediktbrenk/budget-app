@@ -1,11 +1,10 @@
 import SearchBar from "@/components/SearchBar";
 import TransactionList from "@/components/TransactionList";
 import { useState } from "react";
-import AccountBalance from "@/components/AccountBalance";
 import { useSession } from "next-auth/react";
-import { SectionContainer } from "../Homepage.styled";
-import GoToTopButton from "@/components/GoToTopButton";
 import { useRouter } from "next/router";
+import AccountBalance from "@/components/AccountBalance";
+import GoToTopButton from "@/components/GoToTopButton";
 
 export default function HomePage({
   transactions,

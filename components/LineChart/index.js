@@ -1,13 +1,35 @@
 import { AgChartsReact } from "ag-charts-react";
-import { useEffect, useState } from "react";
 import * as Styled from "./LineChart.styled";
 
-export function LineChart({ ChartData }) {
-  const [chartOptions, setChartOptions] = useState({
+export function LineChart({ chartData }) {
+  const options = {
+    legend: {
+      item: {
+        label: {
+          fontSize: 14,
+        },
+      },
+    },
+    axes: [
+      {
+        type: "number",
+        position: "left",
+        label: {
+          fontSize: 12,
+        },
+      },
+      {
+        type: "category",
+        position: "bottom",
+        label: {
+          fontSize: 12,
+        },
+      },
+    ],
     title: {
       text: "2024",
     },
-    data: ChartData,
+    data: chartData,
     series: [
       {
         type: "line",
@@ -22,19 +44,11 @@ export function LineChart({ ChartData }) {
         yName: "Expense",
       },
     ],
-  });
-
-  useEffect(() => {
-    setChartOptions((prevOptions) => ({
-      ...prevOptions,
-      data: ChartData,
-    }));
-    console.log(ChartData);
-  }, [ChartData]);
+  };
 
   return (
     <Styled.PieContainer>
-      <AgChartsReact options={chartOptions} />
+      <AgChartsReact options={options} />
     </Styled.PieContainer>
   );
 }

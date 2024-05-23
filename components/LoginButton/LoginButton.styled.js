@@ -28,6 +28,12 @@ export const AvatarContainer = styled.span`
   }
 `;
 
+export const ProfileIcon = styled.p`
+  display: flex;
+  align-items: center;
+  margin: 0;
+`;
+
 export const SignButton = styled.button`
   padding: 10px 15px;
   text-decoration: none;
