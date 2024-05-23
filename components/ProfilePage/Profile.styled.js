@@ -8,7 +8,7 @@ export const Container = styled.div`
   padding: 40px;
   gap: 0.1rem;
   margin: 20px;
-
+  color: var(--color-text);
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 
   label {

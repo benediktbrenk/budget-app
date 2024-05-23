@@ -75,7 +75,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle $isDarkModeOn={isDarkModeOn} />
       <SessionProvider session={pageProps.session}>
         <SWRConfig value={{ fetcher }}>
           <Layout>

@@ -14,9 +14,11 @@ export default createGlobalStyle`
 }
 
   :root {
---color-text:black;
---color-text-black:${(props) => (props.$isDarkModeOn ? "white" : "black")};
+--color-text:${(props) => (props.$isDarkModeOn ? "white" : "black")};
+--color-text-active:${(props) => (props.$isDarkModeOn ? "white" : "black")};
+--color-text-black:black;
 --color-text-white:white;
+
 
 --color-primary:#4893E9;
 
@@ -43,7 +45,7 @@ export default createGlobalStyle`
     padding: 0;
     font-family: var(--font-family), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
+    background-color: ${(props) => (props.$isDarkModeOn ? "#282828" : "white")};
 
   }
 
@@ -66,7 +68,7 @@ export default createGlobalStyle`
   }
   }
 
-  input, select, textarea {
+  /* input, select, textarea {
     color: black; 
     -webkit-text-fill-color: black; 
   }
@@ -76,6 +78,6 @@ export default createGlobalStyle`
   select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset !important;
     -webkit-text-fill-color: black !important;
-  }
+  } */
 
 `;

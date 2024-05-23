@@ -19,7 +19,7 @@ export const FilterButton = styled.button`
   border-radius: var(--border-radius);
   height: 60px;
   width: 70px;
-  color: black;
+  color: var(--color-text);
   background-color: ${(props) => props.$color || "#CCCCCC"};
 
   ${(props) =>

@@ -4,13 +4,14 @@ export const AccountBalanceCard = styled.article`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-secondary);
   padding: 0.75;
   margin: 1rem;
   border-radius: var(--border-radius);
   min-width: 350px;
   max-width: 650px;
   border: 0.5px solid lightgrey;
+  color: var(--color-text);
 `;
 
 export const BalanceContainer = styled.div`

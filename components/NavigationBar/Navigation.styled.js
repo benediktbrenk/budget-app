@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import Link from "next/link";
 
 export const NavBar = styled.nav`
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-secondary);
   z-index: 5;
   display: flex;
   justify-content: center;
@@ -41,7 +41,7 @@ export const NavContainer = styled.div`
 
 export const NavLink = styled(Link)`
   font-size: 2rem;
-  color: #343a40;
+  color: var(--color-text);
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -60,8 +60,8 @@ export const NavLink = styled(Link)`
   ${(props) =>
     props.$active &&
     css`
-      color: #ffffff;
-      background-color: #343a40;
+      color: white;
+      background-color: var(--color-primary);
       border-radius: 6px;
     `}
 `;

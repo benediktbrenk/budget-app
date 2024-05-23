@@ -52,6 +52,7 @@ export const SearchInput = styled.input`
   padding: 1rem;
   margin-left: 1rem;
   box-shadow: var(--box-shadow);
+  background-color: var(--color-secondary);
 `;
 export const SearchInputSelect = styled.select`
   border-radius: var(--border-radius);
@@ -87,6 +88,7 @@ export const FilterButton = styled.button`
   border: 1px solid lightgray;
   border-radius: var(--border-radius);
   font-size: 1.2rem;
-  color: black;
+  color: var(--color-text);
   box-shadow: var(--box-shadow);
+  background-color: var(--color-secondary);
 `;
