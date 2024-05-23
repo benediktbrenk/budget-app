@@ -1,10 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import {
-  SignButton,
-  SignItemContainer,
-  ProfileIconWrapper,
-} from "./LoginButton.styled";
+import * as Styled from "./LoginButton.styled";
 import { FaCircleUser } from "react-icons/fa6";
 
 export default function LoginButton() {
@@ -12,24 +8,24 @@ export default function LoginButton() {
 
   if (session) {
     return (
-      <SignItemContainer>
+      <Styled.SignItemContainer>
         <Link href="/ProfilePage">
-          <ProfileIconWrapper>
-            <FaCircleUser size={24} />
-          </ProfileIconWrapper>
+          <Styled.ProfileIcon>
+            <FaCircleUser />
+          </Styled.ProfileIcon>
         </Link>
-        <SignButton onClick={() => signOut({ callbackUrl: "/" })}>
+        <Styled.SignButton onClick={() => signOut({ callbackUrl: "/" })}>
           Sign out
-        </SignButton>
-      </SignItemContainer>
+        </Styled.SignButton>
+      </Styled.SignItemContainer>
     );
   }
 
   return (
-    <SignItemContainer>
-      <SignButton onClick={() => signIn({ callbackUrl: "/" })}>
+    <Styled.SignItemContainer>
+      <Styled.SignButton onClick={() => signIn({ callbackUrl: "/" })}>
         Login
-      </SignButton>
-    </SignItemContainer>
+      </Styled.SignButton>
+    </Styled.SignItemContainer>
   );
 }

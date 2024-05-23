@@ -1,13 +1,12 @@
 import { AgChartsReact } from "ag-charts-react";
-import { useEffect, useState } from "react";
 import * as Styled from "./BarChart.styled";
 
-export function BarChart({ ChartData }) {
-  const [chartOptions, setChartOptions] = useState({
+export function BarChart({ chartData }) {
+  const chartOptions = {
     legend: {
       item: {
         label: {
-          fontSize: 20,
+          fontSize: 14,
         },
       },
     },
@@ -16,27 +15,20 @@ export function BarChart({ ChartData }) {
         type: "number",
         position: "left",
         label: {
-          fontSize: 16,
+          fontSize: 12,
         },
       },
       {
         type: "category",
         position: "bottom",
         label: {
-          fontSize: 16,
+          fontSize: 12,
         },
       },
     ],
-    data: ChartData,
+    data: chartData,
     series: [{ type: "bar", xKey: "category", yKey: "amount" }],
-  });
-
-  useEffect(() => {
-    setChartOptions((prevOptions) => ({
-      ...prevOptions,
-      data: ChartData,
-    }));
-  }, [ChartData]);
+  };
 
   return (
     <Styled.ChartContainer>
