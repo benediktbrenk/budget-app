@@ -14,7 +14,7 @@ function DropDownProfile({ setOpenProfileDropDown }) {
       <DropDownUl>
         <DropDownLi>
           <DropDownLink
-            href="/profilepage"
+            href="/profile"
             onClick={() => setOpenProfileDropDown((state) => !state)}
           >
             Profile
