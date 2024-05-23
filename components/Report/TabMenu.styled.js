@@ -9,7 +9,8 @@ export const TabContainer = styled.div`
 `;
 
 export const TabButton = styled.button`
-  background-color: var(--color-primary);
+  background-color: #f2f2f2;
+  color: black;
   border: 1px solid #ccc;
   cursor: pointer;
   padding: 10px 20px;
@@ -27,6 +28,6 @@ export const TabContent = styled.div`
   border: 1px solid #ccc;
   width: 90%;
   height: 300px;
-  font-family: var(--font-family);
+  font-family: Arial, sans-serif;
   margin-bottom: 80px;
 `;
