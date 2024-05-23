@@ -40,10 +40,10 @@ export default function LoginButton() {
   }
 
   return (
-    <Styled.SignItemContainer>
-      <Styled.SignButton onClick={() => signIn({ callbackUrl: "/" })}>
+    <SignItemContainer>
+      <SignButton onClick={() => signIn({ callbackUrl: "/" })}>
         Login
-      </Styled.SignButton>
-    </Styled.SignItemContainer>
+      </SignButton>
+    </SignItemContainer>
   );
 }
