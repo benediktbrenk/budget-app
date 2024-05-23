@@ -1,4 +1,4 @@
-import { SectionContainer } from "@/Homepage.styled";
+import { SectionContainer } from "./ProtectPages.styled";
 import { useSession } from "next-auth/react";
 
 export default function ProtectPage({ children }) {
@@ -10,17 +10,11 @@ export default function ProtectPage({ children }) {
   if (status !== "authenticated") {
     return (
       <SectionContainer>
-        <h2>Login and check your Budget!</h2>
-        <p>This way you can keep an eye on your finances</p>
-        <span>
-          <p>Try our Test Account:</p>
-          <p>
-            <strong>username:</strong> user
-          </p>
-          <p>
-            <strong>password:</strong> user
-          </p>
-        </span>
+        <h1>Manage Your Finances Effortlessly</h1>
+        <p>
+          Track, analyze, and optimize your expenses with our user-friendly
+          Expense App.
+        </p>
       </SectionContainer>
     );
   }

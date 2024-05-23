@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -7,15 +8,31 @@ export const HeaderContainer = styled.header`
   align-items: center;
 `;
 
-export const LogoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  gap: 10px;
-`;
-
 export const Headline = styled.h1`
   color: var(--color-primary);
   font-size: 1.6rem;
   text-align: center;
+`;
+
+export const LoginButtonAvatar = styled.span`
+  @media (min-width: 1100px) {
+    display: none;
+  }
+`;
+
+export const LogoContainer = styled.span`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  left: 100px;
+
+  @media (min-width: 1100px) {
+    display: none;
+  }
+`;
+
+export const LogoLink = styled(Link)`
+  text-decoration: none;
 `;
