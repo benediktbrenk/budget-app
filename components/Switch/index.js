@@ -1,23 +1,20 @@
 import * as Styled from "./Switch.styled";
-import React, { useState } from "react";
 import { IoSunny } from "react-icons/io5";
 import { FaMoon } from "react-icons/fa6";
 
-export default function DarkModeSwitch() {
-  const [isDarkModeON, setISDarkModeOn] = useState(false);
-
-  const toggleSwitch = () => {
-    setISDarkModeOn(!isDarkModeON);
-  };
-
-  console.log(isDarkModeON);
+export default function DarkModeSwitch({ isDarkModeOn, toggleSwitch }) {
+  console.log(isDarkModeOn);
   return (
     <Styled.Container>
-      <IoSunny size={35} />
+      <Styled.IconContainer>
+        <IoSunny size={35} />
+      </Styled.IconContainer>
       <Styled.SwitchContainer onClick={toggleSwitch}>
-        <Styled.SwitchButton isDarkModeON={isDarkModeON} />
+        <Styled.SwitchButton $isDarkModeOn={isDarkModeOn} />
       </Styled.SwitchContainer>
-      <FaMoon size={30} />
+      <Styled.IconContainer>
+        <FaMoon size={30} />
+      </Styled.IconContainer>
     </Styled.Container>
   );
 }

@@ -1,5 +1,4 @@
 import Profile from "@/components/ProfilePage";
-import React from "react";
 
 const user = {
   name: "John Doe",
@@ -7,12 +6,14 @@ const user = {
   age: 30,
 };
 
-const ProfilePage = () => {
+export default function ProfilePage({ isDarkModeOn, toggleSwitch }) {
   return (
     <div>
-      <Profile user={user} />
+      <Profile
+        user={user}
+        isDarkModeOn={isDarkModeOn}
+        toggleSwitch={toggleSwitch}
+      />
     </div>
   );
-};
-
-export default ProfilePage;
+}

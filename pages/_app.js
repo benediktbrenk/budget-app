@@ -4,10 +4,12 @@ import useSWR from "swr";
 import { SWRConfig } from "swr";
 import Layout from "./layout";
 import { SessionProvider } from "next-auth/react";
+import { useState } from "react";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function App({ Component, pageProps }) {
+  const [isDarkModeOn, setIsDarkModeOn] = useState(false);
   const router = useRouter();
 
   const { data, isLoading, mutate } = useSWR("/api/transactions", fetcher);
@@ -67,6 +69,10 @@ export default function App({ Component, pageProps }) {
     router.push("/");
   }
 
+  const toggleSwitch = () => {
+    setIsDarkModeOn(!isDarkModeOn);
+  };
+
   return (
     <>
       <GlobalStyle />
@@ -79,6 +85,8 @@ export default function App({ Component, pageProps }) {
               deleteTransaction={deleteTransaction}
               handleAddTransaction={handleAddTransaction}
               handleEditTransaction={handleEditTransaction}
+              isDarkModeOn={isDarkModeOn}
+              toggleSwitch={toggleSwitch}
             />
           </Layout>
         </SWRConfig>

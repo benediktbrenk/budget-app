@@ -3,10 +3,9 @@ import * as Styled from "./Profile.styled";
 import { FaCircleUser } from "react-icons/fa6";
 import { useSession } from "next-auth/react";
 import ProtectPage from "../ProtectPages";
-
 import DarkModeSwitch from "../Switch";
 
-const Profile = () => {
+export default function Profile({ isDarkModeOn, toggleSwitch }) {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
@@ -32,10 +31,11 @@ const Profile = () => {
           <h3>Email:</h3>
           <p>{session.user.email}</p>
         </div>
-        <DarkModeSwitch />
+        <DarkModeSwitch
+          isDarkModeOn={isDarkModeOn}
+          toggleSwitch={toggleSwitch}
+        />
       </Styled.Container>
     </ProtectPage>
   );
-};
-
-export default Profile;
+}
