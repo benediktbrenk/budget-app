@@ -4,9 +4,8 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import AccountBalance from "@/components/AccountBalance";
-import { useSession } from "next-auth/react";
 import GoToTopButton from "@/components/GoToTopButton";
-import { useRouter } from "next/router";
+
 
 export default function HomePage({
   transactions,
