@@ -24,3 +24,14 @@ export const SignButton = styled.button`
   background-color: lightblue;
   border-radius: 12px;
 `;
+
+export const ProfileIconWrapper = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+`;

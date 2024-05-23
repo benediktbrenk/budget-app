@@ -11,7 +11,7 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-  }
+}
 
   :root {
 
@@ -53,5 +53,23 @@ export default createGlobalStyle`
     margin: 0;
     padding:0;
   }
-  
+
+  button {
+    &:active {
+    transform: translateY(1px);
+  }
+  }
+
+  input, select, textarea {
+    color: black; /* Oder jede gewünschte Farbe */
+    -webkit-text-fill-color: black; /* Für iOS Autofill */
+  }
+
+  input:-webkit-autofill, 
+  textarea:-webkit-autofill, 
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-text-fill-color: black !important;
+  }
+
 `;

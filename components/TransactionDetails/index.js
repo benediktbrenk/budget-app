@@ -31,9 +31,11 @@ export default function TransactionDetails({
             {currentTransaction.amount}
             {currentTransaction.currency}
           </Styled.ItemText>
-
           <Styled.Label>Date:</Styled.Label>
           <Styled.ItemText>{currentTransaction.date}</Styled.ItemText>
+
+          <Styled.Label>Category:</Styled.Label>
+          <Styled.ItemText>{currentTransaction.category}</Styled.ItemText>
 
           <Styled.Label>Description:</Styled.Label>
           <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
@@ -41,14 +43,14 @@ export default function TransactionDetails({
       </Styled.DetailsCard>
       <Styled.ButtonContainer>
         <Button
+          type="button"
           onClick={() => setIsDeleteMode(!isDeleteMode)}
           $type="danger"
           $textColor="white"
         >
           Delete
         </Button>
-
-        <Button $textColor="white" onClick={() => setFlip(!flip)}>
+        <Button type="button" $textColor="white" onClick={() => setFlip(!flip)}>
           Edit
         </Button>
       </Styled.ButtonContainer>
@@ -61,15 +63,17 @@ export default function TransactionDetails({
 
           <Styled.ButtonContainer>
             <Button
+              type="button"
               $textColor="white"
               onClick={() => setIsDeleteMode(!isDeleteMode)}
             >
               Cancel
             </Button>
             <Button
-              onClick={() => deleteTransaction(currentTransaction._id)}
+              type="button"
               $type="danger"
               $textColor="white"
+              onClick={() => deleteTransaction(currentTransaction._id)}
             >
               Delete
             </Button>

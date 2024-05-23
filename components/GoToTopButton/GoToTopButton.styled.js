@@ -9,5 +9,6 @@ export const IconButton = styled.button`
   border: none;
   cursor: pointer;
   z-index: 1;
+  color: black;
   display: ${(props) => !props.$showButton && "none"};
 `;

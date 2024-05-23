@@ -73,6 +73,7 @@ export const ActionButton = styled.button`
   background-color: transparent;
   padding: 0;
   cursor: pointer;
+  color: black;
 `;
 
 export const ActionInfo = styled(IoInformationCircleOutline)`
@@ -94,8 +95,8 @@ export const Amount = styled(Link)`
   text-decoration: none;
   color: ${(props) => {
     return props.$direction === "Income"
-      ? "var(--amount-color-green)"
-      : "var(--amount-color-red)";
+      ? "var(--color-green)"
+      : "var(--color-red)";
   }};
   margin: 0;
   font: 600 16px/18px var(--font-family);
