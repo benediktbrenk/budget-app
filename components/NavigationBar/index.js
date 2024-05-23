@@ -22,6 +22,9 @@ function NavigationBar() {
           src="/assets/expenso-logo-bunte-karten.png"
         />
       </Styled.LogoContainer>
+      <Styled.ProfileAvatar>
+        <LoginButton />
+      </Styled.ProfileAvatar>
 
       <Styled.NavContainer>
         <Styled.NavLink href="/" $active={isActive("/")}>
@@ -36,9 +39,6 @@ function NavigationBar() {
           <FaChartPie />
         </Styled.NavLink>
       </Styled.NavContainer>
-      <Styled.ProfileAvatar>
-        <LoginButton />
-      </Styled.ProfileAvatar>
     </Styled.NavBar>
   );
 }

@@ -35,30 +35,11 @@ export const DropDownConatiner = styled.div`
   } */
 
   @media (min-width: 500px) {
-    right: 10%;
-  }
-
-  @media (min-width: 800px) {
-    right: 15%;
+    right: 20px;
   }
 
   @media (min-width: 1100px) {
-    left: 70px;
-    top: 92dvh;
-  }
-
-  @media (max-heigth: 850px) {
-    left: 70px;
-  }
-
-  @media (min-heigth: 1000px) {
-    left: 70px;
-    top: 90dvh;
-  }
-
-  @media (min-heigth: 1500px) {
-    left: 70px;
-    top: 98dvh;
+    left: 90px;
   }
 `;
 
