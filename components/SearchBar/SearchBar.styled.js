@@ -54,7 +54,7 @@ export const SearchInput = styled.input`
   border: 1px solid #f8f9fa;
   width: 100%;
   max-width: 600px;
-  height: 40px;
+  height: 30px;
   font-size: 0.7rem;
   padding: 10px;
   box-shadow: var(--box-shadow);
@@ -74,7 +74,7 @@ export const FilterContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  //margin: 0.75rem;
+  //margin-bottom: 10px;
   //padding: 0.5rem;
   gap: 15px;
 `;
@@ -83,8 +83,8 @@ export const FilterHeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* margin: 5px;
-  padding: 5px; */
+  margin: 5px;
+  padding: 5px;
   gap: 15px;
   width: 100%;
 `;
@@ -92,13 +92,20 @@ export const FilterHeaderContainer = styled.div`
 export const FilterItem = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   font-size: 0.7rem;
+
+  p {
+    margin: 0;
+  }
 `;
 
 export const FilterButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   //margin: 5px;
   border: 1px solid lightgray;
@@ -106,4 +113,21 @@ export const FilterButton = styled.button`
   font-size: 1rem;
   color: black;
   box-shadow: var(--box-shadow);
+  height: 30px;
+`;
+
+export const CalendarButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: white;
+  border-radius: var(--border-radius);
+  height: 30px;
+  width: 40px;
+  background-color: ${(props) => props.$color || "#CCCCCC"};
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 `;

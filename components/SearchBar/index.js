@@ -124,9 +124,13 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                   ) : (
                     <p>Select date</p>
                   )}
-                  <Button onClick={handleModal}>
+
+                  <Styled.CalendarButton
+                    onClick={handleModal}
+                    $color="var(--color-primary)"
+                  >
                     <LuCalendarDays />
-                  </Button>
+                  </Styled.CalendarButton>
                 </Styled.FilterItem>
               </Styled.FilterContainer>
             </Styled.FilterHeaderContainer>
@@ -135,7 +139,7 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 <Styled.SearchInput
                   type="number"
                   id="amount_from"
-                  placeholder="Search by Amount From"
+                  placeholder="Amount From"
                   value={search.amountFrom}
                   onChange={(event) =>
                     onSearch({ ...search, amountFrom: event.target.value })
@@ -146,7 +150,7 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 <Styled.SearchInput
                   type="number"
                   id="amount_to"
-                  placeholder="Search by Amount To"
+                  placeholder="Amount To"
                   value={search.amountTo}
                   onChange={(event) =>
                     onSearch({ ...search, amountTo: event.target.value })
