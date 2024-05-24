@@ -1,6 +1,11 @@
-import { SectionContainer } from "@/Homepage.styled";
+import {
+  SectionContainer,
+  ContainerBox,
+  FeatureSection,
+} from "@/components/ProtectPages/ProtectPages.styled";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -11,18 +16,61 @@ export default function LoginPage() {
     return;
   }
   return (
-    <SectionContainer>
-      <h2>Login and check your Budget!</h2>
-      <p>This way you can keep an eye on your finances</p>
-      <span>
-        <p>Try our Test Account:</p>
+    <ContainerBox>
+      <SectionContainer>
+        <Image
+          width={240}
+          height={180}
+          alt="app-logo"
+          src="/assets/expenso-logo-bunte-karten.png"
+        />
+        <h1>Manage Your Finances Effortlessly</h1>
         <p>
-          <strong>username:</strong> user
+          Track, analyze, and optimize your expenses with our user-friendly
+          <strong> Expenso App.</strong>
         </p>
-        <p>
-          <strong>password:</strong> user
-        </p>
-      </span>
-    </SectionContainer>
+        <h3>START NOW</h3>
+      </SectionContainer>
+      <h2>Why Our Expenso App?</h2>
+      <SectionContainer>
+        <FeatureSection>
+          <h3>Simple Expense Tracking</h3>
+          <p>
+            Record your daily expenses in seconds with our intuitive interface.
+          </p>
+        </FeatureSection>
+      </SectionContainer>
+      <SectionContainer>
+        <FeatureSection>
+          <h3>Detailed Analysis</h3>
+          <p>
+            Get comprehensive reports and analyses to understand your spending
+            patterns and identify savings opportunities.
+          </p>
+        </FeatureSection>
+      </SectionContainer>
+      <SectionContainer>
+        <FeatureSection>
+          <h3>Budget Management</h3>
+          <p>
+            Set monthly budgets and receive notifications when you exceed them.
+          </p>
+        </FeatureSection>
+      </SectionContainer>
+      <SectionContainer>
+        <FeatureSection>
+          <h3>Secure and Protected</h3>
+          <p>
+            Your data is protected with state-of-the-art encryption technology.
+          </p>
+        </FeatureSection>
+      </SectionContainer>
+      <SectionContainer>
+        <FeatureSection>
+          <h3>Multi-Platform Support</h3>
+          <p>Use our app on your smartphone, tablet, or computer.</p>
+        </FeatureSection>
+      </SectionContainer>
+    </ContainerBox>
   );
 }

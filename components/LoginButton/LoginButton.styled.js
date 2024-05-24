@@ -7,6 +7,25 @@ export const SignItemContainer = styled.span`
   gap: 20px;
   font-size: 28px;
   align-items: center;
+  cursor: pointer;
+`;
+
+export const AvatarContainer = styled.span`
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #4893e9;
+  overflow: hidden;
+  width: 24;
+  height: 24;
+
+  &:hover {
+    color: #4893e9;
+    filter: brightness(1.1);
+  }
 `;
 
 export const ProfileIcon = styled.p`
@@ -24,17 +43,11 @@ export const SignButton = styled.button`
   background-color: #4893e9;
   border-radius: 12px;
   color: white;
+  font-weight: 700;
   border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-`;
-
-export const ProfileIconWrapper = styled.div`
   cursor: pointer;
-  display: flex;
-  align-items: center;
 
-  svg {
-    width: 24px;
-    height: 24px;
+  &:hover {
+    filter: brightness(1.1);
   }
 `;
