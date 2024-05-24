@@ -5,6 +5,7 @@ import { categories } from "@/utils/categories";
 import TransactionEntryForm from "../TransactionEntryForm";
 import { Button } from "../Button/Button.styled";
 
+
 function TransactionCard({
   transaction,
   deleteTransaction,
