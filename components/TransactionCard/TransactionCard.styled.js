@@ -9,10 +9,17 @@ export const CardContainer = styled.li`
   flex-direction: row;
   border: 0.5px solid lightgrey;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0px;
   list-style: none;
   border-radius: var(--border-radius);
   background-color: ${(props) => props.$color || "#CCCCCC"};
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease-out;
+    opacity: 1.3;
+  }
 `;
 
 export const ColorField = styled.div`
@@ -20,6 +27,9 @@ export const ColorField = styled.div`
   width: 0.5rem;
   border-radius: 3px;
   background-color: ${(props) => props.$color || "#CCCCCC"};
+  &:hover {
+    opacity: 1.3;
+  }
 `;
 
 export const ContentContainer = styled.div`

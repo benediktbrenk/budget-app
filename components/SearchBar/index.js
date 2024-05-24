@@ -92,15 +92,10 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
             <FaSliders />
           </Styled.FilterButton>
         </Styled.SearchAndFilter>
-        <CategoryFilter
-          search={search}
-          onSelectCategory={handleCategoryFilter}
-        />
         {isFilter && (
           <Styled.FilterBox>
-            <Styled.FilterContainer>
+            <Styled.FilterHeaderContainer>
               <Styled.FilterItem>
-                <label for="direction">Direction</label>
                 <Styled.SearchInputSelect
                   value={search.direction}
                   id="direction"
@@ -108,42 +103,43 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                     onSearch({ ...search, direction: event.target.value });
                   }}
                 >
-                  <option value="">All</option>
+                  <option value="">Direction</option>
                   <option value="Income">Income</option>
                   <option value="Expense">Expense</option>
                 </Styled.SearchInputSelect>
               </Styled.FilterItem>
-            </Styled.FilterContainer>
+              <Styled.FilterContainer>
+                <Styled.FilterItem>
+                  {selectedTime ? (
+                    <p>
+                      Your Selection:
+                      <br />
+                      <br />
+                      {getFormattedDate(selectedTime.from)}
+                      {selectedTime.to &&
+                        selectedTime.from.toString() !==
+                          selectedTime.to.toString() &&
+                        ` - ${getFormattedDate(selectedTime.to)}`}
+                    </p>
+                  ) : (
+                    <p>Select date</p>
+                  )}
+
+                  <Styled.CalendarButton
+                    onClick={handleModal}
+                    $color="var(--color-primary)"
+                  >
+                    <LuCalendarDays />
+                  </Styled.CalendarButton>
+                </Styled.FilterItem>
+              </Styled.FilterContainer>
+            </Styled.FilterHeaderContainer>
             <Styled.FilterContainer>
               <Styled.FilterItem>
-                {selectedTime ? (
-                  <p>
-                    Your Selection:
-                    <br />
-                    <br />
-                    {getFormattedDate(selectedTime.from)}
-                    {selectedTime.to &&
-                      selectedTime.from.toString() !==
-                        selectedTime.to.toString() &&
-                      ` - ${getFormattedDate(selectedTime.to)}`}
-                  </p>
-                ) : (
-                  <p>Select a single date or a range of dates</p>
-                )}
-              </Styled.FilterItem>
-              <Styled.FilterItem>
-                <Button onClick={handleModal}>
-                  <LuCalendarDays />
-                </Button>
-              </Styled.FilterItem>
-            </Styled.FilterContainer>
-            <Styled.FilterContainer>
-              <Styled.FilterItem>
-                <label for="amount_from">Amount From</label>
                 <Styled.SearchInput
                   type="number"
                   id="amount_from"
-                  placeholder="Search by Amount From"
+                  placeholder="Amount From"
                   value={search.amountFrom}
                   onChange={(event) =>
                     onSearch({ ...search, amountFrom: event.target.value })
@@ -151,11 +147,10 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 />
               </Styled.FilterItem>
               <Styled.FilterItem>
-                <label for="amount_to">Amount To</label>
                 <Styled.SearchInput
                   type="number"
                   id="amount_to"
-                  placeholder="Search by Amount To"
+                  placeholder="Amount To"
                   value={search.amountTo}
                   onChange={(event) =>
                     onSearch({ ...search, amountTo: event.target.value })
@@ -163,7 +158,6 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 />
               </Styled.FilterItem>
               <Styled.FilterItem>
-                <label for="clear">clear</label>
                 <Styled.FilterButton id="clear" onClick={handleResetFilters}>
                   <FaArrowsRotate />
                 </Styled.FilterButton>
@@ -171,6 +165,10 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
             </Styled.FilterContainer>
           </Styled.FilterBox>
         )}
+        <CategoryFilter
+          search={search}
+          onSelectCategory={handleCategoryFilter}
+        />
       </Styled.SearchContainer>
     </>
   );

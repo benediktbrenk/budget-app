@@ -27,12 +27,25 @@ export default function AccountBalance({ transactions }) {
       </Styled.BalanceContainer>
       <Styled.IncomeExpenseContainer>
         <Styled.TotalIncome>
-          <FaAngleUp />
-          {totalIncomeAmount} €
+          <Styled.DirectionContainerItem>
+            <Styled.ArrowBoxIncome>
+              <Styled.IconContainer>
+                <FaAngleUp />
+              </Styled.IconContainer>
+            </Styled.ArrowBoxIncome>
+            {totalIncomeAmount}
+            {" €"}
+          </Styled.DirectionContainerItem>
         </Styled.TotalIncome>
         <Styled.TotalExpense>
-          <FaAngleDown />
-          {totalExpenseAmount} €
+          <Styled.DirectionContainerItem>
+            <Styled.ArrowBoxExpense>
+              <Styled.IconContainer>
+                <FaAngleDown />
+              </Styled.IconContainer>
+            </Styled.ArrowBoxExpense>
+            {totalExpenseAmount} {" €"}
+          </Styled.DirectionContainerItem>
         </Styled.TotalExpense>
       </Styled.IncomeExpenseContainer>
     </Styled.AccountBalanceCard>

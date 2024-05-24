@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import AccountBalance from "@/components/AccountBalance";
 import GoToTopButton from "@/components/GoToTopButton";
+import * as Styled from "@/components/StyledFiles/Index.styled";
 
 
 export default function HomePage({
@@ -86,7 +87,7 @@ export default function HomePage({
   });
 
   return (
-    <>
+    <Styled.MainContent>
       <AccountBalance transactions={transactions} />
       <SearchBar
         transactions={transactions}
@@ -101,6 +102,6 @@ export default function HomePage({
         updateTransactions={handleEditTransaction}
       />
       <GoToTopButton />
-    </>
+    </Styled.MainContent>
   );
 }
