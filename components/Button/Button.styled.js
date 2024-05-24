@@ -12,6 +12,7 @@ export const Button = styled.button`
             opacity: var(--opacity-hover);
           }
         `;
+
       default:
         return css`
           background-color: var(--color-primary);

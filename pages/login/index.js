@@ -6,6 +6,7 @@ import {
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function LoginPage() {
           Track, analyze, and optimize your expenses with our user-friendly
           <strong> Expenso App.</strong>
         </p>
-        <h3>START NOW</h3>
+        <h3 onClick={() => signIn({ callbackUrl: "/" })}>START NOW</h3>
       </SectionContainer>
       <h2>Why Our Expenso App?</h2>
       <SectionContainer>

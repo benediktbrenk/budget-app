@@ -7,7 +7,6 @@ export const DetailsCard = styled.article`
   flex-direction: column;
   background-color: ${(props) => props.$softColor || "#CCCCCC"};
   padding: 15px 0 0 35px;
-
   margin: 20px 0;
   border-radius: var(--border-radius);
   min-width: 325px;
@@ -38,6 +37,7 @@ export const ItemText = styled.p`
   flex-direction: column;
   position: relative;
   bottom: 15px;
+  color: var(--color-text);
 `;
 
 export const ButtonContainer = styled.div`

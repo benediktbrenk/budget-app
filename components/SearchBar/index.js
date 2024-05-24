@@ -5,7 +5,6 @@ import CategoryFilter from "../CategoryFilter";
 import { LuCalendarDays } from "react-icons/lu";
 import Modal from "../Modal";
 import Calendar from "../Calendar";
-import { Button } from "../Button/Button.styled";
 
 function SearchBar({ search, onSearch, handleCategoryFilter }) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
@@ -24,6 +23,7 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
       amountTo: "",
     });
     setSearchNameValue("");
+    handleSelectDate();
   }
 
   function handleKeyDown(event) {
@@ -111,24 +111,20 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
               <Styled.FilterContainer>
                 <Styled.FilterItem>
                   {selectedTime ? (
-                    <p>
-                      Your Selection:
-                      <br />
-                      <br />
-                      {getFormattedDate(selectedTime.from)}
-                      {selectedTime.to &&
-                        selectedTime.from.toString() !==
-                          selectedTime.to.toString() &&
-                        ` - ${getFormattedDate(selectedTime.to)}`}
-                    </p>
+                    <>
+                      <Styled.FilterItem>
+                        Period: {getFormattedDate(selectedTime.from)}
+                        {selectedTime.to &&
+                          selectedTime.from.toString() !==
+                            selectedTime.to.toString() &&
+                          ` - ${getFormattedDate(selectedTime.to)}`}
+                      </Styled.FilterItem>
+                    </>
                   ) : (
-                    <p>Select date</p>
+                    <Styled.FilterItem>Period: Total</Styled.FilterItem>
                   )}
 
-                  <Styled.CalendarButton
-                    onClick={handleModal}
-                    $color="var(--color-primary)"
-                  >
+                  <Styled.CalendarButton type="button" onClick={handleModal}>
                     <LuCalendarDays />
                   </Styled.CalendarButton>
                 </Styled.FilterItem>
@@ -158,7 +154,12 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 />
               </Styled.FilterItem>
               <Styled.FilterItem>
-                <Styled.FilterButton id="clear" onClick={handleResetFilters}>
+                <label for="clear"></label>
+                <Styled.FilterButton
+                  type="button"
+                  id="clear"
+                  onClick={handleResetFilters}
+                >
                   <FaArrowsRotate />
                 </Styled.FilterButton>
               </Styled.FilterItem>

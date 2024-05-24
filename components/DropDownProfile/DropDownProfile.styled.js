@@ -15,24 +15,12 @@ export const DropDownConatiner = styled.div`
   width: 120px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   height: 100px;
+  background-color: var(--color-secondary);
 
   position: absolute;
   top: 60px;
   right: 20px;
   z-index: 100;
-
-  /* &::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    width: 20px;
-    height: 20px;
-    transform: rotate(45deg);
-    background-color: white;
-    border-left: 1px solid lightgray;
-    border-top: 1px solid lightgray;
-  } */
 
   @media (min-width: 500px) {
     right: 20px;
@@ -78,7 +66,6 @@ export const SignButton = styled.button`
   width: 100%;
 
   &:hover {
-    //background-color: blue;
     opacity: 0.7;
     cursor: pointer;
   }
@@ -88,7 +75,7 @@ export const DropDownLink = styled(Link)`
   text-decoration: none;
 
   &:visited {
-    color: black;
+    color: var(--color-text);
   }
 
   &:hover {

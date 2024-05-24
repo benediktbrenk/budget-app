@@ -21,6 +21,7 @@ export const AvatarContainer = styled.span`
   overflow: hidden;
   width: 24;
   height: 24;
+  color: var(--color-text);
 
   &:hover {
     color: #4893e9;

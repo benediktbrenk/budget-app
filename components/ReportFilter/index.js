@@ -1,5 +1,4 @@
 import CategoryFilter from "../CategoryFilter";
-import { Button } from "../Button/Button.styled";
 import * as Styled from "./ReportFilter.styled";
 import Modal from "../Modal";
 import Calendar from "../Calendar";
@@ -14,13 +13,13 @@ export default function ReportFilter({ filter, onFilter }) {
   function handleToggleOption(option) {
     if (
       filter.categories.some(
-        (filteredCategory) => filteredCategory.name === option,
+        (filteredCategory) => filteredCategory.name === option
       )
     ) {
       onFilter({
         ...filter,
         categories: filter.categories.filter(
-          (category) => category.name !== option,
+          (category) => category.name !== option
         ),
       });
     } else {
@@ -83,10 +82,7 @@ export default function ReportFilter({ filter, onFilter }) {
             ) : (
               <Styled.FilterItem>Period: Total</Styled.FilterItem>
             )}
-            <Styled.CalendarButton
-              $color="var(--color-primary)"
-              onClick={handleModal}
-            >
+            <Styled.CalendarButton onClick={handleModal}>
               <LuCalendarDays />
             </Styled.CalendarButton>
           </Styled.FilterItem>

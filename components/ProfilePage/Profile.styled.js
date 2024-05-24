@@ -12,6 +12,8 @@ export const ContainerCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 0.75rem;
+  color: var(--color-text);
   align-items: center;
   border-radius: 12px;
   padding: 20px;
@@ -81,8 +83,9 @@ export const ProfileIconWrapper = styled.div`
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 50%;
-  background-color: #eee;
+  background-color: var(--color-text-reverse);
   width: 160px;
+
   height: 160px;
   overflow: hidden;
 `;

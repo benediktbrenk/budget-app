@@ -11,7 +11,7 @@ export const FilterContainer = styled.div`
 
 export const FilterInputSelect = styled.select`
   border-radius: var(--border-radius);
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   font: 400 12px/14px var(--font-family);
   height: 30px;
 `;
@@ -28,15 +28,22 @@ export const FilterItem = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--color-text);
+
+  select {
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+  }
 `;
 
 export const CalendarButton = styled.button`
   border: none;
-  color: white;
+  color: var(--color-text);
   border-radius: var(--border-radius);
   height: 30px;
   width: 40px;
-  background-color: ${(props) => props.$color || "#CCCCCC"};
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
 
   &:hover {
     filter: brightness(1.1);

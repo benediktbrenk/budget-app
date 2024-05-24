@@ -4,7 +4,7 @@ export const AccountBalanceCard = styled.article`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-secondary);
   padding: 0 20px;
   margin: 10px 20px;
   border-radius: var(--border-radius);
@@ -12,7 +12,8 @@ export const AccountBalanceCard = styled.article`
   min-width: 300px;
   max-width: 550px;
 
-  //border: 0.5px solid lightgrey;
+  border: 0.5px solid var(--color-border);
+  color: var(--color-text);
 `;
 
 export const BalanceContainer = styled.div`

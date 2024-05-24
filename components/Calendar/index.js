@@ -1,8 +1,8 @@
-import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { Button } from "../Button/Button.styled";
 import { ButtonContainer } from "./Calendar.styled";
 import { useState } from "react";
+import { DayPicker } from "react-day-picker";
 
 export default function Calendar({
   handleSelectDate,
@@ -40,11 +40,19 @@ export default function Calendar({
         <p>Select a single date or a range of dates</p>
       )}
       <ButtonContainer>
-        <Button onClick={goToToday}>Today</Button>
-        <Button disabled={!selectedTime} onClick={() => handleSelectDate()}>
+        <Button $textColor="white" onClick={goToToday}>
+          Today
+        </Button>
+        <Button
+          $textColor="white"
+          disabled={!selectedTime}
+          onClick={() => handleSelectDate()}
+        >
           Reset
         </Button>
-        <Button onClick={handleModal}>Ok</Button>
+        <Button $textColor="white" onClick={handleModal}>
+          Ok
+        </Button>
       </ButtonContainer>
     </>
   );

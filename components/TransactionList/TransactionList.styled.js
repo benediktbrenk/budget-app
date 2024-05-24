@@ -12,6 +12,7 @@ export const MonthContainer = styled.div`
 export const Headline = styled.h2`
   padding: 0 0 0.5rem 1rem;
   font: 700 20px var(--font-family);
+  color: var(--color-text);
 `;
 
 export const TransactionList = styled.ul`

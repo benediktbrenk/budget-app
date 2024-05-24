@@ -51,18 +51,18 @@ export const SearchAndFilter = styled.div`
 export const SearchInput = styled.input`
   display: flex;
   border-radius: var(--border-radius);
-  border: 1px solid #f8f9fa;
+  border: 1px solid var(--color-border);
   width: 100%;
   max-width: 600px;
   height: 30px;
   font-size: 0.7rem;
   padding: 10px;
   box-shadow: var(--box-shadow);
+  background-color: var(--color-secondary);
 `;
 export const SearchInputSelect = styled.select`
   border-radius: var(--border-radius);
-  border: 1px solid #f8f9fa;
-  //width: 100%;
+  border: 1px solid var(--color-border);
   height: 30px;
   font-size: 0.7rem;
   padding: 5px;
@@ -74,8 +74,6 @@ export const FilterContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  //margin-bottom: 10px;
-  //padding: 0.5rem;
   gap: 15px;
 `;
 export const FilterHeaderContainer = styled.div`
@@ -87,6 +85,7 @@ export const FilterHeaderContainer = styled.div`
   padding-bottom: 5px;
   gap: 15px;
   width: 100%;
+  color: var(--color-text);
 `;
 
 export const FilterItem = styled.div`
@@ -96,7 +95,12 @@ export const FilterItem = styled.div`
   align-items: center;
   gap: 10px;
   font-size: 0.7rem;
+  color: var(--color-text);
 
+  select {
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+  }
   p {
     margin: 0;
   }
@@ -107,26 +111,27 @@ export const FilterButton = styled.button`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  //margin: 5px;
-  border: 1px solid lightgray;
+  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   font-size: 1rem;
-  color: black;
+  color: var(--color-text);
   box-shadow: var(--box-shadow);
   height: 30px;
+  width: 40px;
+  background-color: var(--color-secondary);
 `;
 
 export const CalendarButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  color: white;
+  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
+  color: var(--color-text);
+  box-shadow: var(--box-shadow);
   height: 30px;
   width: 40px;
-  background-color: ${(props) => props.$color || "#CCCCCC"};
-
+  background-color: var(--color-secondary);
   &:hover {
     filter: brightness(1.1);
   }

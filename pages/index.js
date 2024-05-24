@@ -12,6 +12,7 @@ export default function HomePage({
   transactions,
   deleteTransaction,
   handleEditTransaction,
+  isDarkModeOn,
 }) {
   const router = useRouter();
   const [search, setSearch] = useState({
@@ -100,6 +101,7 @@ export default function HomePage({
         transactions={filteredSearch}
         deleteTransaction={deleteTransaction}
         updateTransactions={handleEditTransaction}
+        isDarkModeOn={isDarkModeOn}
       />
       <GoToTopButton />
     </Styled.MainContent>

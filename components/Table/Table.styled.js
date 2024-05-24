@@ -4,20 +4,21 @@ export const Table = styled.table`
   width: 100%;
   height: 300px;
   border-collapse: collapse;
+  color: var(--color-text);
 
   th,
   td {
-    border: 1px solid #dddddd;
+    border: 1px solid var(--color-border);
     padding: 8px;
     text-align: left;
   }
 
   th {
-    background-color: #f2f2f2;
+    background-color: var(--color-secondary);
   }
 
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
+  tr {
+    background-color: var(--color-table);
   }
 
   tr:hover {

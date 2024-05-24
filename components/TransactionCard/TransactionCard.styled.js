@@ -7,12 +7,13 @@ import { FaRegTrashCan } from "react-icons/fa6";
 export const CardContainer = styled.li`
   display: flex;
   flex-direction: row;
-  border: 0.5px solid lightgrey;
+  border: 0.5px solid var(--color-border);
   padding: 10px;
   margin: 10px 0px;
   list-style: none;
   border-radius: var(--border-radius);
-  background-color: ${(props) => props.$color || "#CCCCCC"};
+  background-color: ${(props) =>
+    props.$isDarkModeOn ? props.$colorDark : props.$color};
 
   &:hover {
     transform: scale(1.02);
@@ -40,7 +41,7 @@ export const ContentContainer = styled.div`
 
 export const TransactionName = styled(Link)`
   text-decoration: none;
-  color: var(--color-text-black);
+  color: var(--color-text);
   font: 700 14px/16px var(--font-family);
   margin: 0;
 `;
@@ -48,6 +49,7 @@ export const TransactionName = styled(Link)`
 export const TransactionDate = styled.p`
   margin: 0;
   font: 400 12px/14px var(--font-family);
+  color: var(--color-text);
 `;
 
 export const BottomContainer = styled.div`
@@ -69,7 +71,7 @@ export const ActionLink = styled(Link)`
   align-items: center;
   height: 30px;
   width: 30px;
-  color: var(--color-text-black);
+  color: var(--color-text);
 `;
 
 export const ActionButton = styled.button`
@@ -83,7 +85,7 @@ export const ActionButton = styled.button`
   background-color: transparent;
   padding: 0;
   cursor: pointer;
-  color: black;
+  color: var(--color-text);
 `;
 
 export const ActionInfo = styled(IoInformationCircleOutline)`

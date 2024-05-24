@@ -17,7 +17,9 @@ export default function CategoryFilter({
         <Styled.FilterButton
           key={category.name}
           $active={activeCategories.some(
-            (activeCategory) => activeCategory.name === category.name,
+            (activeCategory) =>
+              activeCategory.name === category.name ||
+              activeCategory === category.name
           )}
           $category={category.name}
           $color={category.color}

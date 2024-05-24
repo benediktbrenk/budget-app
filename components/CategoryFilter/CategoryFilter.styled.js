@@ -15,13 +15,13 @@ export const FilterButton = styled.button`
   width: 85px;
   font: 600 12px/14px var(--font-family);
   background-color: ${(props) => props.$color || "#CCCCCC"};
-  color: white;
+  color: var(--color-text);
 
   ${(props) =>
     props.$active &&
     css`
       outline: none;
-      box-shadow: 0 0 0 1px var(--color-secondary-dark);
+      box-shadow: 0 0 0 2px var(--box-shadow-active);
     `}
 
   &:hover {
