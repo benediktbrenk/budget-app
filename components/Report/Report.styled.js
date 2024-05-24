@@ -7,17 +7,19 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-    width: min(
+  width: min(
     calc(100% - ${doubledBorder}),
     calc(${minimalDeviceWidth} - ${doubledBorder})
   );
+  color: var(--color-text);
 `;
 
 export const Headline = styled.h2`
-margin-top: 20px;
-padding: 10px;
-font: 700 34px/36px var(--font-family);
-border-radius: var(--border-radius);
+  margin-top: 20px;
+  padding: 10px;
+  font: 700 34px/36px var(--font-family);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
 `;
 
 export const ContentHeadline = styled.h2`

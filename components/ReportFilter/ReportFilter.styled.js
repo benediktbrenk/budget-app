@@ -28,15 +28,20 @@ export const FilterItem = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+
+  select {
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+  }
 `;
 
 export const CalendarButton = styled.button`
   border: none;
-  color: white;
+  color: var(--color-text);
   border-radius: var(--border-radius);
   height: 30px;
   width: 40px;
-  background-color: ${(props) => props.$color || "#CCCCCC"};
+  background-color: var(--color-secondary);
 
   &:hover {
     filter: brightness(1.1);

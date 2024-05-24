@@ -18,6 +18,7 @@ export default createGlobalStyle`
 --color-text-active:${(props) => (props.$isDarkModeOn ? "white" : "black")};
 --color-text-black:black;
 --color-text-white:white;
+--color-text-reverse:${(props) => (props.$isDarkModeOn ? "black" : "white")};
 
 
 --color-primary:#4893E9;

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import css from "styled-jsx/css";
 
-export const TabContainer = styled.div`
-`;
+export const TabContainer = styled.div``;
 
 export const TabButton = styled.button`
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-secondary);
   border: 1px solid #ccc;
   cursor: pointer;
   padding: 10px 20px;
   float: left;
   margin: 10px 0 20px 0;
+  color: var(--color-text);
 
   ${(props) => {
     switch (props.$position) {

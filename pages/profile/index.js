@@ -1,5 +1,5 @@
 import Profile from "@/components/ProfilePage";
 
-export default function ProfilePage() {
-  return <Profile />;
+export default function ProfilePage({ isDarkModeOn, toggleSwitch }) {
+  return <Profile isDarkModeOn={isDarkModeOn} toggleSwitch={toggleSwitch} />;
 }

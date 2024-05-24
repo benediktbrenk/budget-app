@@ -5,12 +5,11 @@ export const FormContainer = styled.div`
   flex-direction: column;
   background-color: ${(props) => props.$softColor || "#CCCCCC"};
   padding: 15px 35px 15px 20px;
-  border-radius: 0.75rem;
+  border-radius: var(--border-radius);
   min-width: 250px;
   max-width: 300px;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
   position: relative;
-  color: black;
 
   &:before {
     content: "";
@@ -36,7 +35,7 @@ export const FormField = styled.div`
     padding-left: 7px;
     color: darkgrey;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 13px;
   }
 
   input,
@@ -45,6 +44,8 @@ export const FormField = styled.div`
     border: none;
     border-radius: 0.3rem;
     font-family: arial;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
   }
 
   input,

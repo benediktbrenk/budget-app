@@ -83,8 +83,9 @@ export const ProfileIconWrapper = styled.div`
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 50%;
-  background-color: #eee;
+  background-color: var(--color-text-reverse);
   width: 160px;
+
   height: 160px;
   overflow: hidden;
 `;
