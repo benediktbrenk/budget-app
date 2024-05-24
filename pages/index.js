@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import AccountBalance from "@/components/AccountBalance";
 import GoToTopButton from "@/components/GoToTopButton";
 
+
 export default function HomePage({
   transactions,
   deleteTransaction,
@@ -99,7 +100,6 @@ export default function HomePage({
         deleteTransaction={deleteTransaction}
         updateTransactions={handleEditTransaction}
       />
-
       <GoToTopButton />
     </>
   );
