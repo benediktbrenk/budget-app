@@ -83,8 +83,8 @@ export const FilterHeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 5px;
-  padding: 5px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
   gap: 15px;
   width: 100%;
 `;
