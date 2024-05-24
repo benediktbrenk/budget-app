@@ -14,7 +14,7 @@ function TransactionCard({
   const [showEditModal, setShowEditModal] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === transaction.category
+    (category) => category.name === transaction.category,
   );
 
   function handleDelete() {
@@ -26,7 +26,6 @@ function TransactionCard({
     <>
       <Styled.CardContainer
         key={transaction._id}
-        category={transaction.category}
         $color={currentCategory.softColor}
       >
         <Modal showModal={showEditModal}>

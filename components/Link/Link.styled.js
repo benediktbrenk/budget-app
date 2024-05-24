@@ -40,6 +40,7 @@ export const StyledLink = styled(Link)`
             background-color: var(--button-danger-hover);
           }
         `;
+      default:
         return css`
           background-color: var(--button);
           &:hover {
@@ -48,7 +49,7 @@ export const StyledLink = styled(Link)`
         `;
     }
   }};
-  color: ${(props) => (props.textColor === "white" ? "white" : "black")};
+  color: ${(props) => (props.$textColor === "white" ? "white" : "black")};
   padding: 10px 18px;
   border-radius: 8px;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);

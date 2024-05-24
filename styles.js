@@ -33,6 +33,8 @@ export default createGlobalStyle`
 
 --font-family: ${inter.style.fontFamily};
 
+--breakpoint-1: 395px;
+
 }
 
   body {

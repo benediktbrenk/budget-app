@@ -1,14 +1,11 @@
 import styled from "styled-components";
 
-const doubledBorder = "30px";
-const minimalDeviceWidth = "600px";
-
 export const MonthContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: min(
-    calc(100% - ${doubledBorder}),
-    calc(${minimalDeviceWidth} - ${doubledBorder})
+    calc(100% - 30px),
+    calc(var(--breakpoint-1) - 30px)
   );
 `;
 
