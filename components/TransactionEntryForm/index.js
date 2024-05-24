@@ -30,7 +30,7 @@ function TransactionEntryForm({
     };
     updateTransactions(updatedTransaction, id);
 
-    setShowEditModal(false);
+    mode === "edit" && setShowEditModal(false);
     event.target.reset();
   }
 
