@@ -44,7 +44,7 @@ export const FormField = styled.div`
     border: none;
     border-radius: 0.3rem;
     font-family: arial;
-    background-color: var(--color-secondary);
+    background-color: var(--color-input);
     color: var(--color-text);
   }
 

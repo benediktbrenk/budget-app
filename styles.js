@@ -19,7 +19,7 @@ export default createGlobalStyle`
 --color-text-black:black;
 --color-text-white:white;
 --color-text-reverse:${(props) => (props.$isDarkModeOn ? "black" : "white")};
-
+--color-input:${(props) => (props.$isDarkModeOn ? "#5B5959" : "white")};
 
 --color-primary:#4893E9;
 
@@ -66,17 +66,4 @@ export default createGlobalStyle`
     transform: translateY(1px);
   }
   }
-
-  /* input, select, textarea {
-    color: black; 
-    -webkit-text-fill-color: black; 
-  }
-
-  input:-webkit-autofill, 
-  textarea:-webkit-autofill, 
-  select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset !important;
-    -webkit-text-fill-color: black !important;
-  } */
-
 `;

@@ -72,6 +72,7 @@ export const FilterContainer = styled.div`
   margin: 0.75rem;
   padding: 0.5rem;
   gap: 0.5rem;
+  color: var(--color-text);
 `;
 
 export const FilterItem = styled.div`
@@ -80,6 +81,12 @@ export const FilterItem = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+  color: var(--color-text);
+
+  select {
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+  }
 `;
 
 export const FilterButton = styled.button`

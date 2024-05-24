@@ -11,7 +11,6 @@ export const ContentContainer = styled.div`
     calc(100% - ${doubledBorder}),
     calc(${minimalDeviceWidth} - ${doubledBorder})
   );
-  color: var(--color-text);
 `;
 
 export const Headline = styled.h2`
@@ -25,6 +24,7 @@ export const Headline = styled.h2`
 export const ContentHeadline = styled.h2`
   margin: 0 0 20px 0;
   font: 700 16px/18px var(--font-family);
+  color: var(--color-text);
 `;
 
 export const TabContent = styled.div`

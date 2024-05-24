@@ -28,6 +28,7 @@ export const FilterItem = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--color-text);
 
   select {
     color: var(--color-text);
@@ -42,6 +43,7 @@ export const CalendarButton = styled.button`
   height: 30px;
   width: 40px;
   background-color: var(--color-secondary);
+  border: 1px solid lightgray;
 
   &:hover {
     filter: brightness(1.1);

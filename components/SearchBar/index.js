@@ -132,9 +132,9 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 )}
               </Styled.FilterItem>
               <Styled.FilterItem>
-                <Button onClick={handleModal}>
+                <Styled.FilterButton type="button" onClick={handleModal}>
                   <LuCalendarDays />
-                </Button>
+                </Styled.FilterButton>
               </Styled.FilterItem>
             </Styled.FilterContainer>
             <Styled.FilterContainer>
@@ -164,7 +164,11 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
               </Styled.FilterItem>
               <Styled.FilterItem>
                 <label for="clear">clear</label>
-                <Styled.FilterButton id="clear" onClick={handleResetFilters}>
+                <Styled.FilterButton
+                  type="button"
+                  id="clear"
+                  onClick={handleResetFilters}
+                >
                   <FaArrowsRotate />
                 </Styled.FilterButton>
               </Styled.FilterItem>
