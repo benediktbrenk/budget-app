@@ -9,8 +9,8 @@ export const DetailsCard = styled.article`
   padding: 15px 0 0 35px;
   margin: 20px 0;
   border-radius: var(--border-radius);
-  min-width: 250px;
-  max-width: 300px;
+  min-width: 325px;
+  max-width: 500px;
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
   position: relative;
 

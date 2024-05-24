@@ -66,22 +66,22 @@ export function Report({
       <Styled.ContentContainer>
         <Styled.ContentHeadline>Total Expense</Styled.ContentHeadline>
         <ReportFilter filter={filter} onFilter={handleReportFilter} />
-        <Styled.TabContent active={activeTab === "BarChart"}>
+        <Styled.TabContent $active={activeTab === "BarChart"}>
           <TabMenu handleActiveTab={handleActiveTab} />
           <BarChart chartData={data} />
         </Styled.TabContent>
-        <Styled.TabContent active={activeTab === "Table"}>
+        <Styled.TabContent $active={activeTab === "Table"}>
           <TabMenu handleActiveTab={handleActiveTab} />
           <PieChart chartData={data} />
         </Styled.TabContent>
-        <Styled.TabContent active={activeTab === "PieChart"}>
+        <Styled.TabContent $active={activeTab === "PieChart"}>
           <TabMenu handleActiveTab={handleActiveTab} />
           <DataTable tableData={data} />
         </Styled.TabContent>
       </Styled.ContentContainer>
       <Styled.ContentContainer>
         <Styled.ContentHeadline>Annual Balance Sheet</Styled.ContentHeadline>
-        <Styled.TabContent active={true}>
+        <Styled.TabContent $active={true}>
           <LineChart chartData={lineData} />
         </Styled.TabContent>
       </Styled.ContentContainer>

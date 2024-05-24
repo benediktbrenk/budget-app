@@ -28,20 +28,20 @@ function TransactionList({
         const monthIndex = months.indexOf(month);
         const transactionsPerMonth = filterTransactionsByMonth(
           transactionsPerYear,
-          monthIndex
+          monthIndex,
         ).toSorted((a, b) => new Date(b.date) - new Date(a.date));
 
         return { month, transactions: transactionsPerMonth };
       });
 
       return { year, transactionsPerMonths };
-    }
+    },
   );
 
   return (
     <>
       {transactionsPerYearsAndMonths.map((year) => (
-        <Fragment key={year}>
+        <Fragment key={year.year}>
           {year.transactionsPerMonths.map(
             (transactionsPerMonth) =>
               transactionsPerMonth.transactions.length > 0 && (
@@ -63,7 +63,7 @@ function TransactionList({
                     ))}
                   </Styled.TransactionList>
                 </Styled.MonthContainer>
-              )
+              ),
           )}
         </Fragment>
       ))}

@@ -1,16 +1,10 @@
 import styled from "styled-components";
 
-const doubledBorder = "30px";
-const minimalDeviceWidth = "600px";
-
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: min(
-    calc(100% - ${doubledBorder}),
-    calc(${minimalDeviceWidth} - ${doubledBorder})
-  );
+  width: min(calc(100% - 30px), calc(var(--breakpoint-1) - 30px));
 `;
 
 export const Headline = styled.h2`
@@ -28,7 +22,7 @@ export const ContentHeadline = styled.h2`
 `;
 
 export const TabContent = styled.div`
-  display: ${({ active }) => (active ? "flex" : "none")};
+  display: ${({ $active }) => ($active ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;

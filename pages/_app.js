@@ -5,6 +5,8 @@ import { SWRConfig } from "swr";
 import Layout from "./layout";
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -37,6 +39,10 @@ export default function App({ Component, pageProps }) {
     }
 
     mutate();
+    toast.success("Transaction successfully added!", {
+      autoClose: 2000,
+      containerId: "addToast",
+    });
     router.push("/");
   }
 
@@ -54,6 +60,10 @@ export default function App({ Component, pageProps }) {
       return;
     }
     mutate();
+    toast.success("Transaction successfully edited!", {
+      autoClose: 2000,
+      containerId: "editToast",
+    });
   }
 
   async function deleteTransaction(id) {
@@ -66,6 +76,11 @@ export default function App({ Component, pageProps }) {
       return;
     }
     mutate();
+
+    toast.success("Transaction successfully deleted!", {
+      autoClose: 2000,
+      containerId: "deleteToast",
+    });
     router.push("/");
   }
 
@@ -77,6 +92,21 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle $isDarkModeOn={isDarkModeOn} />
       <SessionProvider session={pageProps.session}>
+        <ToastContainer
+          autoClose={1000}
+          position="top-right"
+          containerId="deleteToast"
+        />
+        <ToastContainer
+          autoClose={1000}
+          position="top-right"
+          containerId="addToast"
+        />
+        <ToastContainer
+          autoClose={1000}
+          position="top-right"
+          containerId="editToast"
+        />
         <SWRConfig value={{ fetcher }}>
           <Layout>
             <Component

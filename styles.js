@@ -29,7 +29,7 @@ export default createGlobalStyle`
 --color-background-light:white;
 --color-background-dark:#282828;
 --color-green:#07B789;
---color-red:#EF476F;
+--color-red:#E93963;
 --color-nav-hover:#A1C5EF;
 --color-sun:${(props) => (props.$isDarkModeOn ? "#282828" : "#F7B801")};
 --color-moon:${(props) => (props.$isDarkModeOn ? "white" : "#282828")};
@@ -42,11 +42,14 @@ export default createGlobalStyle`
 --font-family: ${inter.style.fontFamily};
 
 --color-border: ${(props) => (props.$isDarkModeOn ? "#5B5959" : "lightgrey")};
+--color-table: ${(props) => (props.$isDarkModeOn ? "#787575" : "lightgrey")};
 
 --box-shadow-active: ${(props) =>
   props.$isDarkModeOn ? "lightgrey" : "#454444"};
 
 
+
+--breakpoint-1: 395px;
 
 }
 
