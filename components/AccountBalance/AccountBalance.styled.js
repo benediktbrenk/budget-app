@@ -10,7 +10,7 @@ export const AccountBalanceCard = styled.article`
   border-radius: var(--border-radius);
   min-width: 350px;
   max-width: 650px;
-  border: 0.5px solid lightgrey;
+  border: 0.5px solid var(--color-border);
   color: var(--color-text);
 `;
 

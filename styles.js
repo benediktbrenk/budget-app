@@ -30,7 +30,9 @@ export default createGlobalStyle`
 --color-background-dark:#282828;
 --color-green:#07B789;
 --color-red:#EF476F;
-
+--color-nav-hover:#A1C5EF;
+--color-sun:${(props) => (props.$isDarkModeOn ? "#282828" : "#F7B801")};
+--color-moon:${(props) => (props.$isDarkModeOn ? "white" : "#282828")};
 --border-radius:8px;
 --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 --box-shadow-nav: 0 -2px 4px rgba(0, 0, 0, 0.2);
@@ -38,6 +40,13 @@ export default createGlobalStyle`
 --opacity-disabled:0.1;
 
 --font-family: ${inter.style.fontFamily};
+
+--color-border: ${(props) => (props.$isDarkModeOn ? "#5B5959" : "lightgrey")};
+
+--box-shadow-active: ${(props) =>
+  props.$isDarkModeOn ? "lightgrey" : "#454444"};
+
+
 
 }
 

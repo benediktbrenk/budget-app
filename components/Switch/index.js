@@ -6,15 +6,15 @@ export default function DarkModeSwitch({ isDarkModeOn, toggleSwitch }) {
   console.log(isDarkModeOn);
   return (
     <Styled.Container>
-      <Styled.IconContainer>
+      <Styled.SunContainer>
         <IoSunny size={35} />
-      </Styled.IconContainer>
+      </Styled.SunContainer>
       <Styled.SwitchContainer onClick={toggleSwitch}>
         <Styled.SwitchButton $isDarkModeOn={isDarkModeOn} />
       </Styled.SwitchContainer>
-      <Styled.IconContainer>
+      <Styled.MoonContainer>
         <FaMoon size={30} />
-      </Styled.IconContainer>
+      </Styled.MoonContainer>
     </Styled.Container>
   );
 }

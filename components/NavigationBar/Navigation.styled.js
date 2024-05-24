@@ -52,8 +52,7 @@ export const NavLink = styled(Link)`
 
   &:hover {
     cursor: pointer;
-    color: #f8f9fa;
-    background-color: #343a40;
+    background-color: var(--color-nav-hover);
     border-radius: 6px;
   }
 

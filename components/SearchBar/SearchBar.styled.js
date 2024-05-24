@@ -45,7 +45,7 @@ export const SearchAndFilter = styled.div`
 
 export const SearchInput = styled.input`
   border-radius: var(--border-radius);
-  border: 1px solid #f8f9fa;
+  border: 1px solid var(--color-border);
   width: 100%;
   height: 50px;
   font-size: 0.7rem;
@@ -56,7 +56,7 @@ export const SearchInput = styled.input`
 `;
 export const SearchInputSelect = styled.select`
   border-radius: var(--border-radius);
-  border: 1px solid #f8f9fa;
+  border: 1px solid var(--color-border);
   width: 100%;
   height: 50px;
   font-size: 0.7rem;
@@ -92,7 +92,7 @@ export const FilterItem = styled.div`
 export const FilterButton = styled.button`
   padding: 0.8rem;
   margin: 0.3rem;
-  border: 1px solid lightgray;
+  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
   font-size: 1.2rem;
   color: var(--color-text);

@@ -32,7 +32,7 @@ export const TabContent = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   font-family: var(--font-family);
   border-radius: var(--border-radius);
 `;

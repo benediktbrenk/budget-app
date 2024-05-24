@@ -11,7 +11,7 @@ export const FilterContainer = styled.div`
 
 export const FilterInputSelect = styled.select`
   border-radius: var(--border-radius);
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   font: 400 12px/14px var(--font-family);
   height: 30px;
 `;
@@ -43,7 +43,7 @@ export const CalendarButton = styled.button`
   height: 30px;
   width: 40px;
   background-color: var(--color-secondary);
-  border: 1px solid lightgray;
+  border: 1px solid var(--color-border);
 
   &:hover {
     filter: brightness(1.1);

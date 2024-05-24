@@ -5,7 +5,7 @@ export const TabContainer = styled.div``;
 
 export const TabButton = styled.button`
   background-color: var(--color-secondary);
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   cursor: pointer;
   padding: 10px 20px;
   float: left;

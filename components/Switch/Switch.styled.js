@@ -26,6 +26,9 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const IconContainer = styled.div`
-  color: var(--color-text);
+export const SunContainer = styled.div`
+  color: var(--color-sun);
+`;
+export const MoonContainer = styled.div`
+  color: var(--color-moon);
 `;

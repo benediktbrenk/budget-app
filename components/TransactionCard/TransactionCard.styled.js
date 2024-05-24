@@ -7,7 +7,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 export const CardContainer = styled.li`
   display: flex;
   flex-direction: row;
-  border: 0.5px solid lightgrey;
+  border: 0.5px solid var(--color-border);
   padding: 10px;
   margin: 10px;
   list-style: none;

@@ -21,7 +21,7 @@ export const FilterButton = styled.button`
     props.$active &&
     css`
       outline: none;
-      box-shadow: 0 0 0 1px var(--color-secondary-dark);
+      box-shadow: 0 0 0 2px var(--box-shadow-active);
     `}
 
   &:hover {
