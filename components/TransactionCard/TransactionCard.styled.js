@@ -12,7 +12,8 @@ export const CardContainer = styled.li`
   margin: 10px;
   list-style: none;
   border-radius: var(--border-radius);
-  background-color: ${(props) => props.$color || "#CCCCCC"};
+  background-color: ${(props) =>
+    props.$isDarkModeOn ? props.$colorDark : props.$color};
 `;
 
 export const ColorField = styled.div`

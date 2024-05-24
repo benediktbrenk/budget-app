@@ -13,6 +13,7 @@ function TransactionList({
   transactions,
   deleteTransaction,
   updateTransactions,
+  isDarkModeOn,
 }) {
   const yearsInTransactions = findYearsInTransactions(transactions);
 
@@ -57,6 +58,7 @@ function TransactionList({
                         transaction={transaction}
                         deleteTransaction={deleteTransaction}
                         updateTransactions={updateTransactions}
+                        isDarkModeOn={isDarkModeOn}
                       />
                     ))}
                   </Styled.TransactionList>

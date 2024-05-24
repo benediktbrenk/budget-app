@@ -9,6 +9,7 @@ function TransactionCard({
   transaction,
   deleteTransaction,
   updateTransactions,
+  isDarkModeOn,
 }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -28,6 +29,8 @@ function TransactionCard({
         key={transaction._id}
         category={transaction.category}
         $color={currentCategory.softColor}
+        $isDarkModeOn={isDarkModeOn}
+        $colorDark={currentCategory.softColorDark}
       >
         <Modal showModal={showEditModal}>
           <TransactionEntryForm

@@ -16,9 +16,7 @@ export default function CategoryFilter({
       {categories.map((category) => (
         <Styled.FilterButton
           key={category.name}
-          $active={activeCategories.some(
-            (activeCategory) => activeCategory.name === category.name,
-          )}
+          $active={activeCategories.includes(category.name)}
           $category={category.name}
           $color={category.color}
           onClick={() => onSelectCategory(category.name)}
