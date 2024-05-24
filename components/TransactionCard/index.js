@@ -25,41 +25,40 @@ function TransactionCard({
 
   return (
     <>
+      <Modal showModal={showEditModal}>
+        <TransactionEntryForm
+          updateTransactions={updateTransactions}
+          setShowEditModal={setShowEditModal}
+          showEditModal={showEditModal}
+          currentTransaction={transaction}
+          mode="edit"
+          id={transaction._id}
+        />
+      </Modal>
+
+      <Modal showModal={showDeleteModal}>
+        <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
+        <Button
+          type="button"
+          $textColor="white"
+          onClick={() => setShowDeleteModal(false)}
+        >
+          Cancel
+        </Button>
+        <Button
+          type="button"
+          $type="danger"
+          $textColor="white"
+          onClick={handleDelete}
+        >
+          Delete
+        </Button>
+      </Modal>
       <Styled.CardContainer
         key={transaction._id}
         category={transaction.category}
         $color={currentCategory.softColor}
       >
-        <Modal showModal={showEditModal}>
-          <TransactionEntryForm
-            updateTransactions={updateTransactions}
-            setShowEditModal={setShowEditModal}
-            showEditModal={showEditModal}
-            currentTransaction={transaction}
-            mode="edit"
-            id={transaction._id}
-          />
-        </Modal>
-
-        <Modal showModal={showDeleteModal}>
-          <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
-          <Button
-            type="button"
-            $textColor="white"
-            onClick={() => setShowDeleteModal(false)}
-          >
-            Cancel
-          </Button>
-          <Button
-            type="button"
-            $type="danger"
-            $textColor="white"
-            onClick={handleDelete}
-          >
-            Delete
-          </Button>
-        </Modal>
-
         <Styled.ColorField $color={currentCategory.color} />
         <Styled.ContentContainer>
           <Styled.TransactionName href={`/details/${transaction._id}`}>
