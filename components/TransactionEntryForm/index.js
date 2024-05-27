@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button } from "../Button/Button.styled";
 import { categories } from "@/utils/categories";
 
-function TransactionEntryForm({
+export default function TransactionEntryForm({
   updateTransactions,
   id,
   currentTransaction,
@@ -30,7 +30,10 @@ function TransactionEntryForm({
     };
     updateTransactions(updatedTransaction, id);
 
-    mode === "edit" && setShowEditModal(false);
+    if (showEditModal) {
+      setShowEditModal(false);
+    }
+
     event.target.reset();
   }
 
@@ -165,5 +168,3 @@ function TransactionEntryForm({
     </form>
   );
 }
-
-export default TransactionEntryForm;

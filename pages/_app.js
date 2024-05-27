@@ -64,6 +64,7 @@ export default function App({ Component, pageProps }) {
       autoClose: 2000,
       containerId: "editToast",
     });
+    router.push("/");
   }
 
   async function deleteTransaction(id) {
