@@ -41,6 +41,7 @@ export const FormField = styled.div`
   input,
   select,
   textarea {
+    resize: none;
     border: none;
     border-radius: 0.3rem;
     font-family: arial;
