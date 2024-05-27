@@ -5,7 +5,6 @@ import { categories } from "@/utils/categories";
 import TransactionEntryForm from "../TransactionEntryForm";
 import { Button } from "../Button/Button.styled";
 
-
 function TransactionCard({
   transaction,
   deleteTransaction,
@@ -16,7 +15,7 @@ function TransactionCard({
   const [showEditModal, setShowEditModal] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === transaction.category,
+    (category) => category.name === transaction.category
   );
 
   function handleDelete() {
@@ -38,13 +37,15 @@ function TransactionCard({
       </Modal>
 
       <Modal showModal={showDeleteModal}>
-        <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
+        <Styled.ModalTitle>
+          Are you sure you want to delete this transaction?
+        </Styled.ModalTitle>
         <Button
           type="button"
           $textColor="white"
           onClick={() => setShowDeleteModal(false)}
         >
-          Cancel
+          No, keep it
         </Button>
         <Button
           type="button"
@@ -52,7 +53,7 @@ function TransactionCard({
           $textColor="white"
           onClick={handleDelete}
         >
-          Delete
+          Yes,delete
         </Button>
       </Modal>
       <Styled.CardContainer
