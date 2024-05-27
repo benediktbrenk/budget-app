@@ -13,19 +13,21 @@ export default function TransactionDetails({
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === currentTransaction.category,
+    (category) => category.name === currentTransaction.category
   );
 
   return (
     <>
       <Modal showModal={showDeleteModal}>
-        <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
+        <Styled.ModalTitle>
+          Are you sure you want to delete this transaction?
+        </Styled.ModalTitle>
         <Button
           type="button"
           $textColor="white"
           onClick={() => setShowDeleteModal(false)}
         >
-          Cancel
+          No, keep it
         </Button>
         <Button
           type="button"
@@ -33,7 +35,7 @@ export default function TransactionDetails({
           $textColor="white"
           onClick={() => deleteTransaction(currentTransaction._id)}
         >
-          Delete
+          Yes, delete
         </Button>
       </Modal>
       <Styled.DetailsContainer>
