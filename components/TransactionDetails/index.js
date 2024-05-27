@@ -2,6 +2,7 @@ import { categories } from "@/utils/categories";
 import { Button } from "../Button/Button.styled";
 import * as Styled from "./TransactionDetails.styled";
 import { useState } from "react";
+import Modal from "../Modal";
 
 export default function TransactionDetails({
   currentTransaction,
@@ -9,77 +10,75 @@ export default function TransactionDetails({
   flip,
   setFlip,
 }) {
-  const [isDeleteMode, setIsDeleteMode] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === currentTransaction.category
+    (category) => category.name === currentTransaction.category,
   );
 
   return (
-    <Styled.DetailsContainer>
-      <Styled.DetailsCard
-        $color={currentCategory.color}
-        $softColor={currentCategory.softColor}
-      >
-        <Styled.ItemContainer>
-          <Styled.Label>Title:</Styled.Label>
-          <Styled.ItemText>{currentTransaction.name}</Styled.ItemText>
-
-          <Styled.Label>Amount:</Styled.Label>
-          <Styled.ItemText>
-            {currentTransaction.direction === "Expense" ? "- " : "+ "}
-            {currentTransaction.amount}
-            {currentTransaction.currency}
-          </Styled.ItemText>
-          <Styled.Label>Date:</Styled.Label>
-          <Styled.ItemText>{currentTransaction.date}</Styled.ItemText>
-
-          <Styled.Label>Category:</Styled.Label>
-          <Styled.ItemText>{currentTransaction.category}</Styled.ItemText>
-
-          <Styled.Label>Description:</Styled.Label>
-          <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
-        </Styled.ItemContainer>
-      </Styled.DetailsCard>
-      <Styled.ButtonContainer>
+    <>
+      <Modal showModal={showDeleteModal}>
+        <Styled.ModalTitle>Do you really want to delete?</Styled.ModalTitle>
         <Button
           type="button"
-          onClick={() => setIsDeleteMode(!isDeleteMode)}
+          $textColor="white"
+          onClick={() => setShowDeleteModal(false)}
+        >
+          Cancel
+        </Button>
+        <Button
+          type="button"
           $type="danger"
           $textColor="white"
+          onClick={() => deleteTransaction(currentTransaction._id)}
         >
           Delete
         </Button>
-        <Button type="button" $textColor="white" onClick={() => setFlip(!flip)}>
-          Edit
-        </Button>
-      </Styled.ButtonContainer>
-      {isDeleteMode && (
-        <section>
+      </Modal>
+      <Styled.DetailsContainer>
+        <Styled.DetailsCard
+          $color={currentCategory.color}
+          $softColor={currentCategory.softColor}
+        >
           <Styled.ItemContainer>
-            <p>Delete Entry:</p>
-            <p>Are you sure?</p>
-          </Styled.ItemContainer>
+            <Styled.Label>Title:</Styled.Label>
+            <Styled.ItemText>{currentTransaction.name}</Styled.ItemText>
 
-          <Styled.ButtonContainer>
-            <Button
-              type="button"
-              $textColor="white"
-              onClick={() => setIsDeleteMode(!isDeleteMode)}
-            >
-              Cancel
-            </Button>
-            <Button
-              type="button"
-              $type="danger"
-              $textColor="white"
-              onClick={() => deleteTransaction(currentTransaction._id)}
-            >
-              Delete
-            </Button>
-          </Styled.ButtonContainer>
-        </section>
-      )}
-    </Styled.DetailsContainer>
+            <Styled.Label>Amount:</Styled.Label>
+            <Styled.ItemText>
+              {currentTransaction.direction === "Expense" ? "- " : "+ "}
+              {currentTransaction.amount}
+              {currentTransaction.currency}
+            </Styled.ItemText>
+            <Styled.Label>Date:</Styled.Label>
+            <Styled.ItemText>{currentTransaction.date}</Styled.ItemText>
+
+            <Styled.Label>Category:</Styled.Label>
+            <Styled.ItemText>{currentTransaction.category}</Styled.ItemText>
+
+            <Styled.Label>Description:</Styled.Label>
+            <Styled.ItemText>{currentTransaction.description}</Styled.ItemText>
+          </Styled.ItemContainer>
+        </Styled.DetailsCard>
+        <Styled.ButtonContainer>
+          <Button
+            type="button"
+            onClick={() => setShowDeleteModal(true)}
+            $type="danger"
+            $textColor="white"
+          >
+            Delete
+          </Button>
+          <Button
+            type="button"
+            $textColor="white"
+            onClick={() => setFlip(!flip)}
+          >
+            Edit
+          </Button>
+        </Styled.ButtonContainer>
+      </Styled.DetailsContainer>
+    </>
   );
 }

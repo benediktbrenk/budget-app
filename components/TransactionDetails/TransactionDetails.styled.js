@@ -54,3 +54,16 @@ export const Label = styled.label`
   margin-top: 0.5rem;
   margin-right: 0.9rem;
 `;
+
+export const ModalTitle = styled.h2`
+  margin-top: 0;
+  margin-bottom: 10px;
+`;
+
+export const ModalButton = styled.button`
+  margin: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
