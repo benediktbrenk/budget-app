@@ -13,10 +13,11 @@ export const ModalContainer = styled.div`
 export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--color-background-light);
+  background-color: var(--color-secondary);
   position: fixed;
   top: 10px;
   padding: 15px 15px 10px 15px;
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: var(--color-text);
 `;
