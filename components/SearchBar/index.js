@@ -22,8 +22,8 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
       amountFrom: "",
       amountTo: "",
     });
+    setSelectedTime();
     setSearchNameValue("");
-    handleSelectDate();
   }
 
   function handleKeyDown(event) {
@@ -36,9 +36,6 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
     const trimmedValue = event.target.value.trimStart();
     setSearchNameValue(trimmedValue);
     onSearch({ ...search, name: trimmedValue });
-    if (trimmedValue === "") {
-      handleResetFilters();
-    }
   }
 
   function handleSelectDate(selectedRange) {
@@ -82,8 +79,8 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
             placeholder="Search Transactions..."
             pattern="^(?!.*\s{2,}).+$"
             value={searchNameValue}
-            onChange={(event) => handleSearchChange(event)}
-            onKeyDown={(event) => handleKeyDown(event)}
+            onChange={handleSearchChange}
+            onKeyDown={handleKeyDown}
             maxLength={30}
           />
           <Styled.FilterButton
@@ -154,7 +151,7 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 />
               </Styled.FilterItem>
               <Styled.FilterItem>
-                <label for="clear"></label>
+                <label htmlFor="clear" />
                 <Styled.FilterButton
                   type="button"
                   id="clear"
