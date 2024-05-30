@@ -7,7 +7,6 @@ import AccountBalance from "@/components/AccountBalance";
 import GoToTopButton from "@/components/GoToTopButton";
 import * as Styled from "@/components/StyledFiles/Index.styled";
 
-
 export default function HomePage({
   transactions,
   deleteTransaction,

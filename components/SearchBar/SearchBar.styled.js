@@ -34,7 +34,6 @@ export const SearchForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //width: 100%;
 `;
 
 export const SearchAndFilter = styled.div`
