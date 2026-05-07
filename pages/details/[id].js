@@ -3,7 +3,7 @@ import TransactionDetails from "@/components/TransactionDetails";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import ReactCardFlip from "react-card-flip";
+import CardFlip from "@/components/CardFlip";
 
 export default function TransactionDetailsPage({
   transactions,
@@ -34,7 +34,7 @@ export default function TransactionDetailsPage({
 
   return (
     <>
-      <ReactCardFlip isFlipped={flip} flipDirection="horizontal">
+      <CardFlip isFlipped={flip}>
         <TransactionDetails
           currentTransaction={currentTransaction}
           deleteTransaction={() => deleteTransaction(id)}
@@ -51,7 +51,7 @@ export default function TransactionDetailsPage({
           flip={flip}
           setFlip={setFlip}
         />
-      </ReactCardFlip>
+      </CardFlip>
     </>
   );
 }

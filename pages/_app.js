@@ -1,5 +1,8 @@
+import { ModuleRegistry, AllCommunityModule } from "ag-charts-community";
 import GlobalStyle from "../styles";
 import { useRouter } from "next/router";
+
+ModuleRegistry.registerModules([AllCommunityModule]);
 import useSWR from "swr";
 import { SWRConfig } from "swr";
 import Layout from "./layout";

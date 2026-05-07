@@ -1,4 +1,4 @@
-import { AgChartsReact } from "ag-charts-react";
+import { AgCharts } from "ag-charts-react";
 import * as Styled from "./PieChart.styled";
 
 export function PieChart({ chartData }) {
@@ -24,7 +24,7 @@ export function PieChart({ chartData }) {
 
   return (
     <Styled.PieContainer>
-      <AgChartsReact options={options} />
+      <AgCharts options={options} />
     </Styled.PieContainer>
   );
 }

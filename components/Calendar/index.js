@@ -1,4 +1,4 @@
-import "react-day-picker/dist/style.css";
+import "react-day-picker/style.css";
 import { Button } from "../Button/Button.styled";
 import { ButtonContainer } from "./Calendar.styled";
 import { useState } from "react";
@@ -24,7 +24,9 @@ export default function Calendar({
         mode="range"
         selected={selectedTime}
         onSelect={handleSelectDate}
-        toDate={new Date()}
+        disabled={{ after: new Date() }}
+        month={month}
+        onMonthChange={setMonth}
       />
       {selectedTime ? (
         <p>
