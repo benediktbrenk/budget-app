@@ -1,4 +1,4 @@
-import { AgChartsReact } from "ag-charts-react";
+import { AgCharts } from "ag-charts-react";
 import * as Styled from "./BarChart.styled";
 
 export function BarChart({ chartData }) {
@@ -32,7 +32,7 @@ export function BarChart({ chartData }) {
 
   return (
     <Styled.ChartContainer>
-      <AgChartsReact options={chartOptions} />
+      <AgCharts options={chartOptions} />
     </Styled.ChartContainer>
   );
 }
