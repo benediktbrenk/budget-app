@@ -1,6 +1,6 @@
+import { getServerSession } from "next-auth/next";
 import dbConnect from "@/db/connect.js";
 import Transaction from "@/db/models/Transaction";
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(request, response) {

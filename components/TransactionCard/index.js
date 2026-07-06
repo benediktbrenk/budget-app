@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import * as Styled from "./TransactionCard.styled";
-import Modal from "../Modal";
+import { useState } from "react";
 import { categories } from "@/utils/categories";
-import TransactionEntryForm from "../TransactionEntryForm";
 import { Button } from "../Button/Button.styled";
+import Modal from "../Modal";
+import TransactionEntryForm from "../TransactionEntryForm";
+import * as Styled from "./TransactionCard.styled";
 
 function TransactionCard({
   transaction,
@@ -15,7 +15,7 @@ function TransactionCard({
   const [showEditModal, setShowEditModal] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === transaction.category
+    (category) => category.name === transaction.category,
   );
 
   function handleDelete() {

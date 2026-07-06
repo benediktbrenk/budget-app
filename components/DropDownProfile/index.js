@@ -1,11 +1,11 @@
-import { useSession, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import {
-  SignButton,
-  DropDownConatiner,
-  DropDownUl,
-  DropDownLi,
   Divider,
+  DropDownConatiner,
+  DropDownLi,
   DropDownLink,
+  DropDownUl,
+  SignButton,
 } from "./DropDownProfile.styled";
 
 function DropDownProfile({ setOpenProfileDropDown }) {

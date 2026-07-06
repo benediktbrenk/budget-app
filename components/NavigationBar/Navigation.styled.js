@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
 import Link from "next/link";
+import styled, { css } from "styled-components";
 
 export const NavBar = styled.nav`
   background-color: var(--color-secondary);

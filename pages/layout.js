@@ -1,7 +1,7 @@
+import { ToastContainer } from "react-toastify";
 import Header from "@/components/Header";
 import { Main } from "@/components/Main/Main.styled";
 import NavigationBar from "@/components/NavigationBar";
-import { ToastContainer } from "react-toastify";
 
 export default function Layout({ children }) {
   return (

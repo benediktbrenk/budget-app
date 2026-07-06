@@ -1,10 +1,10 @@
 import { useState } from "react";
-import * as Styled from "./SearchBar.styled";
 import { FaArrowsRotate, FaSliders } from "react-icons/fa6";
-import CategoryFilter from "../CategoryFilter";
 import { LuCalendarDays } from "react-icons/lu";
-import Modal from "../Modal";
 import Calendar from "../Calendar";
+import CategoryFilter from "../CategoryFilter";
+import Modal from "../Modal";
+import * as Styled from "./SearchBar.styled";
 
 function SearchBar({ search, onSearch, handleCategoryFilter }) {
   const [searchNameValue, setSearchNameValue] = useState(search.name);
@@ -108,15 +108,13 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
               <Styled.FilterContainer>
                 <Styled.FilterItem>
                   {selectedTime ? (
-                    <>
-                      <Styled.FilterItem>
-                        Period: {getFormattedDate(selectedTime.from)}
-                        {selectedTime.to &&
-                          selectedTime.from.toString() !==
-                            selectedTime.to.toString() &&
-                          ` - ${getFormattedDate(selectedTime.to)}`}
-                      </Styled.FilterItem>
-                    </>
+                    <Styled.FilterItem>
+                      Period: {getFormattedDate(selectedTime.from)}
+                      {selectedTime.to &&
+                        selectedTime.from.toString() !==
+                          selectedTime.to.toString() &&
+                        ` - ${getFormattedDate(selectedTime.to)}`}
+                    </Styled.FilterItem>
                   ) : (
                     <Styled.FilterItem>Period: Total</Styled.FilterItem>
                   )}
@@ -151,10 +149,10 @@ function SearchBar({ search, onSearch, handleCategoryFilter }) {
                 />
               </Styled.FilterItem>
               <Styled.FilterItem>
-                <label htmlFor="clear" />
                 <Styled.FilterButton
                   type="button"
                   id="clear"
+                  aria-label="Reset filters"
                   onClick={handleResetFilters}
                 >
                   <FaArrowsRotate />

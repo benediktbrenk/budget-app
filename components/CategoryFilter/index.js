@@ -1,5 +1,5 @@
-import * as Styled from "./CategoryFilter.styled";
 import { categories } from "@/utils/categories";
+import * as Styled from "./CategoryFilter.styled";
 
 export default function CategoryFilter({
   search,
@@ -19,7 +19,7 @@ export default function CategoryFilter({
           $active={activeCategories.some(
             (activeCategory) =>
               activeCategory.name === category.name ||
-              activeCategory === category.name
+              activeCategory === category.name,
           )}
           $category={category.name}
           $color={category.color}

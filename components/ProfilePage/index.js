@@ -1,9 +1,8 @@
-import React from "react";
-import * as Styled from "./Profile.styled";
-import { FaCircleUser } from "react-icons/fa6";
-import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { FaCircleUser } from "react-icons/fa6";
 import DarkModeSwitch from "../Switch";
+import * as Styled from "./Profile.styled";
 
 export default function Profile({ isDarkModeOn, toggleSwitch }) {
   const { data: session, status } = useSession();

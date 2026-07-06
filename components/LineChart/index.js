@@ -10,22 +10,22 @@ export function LineChart({ chartData }) {
         },
       },
     },
-    axes: [
-      {
+    axes: {
+      y: {
         type: "number",
         position: "left",
         label: {
           fontSize: 12,
         },
       },
-      {
+      x: {
         type: "category",
         position: "bottom",
         label: {
           fontSize: 12,
         },
       },
-    ],
+    },
     title: {
       text: "2024",
     },

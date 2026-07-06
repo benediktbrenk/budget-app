@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import * as Styled from "./Report.styled";
-import { BarChart } from "../BarChart";
-import { PieChart } from "../PieChart";
-import { DataTable } from "../Table";
-import { LineChart } from "../LineChart";
+import { useState } from "react";
 import { months } from "@/utils/months";
-import TabMenu from "../TabMenu";
+import { BarChart } from "../BarChart";
+import { LineChart } from "../LineChart";
+import { PieChart } from "../PieChart";
 import ReportFilter from "../ReportFilter";
+import { DataTable } from "../Table";
+import TabMenu from "../TabMenu";
+import * as Styled from "./Report.styled";
 
 export function Report({
   filter,

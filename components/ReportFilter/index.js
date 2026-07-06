@@ -1,10 +1,10 @@
-import CategoryFilter from "../CategoryFilter";
-import * as Styled from "./ReportFilter.styled";
-import Modal from "../Modal";
-import Calendar from "../Calendar";
 import { useState } from "react";
 import { LuCalendarDays } from "react-icons/lu";
 import { categories } from "@/utils/categories";
+import Calendar from "../Calendar";
+import CategoryFilter from "../CategoryFilter";
+import Modal from "../Modal";
+import * as Styled from "./ReportFilter.styled";
 
 export default function ReportFilter({ filter, onFilter }) {
   const [showModal, setShowModal] = useState(false);
@@ -13,13 +13,13 @@ export default function ReportFilter({ filter, onFilter }) {
   function handleToggleOption(option) {
     if (
       filter.categories.some(
-        (filteredCategory) => filteredCategory.name === option
+        (filteredCategory) => filteredCategory.name === option,
       )
     ) {
       onFilter({
         ...filter,
         categories: filter.categories.filter(
-          (category) => category.name !== option
+          (category) => category.name !== option,
         ),
       });
     } else {
@@ -70,15 +70,12 @@ export default function ReportFilter({ filter, onFilter }) {
         <Styled.FilterSegmentContainer>
           <Styled.FilterItem>
             {selectedTime ? (
-              <>
-                <Styled.FilterItem>
-                  Period: {getFormattedDate(selectedTime.from)}
-                  {selectedTime.to &&
-                    selectedTime.from.toString() !==
-                      selectedTime.to.toString() &&
-                    ` - ${getFormattedDate(selectedTime.to)}`}
-                </Styled.FilterItem>
-              </>
+              <Styled.FilterItem>
+                Period: {getFormattedDate(selectedTime.from)}
+                {selectedTime.to &&
+                  selectedTime.from.toString() !== selectedTime.to.toString() &&
+                  ` - ${getFormattedDate(selectedTime.to)}`}
+              </Styled.FilterItem>
             ) : (
               <Styled.FilterItem>Period: Total</Styled.FilterItem>
             )}
@@ -87,8 +84,9 @@ export default function ReportFilter({ filter, onFilter }) {
             </Styled.CalendarButton>
           </Styled.FilterItem>
           <Styled.FilterItem>
-            <label>Payment:</label>
+            <label htmlFor="payment-method">Payment:</label>
             <Styled.FilterInputSelect
+              id="payment-method"
               value={filter.paymentMethod}
               onChange={(event) =>
                 onFilter({ ...filter, paymentMethod: event.target.value })

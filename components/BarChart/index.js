@@ -10,22 +10,22 @@ export function BarChart({ chartData }) {
         },
       },
     },
-    axes: [
-      {
+    axes: {
+      y: {
         type: "number",
         position: "left",
         label: {
           fontSize: 12,
         },
       },
-      {
+      x: {
         type: "category",
         position: "bottom",
         label: {
           fontSize: 12,
         },
       },
-    ],
+    },
     data: chartData,
     series: [{ type: "bar", xKey: "category", yKey: "amount" }],
   };

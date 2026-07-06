@@ -10,7 +10,7 @@ export function PieChart({ chartData }) {
         angleKey: "amount",
         calloutLabelKey: "category",
         calloutLabel: { enabled: true },
-        label: {
+        sectorLabel: {
           fontSize: 8,
         },
         calloutLine: {

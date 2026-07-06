@@ -1,18 +1,18 @@
-import { useSession, signIn } from "next-auth/react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
+import { useState } from "react";
+import { FaCircleUser } from "react-icons/fa6";
+import DropDownProfile from "../DropDownProfile";
 import {
+  AvatarContainer,
   SignButton,
   SignItemContainer,
-  AvatarContainer,
 } from "./LoginButton.styled";
-import { FaCircleUser } from "react-icons/fa6";
-import { useRouter } from "next/router";
-import DropDownProfile from "../DropDownProfile";
-import { useState } from "react";
-import Image from "next/image";
 
 export default function LoginButton() {
   const [openProfileDropDown, setOpenProfileDropDown] = useState(false);
-  const router = useRouter();
+  const _router = useRouter();
   const { data: session } = useSession();
 
   if (session) {

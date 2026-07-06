@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+import CardFlip from "@/components/CardFlip";
 import TransactionDetails from "@/components/TransactionDetails";
 import TransactionEntryForm from "@/components/TransactionEntryForm";
-import { useState } from "react";
-import { useSession } from "next-auth/react";
-import CardFlip from "@/components/CardFlip";
 
 export default function TransactionDetailsPage({
   transactions,
@@ -25,7 +25,7 @@ export default function TransactionDetailsPage({
     return;
   }
   const currentTransaction = transactions.find(
-    (transaction) => transaction._id === id
+    (transaction) => transaction._id === id,
   );
 
   if (!currentTransaction) {
@@ -33,25 +33,23 @@ export default function TransactionDetailsPage({
   }
 
   return (
-    <>
-      <CardFlip isFlipped={flip}>
-        <TransactionDetails
-          currentTransaction={currentTransaction}
-          deleteTransaction={() => deleteTransaction(id)}
-          flip={flip}
-          setFlip={setFlip}
-        />
-        <TransactionEntryForm
-          currentTransaction={currentTransaction}
-          updateTransactions={handleEditTransaction}
-          showEditModal={showEditModal}
-          setShowEditModal={setShowEditModal}
-          id={id}
-          mode="edit"
-          flip={flip}
-          setFlip={setFlip}
-        />
-      </CardFlip>
-    </>
+    <CardFlip isFlipped={flip}>
+      <TransactionDetails
+        currentTransaction={currentTransaction}
+        deleteTransaction={() => deleteTransaction(id)}
+        flip={flip}
+        setFlip={setFlip}
+      />
+      <TransactionEntryForm
+        currentTransaction={currentTransaction}
+        updateTransactions={handleEditTransaction}
+        showEditModal={showEditModal}
+        setShowEditModal={setShowEditModal}
+        id={id}
+        mode="edit"
+        flip={flip}
+        setFlip={setFlip}
+      />
+    </CardFlip>
   );
 }

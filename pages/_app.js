@@ -1,14 +1,14 @@
-import { ModuleRegistry, AllCommunityModule } from "ag-charts-community";
-import GlobalStyle from "../styles";
+import { AllCommunityModule, ModuleRegistry } from "ag-charts-community";
 import { useRouter } from "next/router";
+import GlobalStyle from "../styles";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
-import useSWR from "swr";
-import { SWRConfig } from "swr";
-import Layout from "./layout";
+
 import { SessionProvider } from "next-auth/react";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import useSWR, { SWRConfig } from "swr";
+import Layout from "./layout";
 import "react-toastify/dist/ReactToastify.css";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());

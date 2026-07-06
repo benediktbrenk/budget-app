@@ -1,6 +1,6 @@
-import TransactionEntryForm from "@/components/TransactionEntryForm";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
+import TransactionEntryForm from "@/components/TransactionEntryForm";
 
 export default function EditPage({ handleEditTransaction, transactions }) {
   const router = useRouter();
@@ -16,7 +16,7 @@ export default function EditPage({ handleEditTransaction, transactions }) {
   }
 
   const currentTransaction = transactions.find(
-    (transaction) => transaction._id === id
+    (transaction) => transaction._id === id,
   );
 
   if (!currentTransaction) {
