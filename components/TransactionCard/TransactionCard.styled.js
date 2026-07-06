@@ -1,8 +1,8 @@
-import styled from "styled-components";
 import Link from "next/link";
-import { TiEdit } from "react-icons/ti";
-import { IoInformationCircleOutline } from "react-icons/io5";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { IoInformationCircleOutline } from "react-icons/io5";
+import { TiEdit } from "react-icons/ti";
+import styled from "styled-components";
 
 export const CardContainer = styled.li`
   display: flex;

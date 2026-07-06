@@ -1,8 +1,8 @@
-import { Report } from "@/components/Report";
-import { useState } from "react";
-import { categories } from "@/utils/categories";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+import { Report } from "@/components/Report";
+import { categories } from "@/utils/categories";
 
 export default function ReportsPage({ transactions }) {
   const router = useRouter();

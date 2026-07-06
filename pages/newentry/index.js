@@ -1,6 +1,6 @@
-import TransactionEntryForm from "@/components/TransactionEntryForm";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import TransactionEntryForm from "@/components/TransactionEntryForm";
 
 function NewEntryPage({ handleAddTransaction }) {
   const router = useRouter();
@@ -11,12 +11,10 @@ function NewEntryPage({ handleAddTransaction }) {
     return;
   }
   return (
-    <>
-      <TransactionEntryForm
-        updateTransactions={handleAddTransaction}
-        mode="add"
-      />
-    </>
+    <TransactionEntryForm
+      updateTransactions={handleAddTransaction}
+      mode="add"
+    />
   );
 }
 

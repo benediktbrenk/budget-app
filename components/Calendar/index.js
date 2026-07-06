@@ -1,8 +1,8 @@
 import "react-day-picker/style.css";
-import { Button } from "../Button/Button.styled";
-import { ButtonContainer } from "./Calendar.styled";
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
+import { Button } from "../Button/Button.styled";
+import { ButtonContainer } from "./Calendar.styled";
 
 export default function Calendar({
   handleSelectDate,

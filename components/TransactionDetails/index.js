@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { categories } from "@/utils/categories";
 import { Button } from "../Button/Button.styled";
-import * as Styled from "./TransactionDetails.styled";
-import { useState } from "react";
 import Modal from "../Modal";
+import * as Styled from "./TransactionDetails.styled";
 
 export default function TransactionDetails({
   currentTransaction,
@@ -13,7 +13,7 @@ export default function TransactionDetails({
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const currentCategory = categories.find(
-    (category) => category.name === currentTransaction.category
+    (category) => category.name === currentTransaction.category,
   );
 
   return (

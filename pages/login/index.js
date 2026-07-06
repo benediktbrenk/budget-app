@@ -1,11 +1,11 @@
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
 import {
-  SectionContainer,
   ContainerBox,
   FeatureSection,
+  SectionContainer,
 } from "@/components/ProtectPages/ProtectPages.styled";
-import { useSession, signIn } from "next-auth/react";
-import { useRouter } from "next/router";
-import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -29,7 +29,21 @@ export default function LoginPage() {
           Track, analyze, and optimize your expenses with our user-friendly
           <strong> Expenso App.</strong>
         </p>
-        <h3 onClick={() => signIn({ callbackUrl: "/" })}>START NOW</h3>
+        <button
+          type="button"
+          onClick={() => signIn({ callbackUrl: "/" })}
+          style={{
+            font: "inherit",
+            fontSize: "1.17em",
+            fontWeight: "bold",
+            background: "none",
+            border: "none",
+            padding: 0,
+            cursor: "pointer",
+          }}
+        >
+          START NOW
+        </button>
       </SectionContainer>
       <h2>Why Our Expenso App?</h2>
       <SectionContainer>

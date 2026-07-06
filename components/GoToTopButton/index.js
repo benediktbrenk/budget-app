@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import * as Styled from "./GoToTopButton.styled";
+import { useEffect, useState } from "react";
 import { FaAnglesUp } from "react-icons/fa6";
+import * as Styled from "./GoToTopButton.styled";
 
 export default function GoToTopButton() {
   const [showButton, setShowButton] = useState(false);
@@ -21,7 +21,7 @@ export default function GoToTopButton() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [showButton]);
+  }, []);
 
   return (
     <a href="#scroll-to-top">

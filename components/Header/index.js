@@ -1,6 +1,6 @@
-import * as Styled from "./Header.styled";
 import LoginButton from "../LoginButton";
 import Logo from "../Logo";
+import * as Styled from "./Header.styled";
 
 export default function Header() {
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import * as Styled from "./Modal.styled.js";
 
 function Modal({ showModal, children }) {

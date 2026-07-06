@@ -1,10 +1,9 @@
-import { useRouter } from "next/router";
-import * as Styled from "./Navigation.styled";
-import { FaHouse, FaPlus, FaChartPie } from "react-icons/fa6";
-import LoginButton from "../LoginButton";
-import Logo from "../Logo";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { FaChartPie, FaHouse, FaPlus } from "react-icons/fa6";
+import LoginButton from "../LoginButton";
+import * as Styled from "./Navigation.styled";
 
 function NavigationBar() {
   const router = useRouter();

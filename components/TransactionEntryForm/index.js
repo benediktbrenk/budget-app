@@ -1,7 +1,7 @@
-import * as Styled from "./TransactionEntryForm.styled";
-import React, { useState } from "react";
-import { Button } from "../Button/Button.styled";
+import { useState } from "react";
 import { categories } from "@/utils/categories";
+import { Button } from "../Button/Button.styled";
+import * as Styled from "./TransactionEntryForm.styled";
 
 export default function TransactionEntryForm({
   updateTransactions,

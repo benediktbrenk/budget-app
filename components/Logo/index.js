@@ -1,5 +1,5 @@
-import * as Styled from "../Header/Header.styled";
 import Image from "next/image";
+import * as Styled from "../Header/Header.styled";
 
 function Logo() {
   return (

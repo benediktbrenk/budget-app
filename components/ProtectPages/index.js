@@ -1,5 +1,5 @@
-import { SectionContainer } from "./ProtectPages.styled";
 import { useSession } from "next-auth/react";
+import { SectionContainer } from "./ProtectPages.styled";
 
 export default function ProtectPage({ children }) {
   // required: true makes only 'loading' or 'authenticated' possible. Else the user is redirected to login page.

@@ -12,23 +12,21 @@ export function DataTable({ tableData }) {
   }));
 
   return (
-    <>
-      <Styled.Table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Amount</th>
+    <Styled.Table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {formattedTableData.map((category) => (
+          <tr key={category.category}>
+            <td>{category.category}</td>
+            <td>{category.amount}</td>
           </tr>
-        </thead>
-        <tbody>
-          {formattedTableData.map((category) => (
-            <tr key={category.category}>
-              <td>{category.category}</td>
-              <td>{category.amount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Styled.Table>
-    </>
+        ))}
+      </tbody>
+    </Styled.Table>
   );
 }

@@ -1,13 +1,13 @@
 import { Fragment } from "react";
-import TransactionCard from "../TransactionCard";
-import * as Styled from "./TransactionList.styled";
+import { months } from "@/utils/months";
 import {
-  findYearsInTransactions,
-  filterTransactionsByYear,
   filterTransactionsByMonth,
+  filterTransactionsByYear,
+  findYearsInTransactions,
   sortMonths,
 } from "../../utils/transaction";
-import { months } from "@/utils/months";
+import TransactionCard from "../TransactionCard";
+import * as Styled from "./TransactionList.styled";
 
 function TransactionList({
   transactions,
