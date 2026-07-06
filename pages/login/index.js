@@ -3,10 +3,9 @@ import {
   ContainerBox,
   FeatureSection,
 } from "@/components/ProtectPages/ProtectPages.styled";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
   const router = useRouter();
